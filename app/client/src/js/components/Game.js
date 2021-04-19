@@ -11,6 +11,7 @@ export const Game = () => {
     // state
     const gameState = useSelector(state => state.game);
 
+    // Enter decision
     function keyPress(e) {
         if(e.keyCode === 13){
             if (e.target.value !== "") {
@@ -23,15 +24,18 @@ export const Game = () => {
         }
     }
 
-    // Effects
+    // Read Game State
     useEffect(() => {
       const interval = setInterval(() => {
-        dispatch(getData("/api/get/readgame?room="+gameState.room));
+          if (gameState.game_created === true) {
+            dispatch(getData("/api/get/readgame?room="+gameState.room));
+          }
       }, 2000);
       return () => clearInterval(interval);
     }, []);
 
     // render component
+    if (gameState.game_created === true) {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={3} >
@@ -50,5 +54,7 @@ export const Game = () => {
                 </Grid>
             </Grid>
         );
+    }
+
 
 }

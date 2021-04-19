@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b31a5bb6-8572-42a0-b5d1-3788f2376cd2" name="Default Changelist" comment="" />
+    <list default="true" id="b31a5bb6-8572-42a0-b5d1-3788f2376cd2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/client/src/js/components/CreateGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/client/src/js/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/client/src/js/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/client/src/js/components/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/client/src/js/components/Game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/client/src/js/features/gameSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/client/src/js/features/gameSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/server/main/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/server/main/routes.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
