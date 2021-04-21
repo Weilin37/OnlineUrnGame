@@ -17,8 +17,6 @@ const CreateGame = () => {
 
     // Get Open Games
     useEffect(() => {
-        console.log(timer);
-        console.log(gameState.game_waiting);
         if (gameState.game_waiting) {
             batch(() => {
                 dispatch(getNewGame("/api/get/newgame"));
