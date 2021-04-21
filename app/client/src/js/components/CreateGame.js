@@ -20,13 +20,13 @@ const CreateGame = () => {
                     dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
                 });
             }, 2000);
-            return () => clearInterval(interval);
+            clearInterval(interval);
         } else {
             console.log("false")
             const interval = setInterval(() => {
                 dispatch(getNewGame("/api/get/newgame"));
             }, 2000);
-            return () => clearInterval(interval);
+            clearInterval(interval);
         }
     }, []);
 
