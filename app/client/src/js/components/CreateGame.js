@@ -13,6 +13,7 @@ const CreateGame = () => {
     // Get Open Games
     useEffect(() => {
       const interval = setInterval(() => {
+        console.log(gameState.game_waiting);
 
         if (gameState.game_waiting === true) {
             batch(() => {
