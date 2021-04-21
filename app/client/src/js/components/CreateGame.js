@@ -20,9 +20,10 @@ const CreateGame = () => {
                 });
             }, 2000);
         } else {
-            dispatch(getNewGame("/api/get/newgame"));
+            const interval = setInterval(() => {
+                dispatch(getNewGame("/api/get/newgame"));
+            }, 2000);
         }
-
       return () => clearInterval(interval);
     }, []);
 
