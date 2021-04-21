@@ -118,6 +118,28 @@ router.get('/api/get/creategame', (req,res,next) => {
 
 })
 
+// join game
+router.get('/api/get/joingame', (req,res,next) => {
+    var player = req.query.player;
+    var playername = req.query.alias;
+
+    if (player === 'player1') {
+         pool.query(`update public.game_state
+             set player1name = '${playername}'
+             where room = '${req.query.room}'`,
+                (q_err, q_res) => {
+                    res.json(q_res.rows)
+         })
+    } else if (player === 'player2') {
+         pool.query(`update public.game_state
+             set player2name = '${playername}'
+             where room = '${req.query.room}'`,
+                (q_err, q_res) => {
+                    res.json(q_res.rows)
+         })
+    }
+
+})
 
 // read game data
 router.get('/api/get/readgame', (req,res,next) => {
@@ -129,7 +151,7 @@ router.get('/api/get/readgame', (req,res,next) => {
     })
 })
 
-// read game data
+// get new game data for waiting room
 router.get('/api/get/newgame', (req,res,next) => {
 	pool.query(`select room, player1name, player2name
             from public.game_state
@@ -156,6 +178,30 @@ router.get('/api/get/sendgame', (req,res,next) => {
 		(q_err, q_res) => {
 			res.json(q_res.rows)
     })
+})
+
+// update online status
+router.get('/api/get/updateonlinestatus', (req,res,next) => {
+    var player = req.query.player;
+    var playername = req.query.alias;
+    var current_datetime = new Date().toISOString();
+
+    if (player === 'player1') {
+         pool.query(`update public.game_state
+             set player1_lastseen = '${current_datetime}'
+             where room = '${req.query.room}'`,
+                (q_err, q_res) => {
+                    res.json(q_res.rows)
+         })
+    } else if (player === 'player2') {
+         pool.query(`update public.game_state
+             set player2_lastseen = '${current_datetime}'
+             where room = '${req.query.room}'`,
+                (q_err, q_res) => {
+                    res.json(q_res.rows)
+         })
+    }
+
 })
 
 module.exports = router
