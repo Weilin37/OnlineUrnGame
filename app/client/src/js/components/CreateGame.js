@@ -11,10 +11,9 @@ const CreateGame = () => {
     const gameState = useSelector(state => state.game);
     const [timer, setTimer] = React.useState(0);
 
-    const interval = setInterval(() => {
+    const interval = setTimeout(() => {
         setTimer(timer+1);
     }, 1000);
-    clearInterval(interval);
 
     // Get Open Games
     useEffect(() => {
