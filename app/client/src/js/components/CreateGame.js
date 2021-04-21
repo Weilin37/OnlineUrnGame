@@ -12,15 +12,16 @@ const CreateGame = () => {
 
     // Get Open Games
     useEffect(() => {
+        var interval;
         if (gameState.game_waiting) {
-            const interval = setInterval(() => {
+            interval = setInterval(() => {
                 batch(() => {
                     dispatch(getNewGame("/api/get/newgame"));
                     dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
                 });
             }, 2000);
         } else {
-            const interval = setInterval(() => {
+            interval = setInterval(() => {
                 dispatch(getNewGame("/api/get/newgame"));
             }, 2000);
         }
