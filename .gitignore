@@ -108,8 +108,3 @@ dist
 
 app/client/node_modules/
 app/client/node_modules/*
-.idea/workspace.xml
-.idea/OnlineUrnGame.iml
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/modules.xml
-.idea/vcs.xml
