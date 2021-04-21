@@ -9,26 +9,25 @@ const CreateGame = () => {
 
     // state
     const gameState = useSelector(state => state.game);
+    const [timer, setTimer] = react.useState(0);
+
+    setInterval(() => {
+        setTimer(timer+1);
+    }, 1000)
 
     // Get Open Games
     useEffect(() => {
+        console.log(timer);
+        console.log(gameState.game_waiting);
         if (gameState.game_waiting) {
-            console.log("true")
-            const interval = setInterval(() => {
-                batch(() => {
-                    dispatch(getNewGame("/api/get/newgame"));
-                    dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
-                });
-            }, 2000);
-            clearInterval(interval);
-        } else {
-            console.log("false")
-            const interval = setInterval(() => {
+            batch(() => {
                 dispatch(getNewGame("/api/get/newgame"));
-            }, 2000);
-            clearInterval(interval);
+                dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
+            });
+        } else {
+            dispatch(getNewGame("/api/get/newgame"));
         }
-    }, []);
+    }, [timer]);
 
     // create new game
     function createNewGame() {
