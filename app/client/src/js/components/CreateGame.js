@@ -13,6 +13,7 @@ const CreateGame = () => {
     // Get Open Games
     useEffect(() => {
         if (gameState.game_waiting) {
+            console.log("true")
             const interval = setInterval(() => {
                 batch(() => {
                     dispatch(getNewGame("/api/get/newgame"));
@@ -21,6 +22,7 @@ const CreateGame = () => {
             }, 2000);
             return () => clearInterval(interval);
         } else {
+            console.log("false")
             const interval = setInterval(() => {
                 dispatch(getNewGame("/api/get/newgame"));
             }, 2000);
