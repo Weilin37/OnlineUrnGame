@@ -9,7 +9,7 @@ const CreateGame = () => {
 
     // state
     const gameState = useSelector(state => state.game);
-    const [timer, setTimer] = react.useState(0);
+    const [timer, setTimer] = React.useState(0);
 
     setInterval(() => {
         setTimer(timer+1);
