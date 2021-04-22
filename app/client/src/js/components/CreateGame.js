@@ -23,10 +23,6 @@ const CreateGame = () => {
                     dispatch(setGameCreated(true));
                     dispatch(setGameWaiting(false));
                 });
-            } else {
-                batch(() => {
-                    dispatch(setGameCreated(false));
-                });
             }
         }
 
