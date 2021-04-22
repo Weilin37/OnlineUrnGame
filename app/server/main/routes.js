@@ -176,6 +176,31 @@ router.get('/api/get/newgame', (req,res,next) => {
     })
 })
 
+// get updated waiting room information
+router.get('/api/get/updatewaitingroom', (req,res,next) => {
+	pool.query(`select room,
+	        player1name,
+	        player2name,
+	        EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) as player1_lastseen,
+	        EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) as player2_lastseen,
+            CASE
+                when EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) IS NOT NULL
+                AND EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) IS NOT NULL
+                AND EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5
+                AND EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5
+                THEN true
+            ELSE
+                false
+            END as both_online
+            from public.game_state
+            where room = '${req.query.room}'
+            and round::numeric = 1
+            limit 1`,
+		(q_err, q_res) => {
+			res.json(q_res.rows)
+    })
+})
+
 // update game data
 router.get('/api/get/sendgame', (req,res,next) => {
     var room = req.query.room;

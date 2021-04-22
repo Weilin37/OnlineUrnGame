@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { createNewGame, updateOnlineStatus, joinGame, getNewGame, setAlias, setPlayer, setGameWaiting, setGameCreated } from "../features/gameSlice";
+import { createNewGame, updateWaitingRoom, updateOnlineStatus, joinGame, getNewGame, setAlias, setPlayer, setGameWaiting, setGameCreated } from "../features/gameSlice";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -19,7 +19,7 @@ const CreateGame = () => {
     useEffect(() => {
         if (gameState.game_waiting) {
             batch(() => {
-                dispatch(getNewGame("/api/get/newgame"));
+                dispatch(updateWaitingRoom("/api/get/updatewaitingroom?room="+gameState.room));
                 dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
             });
         } else {

@@ -31,6 +31,16 @@ export const getNewGame = createAsyncThunk("game/getNewGame", async (endpoint, t
     }
 });
 
+// Update waiting room
+export const updateWaitingRoom = createAsyncThunk("game/updateWaitingRoom", async (endpoint, thunkAPI) => {
+    try {
+        const response = await axios.get(endpoint);
+        return response.data;
+    } catch (error) {
+         return thunkAPI.rejectWithValue({ error: error.message });
+    }
+});
+
 // Get Game Data
 export const getData = createAsyncThunk("game/getData", async (endpoint, thunkAPI) => {
     try {
@@ -91,10 +101,18 @@ const gameSlice = createSlice({
         state.game_waiting_data = payload;
         if (payload.length > 0) {
             state.room = payload[0]['room']
-            /*if (payload[0]['both_online']) {
+        }
+    });
+
+    // Update waiting room
+    builder.addCase(updateWaitingRoom.fulfilled, (state, { payload }) => {
+        state.game_waiting_data = payload;
+        if (payload.length > 0) {
+            state.room = payload[0]['room']
+            if (payload[0]['both_online']) {
                 state.game_created = true;
                 state.game_waiting = false;
-            }*/
+            }
         }
     });
   }
