@@ -18,7 +18,10 @@ export const Game = () => {
 
     // Read Game State
     useEffect(() => {
-        dispatch(getData("/api/get/readgame?room="+gameState.room));
+        batch(() => {
+            dispatch(getData("/api/get/readgame?room="+gameState.room));
+            dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
+        });
     }, [timer]);
 
     // Enter decision

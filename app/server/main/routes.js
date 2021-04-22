@@ -143,7 +143,21 @@ router.get('/api/get/joingame', (req,res,next) => {
 
 // read game data
 router.get('/api/get/readgame', (req,res,next) => {
-	pool.query(`select *
+	pool.query(`select *,
+	CASE
+        when EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) IS NOT NULL
+        AND EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5
+        THEN true
+    ELSE
+        false
+    END as player1_online,
+    CASE
+        when EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) IS NOT NULL
+        AND EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5
+        THEN true
+    ELSE
+        false
+    END as player2_online,
 	 from public.game_state
 	 where room = '${req.query.room}'`,
 		(q_err, q_res) => {
