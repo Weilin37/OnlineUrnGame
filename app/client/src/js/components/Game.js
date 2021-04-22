@@ -38,27 +38,33 @@ export const Game = () => {
     }
 
     // render component
-    if (gameState.data[0]['player1_online'] && gameState.data[0]['player2_online']) {
-        return (
-            <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={3} >
-                    Player1
-                    <TextField id="player1" onKeyDown={keyPress} label="Outlined" variant="outlined" />
+    if (gameState.data.length > 0) {
+        if (gameState.data[0]['player1_online'] && gameState.data[0]['player2_online']) {
+            return (
+                <Grid container justify="center" alignItems="center" spacing={2}>
+                    <Grid item align="center" xs={3} >
+                        Player1
+                        <TextField id="player1" onKeyDown={keyPress} label="Outlined" variant="outlined" />
+                    </Grid>
+                    <Grid item align="center" xs={6} >
+                        Game
+                        {gameState.data.map((el, i) => (
+                            <p>{el.data}</p>
+                        ))}
+                    </Grid>
+                    <Grid item align="center" xs={3} >
+                        Player2
+                        <TextField id="player2" onKeyDown={keyPress} label="Outlined" variant="outlined" />
+                    </Grid>
                 </Grid>
-                <Grid item align="center" xs={6} >
-                    Game
-                    {gameState.data.map((el, i) => (
-                        <p>{el.data}</p>
-                    ))}
-                </Grid>
-                <Grid item align="center" xs={3} >
-                    Player2
-                    <TextField id="player2" onKeyDown={keyPress} label="Outlined" variant="outlined" />
-                </Grid>
-            </Grid>
-        );
+            );
+        } else {
+            <div> Not all players online - waiting...</div>
+        }
     } else {
-        <div> Not all players online - waiting...</div>
+        return (
+            <div> waiting... </div>
+        )
     }
 
 
