@@ -157,7 +157,7 @@ router.get('/api/get/readgame', (req,res,next) => {
         THEN true
     ELSE
         false
-    END as player2_online,
+    END as player2_online
 	 from public.game_state
 	 where room = '${req.query.room}'`,
 		(q_err, q_res) => {
