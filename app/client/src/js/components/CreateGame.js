@@ -23,7 +23,7 @@ const CreateGame = () => {
                     dispatch(setGameCreated(true));
                     dispatch(setGameWaiting(false));
                 });
-                return();
+                return;
             }
         }
 
