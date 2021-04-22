@@ -49,8 +49,8 @@ export const Game = () => {
                     <Grid item align="center" xs={6} >
                         <p>Room: {gameState.data[0]['room']}</p>
                         <p>Current Round: {gameState.data[gameState.data.length - 1]['round']}</p>
-                        <p>Player 1 Online: {gameState.data[0]['player1_online'].toString();}</p>
-                        <p>Player 2 Online: {gameState.data[0]['player2_online'].toString();}</p>
+                        <p>Player 1 Online: {gameState.data[0]['player1_online'].toString()}</p>
+                        <p>Player 2 Online: {gameState.data[0]['player2_online'].toString()}</p>
                         {gameState.data.map((el, i) => (
                             <p>{el.data}</p>
                         ))}
