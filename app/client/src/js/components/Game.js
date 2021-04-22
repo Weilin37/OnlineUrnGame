@@ -64,7 +64,9 @@ export const Game = () => {
                 </Grid>
             );
         } else {
-            <div> Not all players online - waiting...</div>
+            return (
+                <div> Not all players online - waiting...</div>
+            )
         }
     } else {
         return (
