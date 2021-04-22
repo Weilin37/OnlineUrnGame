@@ -19,9 +19,8 @@ const CreateGame = () => {
     useEffect(() => {
         if (gameState.game_waiting_data.length > 0) {
             if (gameState.game_waiting_data[0].both_online) {
+                console.log("TEST")
                 batch(() => {
-                    dispatch(getNewGame("/api/get/newgame"));
-                    dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
                     dispatch(setGameCreated(true));
                     dispatch(setGameWaiting(false));
                 });
