@@ -153,7 +153,20 @@ router.get('/api/get/readgame', (req,res,next) => {
 
 // get new game data for waiting room
 router.get('/api/get/newgame', (req,res,next) => {
-	pool.query(`select room, player1name, player2name, player1_lastseen, player2_lastseen
+	pool.query(`select room,
+	        player1name,
+	        player2name,
+	        EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) as player1_lastseen,
+	        EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) as player2_lastseen,
+            CASE
+                when EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) IS NOT NULL
+                AND EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) IS NOT NULL
+                AND EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5
+                AND EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5
+                THEN true
+            ELSE
+                false
+            END as both_online
             from public.game_state
             where (player1name is null or player1name = '' or player2name is null or player2name = '')
             and round::numeric = 1
