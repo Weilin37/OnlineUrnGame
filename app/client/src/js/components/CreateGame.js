@@ -26,7 +26,6 @@ const CreateGame = () => {
             } else {
                 batch(() => {
                     dispatch(setGameCreated(false));
-                    dispatch(setGameWaiting(true));
                 });
             }
         }
