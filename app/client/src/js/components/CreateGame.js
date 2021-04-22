@@ -17,6 +17,18 @@ const CreateGame = () => {
 
     // Get Open Games
     useEffect(() => {
+        if (gameState.game_waiting_data.length > 0) {
+            console.log("TEST1")
+            if (gameState.game_waiting_data[0].both_online) {
+                console.log("TEST")
+                batch(() => {
+                    dispatch(setGameCreated(true));
+                    dispatch(setGameWaiting(false));
+                });
+                return;
+            }
+        }
+
         if (gameState.game_waiting) {
             if (gameState.game_waiting_data[0].both_online) {
                 console.log("TEST")
