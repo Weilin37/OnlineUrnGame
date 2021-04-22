@@ -47,7 +47,10 @@ export const Game = () => {
                         <TextField id="player1" onKeyDown={keyPress} label="Outlined" variant="outlined" />
                     </Grid>
                     <Grid item align="center" xs={6} >
-                        Game
+                        Room: {gameState.data[0]['room']}
+                        Current Round: {gameState.data[gameState.data.length - 1]['round']}
+                        Player 1 Online: {gameState.data[0]['player1_online']}
+                        Player 2 Online: {gameState.data[0]['player2_online']}
                         {gameState.data.map((el, i) => (
                             <p>{el.data}</p>
                         ))}
