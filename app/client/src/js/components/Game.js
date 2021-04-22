@@ -38,7 +38,7 @@ export const Game = () => {
     }
 
     // render component
-    if (gameState.game_created === true) {
+    if (gameState.data[0]['player1_online'] && gameState.data[0]['player2_online']) {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={3} >
@@ -57,6 +57,8 @@ export const Game = () => {
                 </Grid>
             </Grid>
         );
+    } else {
+        <div> Not all players online - waiting...</div>
     }
 
 
