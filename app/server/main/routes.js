@@ -144,7 +144,7 @@ router.get('/api/get/joingame', (req,res,next) => {
 // read game data
 router.get('/api/get/readgame', (req,res,next) => {
 	pool.query(`select *
-	 from public.test
+	 from public.game_state
 	 where room = '${req.query.room}'`,
 		(q_err, q_res) => {
 			res.json(q_res.rows)

@@ -10,6 +10,16 @@ export const Game = () => {
 
     // state
     const gameState = useSelector(state => state.game);
+    const [timer, setTimer] = React.useState(0);
+
+    const interval = setTimeout(() => {
+        setTimer(timer+1);
+    }, 1000);
+
+    // Read Game State
+    useEffect(() => {
+        dispatch(getData("/api/get/readgame?room="+gameState.room));
+    }, [timer]);
 
     // Enter decision
     function keyPress(e) {
@@ -23,16 +33,6 @@ export const Game = () => {
             }
         }
     }
-
-    // Read Game State
-    useEffect(() => {
-      const interval = setInterval(() => {
-          if (gameState.game_created === true) {
-            dispatch(getData("/api/get/readgame?room="+gameState.room));
-          }
-      }, 2000);
-      return () => clearInterval(interval);
-    }, []);
 
     // render component
     if (gameState.game_created === true) {
