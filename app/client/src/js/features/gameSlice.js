@@ -89,7 +89,13 @@ const gameSlice = createSlice({
     // get new game
     builder.addCase(getNewGame.fulfilled, (state, { payload }) => {
         state.game_waiting_data = payload;
-        if (payload.length > 0) {state.room = payload[0]['room']}
+        if (payload.length > 0) {
+            state.room = payload[0]['room']
+            if (payload[0]['both_online']) {
+                state.game_created = true;
+                state.game_waiting = false;
+            }
+        }
     });
   }
 });

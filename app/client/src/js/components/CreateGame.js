@@ -17,32 +17,11 @@ const CreateGame = () => {
 
     // Get Open Games
     useEffect(() => {
-        if (gameState.game_waiting_data.length > 0) {
-            console.log(gameState.game_waiting_data[0].both_online)
-            if (gameState.game_waiting_data[0].both_online) {
-                console.log("TEST")
-                batch(() => {
-                    dispatch(setGameCreated(true));
-                    dispatch(setGameWaiting(false));
-                });
-                return;
-            }
-        }
-
         if (gameState.game_waiting) {
-            if (gameState.game_waiting_data[0].both_online) {
-                console.log("TEST")
-                batch(() => {
-                    dispatch(setGameCreated(true));
-                    dispatch(setGameWaiting(false));
-                });
-                return;
-            } else {
-                batch(() => {
-                    dispatch(getNewGame("/api/get/newgame"));
-                    dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
-                });
-            }
+            batch(() => {
+                dispatch(getNewGame("/api/get/newgame"));
+                dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
+            });
         } else {
             dispatch(getNewGame("/api/get/newgame"));
         }
