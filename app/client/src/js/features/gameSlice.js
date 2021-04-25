@@ -1,7 +1,7 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 
-// Get New Game
+// Create New Game
 export const createNewGame = createAsyncThunk("game/createNewGame", async (endpoint, thunkAPI) => {
     try {
         const response = await axios.get(endpoint);
@@ -13,6 +13,16 @@ export const createNewGame = createAsyncThunk("game/createNewGame", async (endpo
 
 // Join New Game
 export const joinGame = createAsyncThunk("game/joinGame", async (endpoint, thunkAPI) => {
+    try {
+        const response = await axios.get(endpoint);
+        return response.data;
+    } catch (error) {
+         return thunkAPI.rejectWithValue({ error: error.message });
+    }
+});
+
+// ResumeGame
+export const resumeGame = createAsyncThunk("game/resumeGame", async (endpoint, thunkAPI) => {
     try {
         const response = await axios.get(endpoint);
         return response.data;
@@ -61,6 +71,16 @@ export const sendData = createAsyncThunk("game/sendData", async (endpoint, thunk
     }
 });
 
+// Create New Round
+export const createNewRound = createAsyncThunk("game/createNewRound", async (endpoint, thunkAPI) => {
+    try {
+        const response = await axios.get(endpoint);
+        return response.data;
+    } catch (error) {
+         return thunkAPI.rejectWithValue({ error: error.message });
+    }
+});
+
 // Update online status
 export const updateOnlineStatus = createAsyncThunk("game/updateOnlineStatus", async (endpoint, thunkAPI) => {
     try {
@@ -80,6 +100,7 @@ const gameSlice = createSlice({
     game_waiting_data: [],
     game_created: false,
     game_waiting: false,
+    instructions: true,
     alias: '',
     player: '',
     room: '',
@@ -89,6 +110,7 @@ const gameSlice = createSlice({
     setPlayer: (state, action) => {state.player = action.payload},
     setGameWaiting: (state, action) => {state.game_waiting = action.payload},
     setGameCreated: (state, action) => {state.game_created = action.payload},
+    setInstructions: (state, action) => {state.instructions = action.payload},
   },
   extraReducers: (builder) => {
     // getData
@@ -101,6 +123,23 @@ const gameSlice = createSlice({
         state.game_waiting_data = payload;
         if (payload.length > 0) {
             state.room = payload[0]['room']
+        }
+    });
+
+    // resume game
+    builder.addCase(resumeGame.fulfilled, (state, { payload }) => {
+        if (payload.length > 0) {
+            state.room = payload[0]['room']
+            if (payload[0]['player1name'] === payload[0]['current_alias']) {
+                state.player = 'player1'
+            } else if (payload[0]['player2name'] === payload[0]['current_alias']) {
+                state.player = 'player2'
+            }
+
+            if (state.player.length > 0) {
+                state.game_created = true;
+                state.game_waiting = false;
+            }
         }
     });
 
@@ -118,6 +157,6 @@ const gameSlice = createSlice({
   }
 });
 
-export const { setAlias, setPlayer, setGameCreated, setGameWaiting } = gameSlice.actions;
+export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions } = gameSlice.actions;
 
 export default gameSlice

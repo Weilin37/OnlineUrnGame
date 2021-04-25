@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { createNewGame, updateWaitingRoom, updateOnlineStatus, joinGame, getNewGame, setAlias, setPlayer, setGameWaiting, setGameCreated } from "../features/gameSlice";
+import { createNewGame, updateWaitingRoom, updateOnlineStatus, resumeGame, joinGame, getNewGame, setAlias, setPlayer, setGameWaiting, setGameCreated } from "../features/gameSlice";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -27,8 +27,23 @@ const CreateGame = () => {
         }
     }, [timer]);
 
+
+    // Resume game
+    function handleResumeGame() {
+        var alias = document.getElementById("resume_alias").value;
+        var room = document.getElementById("resume_room").value;
+
+        if (alias.length === 0) {alert('Enter your alias first'); return}
+        if (room.length === 0) {alert('Enter your room code first'); return}
+
+        batch(() => {
+            dispatch(setAlias(alias));
+            dispatch(resumeGame('/api/get/resumegame?room='+room+'&alias='+alias));
+        });
+    }
+
     // create new game
-    function createNewGame() {
+    function handleCreateNewGame() {
         var alias = document.getElementById("alias").value;
         if (alias.length === 0) {alert('Enter your alias first'); return}
         var room;
@@ -88,10 +103,19 @@ const CreateGame = () => {
     } else {
         return(
             <div>
-                <TextField id="alias" label="Enter Your Alias (Required)" variant="outlined" />
-                <Button variant="contained" color="primary" onClick={createNewGame}>
-                    Enter New Game
-                </Button>
+                <div>
+                    <TextField id="alias" label="Enter Your Alias (Required)" variant="outlined" />
+                    <Button variant="contained" color="primary" onClick={handleCreateNewGame}>
+                        Enter New Game
+                    </Button>
+                </div>
+                <div>
+                    <TextField id="resume_alias" label="Enter Your Alias (Required)" variant="outlined" />
+                    <TextField id="resume_room" label="Enter Your Room Code (Required)" variant="outlined" />
+                    <Button variant="contained" color="primary" onClick={handleResumeGame}>
+                        Resume Game
+                    </Button>
+                </div>
             </div>
         )
     }

@@ -106,8 +106,68 @@ router.get('/api/get/creategame', (req,res,next) => {
             '${player1bluecount}',
             '${player2highbluecount}',
             '${player2lowbluecount}',
+            5,
+            5,
+            '${player1name}',
+            '${player2name}'
+        )
+        RETURNING *`,
+        (q_err, q_res) => {
+            res.json(q_res.rows)
+    })
+
+})
+
+// create new round
+router.get('/api/get/createnewround', (req,res,next) => {
+
+    var round = req.query.round;
+
+    var player1jar = setupPlayer1jar();
+    var player2jar = setupPlayer2jar();
+
+    var player1jartype = player1jar['player1jartype']
+    var player1bluecount = player1jar['player1bluecount']
+    var player2highbluecount = player2jar['player2highbluecount']
+    var player2lowbluecount = player2jar['player2lowbluecount']
+    var treatment = req.query.treatment;
+    var room = req.query.room;
+
+    var player1name = req.query.player1name;
+    var player2name = req.query.player2name;
+
+    var player1earnings = req.query.player1earnings;
+    var player2earnings = req.query.player2earnings;
+
+    pool.query(`insert into public.game_state(
+            room,
+            treatment,
+            round,
+            roundcomplete,
+            player1action,
+            player2action,
+            player1jartype,
+            player1bluecount,
+            player2highbluecount,
+            player2lowbluecount,
+            player1earnings,
+            player2earnings,
+            player1name,
+            player2name
+        )
+        VALUES (
+            '${room}',
+            '${treatment}',
+            '${round}',
             null,
             null,
+            null,
+            '${player1jartype}',
+            '${player1bluecount}',
+            '${player2highbluecount}',
+            '${player2lowbluecount}',
+            '${player1earnings}',
+            '${player2earnings}',
             '${player1name}',
             '${player2name}'
         )
@@ -141,28 +201,40 @@ router.get('/api/get/joingame', (req,res,next) => {
 
 })
 
+// resume game
+router.get('/api/get/resumegame', (req,res,next) => {
+    var room = req.query.room;
+
+    pool.query(`select *, '${req.query.alias}' as current_alias from public.game_state
+        where room = '${req.query.room}'`,
+        (q_err, q_res) => {
+            res.json(q_res.rows)
+    })
+})
+
 // read game data
 router.get('/api/get/readgame', (req,res,next) => {
 	pool.query(`select *,
-	CASE
-        when EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) IS NOT NULL
-        AND EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5
-        THEN true
-    ELSE
-        false
-    END as player1_online,
-    CASE
-        when EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) IS NOT NULL
-        AND EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5
-        THEN true
-    ELSE
-        false
-    END as player2_online
-	 from public.game_state
-	 where room = '${req.query.room}'`,
-		(q_err, q_res) => {
-			res.json(q_res.rows)
+        CASE
+            when EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) IS NOT NULL
+            AND EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5
+            THEN true
+        ELSE
+            false
+        END as player1_online,
+        CASE
+            when EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) IS NOT NULL
+            AND EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5
+            THEN true
+        ELSE
+            false
+        END as player2_online
+         from public.game_state
+         where room = '${req.query.room}'`,
+            (q_err, q_res) => {
+                res.json(q_res.rows)
     })
+
 })
 
 // get new game data for waiting room
@@ -216,20 +288,29 @@ router.get('/api/get/updatewaitingroom', (req,res,next) => {
 })
 
 // update game data
-router.get('/api/get/sendgame', (req,res,next) => {
+router.get('/api/get/senddata', (req,res,next) => {
     var room = req.query.room;
     var player = req.query.player;
+    var round = req.query.round;
     var data = req.query.data;
 
-	pool.query(`insert into public.test(room, sequence, player, data)
-        select
-        '${room}',
-        (select (COALESCE(max(sequence),0)+1) from public.test where room = '${room}') as sequence,
-        '${player}',
-        '${data}'`,
-		(q_err, q_res) => {
-			res.json(q_res.rows)
-    })
+    if (player === 'player1') {
+    	pool.query(`update public.game_state
+            set player1action = '${data}'
+            where room = '${room}'
+            and round = '${round}'`,
+            (q_err, q_res) => {
+                res.json(q_res.rows)
+        })
+    } else if (player === 'player2') {
+        pool.query(`update public.game_state
+            set player2action = '${data}'
+            where room = '${room}'
+            and round = '${round}'`,
+            (q_err, q_res) => {
+                res.json(q_res.rows)
+        })
+    }
 })
 
 // update online status
