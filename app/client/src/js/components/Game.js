@@ -52,10 +52,6 @@ export const Game = () => {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={6} >
-                        <button type="button" onClick={handleInstructionsOpen}>
-                            Open Instructions
-                        </button>
-
                         <p>Room: {gameState.data[gameState.data.length-1]['room']}</p>
                         <p>You are: {gameState.player}</p>
                         <p>Your Alias: {gameState.alias}</p>
