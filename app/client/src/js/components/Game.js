@@ -48,7 +48,30 @@ export const Game = () => {
 
     // render component
     if (gameState.data.length > 0) {
-        if (gameState.data[gameState.data.length-1]['player1_online'] && gameState.data[gameState.data.length-1]['player2_online']) {
+        if (gameState.game_ended) {
+            return (
+                <Grid container justify="center" alignItems="center" spacing={2}>
+                    <Grid item align="center" xs={6} >
+                        <button type="button" onClick={handleInstructionsOpen}>
+                            Open Instructions
+                        </button>
+
+                        <p>Room: {gameState.data[gameState.data.length-1]['room']}</p>
+                        <p>You are: {gameState.player}</p>
+                        <p>Your Alias: {gameState.alias}</p>
+                        <p>Current Round: {gameState.data[gameState.data.length - 1]['round']}</p>
+                        <p>Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}</p>
+                        <p>Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}</p>
+                        {gameState.data.map((el, i) => (
+                            <p>{el.data}</p>
+                        ))}
+                    </Grid>
+                    <Grid item align="center" xs={6} >
+                        <p>Congratulations, the game has ended</p>
+                    </Grid>
+                </Grid>
+            );
+        } else if (gameState.data[gameState.data.length-1]['player1_online'] && gameState.data[gameState.data.length-1]['player2_online']) {
             if (gameState.instructions) {
                 return(<Instructions />)
             } else {
