@@ -304,7 +304,8 @@ router.get('/api/get/senddata', (req,res,next) => {
         })
     } else if (player === 'player2') {
         pool.query(`update public.game_state
-            set player2action = '${data}'
+            set player2action = '${data}',
+            roundcomplete = true
             where room = '${room}'
             and round = '${round}'`,
             (q_err, q_res) => {

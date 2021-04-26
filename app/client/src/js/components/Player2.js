@@ -92,7 +92,7 @@ const Player2 = () => {
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
             </div>
         );
-    } else if (gameState.current_turn === '' && submitted) {
+    } else if (submitted) {
         return (
             <div>
                 Thank you for submitting your response. Waiting next round...
