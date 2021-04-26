@@ -29,17 +29,40 @@ const Player2 = () => {
 
     // Enter decision
     function handleSubmit() {
-        batch(() => {
+        if (gameState.current_round < 10) {
+            batch(() => {
+                dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue));
+                dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
+                    (parseInt(gameState.data[gameState.data.length-1]['round'])+1)+
+                    "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
+                    "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
+                    "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
+                    "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
+                    "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
+                ));
+            });
+        } else {
             dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue));
-            dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
-                (parseInt(gameState.data[gameState.data.length-1]['round'])+1)+
-                "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
-                "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
-                "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
-                "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
-                "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
-            ));
-        });
+        }
+        setSubmitted(true);
+    }
+
+    function handleContinue() {
+        if (gameState.current_round < 10) {
+            batch(() => {
+                dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data=NA'));
+                dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
+                    (parseInt(gameState.data[gameState.data.length-1]['round'])+1)+
+                    "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
+                    "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
+                    "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
+                    "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
+                    "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
+                ));
+            });
+        } else {
+            dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data=NA'));
+        }
         setSubmitted(true);
     }
 
@@ -61,7 +84,7 @@ const Player2 = () => {
                 <p>Waiting for Player 1 to complete their action....</p>
             </div>
         );
-    } else if (gameState.current_turn === 'player2' && !submitted) {
+    } else if (gameState.current_turn === 'player2' && !submitted && gameState.data[gameState.data.length-1]['player1action'] === 'Offer') {
         return (
             <div>
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
@@ -71,6 +94,7 @@ const Player2 = () => {
                 <p>Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
                 {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                 and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls</p>
+                <p>Player 1 has decided to offer you their jar</p>
                 <Radio
                     checked={selectedValue === 'RejectOffer'}
                     onChange={handleChange}
@@ -90,6 +114,20 @@ const Player2 = () => {
                     label="Mix Player 1's jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)"
                 />
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
+            </div>
+        );
+    } else if (gameState.current_turn === 'player2' && !submitted && gameState.data[gameState.data.length-1]['player1action'] === 'NoOffer') {
+        return (
+            <div>
+                <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
+                are randomly assigned the following number of blue balls and red balls</p>
+                <p>Your High Blue Urn - {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2highbluecount'])} red balls</p>
+                <p>Your Low Blue Urn - {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls</p>
+                <p>Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
+                {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls</p>
+                <p>Player 1 has decided not to offer you their jar. No action is needed. Press OK to continue to the next round</p>
+                <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
             </div>
         );
     } else if (submitted) {

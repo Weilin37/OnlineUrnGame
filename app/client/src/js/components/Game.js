@@ -106,7 +106,7 @@ export const Game = () => {
             )
         } else {
             return (
-                <div>A player disconnected...waiting to see if they resume</div>
+                <div>waiting...</div>
             )
         }
     } else {

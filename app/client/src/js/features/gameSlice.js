@@ -103,6 +103,7 @@ const gameSlice = createSlice({
     instructions: true,
     current_turn: '',
     current_round: 0,
+    game_ended: false,
     both_submitted: false,
     both_online: false,
     alias: '',
@@ -138,6 +139,7 @@ const gameSlice = createSlice({
             } else if (player1action && player2action) {
                 state.current_turn = '';
                 state.both_submitted = true;
+                if (state.current_round === 10) {state.game_ended = true;}
             } else {
                 state.current_turn = 'error';
                 state.both_submitted = false;
@@ -145,7 +147,6 @@ const gameSlice = createSlice({
 
             if (player1online && player2online) {state.both_online = true}
             else {state.both_online = false}
-
 
         }
     });
