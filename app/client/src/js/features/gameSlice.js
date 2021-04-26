@@ -104,6 +104,7 @@ const gameSlice = createSlice({
     current_turn: '',
     current_round: 0,
     both_submitted: false,
+    both_online: false,
     alias: '',
     player: '',
     room: '',
@@ -120,9 +121,13 @@ const gameSlice = createSlice({
     builder.addCase(getData.fulfilled, (state, { payload }) => {
         state.data = payload;
         if (payload.length > 0) {
-            state.current_round = parseInt(state.data[state.data.length - 1]['round']);
             var player1action = state.data[state.data.length - 1]['player1action'];
             var player2action = state.data[state.data.length - 1]['player2action'];
+
+            var player1online = state.data[state.data.length - 1]['player1_online'];
+            var player2online = state.data[state.data.length - 1]['player2_online'];
+
+            state.current_round = parseInt(state.data[state.data.length - 1]['round']);
 
             if (!player1action && !player2action) {
                 state.current_turn = 'player1';
@@ -137,6 +142,10 @@ const gameSlice = createSlice({
                 state.current_turn = 'error';
                 state.both_submitted = false;
             }
+
+            if (player1online && player2online) {state.both_online = true}
+            else {state.both_online = false}
+
 
         }
     });

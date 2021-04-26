@@ -100,9 +100,13 @@ export const Game = () => {
                     );
                 }
             }
+        } else if (gameState.both_online) {
+            return (
+                <div>waiting...</div>
+            )
         } else {
             return (
-                <div> Not all players online - waiting...</div>
+                <div>A player disconnected...waiting to see if they resume</div>
             )
         }
     } else {

@@ -13,12 +13,10 @@ const Player1 = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
-    const [submitted, setSubmitted] = React.useState(false);
 
     // Enter decision
     function handleSubmit() {
         dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue))
-        setSubmitted(true);
     }
 
     function handleChange(event) {
@@ -26,7 +24,7 @@ const Player1 = () => {
     }
 
     // render component
-    if (gameState.current_turn === 'player1' && !submitted) {
+    if (gameState.current_turn === 'player1') {
         return (
             <div >
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}) you are randomly assigned the following type of jar: {gameState.data[gameState.data.length-1]['player1jartype']}</p>
@@ -48,7 +46,7 @@ const Player1 = () => {
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
             </div>
         );
-    } else if (gameState.current_turn === 'player2' || submitted) {
+    } else if (gameState.current_turn === 'player2') {
         return (
             <div >
                 <p>Choice submitted. Waiting for Player 2 to choose...</p>
