@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { getData, sendData } from "../features/gameSlice";
+import { getData, sendData, createNewRound } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import Button from '@material-ui/core/Button';
@@ -29,8 +29,17 @@ const Player2 = () => {
 
     // Enter decision
     function handleSubmit() {
-        console.log(selectedValue)
-        dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue))
+        batch(() => {
+            dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue));
+            dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
+                (parseInt(gameState.data[gameState.data.length-1]['round'])+1)+
+                "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
+                "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
+                "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
+                "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
+                "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
+            ));
+        });
         setSubmitted(true);
     }
 

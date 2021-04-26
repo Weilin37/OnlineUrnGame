@@ -102,6 +102,7 @@ const gameSlice = createSlice({
     game_waiting: false,
     instructions: true,
     current_turn: '',
+    current_round: 0,
     both_submitted: false,
     alias: '',
     player: '',
@@ -113,13 +114,13 @@ const gameSlice = createSlice({
     setGameWaiting: (state, action) => {state.game_waiting = action.payload},
     setGameCreated: (state, action) => {state.game_created = action.payload},
     setInstructions: (state, action) => {state.instructions = action.payload},
-    setBothSubmitted: (state, action) => {state.both_submitted = action.payload},
   },
   extraReducers: (builder) => {
     // getData
     builder.addCase(getData.fulfilled, (state, { payload }) => {
         state.data = payload;
         if (payload.length > 0) {
+            state.current_round = parseInt(state.data[state.data.length - 1]['round']);
             var player1action = state.data[state.data.length - 1]['player1action'];
             var player2action = state.data[state.data.length - 1]['player2action'];
 
@@ -179,6 +180,6 @@ const gameSlice = createSlice({
   }
 });
 
-export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions, setBothSubmitted } = gameSlice.actions;
+export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions } = gameSlice.actions;
 
 export default gameSlice

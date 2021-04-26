@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { getData, sendData, updateOnlineStatus, createNewRound, setInstructions, setBothSubmitted } from "../features/gameSlice";
+import { getData, sendData, updateOnlineStatus, setInstructions } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 
 import Instructions from "./Instructions";
@@ -22,24 +22,10 @@ export const Game = () => {
 
     // Read Game State
     useEffect(() => {
-        if (gameState.both_submitted) {
-            batch(() => {
-                dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
-                    (gameState.data[gameState.data.length-1]['round']+1)+
-                    "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
-                    "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
-                    "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
-                    "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
-                    "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
-                ));
-                dispatch(setBothSubmitted(false));
-            });
-        } else {
-            batch(() => {
-                dispatch(getData("/api/get/readgame?room="+gameState.room));
-                dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
-            });
-        }
+        batch(() => {
+            dispatch(getData("/api/get/readgame?room="+gameState.room));
+            dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
+        });
     }, [timer]);
 
     // Enter decision
