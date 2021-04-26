@@ -14,16 +14,16 @@ const Player2 = () => {
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
     const [submitted, setSubmitted] = React.useState(false);
+    const [player1action_complete, setPlayer1ActionComplete] = React.useState(false);
 
-    var player1action_complete = false;
     var mix_high_blue;
     var mix_low_blue;
 
 
     if (gameState.data[gameState.data.length - 1]['player1action']) {
-        player1action_complete = true;
+        setPlayer1ActionComplete(true);
     } else {
-        player1action_complete = false;
+        setPlayer1ActionComplete(false);
     }
 
     if (player1action_complete) {
