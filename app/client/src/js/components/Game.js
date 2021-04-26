@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { getData, sendData, updateOnlineStatus, createNewRound, setInstructions } from "../features/gameSlice";
+import { getData, sendData, updateOnlineStatus, createNewRound, setInstructions, setBothSubmitted } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 
 import Instructions from "./Instructions";
@@ -16,34 +16,24 @@ export const Game = () => {
     const gameState = useSelector(state => state.game);
     const [timer, setTimer] = React.useState(0);
 
-    var player1_submitted = false;
-    var player2_submitted = false;
-
-    if (gameState.data.length > 0) {
-        if (gameState.data[gameState.data.length-1]['player1action']) {player1_submitted = true}
-        else {player1_submitted = false}
-
-        if (gameState.data[gameState.data.length-1]['player2action']) {player2_submitted = true}
-        else {player2_submitted = false}
-    }
-
     const interval = setTimeout(() => {
         setTimer(timer+1);
     }, 1000);
 
     // Read Game State
     useEffect(() => {
-        if (player1_submitted && player2_submitted) {
-            dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
-                (gameState.data[gameState.data.length-1]['round']+1)+
-                "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
-                "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
-                "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
-                "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
-                "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
-            ));
-            player1_submitted = false;
-            player2_submitted = false;
+        if (gameState.both_submitted) {
+            batch(() => {
+                dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
+                    (gameState.data[gameState.data.length-1]['round']+1)+
+                    "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
+                    "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
+                    "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
+                    "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
+                    "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
+                ));
+                dispatch(setBothSubmitted(false));
+            });
         } else {
             batch(() => {
                 dispatch(getData("/api/get/readgame?room="+gameState.room));

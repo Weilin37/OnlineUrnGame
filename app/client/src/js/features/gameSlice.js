@@ -102,6 +102,7 @@ const gameSlice = createSlice({
     game_waiting: false,
     instructions: true,
     current_turn: '',
+    both_submitted: false,
     alias: '',
     player: '',
     room: '',
@@ -112,6 +113,7 @@ const gameSlice = createSlice({
     setGameWaiting: (state, action) => {state.game_waiting = action.payload},
     setGameCreated: (state, action) => {state.game_created = action.payload},
     setInstructions: (state, action) => {state.instructions = action.payload},
+    setBothSubmitted: (state, action) => {state.both_submitted = action.payload},
   },
   extraReducers: (builder) => {
     // getData
@@ -121,10 +123,20 @@ const gameSlice = createSlice({
             var player1action = state.data[state.data.length - 1]['player1action'];
             var player2action = state.data[state.data.length - 1]['player2action'];
 
-            if (!player1action && !player2action) {state.current_turn = 'player1'}
-            else if (player1action && !player2action) {state.current_turn = 'player2'}
-            else if (player1action && player2action) {state.current_turn = ''}
-            else {state.current_turn = 'error'}
+            if (!player1action && !player2action) {
+                state.current_turn = 'player1';
+                state.both_submitted = false;
+            } else if (player1action && !player2action) {
+                state.current_turn = 'player2';
+                state.both_submitted = false;
+            } else if (player1action && player2action) {
+                state.current_turn = '';
+                state.both_submitted = true;
+            } else {
+                state.current_turn = 'error';
+                state.both_submitted = false;
+            }
+
         }
     });
 
@@ -167,6 +179,6 @@ const gameSlice = createSlice({
   }
 });
 
-export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions } = gameSlice.actions;
+export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions, setBothSubmitted } = gameSlice.actions;
 
 export default gameSlice
