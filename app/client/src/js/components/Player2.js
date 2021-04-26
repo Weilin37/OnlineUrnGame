@@ -14,19 +14,11 @@ const Player2 = () => {
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
     const [submitted, setSubmitted] = React.useState(false);
-    const [player1action_complete, setPlayer1ActionComplete] = React.useState(false);
 
     var mix_high_blue;
     var mix_low_blue;
 
-
-    if (gameState.data[gameState.data.length - 1]['player1action']) {
-        setPlayer1ActionComplete(true);
-    } else {
-        setPlayer1ActionComplete(false);
-    }
-
-    if (player1action_complete) {
+    if (gameState.current_turn === 'player2') {
         var player1_blue = parseInt(gameState.data[gameState.data.length-1]['player1bluecount']);
         var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
         var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
@@ -47,7 +39,7 @@ const Player2 = () => {
     }
 
     // render component
-    if (!player1action_complete && !submitted) {
+    if (gameState.current_turn === 'player1' && !submitted) {
         return (
             <div>
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
@@ -60,7 +52,7 @@ const Player2 = () => {
                 <p>Waiting for Player 1 to complete their action....</p>
             </div>
         );
-    } else if (player1action_complete && !submitted) {
+    } else if (gameState.current_turn === 'player2' && !submitted) {
         return (
             <div>
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
@@ -91,7 +83,7 @@ const Player2 = () => {
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
             </div>
         );
-    } else if (player1action_complete && submitted) {
+    } else if (gameState.current_turn === '' && submitted) {
         return (
             <div>
                 Thank you for submitting your response. Waiting next round...

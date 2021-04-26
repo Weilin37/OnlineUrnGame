@@ -101,6 +101,7 @@ const gameSlice = createSlice({
     game_created: false,
     game_waiting: false,
     instructions: true,
+    current_turn: '',
     alias: '',
     player: '',
     room: '',
@@ -116,6 +117,15 @@ const gameSlice = createSlice({
     // getData
     builder.addCase(getData.fulfilled, (state, { payload }) => {
         state.data = payload;
+        if (payload.length > 0) {
+            var player1action = state.data[state.data.length - 1]['player1action'];
+            var player2action = state.data[state.data.length - 1]['player2action'];
+
+            if (!player1action && !player2action) {state.current_turn = 'player1'}
+            else if (player1action && !player2action) {state.current_turn = 'player2'}
+            else if (player1action && player2action) {state.current_turn = ''}
+            else {state.current_turn = 'error'}
+        }
     });
 
     // get new game
