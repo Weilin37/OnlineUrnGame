@@ -230,7 +230,8 @@ router.get('/api/get/readgame', (req,res,next) => {
             false
         END as player2_online
          from public.game_state
-         where room = '${req.query.room}'`,
+         where room = '${req.query.room}'
+         ORDER BY round asc`,
             (q_err, q_res) => {
                 res.json(q_res.rows)
     })
