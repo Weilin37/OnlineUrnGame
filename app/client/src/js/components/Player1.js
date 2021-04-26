@@ -15,7 +15,7 @@ const Player1 = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [submitted, setSubmitted] = React.useState(false);
 
-    var player2action_complete = false;
+    var player1action_complete = false;
 
     if (gameState.data[gameState.data.length - 1]['player1action']) {
         player1action_complete = true;
