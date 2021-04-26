@@ -13,7 +13,6 @@ const Player2 = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
-    const [submitted, setSubmitted] = React.useState(false);
 
     var mix_high_blue;
     var mix_low_blue;
@@ -44,7 +43,6 @@ const Player2 = () => {
         } else {
             dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue));
         }
-        setSubmitted(true);
     }
 
     function handleContinue() {
@@ -63,7 +61,6 @@ const Player2 = () => {
         } else {
             dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data=NA'));
         }
-        setSubmitted(true);
     }
 
     function handleChange(event) {
@@ -71,7 +68,7 @@ const Player2 = () => {
     }
 
     // render component
-    if (gameState.current_turn === 'player1' && !submitted) {
+    if (gameState.current_turn === 'player1') {
         return (
             <div>
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
@@ -84,7 +81,7 @@ const Player2 = () => {
                 <p>Waiting for Player 1 to complete their action....</p>
             </div>
         );
-    } else if (gameState.current_turn === 'player2' && !submitted && gameState.data[gameState.data.length-1]['player1action'] === 'Offer') {
+    } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer') {
         return (
             <div>
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
@@ -116,7 +113,7 @@ const Player2 = () => {
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
             </div>
         );
-    } else if (gameState.current_turn === 'player2' && !submitted && gameState.data[gameState.data.length-1]['player1action'] === 'NoOffer') {
+    } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'NoOffer') {
         return (
             <div>
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
@@ -128,12 +125,6 @@ const Player2 = () => {
                 and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls</p>
                 <p>Player 1 has decided not to offer you their jar. No action is needed. Press OK to continue to the next round</p>
                 <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
-            </div>
-        );
-    } else if (submitted) {
-        return (
-            <div>
-                Thank you for submitting your response. Waiting next round...
             </div>
         );
     } else {
