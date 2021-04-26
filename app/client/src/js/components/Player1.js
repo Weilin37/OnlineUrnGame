@@ -52,6 +52,8 @@ const Player1 = () => {
                 <p>Choice submitted. Waiting for Player 2 to choose...</p>
             </div>
         );
+    } else {
+        return null;
     }
 
 }

@@ -98,7 +98,8 @@ const Player2 = () => {
                 Thank you for submitting your response. Waiting next round...
             </div>
         );
-
+    } else {
+        return null;
     }
 
 
