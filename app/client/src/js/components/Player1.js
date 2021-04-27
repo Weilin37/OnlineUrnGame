@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { sendData } from "../features/gameSlice";
+import { sendData, sendReady } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import Button from '@material-ui/core/Button';
