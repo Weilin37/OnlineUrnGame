@@ -97,6 +97,12 @@ export const Game = () => {
                                 { title: "Player 2 Earnings", field: "player2earnings"},
                             ]}
                             data={tabledata}
+                            options={{
+                              paging: false,
+                              search: false,
+                              draggable: false,
+                              showFirstLastPageButtons: false,
+                            }}
                             title="Scorecard"
                         />
                     </Grid>
@@ -147,6 +153,12 @@ export const Game = () => {
                                         { title: "Player 1 Earnings", field: "player1earnings"},
                                     ]}
                                     data={tabledata}
+                                    options={{
+                                      paging: false,
+                                      search: false,
+                                      draggable: false,
+                                      showFirstLastPageButtons: false,
+                                    }}
                                     title="Scorecard"
                                 />
                             </Grid>
@@ -193,6 +205,12 @@ export const Game = () => {
                                         { title: "Player 2 Earnings", field: "player2earnings"},
                                     ]}
                                     data={tabledata}
+                                    options={{
+                                      paging: false,
+                                      search: false,
+                                      draggable: false,
+                                      showFirstLastPageButtons: false,
+                                    }}
                                     title="Scorecard"
                                 />
                             </Grid>
