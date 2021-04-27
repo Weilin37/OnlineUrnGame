@@ -31,12 +31,14 @@ const Player1 = () => {
                 <p>Now, please select an action by clicking a box below for the current round of the study.
                 Player2 will then decide whether to reject this offer or accept this offer to mix your jar with one of their urns.
                 After that, we''ll go to the next round, and so on until round 10</p>
+                <p>Offer your jar to Player 2</p>
                 <Radio
                     checked={selectedValue === 'Offer'}
                     onChange={handleChange}
                     value="Offer"
                     label="Offer your jar to Player 2"
                 />
+                <p>Do not offer your jar to Player 2</p>
                 <Radio
                     checked={selectedValue === 'NoOffer'}
                     onChange={handleChange}

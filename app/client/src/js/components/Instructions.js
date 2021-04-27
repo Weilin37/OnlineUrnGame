@@ -33,11 +33,39 @@ const Instructions = () => {
                         </button>
 
                         <p>OVERVIEW</p>
-                        <p>Welcome to this study of decision-making.
-                        The study will take between 1 and 1.5 hours including the instructions.
+                        <p>Welcome to this study of decision-making.</p>
+
+                        <p>The study will take between 1 and 1.5 hours including the instructions.
                         The instructions are simple, and if you follow them carefully, you can earn money in addition to your $5 show-up payment.
                         Besides your show-up payment, you will be given a “Bank” of $5 to which additional earnings will be added and from which penalties will be deducted.
                         The show-up payment and your final “Bank” balance  will be paid to you after the study ends. </p>
+
+                        <p>You will be randomly assigned a role as either Player 1 or Player 2.
+                        You will play 10 rounds of a game with another participant.</p>
+
+                        <p>At the beginning of each round, Player 1 will receive a jar and Player 2 will receive 2 urns.
+                        The jar and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
+
+                        <p>Each round of the game goes roughly as follows:</p>
+
+                        <ul>
+                            <li>Player 1 choose whether to offer his/her jar to Player 2.
+                            The round ends if Player 1 choose not to offer Player 2 the jar.</li>
+                            <li>If Player 1 offered the jar to Player 2, Player 2 makes a decision to either
+                            (1) decline the jar or accept the jar and
+                            (2)/(3) mix all the balls from the jar into one of his/her urns</li>
+                        </ul>
+
+                        <p>The computer takes one draw from each one of Player 2’s urns at the end of each round.
+                        A total of 2 balls are drawn each round.
+                        After each draw, the drawn ball’s color will be recorded and the ball replaced into the urn from which it was drawn.
+                        The draws will be made at the end of the round.
+                        If Player 2 mixed the balls in a jar into one of his/her urns, the draw from that urn is made after the balls from the jar were mixed in. </p>
+
+                        <p>Your earnings will depend on various factors including your decisions,
+                        the decisions of the other Player,
+                        and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
+
                     </Grid>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                 </Grid>
@@ -89,11 +117,38 @@ const Instructions = () => {
                         </button>
 
                         <p>OVERVIEW</p>
-                        <p>Welcome to this study of decision-making.
-                        The study will take between 1 and 1.5 hours including the instructions.
+                        <p>Welcome to this study of decision-making.</p>
+
+                        <p>The study will take between 1 and 1.5 hours including the instructions.
                         The instructions are simple, and if you follow them carefully, you can earn money in addition to your $5 show-up payment.
                         Besides your show-up payment, you will be given a “Bank” of $5 to which additional earnings will be added and from which penalties will be deducted.
                         The show-up payment and your final “Bank” balance  will be paid to you after the study ends. </p>
+
+                        <p>You will be randomly assigned a role as either Player 1 or Player 2.
+                        You will play 10 rounds of a game with another participant.</p>
+
+                        <p>At the beginning of each round, Player 1 will receive a jar and Player 2 will receive 2 urns.
+                        The jar and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
+
+                        <p>Each round of the game goes roughly as follows:</p>
+
+                        <ul>
+                            <li>Player 1 choose whether to offer his/her jar to Player 2.
+                            The round ends if Player 1 choose not to offer Player 2 the jar.</li>
+                            <li>If Player 1 offered the jar to Player 2, Player 2 makes a decision to either
+                            (1) decline the jar or accept the jar and
+                            (2)/(3) mix all the balls from the jar into one of his/her urns</li>
+                        </ul>
+
+                        <p>The computer takes one draw from each one of Player 2’s urns at the end of each round.
+                        A total of 2 balls are drawn each round.
+                        After each draw, the drawn ball’s color will be recorded and the ball replaced into the urn from which it was drawn.
+                        The draws will be made at the end of the round.
+                        If Player 2 mixed the balls in a jar into one of his/her urns, the draw from that urn is made after the balls from the jar were mixed in. </p>
+
+                        <p>Your earnings will depend on various factors including your decisions,
+                        the decisions of the other Player,
+                        and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
                     </Grid>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                 </Grid>

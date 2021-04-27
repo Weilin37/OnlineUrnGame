@@ -92,18 +92,21 @@ const Player2 = () => {
                 {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                 and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls</p>
                 <p>Player 1 has decided to offer you their jar</p>
+                <p>Reject the jar offered by Player 1</p>
                 <Radio
                     checked={selectedValue === 'RejectOffer'}
                     onChange={handleChange}
                     value="RejectOffer"
                     label="Reject the jar offered by Player 1"
                 />
+                <p>Mix Player 1''s jar with your High Blue urn ({mix_high_blue} of 200 or {(mix_high_blue/200).toFixed(1)} balls are blue)</p>
                 <Radio
                     checked={selectedValue === "MixWithHighBlue"}
                     onChange={handleChange}
                     value="MixWithHighBlue"
                     label="Mix Player 1's jar with your High Blue urn ({mix_high_blue} of 200 or {(mix_high_blue/200).toFixed(1)} balls are blue)"
                 />
+                <p>Mix Player 1''s jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)</p>
                 <Radio
                     checked={selectedValue === "MixWithLowBlue"}
                     onChange={handleChange}
