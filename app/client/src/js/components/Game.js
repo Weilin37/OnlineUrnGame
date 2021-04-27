@@ -153,7 +153,7 @@ export const Game = () => {
                                         { title: "Round", field: "round" },
                                         { title: "Player 1 Decision", field: "player1action" },
                                         { title: "Player 2 Decision", field: "player2action"},
-                                        { title: "Player 1 Earnings", field: "player1earnings"},
+                                        { title: "Your Earnings", field: "player1earnings"},
                                     ]}
                                     data={tabledata}
                                     options={{
@@ -208,7 +208,7 @@ export const Game = () => {
                                         { title: "Round", field: "round" },
                                         { title: "Player 1 Decision", field: "player1action" },
                                         { title: "Player 2 Decision", field: "player2action"},
-                                        { title: "Player 2 Earnings", field: "player2earnings"},
+                                        { title: "Your Earnings", field: "player2earnings"},
                                     ]}
                                     data={tabledata}
                                     options={{
