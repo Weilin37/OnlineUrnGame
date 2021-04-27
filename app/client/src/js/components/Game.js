@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import MaterialTable from "material-table";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
@@ -75,9 +76,17 @@ export const Game = () => {
                             Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                         </Typography>
 
-                        {gameState.data.map((el, i) => (
-                            <p>{el.data}</p>
-                        ))}
+                        <MaterialTable
+                            columns={[
+                                { title: "Round", field: "round" },
+                                { title: "Player 1 Decision", field: "player1action" },
+                                { title: "Player 2 Decision", field: "player2action"},
+                                { title: "Player 1 Earnings", field: "player1earnings"},
+                                { title: "Player 2 Earnings", field: "player2earnings"},
+                            ]}
+                            data={gameState.data}
+                            title="Scorecard"
+                        />
                     </Grid>
                     <Grid item align="center" xs={9} >
                         <p>Congratulations, the game has ended</p>
@@ -113,9 +122,16 @@ export const Game = () => {
                                 <Typography variant="subtitle1" gutterBottom>
                                     Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                                 </Typography>
-                                {gameState.data.map((el, i) => (
-                                    <p>{el.data}</p>
-                                ))}
+                                <MaterialTable
+                                    columns={[
+                                        { title: "Round", field: "round" },
+                                        { title: "Player 1 Decision", field: "player1action" },
+                                        { title: "Player 2 Decision", field: "player2action"},
+                                        { title: "Your Earnings", field: "player1earnings"},
+                                    ]}
+                                    data={gameState.data}
+                                    title="Scorecard"
+                                />
                             </Grid>
                             <Grid item align="center" xs={9} >
                                 <Player1 />
@@ -147,9 +163,16 @@ export const Game = () => {
                                 <Typography variant="subtitle1" gutterBottom>
                                     Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                                 </Typography>
-                                {gameState.data.map((el, i) => (
-                                    <p>{el.data}</p>
-                                ))}
+                                <MaterialTable
+                                    columns={[
+                                        { title: "Round", field: "round" },
+                                        { title: "Player 1 Decision", field: "player1action" },
+                                        { title: "Player 2 Decision", field: "player2action"},
+                                        { title: "Your Earnings", field: "player2earnings"},
+                                    ]}
+                                    data={gameState.data}
+                                    title="Scorecard"
+                                />
                             </Grid>
                             <Grid item align="center" xs={9} >
                                 <Player2 />
