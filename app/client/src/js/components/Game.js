@@ -51,7 +51,7 @@ export const Game = () => {
         if (gameState.game_ended) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
-                    <Grid item align="center" xs={6} >
+                    <Grid item align="center" xs={3} >
                         <p>Room: {gameState.data[gameState.data.length-1]['room']}</p>
                         <p>You are: {gameState.player}</p>
                         <p>Your Alias: {gameState.alias}</p>
@@ -62,7 +62,7 @@ export const Game = () => {
                             <p>{el.data}</p>
                         ))}
                     </Grid>
-                    <Grid item align="center" xs={6} >
+                    <Grid item align="center" xs={9} >
                         <p>Congratulations, the game has ended</p>
                     </Grid>
                 </Grid>
@@ -74,7 +74,7 @@ export const Game = () => {
                 if (gameState.player === 'player1') {
                     return (
                         <Grid container justify="center" alignItems="center" spacing={2}>
-                            <Grid item align="center" xs={6} >
+                            <Grid item align="center" xs={3} >
                                 <button type="button" onClick={handleInstructionsOpen}>
                                     Open Instructions
                                 </button>
@@ -89,7 +89,7 @@ export const Game = () => {
                                     <p>{el.data}</p>
                                 ))}
                             </Grid>
-                            <Grid item align="center" xs={6} >
+                            <Grid item align="center" xs={9} >
                                 <Player1 />
                             </Grid>
                         </Grid>
@@ -97,7 +97,7 @@ export const Game = () => {
                 } else if (gameState.player === 'player2') {
                     return (
                         <Grid container justify="center" alignItems="center" spacing={2}>
-                            <Grid item align="center" xs={6} >
+                            <Grid item align="center" xs={3} >
                                 <button type="button" onClick={handleInstructionsOpen}>
                                     Open Instructions
                                 </button>
@@ -112,7 +112,7 @@ export const Game = () => {
                                     <p>{el.data}</p>
                                 ))}
                             </Grid>
-                            <Grid item align="center" xs={6} >
+                            <Grid item align="center" xs={9} >
                                 <Player2 />
                             </Grid>
                         </Grid>
