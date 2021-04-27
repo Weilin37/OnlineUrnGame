@@ -67,8 +67,8 @@ const Instructions = () => {
                         and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
 
                     </Grid>
-                    <Grid item align="center" xs={12} >
-                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    <Grid item align="center" xs={8} >
+                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -87,7 +87,9 @@ const Instructions = () => {
                         There will be 10 rounds of this study. For all 10 rounds you will be paired with the same Player 2, who will participate at the same time as you.
                         </p>
                     </Grid>
-                    <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    <Grid item align="center" xs={8} >
+                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    </Grid>
                 </Grid>
             );
         } else if (instructionsPage === 3) {
@@ -105,8 +107,8 @@ const Instructions = () => {
                         Player 2 will have to either mix all the balls from your jar into the same urn or not mix the balls from your jar at all.
                         </p>
                     </Grid>
-                    <Grid item align="center" xs={12} >
-                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    <Grid item align="center" xs={8} >
+                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -154,8 +156,8 @@ const Instructions = () => {
                         the decisions of the other Player,
                         and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
                     </Grid>
-                    <Grid item align="center" xs={12} >
-                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    <Grid item align="center" xs={8} >
+                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -174,8 +176,8 @@ const Instructions = () => {
                         There will be 10 rounds of this study. For all 10 rounds you will be paired with the same Player 1, who will participate at the same time as you.
                         </p>
                     </Grid>
-                    <Grid item align="center" xs={12} >
-                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    <Grid item align="center" xs={8} >
+                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -192,8 +194,8 @@ const Instructions = () => {
                         If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.
                         </p>
                     </Grid>
-                    <Grid item align="center" xs={12} >
-                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    <Grid item align="center" xs={8} >
+                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
