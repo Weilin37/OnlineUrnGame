@@ -55,7 +55,7 @@ export const Game = () => {
         console.log(tabledata);
         tabledata.forEach(function(v) {
             console.log(v);
-            delete v.room;
+            delete v['room'];
             delete v.treatment;
             delete v.roundcomplete;
             delete v.player1jartype;
