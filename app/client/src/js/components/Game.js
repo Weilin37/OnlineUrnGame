@@ -4,6 +4,7 @@ import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
 import { getData, sendData, updateOnlineStatus, setInstructions } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
 import Instructions from "./Instructions";
 import Player1 from "./Player1";
@@ -52,12 +53,28 @@ export const Game = () => {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={3} >
-                        <p>Room: {gameState.data[gameState.data.length-1]['room']}</p>
-                        <p>You are: {gameState.player}</p>
-                        <p>Your Alias: {gameState.alias}</p>
-                        <p>Current Round: {gameState.data[gameState.data.length - 1]['round']}</p>
-                        <p>Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}</p>
-                        <p>Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}</p>
+                        <button type="button" onClick={handleInstructionsOpen}>
+                            Open Instructions
+                        </button>
+                        <Typography variant="subtitle1" gutterBottom>
+                            You are: {gameState.player}
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom>
+                            Room (Write this down): {gameState.data[gameState.data.length-1]['room']}
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom>
+                            Alias (Write this down): {gameState.alias}
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom>
+                            Current Round: {gameState.data[gameState.data.length - 1]['round']}
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom>
+                            Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}
+                        </Typography>
+                        <Typography variant="subtitle1" gutterBottom>
+                            Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
+                        </Typography>
+
                         {gameState.data.map((el, i) => (
                             <p>{el.data}</p>
                         ))}
@@ -78,13 +95,24 @@ export const Game = () => {
                                 <button type="button" onClick={handleInstructionsOpen}>
                                     Open Instructions
                                 </button>
-
-                                <p>Room: {gameState.data[gameState.data.length-1]['room']}</p>
-                                <p>You are: {gameState.player}</p>
-                                <p>Your Alias: {gameState.alias}</p>
-                                <p>Current Round: {gameState.data[gameState.data.length - 1]['round']}</p>
-                                <p>Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}</p>
-                                <p>Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}</p>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    You are: {gameState.player}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Room (Write this down): {gameState.data[gameState.data.length-1]['room']}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Alias (Write this down): {gameState.alias}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Current Round: {gameState.data[gameState.data.length - 1]['round']}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
+                                </Typography>
                                 {gameState.data.map((el, i) => (
                                     <p>{el.data}</p>
                                 ))}
@@ -101,13 +129,24 @@ export const Game = () => {
                                 <button type="button" onClick={handleInstructionsOpen}>
                                     Open Instructions
                                 </button>
-
-                                <p>Room: {gameState.data[gameState.data.length-1]['room']}</p>
-                                <p>You are: {gameState.player}</p>
-                                <p>Your Alias: {gameState.alias}</p>
-                                <p>Current Round: {gameState.data[gameState.data.length - 1]['round']}</p>
-                                <p>Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}</p>
-                                <p>Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}</p>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    You are: {gameState.player}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Room (Write this down): {gameState.data[gameState.data.length-1]['room']}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Alias (Write this down): {gameState.alias}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Current Round: {gameState.data[gameState.data.length - 1]['round']}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom>
+                                    Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
+                                </Typography>
                                 {gameState.data.map((el, i) => (
                                     <p>{el.data}</p>
                                 ))}
