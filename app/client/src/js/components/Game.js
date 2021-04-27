@@ -52,7 +52,7 @@ export const Game = () => {
     if (gameState.data.length > 0) {
         var tabledata = gameState.data;
         console.log(tabledata.configurable)
-        Object.defineProperties(tabledata, {configurable: true});
+        Object.defineProperties(tabledata, {'configurable': true});
         console.log(tabledata.configurable)
 
         console.log(tabledata);
