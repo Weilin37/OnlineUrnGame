@@ -46,21 +46,11 @@ const Player2 = () => {
     }
 
     function handleContinue() {
-        if (gameState.current_round < 10) {
-            batch(() => {
-                dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data=NA'));
-                dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
-                    (parseInt(gameState.data[gameState.data.length-1]['round'])+1)+
-                    "&player1name="+gameState.data[gameState.data.length-1]['player1name']+
-                    "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
-                    "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
-                    "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
-                    "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
-                ));
-            });
-        } else {
+        setReady(true);
+        batch(() => {
             dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data=NA'));
-        }
+            dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready));
+        });
     }
 
     function handleNextRound() {
