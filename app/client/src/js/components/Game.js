@@ -102,6 +102,9 @@ export const Game = () => {
                               search: false,
                               draggable: false,
                               showFirstLastPageButtons: false,
+                              editable:'never',
+                              disableClick: true,
+                              sorting: false
                             }}
                             title="Scorecard"
                         />
@@ -158,6 +161,9 @@ export const Game = () => {
                                       search: false,
                                       draggable: false,
                                       showFirstLastPageButtons: false,
+                                      editable:'never',
+                                      disableClick: true,
+                                      sorting: false
                                     }}
                                     title="Scorecard"
                                 />
@@ -210,6 +216,9 @@ export const Game = () => {
                                       search: false,
                                       draggable: false,
                                       showFirstLastPageButtons: false,
+                                      editable:'never',
+                                      disableClick: true,
+                                      sorting: false
                                     }}
                                     title="Scorecard"
                                 />
