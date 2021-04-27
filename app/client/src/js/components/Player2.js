@@ -119,7 +119,7 @@ const Player2 = () => {
                     value="MixWithLowBlue"
                     label="Mix Player 1's jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)"
                 />
-                <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
+                <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
             </div>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'NoOffer' && !gameState.both_ready_for_next) {
