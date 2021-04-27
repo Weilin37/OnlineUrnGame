@@ -58,7 +58,7 @@ const Player1 = () => {
     } else if (gameState.current_turn === 'player2' && !gameState.both_ready_for_next) {
         return (
             <div >
-                <p>Choice submitted. Waiting for Player 2 to choose...</p>
+                <p>Choice submitted. Waiting for Player 2 to choose or acknowledge...</p>
             </div>
         );
     } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && !ready) {
