@@ -13,6 +13,7 @@ const Player1 = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
+    const [ready, setReady] = React.useState(false);
 
     // Enter decision
     function handleSubmit() {
@@ -25,7 +26,8 @@ const Player1 = () => {
 
     function handleNextRound() {
         var ready = true;
-        dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready))
+        dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready));
+        setReady(true);
     }
 
     // render component
@@ -59,11 +61,17 @@ const Player1 = () => {
                 <p>Choice submitted. Waiting for Player 2 to choose...</p>
             </div>
         );
-    } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next) {
+    } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && !ready) {
         return (
             <div>
                 <p>All players made their moves! Press OK to continue to the next round</p>
                 <Button variant="contained" color="primary" onClick={handleNextRound}>OK</Button>
+            </div>
+        );
+    } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && ready) {
+        return (
+            <div>
+                <p>Ready! Waiting for other player...</p>
             </div>
         );
     } else {

@@ -13,6 +13,7 @@ const Player2 = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
+    const [ready, setReady] = React.useState(false);
 
     useEffect(() => {
         if (gameState.both_ready_for_next && gameState.current_round < 10) {
@@ -64,7 +65,8 @@ const Player2 = () => {
 
     function handleNextRound() {
         var ready = true;
-        dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready))
+        dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready));
+        setReady(true);
     }
 
     function handleChange(event) {
@@ -134,14 +136,21 @@ const Player2 = () => {
                 <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
             </div>
         );
-    } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next) {
+    } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && !ready) {
         return (
             <div>
                 <p>All players made their moves! Press OK to continue to the next round</p>
                 <Button variant="contained" color="primary" onClick={handleNextRound}>OK</Button>
             </div>
         );
-    } else {
+    } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && ready) {
+        return (
+            <div>
+                <p>Ready! Waiting for other player...</p>
+            </div>
+        );
+    }
+    else {
         return null;
     }
 
