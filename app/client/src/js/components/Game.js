@@ -61,7 +61,6 @@ export const Game = () => {
             })
         });
 
-        console.log(tabledata);
         if (gameState.game_ended) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
@@ -87,7 +86,8 @@ export const Game = () => {
                         <Typography variant="subtitle1" gutterBottom>
                             Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                         </Typography>
-
+                    </Grid>
+                    <Grid item align="cetner" xs={9} >
                         <MaterialTable
                             columns={[
                                 { title: "Round", field: "round" },
@@ -100,7 +100,7 @@ export const Game = () => {
                             title="Scorecard"
                         />
                     </Grid>
-                    <Grid item align="center" xs={9} >
+                    <Grid item align="center" xs={12} >
                         <p>Congratulations, the game has ended</p>
                     </Grid>
                 </Grid>
@@ -137,18 +137,20 @@ export const Game = () => {
                                 <Typography variant="subtitle1" gutterBottom>
                                     Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                                 </Typography>
+                            </Grid>
+                            <Grid item align="cetner" xs={9} >
                                 <MaterialTable
                                     columns={[
                                         { title: "Round", field: "round" },
                                         { title: "Player 1 Decision", field: "player1action" },
                                         { title: "Player 2 Decision", field: "player2action"},
-                                        { title: "Your Earnings", field: "player1earnings"},
+                                        { title: "Player 1 Earnings", field: "player1earnings"},
                                     ]}
                                     data={tabledata}
                                     title="Scorecard"
                                 />
                             </Grid>
-                            <Grid item align="center" xs={9} >
+                            <Grid item align="center" xs={12} >
                                 <Player1 />
                             </Grid>
                         </Grid>
@@ -181,18 +183,20 @@ export const Game = () => {
                                 <Typography variant="subtitle1" gutterBottom>
                                     Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                                 </Typography>
+                            </Grid>
+                            <Grid item align="cetner" xs={9} >
                                 <MaterialTable
                                     columns={[
                                         { title: "Round", field: "round" },
                                         { title: "Player 1 Decision", field: "player1action" },
                                         { title: "Player 2 Decision", field: "player2action"},
-                                        { title: "Your Earnings", field: "player2earnings"},
+                                        { title: "Player 2 Earnings", field: "player2earnings"},
                                     ]}
                                     data={tabledata}
                                     title="Scorecard"
                                 />
                             </Grid>
-                            <Grid item align="center" xs={9} >
+                            <Grid item align="center" xs={12} >
                                 <Player2 />
                             </Grid>
                         </Grid>
