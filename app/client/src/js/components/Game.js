@@ -50,6 +50,7 @@ export const Game = () => {
 
     // render component
     if (gameState.data.length > 0) {
+        var tabledata = gameState.data;
         if (gameState.game_ended) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
@@ -84,7 +85,7 @@ export const Game = () => {
                                 { title: "Player 1 Earnings", field: "player1earnings"},
                                 { title: "Player 2 Earnings", field: "player2earnings"},
                             ]}
-                            data={gameState.data}
+                            data={tabledata}
                             title="Scorecard"
                         />
                     </Grid>
@@ -129,7 +130,7 @@ export const Game = () => {
                                         { title: "Player 2 Decision", field: "player2action"},
                                         { title: "Your Earnings", field: "player1earnings"},
                                     ]}
-                                    data={gameState.data}
+                                    data={tabledata}
                                     title="Scorecard"
                                 />
                             </Grid>
@@ -170,7 +171,7 @@ export const Game = () => {
                                         { title: "Player 2 Decision", field: "player2action"},
                                         { title: "Your Earnings", field: "player2earnings"},
                                     ]}
-                                    data={gameState.data}
+                                    data={tabledata}
                                     title="Scorecard"
                                 />
                             </Grid>
