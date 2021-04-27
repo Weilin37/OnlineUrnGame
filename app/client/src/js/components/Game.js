@@ -51,6 +51,23 @@ export const Game = () => {
     // render component
     if (gameState.data.length > 0) {
         var tabledata = gameState.data;
+        tabledata.forEach(function(v) {
+            delete v.room;
+            delete v.treatment;
+            delete v.roundcomplete;
+            delete v.player1jartype;
+            delete v.player1bluecount;
+            delete v.player2highbluecount;
+            delete v.player2lowbluecount;
+            delete v.player1name;
+            delete v.player2name;
+            delete v.player1_lastseen;
+            delete v.player2_lastseen;
+            delete v.player1_online;
+            delete v.player2_online;
+        });
+
+        console.log(tabledata);
         if (gameState.game_ended) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
@@ -99,6 +116,9 @@ export const Game = () => {
                 return(<Instructions />)
             } else {
                 if (gameState.player === 'player1') {
+                    tabledata.forEach(function(v) {
+                        delete v.player2earnings;
+                    });
                     return (
                         <Grid container justify="center" alignItems="center" spacing={2}>
                             <Grid item align="center" xs={3} >
@@ -140,6 +160,9 @@ export const Game = () => {
                         </Grid>
                     );
                 } else if (gameState.player === 'player2') {
+                    tabledata.forEach(function(v) {
+                        delete v.player1earnings;
+                    });
                     return (
                         <Grid container justify="center" alignItems="center" spacing={2}>
                             <Grid item align="center" xs={3} >
