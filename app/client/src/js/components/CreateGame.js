@@ -109,7 +109,7 @@ const CreateGame = () => {
                     <Typography variant="h5">Your alias (Write this down): {gameState.alias}</Typography>
                 </Grid>
                 <Grid item align="center" xs={12} >
-                    <Typography variant="h5">You are {gameState.player}</Typography>
+                    <Typography variant="h5">You will join the game as {gameState.player}</Typography>
                 </Grid>
             </Grid>
         );
