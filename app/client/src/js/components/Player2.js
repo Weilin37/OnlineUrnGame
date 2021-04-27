@@ -46,11 +46,12 @@ const Player2 = () => {
     }
 
     function handleContinue() {
-        setReady(true);
+        var ready = true;
         batch(() => {
             dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data=NA'));
             dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready));
         });
+        setReady(true);
     }
 
     function handleNextRound() {
