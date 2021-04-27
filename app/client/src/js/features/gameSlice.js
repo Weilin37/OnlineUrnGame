@@ -139,6 +139,9 @@ const gameSlice = createSlice({
             var player1online = state.data[state.data.length - 1]['player1_online'];
             var player2online = state.data[state.data.length - 1]['player2_online'];
 
+            var player1_ready = state.data[state.data.length - 1]['player1_ready'];
+            var player2_ready = state.data[state.data.length - 1]['player2_ready'];
+
             state.current_round = parseInt(state.data[state.data.length - 1]['round']);
 
             if (!player1action && !player2action) {
@@ -148,7 +151,7 @@ const gameSlice = createSlice({
                 state.current_turn = 'player2';
                 state.both_submitted = false;
             } else if (player1action && player2action) {
-                state.current_turn = '';
+                state.current_turn = 'done';
                 state.both_submitted = true;
                 if (state.current_round === 10) {state.game_ended = true;}
             } else {
@@ -158,6 +161,9 @@ const gameSlice = createSlice({
 
             if (player1online && player2online) {state.both_online = true}
             else {state.both_online = false}
+
+            if (player1_ready && player2_ready) {state.both_ready_for_next = true}
+            else {state.both_ready_for_next = false}
 
         }
     });

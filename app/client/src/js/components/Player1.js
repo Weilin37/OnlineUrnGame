@@ -23,8 +23,13 @@ const Player1 = () => {
         setSelectedValue(event.target.value)
     }
 
+    function handleNextRound() {
+        var ready = true;
+        dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready))
+    }
+
     // render component
-    if (gameState.current_turn === 'player1') {
+    if (gameState.current_turn === 'player1' && !gameState.both_ready_for_next) {
         return (
             <div >
                 <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}) you are randomly assigned the following type of jar: {gameState.data[gameState.data.length-1]['player1jartype']}</p>
@@ -48,10 +53,17 @@ const Player1 = () => {
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
             </div>
         );
-    } else if (gameState.current_turn === 'player2') {
+    } else if (gameState.current_turn === 'player2' && !gameState.both_ready_for_next) {
         return (
             <div >
                 <p>Choice submitted. Waiting for Player 2 to choose...</p>
+            </div>
+        );
+    } else if (gameState.current_turn === 'done') {
+        return (
+            <div>
+                <p>All players made their moves! Press OK to continue to the next round</p>
+                <Button variant="contained" color="primary" onClick={handleNextRound}>OK</Button>
             </div>
         );
     } else {
