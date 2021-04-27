@@ -68,7 +68,7 @@ const Instructions = () => {
 
                     </Grid>
                     <Grid item align="center" xs={12} >
-                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -87,7 +87,7 @@ const Instructions = () => {
                         There will be 10 rounds of this study. For all 10 rounds you will be paired with the same Player 2, who will participate at the same time as you.
                         </p>
                     </Grid>
-                    <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                    <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                 </Grid>
             );
         } else if (instructionsPage === 3) {
@@ -106,7 +106,7 @@ const Instructions = () => {
                         </p>
                     </Grid>
                     <Grid item align="center" xs={12} >
-                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -155,7 +155,7 @@ const Instructions = () => {
                         and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
                     </Grid>
                     <Grid item align="center" xs={12} >
-                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -175,7 +175,7 @@ const Instructions = () => {
                         </p>
                     </Grid>
                     <Grid item align="center" xs={12} >
-                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
@@ -193,7 +193,7 @@ const Instructions = () => {
                         </p>
                     </Grid>
                     <Grid item align="center" xs={12} >
-                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
+                        <Pagination align="center" page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
             );
