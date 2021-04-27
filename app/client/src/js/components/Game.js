@@ -50,24 +50,15 @@ export const Game = () => {
 
     // render component
     if (gameState.data.length > 0) {
-        var tabledata = [...gameState.data];
-
-        console.log(tabledata);
-        tabledata.forEach(function(v) {
-            console.log(v);
-            delete v['room'];
-            delete v.treatment;
-            delete v.roundcomplete;
-            delete v.player1jartype;
-            delete v.player1bluecount;
-            delete v.player2highbluecount;
-            delete v.player2lowbluecount;
-            delete v.player1name;
-            delete v.player2name;
-            delete v.player1_lastseen;
-            delete v.player2_lastseen;
-            delete v.player1_online;
-            delete v.player2_online;
+        var tabledata = [];
+        gameState.data.forEach(function(v) {
+            tabledata.push({
+                'round':v.round,
+                'player1action':v.player1action,
+                'player2action':v.player2action,
+                'player1earnings':v.player1earnings,
+                'player2earnings':v.player2earnings
+            })
         });
 
         console.log(tabledata);
