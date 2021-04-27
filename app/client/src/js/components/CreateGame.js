@@ -3,6 +3,11 @@ import { useSelector, useDispatch, batch } from "react-redux";
 import { createNewGame, updateWaitingRoom, updateOnlineStatus, resumeGame, joinGame, getNewGame, setAlias, setPlayer, setGameWaiting, setGameCreated } from "../features/gameSlice";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const CreateGame = () => {
     const dispatch = useDispatch();
@@ -102,21 +107,43 @@ const CreateGame = () => {
         );
     } else {
         return(
-            <div>
-                <div>
-                    <TextField id="alias" label="Enter Your Alias (Required)" variant="outlined" />
-                    <Button variant="contained" color="primary" onClick={handleCreateNewGame}>
-                        Enter New Game
-                    </Button>
-                </div>
-                <div>
-                    <TextField id="resume_alias" label="Enter Your Alias (Required)" variant="outlined" />
-                    <TextField id="resume_room" label="Enter Your Room Code (Required)" variant="outlined" />
-                    <Button variant="contained" color="primary" onClick={handleResumeGame}>
-                        Resume Game
-                    </Button>
-                </div>
-            </div>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <Paper>
+                        <Grid item align="center" xs={12} >
+                            <Typography variant="h5">
+                                If you are a new player, the please enter your alias and press the left button here
+                            </Typography>
+                        </Grid>
+                        <Grid item align="center" xs={12} >
+                            <TextField id="alias" label="Enter Your Alias (Required)" variant="outlined" />
+                        </Grid>
+                        <Grid item align="center" xs={12} >
+                            <Button variant="contained" color="primary" onClick={handleCreateNewGame}>
+                                Enter New Game
+                            </Button>
+                        </Grid>
+                    </Paper>
+                </Grid>
+                <Grid item xs={6}>
+                    <Paper>
+                        <Grid item align="center" xs={12} >
+                            <Typography variant="h5">
+                                If you are a returning player, then please enter your room code and the alias you used and press the right button here
+                            </Typography>
+                        </Grid>
+                        <Grid item align="center" xs={12} >
+                            <TextField id="resume_alias" label="Enter Your Alias (Required)" variant="outlined" />
+                            <TextField id="resume_room" label="Enter Your Room Code (Required)" variant="outlined" />
+                        </Grid>
+                        <Grid item align="center" xs={12} >
+                            <Button variant="contained" color="primary" onClick={handleResumeGame}>
+                                Resume Game
+                            </Button>
+                        </Grid>
+                    </Paper>
+                </Grid>
+            </Grid>
         )
     }
 }

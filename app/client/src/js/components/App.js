@@ -4,6 +4,7 @@ import { Game } from "./Game";
 import Grid from '@material-ui/core/Grid';
 import { useSelector } from "react-redux";
 import CreateGame from "./CreateGame";
+import Typography from '@material-ui/core/Typography';
 
 const App = () => {
 
@@ -12,21 +13,30 @@ const App = () => {
 
     if (gameState.game_created === true && gameState.game_waiting === false) {
         return(
-            <Grid container justify="center" alignItems="center" spacing={2}>
+            <div>
                 <NavBar />
-                <Grid item align="center" xs={12} >
-                    <Game />
+                <Grid container justify="center" alignItems="center" spacing={2}>
+                    <Grid item align="center" xs={12} >
+                        <Game />
+                    </Grid>
                 </Grid>
-            </Grid>
+            </div>
         )
     } else {
         return(
-            <Grid container justify="center" alignItems="center" spacing={2}>
+            <div>
                 <NavBar />
-                <Grid item align="center" xs={12} >
-                    <CreateGame />
+                <Grid container justify="center" alignItems="center" spacing={2}>
+                    <Grid item align="center" xs={12} >
+                        <Typography variant="h2" gutterBottom>
+                            Welcome
+                        </Typography>
+                    </Grid>
+                    <Grid item align="center" xs={12} >
+                        <CreateGame id="creategame"/>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </div>
         )
     }
 
