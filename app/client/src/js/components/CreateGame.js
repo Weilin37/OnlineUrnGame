@@ -98,12 +98,20 @@ const CreateGame = () => {
     // render component
     if (gameState.game_waiting === true) {
         return (
-            <div>
-                <p>Waiting for next player...</p>
-                <p>Room code: {gameState.room}</p>
-                <p>You are {gameState.player}</p>
-                <p>Your alias: {gameState.alias}</p>
-            </div>
+            <Grid container spacing={2}>
+                <Grid item align="center" xs={12} >
+                    <Typography variant="h5">Waiting for next player to join...</Typography>
+                </Grid>
+                <Grid item align="center" xs={12} >
+                    <Typography variant="h5">Room code (Write this down): {gameState.room}</Typography>
+                </Grid>
+                <Grid item align="center" xs={12} >
+                    <Typography variant="h5">Your alias (Write this down): {gameState.alias}</Typography>
+                </Grid>
+                <Grid item align="center" xs={12} >
+                    <Typography variant="h5">You are {gameState.player}</Typography>
+                </Grid>
+            </Grid>
         );
     } else {
         return(
