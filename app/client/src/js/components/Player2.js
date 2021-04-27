@@ -134,7 +134,7 @@ const Player2 = () => {
                 <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
             </div>
         );
-    } else if (gameState.current_turn === 'done') {
+    } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next) {
         return (
             <div>
                 <p>All players made their moves! Press OK to continue to the next round</p>
