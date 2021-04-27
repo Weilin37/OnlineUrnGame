@@ -71,6 +71,16 @@ export const sendData = createAsyncThunk("game/sendData", async (endpoint, thunk
     }
 });
 
+// Update player ready
+export const sendReady = createAsyncThunk("game/sendReady", async (endpoint, thunkAPI) => {
+    try {
+        const response = await axios.get(endpoint);
+        return response.data;
+    } catch (error) {
+         return thunkAPI.rejectWithValue({ error: error.message });
+    }
+});
+
 // Create New Round
 export const createNewRound = createAsyncThunk("game/createNewRound", async (endpoint, thunkAPI) => {
     try {
@@ -106,6 +116,7 @@ const gameSlice = createSlice({
     game_ended: false,
     both_submitted: false,
     both_online: false,
+    both_ready_for_next: false,
     alias: '',
     player: '',
     room: '',

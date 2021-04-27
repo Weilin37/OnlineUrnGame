@@ -93,7 +93,9 @@ router.get('/api/get/creategame', (req,res,next) => {
             player1earnings,
             player2earnings,
             player1name,
-            player2name
+            player2name,
+            player1_ready,
+            player2_ready
         )
         VALUES (
             '${room}',
@@ -109,7 +111,9 @@ router.get('/api/get/creategame', (req,res,next) => {
             5,
             5,
             '${player1name}',
-            '${player2name}'
+            '${player2name}',
+            false,
+            false
         )
         RETURNING *`,
         (q_err, q_res) => {
@@ -153,7 +157,9 @@ router.get('/api/get/createnewround', (req,res,next) => {
             player1earnings,
             player2earnings,
             player1name,
-            player2name
+            player2name,
+            player1_ready,
+            player2_ready
         )
         VALUES (
             '${room}',
@@ -169,7 +175,9 @@ router.get('/api/get/createnewround', (req,res,next) => {
             '${player1earnings}',
             '${player2earnings}',
             '${player1name}',
-            '${player2name}'
+            '${player2name}',
+            false,
+            false
         )
         RETURNING *`,
         (q_err, q_res) => {
@@ -315,6 +323,32 @@ router.get('/api/get/senddata', (req,res,next) => {
     }
 })
 
+// Update player ready
+router.get('/api/get/sendready', (req,res,next) => {
+    var room = req.query.room;
+    var player = req.query.player;
+    var round = req.query.round;
+    var data = req.query.data;
+
+    if (player === 'player1') {
+    	pool.query(`update public.game_state
+            set player1_ready = ${data}
+            where room = '${room}'
+            and round = '${round}'`,
+            (q_err, q_res) => {
+                res.json(q_res.rows)
+        })
+    } else if (player === 'player2') {
+        pool.query(`update public.game_state
+            set player2_ready = ${data}
+            where room = '${room}'
+            and round = '${round}'`,
+            (q_err, q_res) => {
+                res.json(q_res.rows)
+        })
+    }
+})
+
 // update online status
 router.get('/api/get/updateonlinestatus', (req,res,next) => {
     var player = req.query.player;
@@ -324,14 +358,16 @@ router.get('/api/get/updateonlinestatus', (req,res,next) => {
     if (player === 'player1') {
          pool.query(`update public.game_state
              set player1_lastseen = '${current_datetime}'
-             where room = '${req.query.room}'`,
+             where room = '${req.query.room}'
+             and round = '${req.query.round}'`,
                 (q_err, q_res) => {
                     res.json(q_res.rows)
          })
     } else if (player === 'player2') {
          pool.query(`update public.game_state
              set player2_lastseen = '${current_datetime}'
-             where room = '${req.query.room}'`,
+             where room = '${req.query.room}'
+             and round = '${req.query.round}'`,
                 (q_err, q_res) => {
                     res.json(q_res.rows)
          })

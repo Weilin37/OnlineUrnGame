@@ -26,7 +26,7 @@ export const Game = () => {
     useEffect(() => {
         batch(() => {
             dispatch(getData("/api/get/readgame?room="+gameState.room));
-            dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
+            dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round='gameState.current_round));
         });
     }, [timer]);
 

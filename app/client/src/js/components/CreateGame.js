@@ -25,7 +25,7 @@ const CreateGame = () => {
         if (gameState.game_waiting) {
             batch(() => {
                 dispatch(updateWaitingRoom("/api/get/updatewaitingroom?room="+gameState.room));
-                dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room));
+                dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round=1'));
             });
         } else {
             dispatch(getNewGame("/api/get/newgame"));
