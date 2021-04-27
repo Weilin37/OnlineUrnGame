@@ -27,7 +27,7 @@ const Instructions = () => {
         if (instructionsPage === 1) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
-                    <Grid item align="center" xs={12} >
+                    <Grid item align="center" xs={8} >
                         <button type="button" onClick={handleInstructionsClose}>
                             Close Instructions
                         </button>
@@ -73,7 +73,7 @@ const Instructions = () => {
         } else if (instructionsPage === 2) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
-                    <Grid item align="center" xs={12} >
+                    <Grid item align="center" xs={8} >
                         <button type="button" onClick={handleInstructionsClose}>
                             Close Instructions
                         </button>
