@@ -162,8 +162,7 @@ const gameSlice = createSlice({
             if (player1online && player2online) {state.both_online = true}
             else {state.both_online = false}
 
-            if (player1_ready && player2_ready) {state.both_ready_for_next = true}
-            else {state.both_ready_for_next = false}
+            if (!player1_ready && !player2_ready) {state.both_ready_for_next = false}
 
         }
     });
