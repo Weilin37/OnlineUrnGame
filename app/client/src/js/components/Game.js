@@ -87,7 +87,7 @@ export const Game = () => {
                             Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                         </Typography>
                     </Grid>
-                    <Grid item align="cetner" xs={9} >
+                    <Grid item align="center" xs={9} >
                         <MaterialTable
                             columns={[
                                 { title: "Round", field: "round" },
@@ -147,7 +147,7 @@ export const Game = () => {
                                     Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                                 </Typography>
                             </Grid>
-                            <Grid item align="cetner" xs={9} >
+                            <Grid item align="center" xs={9} >
                                 <MaterialTable
                                     columns={[
                                         { title: "Round", field: "round" },
@@ -202,7 +202,7 @@ export const Game = () => {
                                     Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                                 </Typography>
                             </Grid>
-                            <Grid item align="cetner" xs={9} >
+                            <Grid item align="center" xs={9} >
                                 <MaterialTable
                                     columns={[
                                         { title: "Round", field: "round" },
