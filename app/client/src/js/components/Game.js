@@ -51,7 +51,10 @@ export const Game = () => {
     // render component
     if (gameState.data.length > 0) {
         var tabledata = gameState.data;
+
+        console.log(tabledata);
         tabledata.forEach(function(v) {
+            console.log(v);
             delete v.room;
             delete v.treatment;
             delete v.roundcomplete;
