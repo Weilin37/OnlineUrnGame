@@ -303,6 +303,7 @@ router.get('/api/get/senddata', (req,res,next) => {
     var round = req.query.round;
     var data = req.query.data;
 
+
     if (player === 'player1') {
     	pool.query(`update public.game_state
             set player1action = '${data}'
@@ -312,9 +313,157 @@ router.get('/api/get/senddata', (req,res,next) => {
                 res.json(q_res.rows)
         })
     } else if (player === 'player2') {
+        var treatment = req.query.treatment;
+        var player1action = req.query.player1action;
+
+        var player1bluecount = parseInt(req.query.player1bluecount);
+        var player2highbluecount = parseInt(req.query.player2highbluecount);
+        var player2lowbluecount = parseInt(req.query.player2lowbluecount);
+
+
+        //earnings logic
+        if (treatment === 'status_quo') {
+            var totalbluecount;
+            var blueprobability;
+            var drawings = Math.random();
+
+            var drawn_ball;
+
+            var player1earnings = 0;
+            var player2earnings = 0;
+
+            var player1reward = 1;
+            var player1penalty = -1;
+            var player2reward = 1;
+            var player2penalty = -1;
+
+            if (player1action === 'NoOffer') {
+                player1earnings = 0;
+                player2earnings = 0;
+            } else if (player1action === 'Offer') {
+                if (data === 'RejectOffer') {
+                    player1earnings += player1penalty;
+                    player2earnings += 0;
+                } else if (data === 'MixWithHighBlue') {
+                    totalbluecount = player1bluecount+player2highbluecount;
+                    blueprobability = (totalbluecount/200);
+                    player1earnings += player1reward;
+
+                    if (drawings <= blueprobability) {
+                        drawn_ball = 'blue';
+                        player2earnings += player2reward;
+                    } else {
+                        drawn_ball = 'red';
+                        player2earnings += player2penalty;
+                    }
+                } else if (data === 'MixWithLowBlue') {
+                    totalbluecount = player1bluecount+player2lowbluecount;
+                    blueprobability = (totalbluecount/200);
+                    player1earnings += player1reward;
+
+                    if (drawings <= blueprobability) {
+                        drawn_ball = 'blue';
+                        player2earnings += player2reward;
+                    } else {
+                        drawn_ball = 'red';
+                        player2earnings += player2penalty;
+                    }
+                }
+            }
+        } else if (treatment === 'holistic') {
+            var totalbluecounthigh;
+            var totalbluecountlow;
+
+            var blueprobabilityhigh;
+            var blueprobabiltiylow;
+
+            var drawings_high = Math.random();
+            var drawings_low = Math.random();
+
+            var drawn_ball_high;
+            var drawn_ball_low;
+
+            var player1earnings = 0;
+            var player2earnings = 0;
+
+            var player1reward = 1;
+            var player1penalty = 0;
+            var player2reward = 1;
+            var player2penalty = 0;
+
+            if (player1action === 'NoOffer') {
+                player1earnings = 0;
+                player2earnings = 0;
+            } else if (player1action === 'Offer') {
+                if (data === 'RejectOffer') {
+                    player1earnings += 0;
+                    player2earnings += 0;
+                } else if (data === 'MixWithHighBlue') {
+                    totalbluecounthigh = player1bluecount+player2highbluecount;
+                    totalbluecountlow = player2lowbluecount;
+
+                    blueprobabilityhigh = (totalbluecounthigh/200);
+                    blueprobabiltiylow = (totalbluecountlow/100);
+
+                    if (drawings_high <= blueprobabilityhigh) {
+                        drawn_ball = 'blue';
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        drawn_ball = 'red';
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
+
+                    if (drawings_low <= blueprobabiltiylow) {
+                        if (drawn_ball === 'blue') {drawn_ball = 'twoblues'}
+                        else if (drawn_ball === 'red') {drawn_ball = 'blue'}
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        if (drawn_ball === 'blue') {drawn_ball = 'blue'}
+                        else if (drawn_ball === 'red') {drawn_ball = 'tworeds'}
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
+                } else if (data === 'MixWithLowBlue') {
+                    totalbluecounthigh = player2highbluecount;
+                    totalbluecountlow = player1bluecount+player2lowbluecount;
+
+                    blueprobabilityhigh = (totalbluecounthigh/100);
+                    blueprobabiltiylow = (totalbluecountlow/200);
+
+                    if (drawings_high <= blueprobabilityhigh) {
+                        drawn_ball = 'blue';
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        drawn_ball = 'red';
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
+
+                    if (drawings_low <= blueprobabiltiylow) {
+                        if (drawn_ball === 'blue') {drawn_ball = 'twoblues'}
+                        else if (drawn_ball === 'red') {drawn_ball = 'blue'}
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        if (drawn_ball === 'blue') {drawn_ball = 'blue'}
+                        else if (drawn_ball === 'red') {drawn_ball = 'tworeds'}
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
+                }
+            }
+        }
+
         pool.query(`update public.game_state
             set player2action = '${data}',
-            roundcomplete = true
+            roundcomplete = true,
+            drawn_ball = '${drawn_ball}',
+            player1earnings = TO_NUMBER(player1earnings)+${player1earnings},
+            player2earnings = TO_NUMBER(player2earnings)+${player2earnings}
             where room = '${room}'
             and round = '${round}'`,
             (q_err, q_res) => {
