@@ -351,6 +351,7 @@ router.get('/api/get/senddata', (req,res,next) => {
                 if (data === 'RejectOffer') {
                     player1earnings += player1penalty;
                     player2earnings += 0;
+                    drawn_ball = 'NA';
                 } else if (data === 'MixWithHighBlue') {
                     totalbluecount = player1bluecount+player2highbluecount;
                     blueprobability = (totalbluecount/200);
