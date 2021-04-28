@@ -20,11 +20,19 @@ const Quiz = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [quizPage, setQuizPage] = React.useState(1);
+
     const [selectedValue1, setSelectedValue1] = React.useState();
     const [selectedValue2, setSelectedValue2] = React.useState();
     const [selectedValue3, setSelectedValue3] = React.useState();
     const [selectedValue4, setSelectedValue4] = React.useState();
     const [selectedValue5, setSelectedValue5] = React.useState();
+
+    const [response1, setResponse1] = React.useState(false);
+    const [response2, setResponse2] = React.useState(false);
+    const [response3, setResponse3] = React.useState(false);
+    const [response4, setResponse4] = React.useState(false);
+    const [response5, setResponse5] = React.useState(false);
+
     const [timer, setTimer] = React.useState(0);
 
     const interval = setTimeout(() => {
@@ -33,10 +41,12 @@ const Quiz = () => {
 
     // Read Game State
     useEffect(() => {
-        batch(() => {
-            dispatch(getData("/api/get/readgame?room="+gameState.room));
-            dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round=1'));
-        });
+        if (response1 && response2 && response3 && response4 && response5) {
+            batch(() => {
+                dispatch(getData("/api/get/readgame?room="+gameState.room));
+                dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round=1'));
+            });
+        }
     }, [timer]);
 
     const answers = {
@@ -53,14 +63,6 @@ const Quiz = () => {
         3:'',
         4:'',
         5:''
-    }
-
-    var responses = {
-        1:false,
-        2:false,
-        3:false,
-        4:false,
-        5:false
     }
 
     const question1 = [
@@ -95,12 +97,32 @@ const Quiz = () => {
     // Functions for Instructions
     function handleSubmit() {
         var answer;
-        if (quizPage === 1) {answer = selectedValue1}
-        else if (quizPage === 2) {answer = selectedValue2}
-        else if (quizPage === 3) {answer = selectedValue3}
-        else if (quizPage === 4) {answer = selectedValue4}
-        else if (quizPage === 5) {answer = selectedValue5}
-
+        if (quizPage === 1) {
+            answer = selectedValue1
+            if (answers[quizPage] === answer) {
+                setResponse1(true)
+            }
+        } else if (quizPage === 2) {
+            answer = selectedValue2
+            if (answers[quizPage] === answer) {
+                setResponse2(true)
+            }
+        } else if (quizPage === 3) {
+            answer = selectedValue3
+            if (answers[quizPage] === answer) {
+                setResponse3(true)
+            }
+        } else if (quizPage === 4) {
+            answer = selectedValue4
+            if (answers[quizPage] === answer) {
+                setResponse4(true)
+            }
+        } else if (quizPage === 5) {
+            answer = selectedValue5
+            if (answers[quizPage] === answer) {
+                setResponse5(true)
+            }
+        }
 
         if (answers[quizPage] === answer && quizPage < 5) {
             dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
