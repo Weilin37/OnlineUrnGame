@@ -123,7 +123,7 @@ const Quiz = () => {
 
         return array;
     }
-dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player))
+
     // Functions for Instructions
     function handleSubmit() {
         var answer;
@@ -137,7 +137,10 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 ));
                 setResponse1(true)
                 setRemainingQuestions(remainingQuestions.splice(1,1))
-                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                if (remainingQuestions.length === 0) {
+                    dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    setQuizPage(6)
+                }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
@@ -158,7 +161,10 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 ));
                 setResponse2(true)
                 setRemainingQuestions(remainingQuestions.splice(1,1))
-                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                if (remainingQuestions.length === 0) {
+                    dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    setQuizPage(6)
+                }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
@@ -179,7 +185,10 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 ));
                 setResponse3(true)
                 setRemainingQuestions(remainingQuestions.splice(2,1))
-                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                if (remainingQuestions.length === 0) {
+                    dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    setQuizPage(6)
+                }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
@@ -200,7 +209,10 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 ));
                 setResponse4(true)
                 setRemainingQuestions(remainingQuestions.splice(3,1))
-                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                if (remainingQuestions.length === 0) {
+                    dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    setQuizPage(6)
+                }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
@@ -221,7 +233,10 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 ));
                 setResponse5(true)
                 setRemainingQuestions(remainingQuestions.splice(4,1))
-                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                if (remainingQuestions.length === 0) {
+                    dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    setQuizPage(6)
+                }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
