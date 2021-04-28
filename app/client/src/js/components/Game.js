@@ -57,7 +57,8 @@ export const Game = () => {
                 'player1action':v.player1action,
                 'player2action':v.player2action,
                 'player1earnings':v.player1earnings,
-                'player2earnings':v.player2earnings
+                'player2earnings':v.player2earnings,
+                'drawn_ball':v.drawn_ball
             })
         });
 
@@ -93,6 +94,7 @@ export const Game = () => {
                                 { title: "Round", field: "round" },
                                 { title: "Player 1 Decision", field: "player1action" },
                                 { title: "Player 2 Decision", field: "player2action"},
+                                { title: "Ball Drawn", field: "drawn_ball"},
                                 { title: "Player 1 Earnings", field: "player1earnings"},
                                 { title: "Player 2 Earnings", field: "player2earnings"},
                             ]}
@@ -153,6 +155,7 @@ export const Game = () => {
                                         { title: "Round", field: "round" },
                                         { title: "Player 1 Decision", field: "player1action" },
                                         { title: "Player 2 Decision", field: "player2action"},
+                                        { title: "Ball Drawn", field: "drawn_ball"},
                                         { title: "Your Earnings", field: "player1earnings"},
                                     ]}
                                     data={tabledata}
@@ -208,6 +211,7 @@ export const Game = () => {
                                         { title: "Round", field: "round" },
                                         { title: "Player 1 Decision", field: "player1action" },
                                         { title: "Player 2 Decision", field: "player2action"},
+                                        { title: "Ball Drawn", field: "drawn_ball"},
                                         { title: "Your Earnings", field: "player2earnings"},
                                     ]}
                                     data={tabledata}

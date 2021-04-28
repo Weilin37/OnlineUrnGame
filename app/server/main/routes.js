@@ -403,10 +403,12 @@ router.get('/api/get/senddata', (req,res,next) => {
             if (player1action === 'NoOffer') {
                 player1earnings = 0;
                 player2earnings = 0;
+                drawn_ball = 'NA'
             } else if (player1action === 'Offer') {
                 if (data === 'RejectOffer') {
                     player1earnings += 0;
                     player2earnings += 0;
+                    drawn_ball = 'NA'
                 } else if (data === 'MixWithHighBlue') {
                     totalbluecounthigh = player1bluecount+player2highbluecount;
                     totalbluecountlow = player2lowbluecount;
