@@ -334,14 +334,19 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player1earnings = 0;
             var player2earnings = 0;
 
+            //C
             var player1reward = 80000;
+            //D
             var player1penalty = -240000;
+            //Pi
             var player2reward = 240000;
+            //S
             var player2penalty = -1062500;
 
             if (player1action === 'NoOffer') {
                 player1earnings = 0;
                 player2earnings = 0;
+                drawn_ball = 'NA';
             } else if (player1action === 'Offer') {
                 if (data === 'RejectOffer') {
                     player1earnings += player1penalty;
@@ -388,8 +393,10 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player1earnings = 0;
             var player2earnings = 0;
 
+            //q
             var player1reward = 80000;
             var player1penalty = 0;
+            //p
             var player2reward = 100000;
             var player2penalty = 0;
 
@@ -459,7 +466,14 @@ router.get('/api/get/senddata', (req,res,next) => {
                 }
             }
         }
-
+        console.log(`update public.game_state
+            set player2action = '${data}',
+            roundcomplete = true,
+            drawn_ball = '${drawn_ball}',
+            player1earnings = TO_NUMBER(player1earnings)+${player1earnings},
+            player2earnings = TO_NUMBER(player2earnings)+${player2earnings}
+            where room = '${room}'
+            and round = '${round}'`)
         pool.query(`update public.game_state
             set player2action = '${data}',
             roundcomplete = true,
