@@ -138,9 +138,10 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setResponse1(true)
                 setRemainingQuestions(remainingQuestions.splice(1,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(1,1)))}
+                else {setQuizPage(shuffle(remainingQuestions.splice(1,1))[0])}
                 console.log(response1);
                 console.log(remainingQuestions);
+                console.log(quizPage)
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -148,7 +149,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 shuffle(question1)
-                setQuizPage(shuffle(remainingQuestions));
+                setQuizPage(shuffle(remainingQuestions)[0]);
                 console.log(response1);
                 console.log(remainingQuestions);
             }
@@ -163,7 +164,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setResponse2(true)
                 setRemainingQuestions(remainingQuestions.splice(2,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(2,1)))}
+                else {setQuizPage(shuffle(remainingQuestions.splice(2,1))[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -171,7 +172,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 shuffle(question2)
-                setQuizPage(shuffle(remainingQuestions));
+                setQuizPage(shuffle(remainingQuestions)[0]);
             }
         } else if (quizPage === 3) {
             answer = selectedValue3
@@ -184,7 +185,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setResponse3(true)
                 setRemainingQuestions(remainingQuestions.splice(3,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(3,1)))}
+                else {setQuizPage(shuffle(remainingQuestions.splice(3,1))[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -192,7 +193,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 shuffle(question3)
-                setQuizPage(shuffle(remainingQuestions));
+                setQuizPage(shuffle(remainingQuestions)[0]);
             }
         } else if (quizPage === 4) {
             answer = selectedValue4
@@ -205,7 +206,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setResponse4(true)
                 setRemainingQuestions(remainingQuestions.splice(4,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(4,1)))}
+                else {setQuizPage(shuffle(remainingQuestions.splice(4,1))[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -213,7 +214,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 shuffle(question4)
-                setQuizPage(shuffle(remainingQuestions));
+                setQuizPage(shuffle(remainingQuestions)[0]);
             }
         } else if (quizPage === 5) {
             answer = selectedValue5
@@ -226,7 +227,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setResponse5(true)
                 setRemainingQuestions(remainingQuestions.splice(5,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(6,1)))}
+                else {setQuizPage(shuffle(remainingQuestions.splice(6,1))[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -234,7 +235,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 shuffle(question5)
-                setQuizPage(shuffle(remainingQuestions));
+                setQuizPage(shuffle(remainingQuestions)[0]);
             }
         }
     }
