@@ -138,10 +138,9 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setResponse1(true)
                 setRemainingQuestions(remainingQuestions.splice(1,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(1,1))[0])}
+                else {setQuizPage(shuffle(remainingQuestions))[0])}
                 console.log(response1);
                 console.log(remainingQuestions);
-                console.log(quizPage)
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -162,9 +161,9 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 setResponse2(true)
-                setRemainingQuestions(remainingQuestions.splice(2,1))
+                setRemainingQuestions(remainingQuestions.splice(1,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(2,1))[0])}
+                else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -183,9 +182,9 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 setResponse3(true)
-                setRemainingQuestions(remainingQuestions.splice(3,1))
+                setRemainingQuestions(remainingQuestions.splice(2,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(3,1))[0])}
+                else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -204,9 +203,9 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 setResponse4(true)
-                setRemainingQuestions(remainingQuestions.splice(4,1))
+                setRemainingQuestions(remainingQuestions.splice(3,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(4,1))[0])}
+                else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -225,9 +224,9 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                     '&answer='+answer
                 ));
                 setResponse5(true)
-                setRemainingQuestions(remainingQuestions.splice(5,1))
+                setRemainingQuestions(remainingQuestions.splice(4,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions.splice(6,1))[0])}
+                else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
