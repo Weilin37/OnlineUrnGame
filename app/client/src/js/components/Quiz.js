@@ -138,7 +138,7 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setResponse1(true)
                 setRemainingQuestions(remainingQuestions.splice(1,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
-                else {setQuizPage(shuffle(remainingQuestions))[0])}
+                else {setQuizPage(shuffle(remainingQuestions)[0])}
                 console.log(response1);
                 console.log(remainingQuestions);
             } else {
