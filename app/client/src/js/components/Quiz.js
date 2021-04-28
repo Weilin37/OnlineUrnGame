@@ -71,7 +71,7 @@ const Quiz = () => {
                     '&answer='+answer
                 ));
                 dispatch(setQuizFinish(true));
-                alert("You completed the Quiz successfully. Press ok to continu to the game.")
+                alert("You completed the Quiz successfully. Press ok to continue to the game.")
             });
         } else {
             dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
