@@ -72,6 +72,26 @@ const Quiz = () => {
         <FormControlLabel value="80%" control={<Radio />} label="80%" />
     ];
 
+
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
     // Functions for Instructions
     function handleSubmit() {
         var answer;
@@ -120,6 +140,7 @@ const Quiz = () => {
 
     // render component
     if (quizPage === 1) {
+        shuffle(question1)
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
@@ -130,12 +151,9 @@ const Quiz = () => {
                         in the balls from the jar?
                       </Typography>
                       <RadioGroup aria-label="question1" name="question1" onChange={handleSelectChange}>
-                        <FormControlLabel value="30%" control={<Radio />} label="30%" />
-                        <FormControlLabel value="40%" control={<Radio />} label="40%" />
-                        <FormControlLabel value="50%" control={<Radio />} label="50%" />
-                        <FormControlLabel value="60%" control={<Radio />} label="60%" />
-                        <FormControlLabel value="70%" control={<Radio />} label="70%" />
-                        <FormControlLabel value="80%" control={<Radio />} label="80%" />
+                        {question1.map(function(name, index){
+                            return name;
+                        })}
                       </RadioGroup>
                     </FormControl>
                 </Grid>
