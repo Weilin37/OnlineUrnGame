@@ -168,7 +168,7 @@ const Quiz = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
-                      <<Typography variant="h5" gutterBottom>>
+                      <Typography variant="h5" gutterBottom>
                         What should Player 2 NEVER do if one of his/her urns has 100 blue balls and the
                         other urn 100 red balls?
                       </Typography>
@@ -193,7 +193,7 @@ const Quiz = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
-                      <<Typography variant="h5" gutterBottom>>
+                      <Typography variant="h5" gutterBottom>
                         If Player 1 believes that Player 2 will certainly reject his/her offer in a given round,
                         what would Player 1 most likely do?
                       </Typography>
