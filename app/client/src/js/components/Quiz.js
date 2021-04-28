@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { submitQuiz, updateOnlineStatus } from "../features/gameSlice";
+import { submitQuiz, updateOnlineStatus, getData } from "../features/gameSlice";
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';

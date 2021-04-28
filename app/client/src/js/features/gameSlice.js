@@ -163,6 +163,9 @@ const gameSlice = createSlice({
             var player1_ready = state.data[state.data.length - 1]['player1_ready'];
             var player2_ready = state.data[state.data.length - 1]['player2_ready'];
 
+            var player1_quiz_finished = state.data[state.data.length - 1]['player1_quiz_finished'];
+            var player2_quiz_finished = state.data[state.data.length - 1]['player2_quiz_finished'];
+
             state.current_round = parseInt(state.data[state.data.length - 1]['round']);
 
             if (!player1action && !player2action) {
