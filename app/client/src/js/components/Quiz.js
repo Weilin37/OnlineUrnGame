@@ -51,8 +51,6 @@ const Quiz = () => {
         }
     }, [timer]);
 
-    console.log(remainingQuestions);
-
     const answers = {
         1:'40%',
         2:'No',
