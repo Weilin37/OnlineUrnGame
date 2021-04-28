@@ -12,7 +12,7 @@ const App = () => {
     // state
     const gameState = useSelector(state => state.game);
 
-    if (gameState.game_created === true && gameState.game_waiting === false && gameState.quiz_taken) {
+    if (gameState.game_created === true && gameState.game_waiting === false && gameState.both_quiz_finished) {
         return(
             <div>
                 <NavBar />
@@ -23,7 +23,7 @@ const App = () => {
                 </Grid>
             </div>
         )
-    } else if (gameState.game_created === true && gameState.game_waiting === false && !gameState.quiz_taken) {
+    } else if (gameState.game_created === true && gameState.game_waiting === false && !gameState.both_quiz_finished) {
         return(
             <div>
                 <NavBar />
