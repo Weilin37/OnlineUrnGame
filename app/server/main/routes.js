@@ -97,7 +97,9 @@ router.get('/api/get/creategame', (req,res,next) => {
             player1name,
             player2name,
             player1_ready,
-            player2_ready
+            player2_ready,
+            player1_quiz_finished,
+            player2_quiz_finished
         )
         VALUES (
             '${room}',
@@ -114,6 +116,8 @@ router.get('/api/get/creategame', (req,res,next) => {
             ${startingearnings},
             '${player1name}',
             '${player2name}',
+            false,
+            false,
             false,
             false
         )
@@ -156,14 +160,16 @@ router.get('/api/get/finishquiz', (req,res,next) => {
     if (player === 'player1') {
         pool.query(`update table public.game_state
             set player1_quiz_finished = true
-            and room = '${room}'`,
+            where room = '${room}'
+            and round = '1'`,
             (q_err, q_res) => {
                 res.json(q_res.rows)
         })
     } else if (player === 'player2') {
         pool.query(`update table public.game_state
             set player2_quiz_finished = true
-            and room = '${room}'`,
+            where room = '${room}'
+            and round = '1'`,
             (q_err, q_res) => {
                 res.json(q_res.rows)
         })
@@ -207,7 +213,9 @@ router.get('/api/get/createnewround', (req,res,next) => {
             player1name,
             player2name,
             player1_ready,
-            player2_ready
+            player2_ready,
+            player1_quiz_finished,
+            player2_quiz_finished
         )
         VALUES (
             '${room}',
@@ -225,7 +233,9 @@ router.get('/api/get/createnewround', (req,res,next) => {
             '${player1name}',
             '${player2name}',
             false,
-            false
+            false,
+            true,
+            true
         )
         RETURNING *`,
         (q_err, q_res) => {
