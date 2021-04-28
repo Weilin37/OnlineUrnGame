@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, batch } from "react-redux";
 import { submitQuiz, setQuizFinish } from "../features/gameSlice";
 
 import Button from '@material-ui/core/Button';
@@ -91,7 +91,7 @@ const Quiz = () => {
                         70 red balls in the urn, what is the percentage of blue balls in the urn after we mix
                         in the balls from the jar?
                       </FormLabel>
-                      <RadioGroup aria-label="question1" name="question1" value={value} onChange={handleSelectChange}>
+                      <RadioGroup aria-label="question1" name="question1" onChange={handleSelectChange}>
                         <FormControlLabel value="30%" control={<Radio />} label="30%" />
                         <FormControlLabel value="40%" control={<Radio />} label="40%" />
                         <FormControlLabel value="50%" control={<Radio />} label="50%" />
@@ -120,7 +120,7 @@ const Quiz = () => {
                         from the jar into his/her urn if he/she is trying to increase the chance that a blue ball
                         is drawn randomly from the urn at the end of the round?
                       </FormLabel>
-                      <RadioGroup aria-label="question2" name="question2" value={value} onChange={handleSelectChange}>
+                      <RadioGroup aria-label="question2" name="question2" onChange={handleSelectChange}>
                         <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="No" control={<Radio />} label="No" />
                         <FormControlLabel value="Unclear" control={<Radio />} label="Unclear" />
@@ -146,7 +146,7 @@ const Quiz = () => {
                         urns with fewer blue balls than the jar, what is the chance of drawing a blue ball from
                         the urn after mixing relative to before mixing?
                       </FormLabel>
-                      <RadioGroup aria-label="question3" name="question3" value={value} onChange={handleSelectChange}>
+                      <RadioGroup aria-label="question3" name="question3" onChange={handleSelectChange}>
                         <FormControlLabel value="Same" control={<Radio />} label="Same as before the mixing" />
                         <FormControlLabel value="Higher" control={<Radio />} label="Higher than before mixing" />
                         <FormControlLabel value="Lower" control={<Radio />} label="Lower than before mixing" />
@@ -171,7 +171,7 @@ const Quiz = () => {
                         What should Player 2 NEVER do if one of his/her urns has 100 blue balls and the
                         other urn 100 red balls?
                       </FormLabel>
-                      <RadioGroup aria-label="question4" name="question4" value={value} onChange={handleSelectChange}>
+                      <RadioGroup aria-label="question4" name="question4" onChange={handleSelectChange}>
                         <FormControlLabel value="Accept" control={<Radio />} label="Accept any offer from Player 1" />
                         <FormControlLabel value="MixBlue" control={<Radio />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />
                         <FormControlLabel value="MixRed" control={<Radio />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />
@@ -196,7 +196,7 @@ const Quiz = () => {
                         If Player 1 believes that Player 2 will certainly reject his/her offer in a given round,
                         what would Player 1 most likely do?
                       </FormLabel>
-                      <RadioGroup aria-label="question5" name="question5" value={value} onChange={handleSelectChange}>
+                      <RadioGroup aria-label="question5" name="question5" onChange={handleSelectChange}>
                         <FormControlLabel value="DefiniteYes" control={<Radio />} label="Definitely make an offer to Player 2" />
                         <FormControlLabel value="SomeChance" control={<Radio />} label="Make an offer to Player 2 with some chance" />
                         <FormControlLabel value="DefiniteNo" control={<Radio />} label="Definitely not make an offer to Player 2" />
