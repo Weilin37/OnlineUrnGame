@@ -17,7 +17,12 @@ const Player1 = () => {
 
     // Enter decision
     function handleSubmit() {
-        dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue))
+        if (selectedValue) {
+            dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue))
+        } else {
+            alert("Please make a choice before submitting");
+        }
+
     }
 
     function handleChange(event) {

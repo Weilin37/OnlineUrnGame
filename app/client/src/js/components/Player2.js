@@ -42,16 +42,20 @@ const Player2 = () => {
 
     // Enter decision
     function handleSubmit() {
-        dispatch(sendData('/api/get/senddata?player='+gameState.player+
-            '&room='+gameState.room+
-            '&round='+gameState.data[gameState.data.length-1]['round']+
-            '&treatment='+gameState.data[gameState.data.length-1]['treatment']+
-            '&player1action='+gameState.data[gameState.data.length-1]['player1action']+
-            '&player1bluecount='+gameState.data[gameState.data.length-1]['player1bluecount']+
-            '&player2highbluecount='+gameState.data[gameState.data.length-1]['player2highbluecount']+
-            '&player2lowbluecount='+gameState.data[gameState.data.length-1]['player2lowbluecount']+
-            '&data='+selectedValue)
-        );
+        if (selectedValue) {
+            dispatch(sendData('/api/get/senddata?player='+gameState.player+
+                '&room='+gameState.room+
+                '&round='+gameState.data[gameState.data.length-1]['round']+
+                '&treatment='+gameState.data[gameState.data.length-1]['treatment']+
+                '&player1action='+gameState.data[gameState.data.length-1]['player1action']+
+                '&player1bluecount='+gameState.data[gameState.data.length-1]['player1bluecount']+
+                '&player2highbluecount='+gameState.data[gameState.data.length-1]['player2highbluecount']+
+                '&player2lowbluecount='+gameState.data[gameState.data.length-1]['player2lowbluecount']+
+                '&data='+selectedValue)
+            );
+        } else {
+            alert("Please make a choice before submitting");
+        }
     }
 
     function handleContinue() {
