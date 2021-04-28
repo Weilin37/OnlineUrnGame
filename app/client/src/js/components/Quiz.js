@@ -41,7 +41,7 @@ const Quiz = () => {
     const answers = {
         1:'30%',
         2:'Yes',
-        3:'Unknown',
+        3:'Same',
         4:'Accept',
         5:'DefiniteYes'
     }
