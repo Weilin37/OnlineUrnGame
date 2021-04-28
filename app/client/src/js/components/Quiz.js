@@ -126,8 +126,6 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
     function handleSubmit() {
         var answer;
         if (quizPage === 1) {
-            console.log(response1);
-            console.log(remainingQuestions);
             answer = selectedValue1
             if (answers[quizPage] === answer) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
@@ -139,8 +137,6 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 setRemainingQuestions(remainingQuestions.splice(1,1))
                 if (remainingQuestions.length === 0) {setQuizPage(6)}
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
-                console.log(response1);
-                console.log(remainingQuestions);
             } else {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -149,8 +145,6 @@ dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameSt
                 ));
                 shuffle(question1)
                 setQuizPage(shuffle(remainingQuestions)[0]);
-                console.log(response1);
-                console.log(remainingQuestions);
             }
         } else if (quizPage === 2) {
             answer = selectedValue2
