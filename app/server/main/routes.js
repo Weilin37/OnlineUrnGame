@@ -158,11 +158,11 @@ router.get('/api/get/finishquiz', (req,res,next) => {
     var room = req.query.room;
 
     if (player === 'player1') {
-        console.log(`update table public.game_state
+        console.log(`update public.game_state
             set player1_quiz_finished = true
             where room = '${room}'
             and round = '1'`)
-        pool.query(`update table public.game_state
+        pool.query(`update public.game_state
             set player1_quiz_finished = true
             where room = '${room}'
             and round = '1'`,
@@ -170,11 +170,11 @@ router.get('/api/get/finishquiz', (req,res,next) => {
                 res.json(q_res.rows)
         })
     } else if (player === 'player2') {
-        console.log(`update table public.game_state
+        console.log(`update public.game_state
             set player2_quiz_finished = true
             where room = '${room}'
             and round = '1'`)
-        pool.query(`update table public.game_state
+        pool.query(`update public.game_state
             set player2_quiz_finished = true
             where room = '${room}'
             and round = '1'`,
