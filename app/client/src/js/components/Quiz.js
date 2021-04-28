@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { submitQuiz, setQuizFinish, updateOnlineStatus } from "../features/gameSlice";
+import { submitQuiz, updateOnlineStatus } from "../features/gameSlice";
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -34,6 +34,7 @@ const Quiz = () => {
     // Read Game State
     useEffect(() => {
         batch(() => {
+            dispatch(getData("/api/get/readgame?room="+gameState.room));
             dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round=1'));
         });
     }, [timer]);
@@ -55,30 +56,15 @@ const Quiz = () => {
         else if (quizPage === 4) {answer = selectedValue4}
         else if (quizPage === 5) {answer = selectedValue5}
 
-        if (answers[quizPage] === answer && quizPage < 5) {
-            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                '&room='+gameState.room+
-                '&question='+quizPage+
-                '&answer='+answer
-            ));
+        dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+            '&room='+gameState.room+
+            '&question='+quizPage+
+            '&answer='+answer
+        ));
+
+        if (answers[quizPage] === answer && quizPage <= 5) {
             setQuizPage(quizPage+1);
-        }
-        else if (answers[quizPage] === answer && quizPage === 5) {
-            batch(() => {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
-                dispatch(setQuizFinish(true));
-                alert("You completed the Quiz successfully. Press ok to continue to the game.")
-            });
         } else {
-            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                '&room='+gameState.room+
-                '&question='+quizPage+
-                '&answer='+answer
-            ));
             alert("You did not choose the correct response. Try again.")
         }
     }
@@ -205,6 +191,16 @@ const Quiz = () => {
                 </Grid>
                 <Grid item align="center" xs={8}>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
+                </Grid>
+            </Grid>
+        );
+    } else if (quizPage === 6) {
+        return (
+            <Grid container justify="center" alignItems="center" spacing={2}>
+                <Grid item align="center" xs={8} >
+                      <Typography variant="h5" gutterBottom>
+                        Quiz finished! Waiting for other player to finish...
+                      </Typography>
                 </Grid>
             </Grid>
         );

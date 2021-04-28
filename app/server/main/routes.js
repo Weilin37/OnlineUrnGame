@@ -148,6 +148,31 @@ router.get('/api/get/submitquiz', (req,res,next) => {
     })
 })
 
+// Finish quiz
+router.get('/api/get/finishquiz', (req,res,next) => {
+    var alias = req.query.alias;
+    var player = req.query.player;
+    var room = req.query.room;
+
+    if (player === 'player1') {
+        pool.query(`update table public.game_state
+            set player1_quiz_finished = true
+            where alias = '${alias}'
+            and room = '${room}'`,
+            (q_err, q_res) => {
+                res.json(q_res.rows)
+        })
+    } else if (player === 'player2') {
+        pool.query(`update table public.game_state
+            set player2_quiz_finished = true
+            where alias = '${alias}'
+            and room = '${room}'`,
+            (q_err, q_res) => {
+                res.json(q_res.rows)
+        })
+    }
+})
+
 // create new round
 router.get('/api/get/createnewround', (req,res,next) => {
 

@@ -21,6 +21,16 @@ export const submitQuiz = createAsyncThunk("game/submitQuiz", async (endpoint, t
     }
 });
 
+// Submit Finish Quiz
+export const finishQuiz = createAsyncThunk("game/finishQuiz", async (endpoint, thunkAPI) => {
+    try {
+        const response = await axios.get(endpoint);
+        return response.data;
+    } catch (error) {
+         return thunkAPI.rejectWithValue({ error: error.message });
+    }
+});
+
 // Join New Game
 export const joinGame = createAsyncThunk("game/joinGame", async (endpoint, thunkAPI) => {
     try {
@@ -120,7 +130,6 @@ const gameSlice = createSlice({
     game_waiting_data: [],
     game_created: false,
     game_waiting: false,
-    quiz_finished: false,
     instructions: true,
     current_turn: '',
     current_round: 0,
@@ -128,6 +137,7 @@ const gameSlice = createSlice({
     both_submitted: false,
     both_online: false,
     both_ready_for_next: false,
+    both_quiz_finished: false,
     alias: '',
     player: '',
     room: '',
@@ -138,7 +148,6 @@ const gameSlice = createSlice({
     setGameWaiting: (state, action) => {state.game_waiting = action.payload},
     setGameCreated: (state, action) => {state.game_created = action.payload},
     setInstructions: (state, action) => {state.instructions = action.payload},
-    setQuizFinish: (state, action) => {state.instructions = action.payload},
   },
   extraReducers: (builder) => {
     // getData
@@ -176,6 +185,9 @@ const gameSlice = createSlice({
 
             if (player1_ready && player2_ready) {state.both_ready_for_next = true}
             else {state.both_ready_for_next = false}
+
+            if (player1_quiz_finished && player2_quiz_finished) {state.both_quiz_finished = true}
+            else {state.both_quiz_finished = false}
 
         }
     });
@@ -219,6 +231,6 @@ const gameSlice = createSlice({
   }
 });
 
-export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions, setQuizFinish } = gameSlice.actions;
+export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions } = gameSlice.actions;
 
 export default gameSlice
