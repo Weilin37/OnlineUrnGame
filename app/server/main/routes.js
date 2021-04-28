@@ -126,7 +126,7 @@ router.get('/api/get/creategame', (req,res,next) => {
 
 // Create quiz
 router.get('/api/get/submitquiz', (req,res,next) => {
-    var playername = req.query.playername;
+    var alias = req.query.alias;
     var room = req.query.room;
     var question = req.query.question;
     var answer = req.query.answer;

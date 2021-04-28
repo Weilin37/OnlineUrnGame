@@ -56,7 +56,7 @@ const Quiz = () => {
         else if (quizPage === 5) {answer = selectedValue5}
 
         if (answers[quizPage] === answer && quizPage < 5) {
-            dispatch(submitQuiz('/api/get/submitquiz?playername='+gameState.alias+
+            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                 '&room='+gameState.room+
                 '&question='+quizPage+
                 '&answer='+answer
@@ -65,7 +65,7 @@ const Quiz = () => {
         }
         else if (answers[quizPage] === answer && quizPage === 5) {
             batch(() => {
-                dispatch(submitQuiz('/api/get/submitquiz?playername='+gameState.alias+
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
                     '&question='+quizPage+
                     '&answer='+answer
@@ -74,7 +74,7 @@ const Quiz = () => {
                 alert("You completed the Quiz successfully. Press ok to continu to the game.")
             });
         } else {
-            dispatch(submitQuiz('/api/get/submitquiz?playername='+gameState.alias+
+            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                 '&room='+gameState.room+
                 '&question='+quizPage+
                 '&answer='+answer
