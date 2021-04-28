@@ -61,7 +61,7 @@ const Quiz = () => {
                 '&question='+quizPage+
                 '&answer='+answer
             ));
-            setQuizPage = quizPage+1;
+            setQuizPage(quizPage+1);
         }
         else if (answers[quizPage] === answer && quizPage === 5) {
             batch(() => {
@@ -91,10 +91,6 @@ const Quiz = () => {
         else if (quizPage === 5) {setSelectedValue5(event.target.value)}
     }
 
-    function handleQuizPageChange(event, value) {
-        setQuizPage(value);
-    }
-
     // render component
     if (quizPage === 1) {
         return (
@@ -119,9 +115,6 @@ const Quiz = () => {
                 <Grid item align="center" xs={8}>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
-                <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
-                </Grid>
             </Grid>
         );
     } else if (quizPage === 2) {
@@ -144,9 +137,6 @@ const Quiz = () => {
                 </Grid>
                 <Grid item align="center" xs={8}>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                </Grid>
-                <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
                 </Grid>
             </Grid>
         );
@@ -172,9 +162,6 @@ const Quiz = () => {
                 <Grid item align="center" xs={8}>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
-                <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
-                </Grid>
             </Grid>
         );
     } else if (quizPage === 4) {
@@ -197,9 +184,6 @@ const Quiz = () => {
                 <Grid item align="center" xs={8}>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
-                <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
-                </Grid>
             </Grid>
         );
     } else if (quizPage === 5) {
@@ -221,9 +205,6 @@ const Quiz = () => {
                 </Grid>
                 <Grid item align="center" xs={8}>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                </Grid>
-                <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
                 </Grid>
             </Grid>
         );
