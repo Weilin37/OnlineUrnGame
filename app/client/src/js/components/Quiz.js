@@ -12,6 +12,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Typography from '@material-ui/core/Typography';
 
 const Quiz = () => {
     const dispatch = useDispatch();
@@ -86,11 +87,11 @@ const Quiz = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
-                      <FormLabel>
+                      <Typography variant="h5" gutterBottom>
                         If there are 50 blue balls and 50 red balls in the jar and 30 blue balls and
                         70 red balls in the urn, what is the percentage of blue balls in the urn after we mix
                         in the balls from the jar?
-                      </FormLabel>
+                      </Typography>
                       <RadioGroup aria-label="question1" name="question1" onChange={handleSelectChange}>
                         <FormControlLabel value="30%" control={<Radio />} label="30%" />
                         <FormControlLabel value="40%" control={<Radio />} label="40%" />
@@ -105,7 +106,7 @@ const Quiz = () => {
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={3} />
+                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
                 </Grid>
             </Grid>
         );
@@ -114,12 +115,12 @@ const Quiz = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
-                      <FormLabel>
+                      <Typography variant="h5" gutterBottom>
                         If there are 49 blue balls and 51 red balls in the jar and 50 blue balls and 50 red balls
                         in Player 2’s urn in a specific round of the study, would Player 2 want to mix the balls
                         from the jar into his/her urn if he/she is trying to increase the chance that a blue ball
                         is drawn randomly from the urn at the end of the round?
-                      </FormLabel>
+                      </Typography>
                       <RadioGroup aria-label="question2" name="question2" onChange={handleSelectChange}>
                         <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="No" control={<Radio />} label="No" />
@@ -131,7 +132,7 @@ const Quiz = () => {
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={3} />
+                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
                 </Grid>
             </Grid>
         );
@@ -140,12 +141,12 @@ const Quiz = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
-                      <FormLabel>
+                      <Typography variant="h5" gutterBottom>
                         Assume that you know the exact numbers of blue balls in each urn (as Player 2 does).
                         If Player 2 received an offer and mixed the balls from Player 1’s jar to one of Player 2’s
                         urns with fewer blue balls than the jar, what is the chance of drawing a blue ball from
                         the urn after mixing relative to before mixing?
-                      </FormLabel>
+                      </Typography>
                       <RadioGroup aria-label="question3" name="question3" onChange={handleSelectChange}>
                         <FormControlLabel value="Same" control={<Radio />} label="Same as before the mixing" />
                         <FormControlLabel value="Higher" control={<Radio />} label="Higher than before mixing" />
@@ -158,7 +159,7 @@ const Quiz = () => {
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={3} />
+                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
                 </Grid>
             </Grid>
         );
@@ -167,10 +168,10 @@ const Quiz = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
-                      <FormLabel>
+                      <<Typography variant="h5" gutterBottom>>
                         What should Player 2 NEVER do if one of his/her urns has 100 blue balls and the
                         other urn 100 red balls?
-                      </FormLabel>
+                      </Typography>
                       <RadioGroup aria-label="question4" name="question4" onChange={handleSelectChange}>
                         <FormControlLabel value="Accept" control={<Radio />} label="Accept any offer from Player 1" />
                         <FormControlLabel value="MixBlue" control={<Radio />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />
@@ -183,7 +184,7 @@ const Quiz = () => {
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={3} />
+                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
                 </Grid>
             </Grid>
         );
@@ -192,10 +193,10 @@ const Quiz = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
-                      <FormLabel>
+                      <<Typography variant="h5" gutterBottom>>
                         If Player 1 believes that Player 2 will certainly reject his/her offer in a given round,
                         what would Player 1 most likely do?
-                      </FormLabel>
+                      </Typography>
                       <RadioGroup aria-label="question5" name="question5" onChange={handleSelectChange}>
                         <FormControlLabel value="DefiniteYes" control={<Radio />} label="Definitely make an offer to Player 2" />
                         <FormControlLabel value="SomeChance" control={<Radio />} label="Make an offer to Player 2 with some chance" />
@@ -208,7 +209,7 @@ const Quiz = () => {
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={3} />
+                    <Pagination page={quizPage} onChange={handleQuizPageChange} count={5} />
                 </Grid>
             </Grid>
         );
