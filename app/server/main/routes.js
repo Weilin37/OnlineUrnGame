@@ -75,6 +75,8 @@ router.get('/api/get/creategame', (req,res,next) => {
     var player1name = '';
     var player2name = '';
 
+    var startingearnings = 5000000;
+
     if (player === 'player1') {player1name = req.query.alias;}
     else if (player === 'player2') {player2name = req.query.alias;}
 
@@ -108,8 +110,8 @@ router.get('/api/get/creategame', (req,res,next) => {
             '${player1bluecount}',
             '${player2highbluecount}',
             '${player2lowbluecount}',
-            5,
-            5,
+            ${startingearnings},
+            ${startingearnings},
             '${player1name}',
             '${player2name}',
             false,
@@ -332,10 +334,10 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player1earnings = 0;
             var player2earnings = 0;
 
-            var player1reward = 1;
-            var player1penalty = -1;
-            var player2reward = 1;
-            var player2penalty = -1;
+            var player1reward = 80000;
+            var player1penalty = -240000;
+            var player2reward = 240000;
+            var player2penalty = -1062500;
 
             if (player1action === 'NoOffer') {
                 player1earnings = 0;
@@ -386,9 +388,9 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player1earnings = 0;
             var player2earnings = 0;
 
-            var player1reward = 1;
+            var player1reward = 80000;
             var player1penalty = 0;
-            var player2reward = 1;
+            var player2reward = 100000;
             var player2penalty = 0;
 
             if (player1action === 'NoOffer') {
