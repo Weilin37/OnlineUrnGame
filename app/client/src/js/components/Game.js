@@ -58,6 +58,8 @@ export const Game = () => {
                 'player2action':v.player2action,
                 'player1earnings':v.player1earnings,
                 'player2earnings':v.player2earnings,
+                'player1earnings_difference':v.player1earnings_difference,
+                'player2earnings_difference':v.player2earnings_difference,
                 'drawn_ball':v.drawn_ball
             })
         });
@@ -96,7 +98,9 @@ export const Game = () => {
                                 { title: "Player 2 Decision", field: "player2action"},
                                 { title: "Ball Drawn", field: "drawn_ball"},
                                 { title: "Player 1 Earnings", field: "player1earnings"},
+                                { title: "Player 1 Delta", field: "player1earnings_difference"},
                                 { title: "Player 2 Earnings", field: "player2earnings"},
+                                { title: "Player 2 Delta", field: "player2earnings_difference"},
                             ]}
                             data={tabledata}
                             options={{
@@ -157,6 +161,7 @@ export const Game = () => {
                                         { title: "Player 2 Decision", field: "player2action"},
                                         { title: "Ball Drawn", field: "drawn_ball"},
                                         { title: "Your Earnings", field: "player1earnings"},
+                                        { title: "Delta", field: "player1earnings_difference"}
                                     ]}
                                     data={tabledata}
                                     options={{
@@ -213,6 +218,7 @@ export const Game = () => {
                                         { title: "Player 2 Decision", field: "player2action"},
                                         { title: "Ball Drawn", field: "drawn_ball"},
                                         { title: "Your Earnings", field: "player2earnings"},
+                                        { title: "Delta", field: "player2earnings_difference"}
                                     ]}
                                     data={tabledata}
                                     options={{
