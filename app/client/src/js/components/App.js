@@ -4,6 +4,7 @@ import { Game } from "./Game";
 import Grid from '@material-ui/core/Grid';
 import { useSelector } from "react-redux";
 import CreateGame from "./CreateGame";
+import Quiz from "./Quiz";
 import Typography from '@material-ui/core/Typography';
 
 const App = () => {
