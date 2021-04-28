@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { submitQuiz, setQuizFinish } from "../features/gameSlice";
+import { submitQuiz, setQuizFinish, updateOnlineStatus } from "../features/gameSlice";
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -25,6 +25,18 @@ const Quiz = () => {
     const [selectedValue3, setSelectedValue3] = React.useState();
     const [selectedValue4, setSelectedValue4] = React.useState();
     const [selectedValue5, setSelectedValue5] = React.useState();
+    const [timer, setTimer] = React.useState(0);
+
+    const interval = setTimeout(() => {
+        setTimer(timer+1);
+    }, 1000);
+
+    // Read Game State
+    useEffect(() => {
+        batch(() => {
+            dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round=1'));
+        });
+    }, [timer]);
 
     const answers = {
         1:'30%',
