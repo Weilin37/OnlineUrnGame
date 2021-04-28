@@ -40,12 +40,37 @@ const Quiz = () => {
     }, [timer]);
 
     const answers = {
-        1:'30%',
-        2:'Yes',
-        3:'Same',
+        1:'40%',
+        2:'No',
+        3:'Higher',
         4:'Accept',
         5:'DefiniteYes'
     }
+
+    const explanations = {
+        1:,
+        2:,
+        3:,
+        4:,
+        5:
+    }
+
+    var responses = {
+        1:false,
+        2:false,
+        3:false,
+        4:false,
+        5:false
+    }
+
+    const question1 = [
+        <FormControlLabel value="30%" control={<Radio />} label="30%" />,
+        <FormControlLabel value="40%" control={<Radio />} label="40%" />,
+        <FormControlLabel value="50%" control={<Radio />} label="50%" />,
+        <FormControlLabel value="60%" control={<Radio />} label="60%" />,
+        <FormControlLabel value="70%" control={<Radio />} label="70%" />,
+        <FormControlLabel value="80%" control={<Radio />} label="80%" />
+    ];
 
     // Functions for Instructions
     function handleSubmit() {
