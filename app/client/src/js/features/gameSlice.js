@@ -11,6 +11,16 @@ export const createNewGame = createAsyncThunk("game/createNewGame", async (endpo
     }
 });
 
+// Submit Quiz Answers
+export const submitQuiz = createAsyncThunk("game/submitQuiz", async (endpoint, thunkAPI) => {
+    try {
+        const response = await axios.get(endpoint);
+        return response.data;
+    } catch (error) {
+         return thunkAPI.rejectWithValue({ error: error.message });
+    }
+});
+
 // Join New Game
 export const joinGame = createAsyncThunk("game/joinGame", async (endpoint, thunkAPI) => {
     try {
@@ -110,6 +120,7 @@ const gameSlice = createSlice({
     game_waiting_data: [],
     game_created: false,
     game_waiting: false,
+    quiz_finished: false,
     instructions: true,
     current_turn: '',
     current_round: 0,
@@ -127,6 +138,7 @@ const gameSlice = createSlice({
     setGameWaiting: (state, action) => {state.game_waiting = action.payload},
     setGameCreated: (state, action) => {state.game_created = action.payload},
     setInstructions: (state, action) => {state.instructions = action.payload},
+    setQuizFinish: (state, action) => {state.instructions = action.payload},
   },
   extraReducers: (builder) => {
     // getData
@@ -207,6 +219,6 @@ const gameSlice = createSlice({
   }
 });
 
-export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions } = gameSlice.actions;
+export const { setAlias, setPlayer, setGameCreated, setGameWaiting, setInstructions, setQuizFinish } = gameSlice.actions;
 
 export default gameSlice

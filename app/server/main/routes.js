@@ -124,6 +124,30 @@ router.get('/api/get/creategame', (req,res,next) => {
 
 })
 
+// Create quiz
+router.get('/api/get/submitquiz', (req,res,next) => {
+    var playername = req.query.playername;
+    var room = req.query.room;
+    var question = req.query.question;
+    var answer = req.query.answer;
+
+    pool.query(`insert into public.quiz_results (
+            room,
+            alias,
+            question,
+            answer,
+        )
+        VALUES (
+            '${room}',
+            '${alias}',
+            '${question}',
+            '${answer}'
+        )`,
+        (q_err, q_res) => {
+            res.json(q_res.rows)
+    })
+})
+
 // create new round
 router.get('/api/get/createnewround', (req,res,next) => {
 
