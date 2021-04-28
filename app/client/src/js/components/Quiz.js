@@ -71,10 +71,7 @@ const Quiz = () => {
                     '&question='+quizPage+
                     '&answer='+answer
                 ));
-                dispatch(finishQuiz('/api/get/finishquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&player='+gameState.player
-                ))
+                dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player))
             })
         }
         else {
