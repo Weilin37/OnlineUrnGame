@@ -70,7 +70,8 @@ const Quiz = () => {
                     '&question='+quizPage+
                     '&answer='+answer
                 ));
-                dispatch(setQuizFinish(true))
+                dispatch(setQuizFinish(true));
+                alert("You completed the Quiz successfully. Press ok to continu to the game.")
             });
         } else {
             dispatch(submitQuiz('/api/get/submitquiz?playername='+gameState.alias+
@@ -78,6 +79,7 @@ const Quiz = () => {
                 '&question='+quizPage+
                 '&answer='+answer
             ));
+            alert("You did not choose the correct response. Try again.")
         }
     }
 
