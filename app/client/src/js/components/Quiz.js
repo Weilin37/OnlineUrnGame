@@ -73,6 +73,7 @@ const Quiz = () => {
                 ));
                 dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player))
             })
+            setQuizPage(quizPage+1);
         }
         else {
             dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
