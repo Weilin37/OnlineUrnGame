@@ -136,7 +136,8 @@ const Quiz = () => {
                     '&answer='+answer
                 ));
                 setResponse1(true)
-                setRemainingQuestions(remainingQuestions.splice(1,1))
+                remainingQuestions.splice(0,1)
+                setRemainingQuestions(remainingQuestions)
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
@@ -160,7 +161,8 @@ const Quiz = () => {
                     '&answer='+answer
                 ));
                 setResponse2(true)
-                setRemainingQuestions(remainingQuestions.splice(1,1))
+                remainingQuestions.splice(1,1)
+                setRemainingQuestions(remainingQuestions)
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
@@ -184,7 +186,8 @@ const Quiz = () => {
                     '&answer='+answer
                 ));
                 setResponse3(true)
-                setRemainingQuestions(remainingQuestions.splice(2,1))
+                remainingQuestions.splice(2,1)
+                setRemainingQuestions(remainingQuestions)
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
@@ -208,7 +211,8 @@ const Quiz = () => {
                     '&answer='+answer
                 ));
                 setResponse4(true)
-                setRemainingQuestions(remainingQuestions.splice(3,1))
+                remainingQuestions.splice(3,1)
+                setRemainingQuestions(remainingQuestions)
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
@@ -232,7 +236,8 @@ const Quiz = () => {
                     '&answer='+answer
                 ));
                 setResponse5(true)
-                setRemainingQuestions(remainingQuestions.splice(4,1))
+                remainingQuestions.splice(4,1)
+                setRemainingQuestions(remainingQuestions)
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
