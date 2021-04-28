@@ -33,6 +33,8 @@ const Quiz = () => {
     const [response4, setResponse4] = React.useState(false);
     const [response5, setResponse5] = React.useState(false);
 
+    const [remainingQuestions, setRemainingQuestions] = React.useState([1,2,3,4,5])
+
     const [timer, setTimer] = React.useState(0);
 
     const interval = setTimeout(() => {
@@ -74,6 +76,32 @@ const Quiz = () => {
         <FormControlLabel value="80%" control={<Radio />} label="80%" />
     ];
 
+    const question2 = [
+        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />,
+        <FormControlLabel value="No" control={<Radio />} label="No" />,
+        <FormControlLabel value="Unclear" control={<Radio />} label="Unclear" />
+    ];
+
+    const question3 = [
+        <FormControlLabel value="Same" control={<Radio />} label="Same as before the mixing" />,
+        <FormControlLabel value="Higher" control={<Radio />} label="Higher than before mixing" />,
+        <FormControlLabel value="Lower" control={<Radio />} label="Lower than before mixing" />,
+        <FormControlLabel value="Unknown" control={<Radio />} label="Unknown" />
+    ];
+
+    const question4 = [
+        <FormControlLabel value="Accept" control={<Radio />} label="Accept any offer from Player 1" />,
+        <FormControlLabel value="MixBlue" control={<Radio />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />,
+        <FormControlLabel value="MixRed" control={<Radio />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />,
+        <FormControlLabel value="Reject" control={<Radio />} label="Reject any offer from Player 1" />
+    ];
+
+    const question5 = [
+        <FormControlLabel value="DefiniteYes" control={<Radio />} label="Definitely make an offer to Player 2" />,
+        <FormControlLabel value="SomeChance" control={<Radio />} label="Make an offer to Player 2 with some chance" />,
+        <FormControlLabel value="DefiniteNo" control={<Radio />} label="Definitely not make an offer to Player 2" />,
+        <FormControlLabel value="Unclear" control={<Radio />} label="Unclear/Do not know" />
+    ];
 
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -93,62 +121,115 @@ const Quiz = () => {
 
         return array;
     }
-
+dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player))
     // Functions for Instructions
     function handleSubmit() {
         var answer;
         if (quizPage === 1) {
             answer = selectedValue1
             if (answers[quizPage] === answer) {
-                setResponse1(true)
-            }
-        } else if (quizPage === 2) {
-            answer = selectedValue2
-            if (answers[quizPage] === answer) {
-                setResponse2(true)
-            }
-        } else if (quizPage === 3) {
-            answer = selectedValue3
-            if (answers[quizPage] === answer) {
-                setResponse3(true)
-            }
-        } else if (quizPage === 4) {
-            answer = selectedValue4
-            if (answers[quizPage] === answer) {
-                setResponse4(true)
-            }
-        } else if (quizPage === 5) {
-            answer = selectedValue5
-            if (answers[quizPage] === answer) {
-                setResponse5(true)
-            }
-        }
-
-        if (answers[quizPage] === answer && quizPage < 5) {
-            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                '&room='+gameState.room+
-                '&question='+quizPage+
-                '&answer='+answer
-            ));
-            setQuizPage(quizPage+1);
-        } else if (answers[quizPage] === answer && quizPage === 5) {
-            batch(() => {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
                     '&question='+quizPage+
                     '&answer='+answer
                 ));
-                dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player))
-            })
-            setQuizPage(quizPage+1);
-        }
-        else {
-            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                '&room='+gameState.room+
-                '&question='+quizPage+
-                '&answer='+answer
-            ));
-            alert("You did not choose the correct response. Try again.")
+                setResponse1(true)
+                setRemainingQuestions(remainingQuestions.splice(1,1))
+                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                else {setQuizPage(shuffle(remainingQuestions.splice(1,1)))}
+            } else {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                shuffle(question1)
+                setQuizPage(shuffle(remainingQuestions));
+            }
+        } else if (quizPage === 2) {
+            answer = selectedValue2
+            if (answers[quizPage] === answer) {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                setResponse2(true)
+                setRemainingQuestions(remainingQuestions.splice(2,1))
+                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                else {setQuizPage(shuffle(remainingQuestions.splice(2,1)))}
+            } else {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                shuffle(question2)
+                setQuizPage(shuffle(remainingQuestions));
+            }
+        } else if (quizPage === 3) {
+            answer = selectedValue3
+            if (answers[quizPage] === answer) {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                setResponse3(true)
+                setRemainingQuestions(remainingQuestions.splice(3,1))
+                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                else {setQuizPage(shuffle(remainingQuestions.splice(3,1)))}
+            } else {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                shuffle(question3)
+                setQuizPage(shuffle(remainingQuestions));
+            }
+        } else if (quizPage === 4) {
+            answer = selectedValue4
+            if (answers[quizPage] === answer) {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                setResponse4(true)
+                setRemainingQuestions(remainingQuestions.splice(4,1))
+                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                else {setQuizPage(shuffle(remainingQuestions.splice(4,1)))}
+            } else {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                shuffle(question4)
+                setQuizPage(shuffle(remainingQuestions));
+            }
+        } else if (quizPage === 5) {
+            answer = selectedValue5
+            if (answers[quizPage] === answer) {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                setResponse5(true)
+                setRemainingQuestions(remainingQuestions.splice(5,1))
+                if (remainingQuestions.length === 0) {setQuizPage(6)}
+                else {setQuizPage(shuffle(remainingQuestions.splice(6,1)))}
+            } else {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                shuffle(question5)
+                setQuizPage(shuffle(remainingQuestions));
+            }
         }
     }
 
@@ -162,7 +243,6 @@ const Quiz = () => {
 
     // render component
     if (quizPage === 1) {
-        shuffle(question1)
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
@@ -196,9 +276,9 @@ const Quiz = () => {
                         is drawn randomly from the urn at the end of the round?
                       </Typography>
                       <RadioGroup aria-label="question2" name="question2" onChange={handleSelectChange}>
-                        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="No" control={<Radio />} label="No" />
-                        <FormControlLabel value="Unclear" control={<Radio />} label="Unclear" />
+                        {question2.map(function(name, index){
+                            return name;
+                        })}
                       </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -219,10 +299,9 @@ const Quiz = () => {
                         the urn after mixing relative to before mixing?
                       </Typography>
                       <RadioGroup aria-label="question3" name="question3" onChange={handleSelectChange}>
-                        <FormControlLabel value="Same" control={<Radio />} label="Same as before the mixing" />
-                        <FormControlLabel value="Higher" control={<Radio />} label="Higher than before mixing" />
-                        <FormControlLabel value="Lower" control={<Radio />} label="Lower than before mixing" />
-                        <FormControlLabel value="Unknown" control={<Radio />} label="Unknown" />
+                        {question3.map(function(name, index){
+                            return name;
+                        })}
                       </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -241,10 +320,9 @@ const Quiz = () => {
                         other urn 100 red balls?
                       </Typography>
                       <RadioGroup aria-label="question4" name="question4" onChange={handleSelectChange}>
-                        <FormControlLabel value="Accept" control={<Radio />} label="Accept any offer from Player 1" />
-                        <FormControlLabel value="MixBlue" control={<Radio />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />
-                        <FormControlLabel value="MixRed" control={<Radio />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />
-                        <FormControlLabel value="Reject" control={<Radio />} label="Reject any offer from Player 1" />
+                        {question4.map(function(name, index){
+                            return name;
+                        })}
                       </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -263,10 +341,9 @@ const Quiz = () => {
                         what would Player 1 most likely do?
                       </Typography>
                       <RadioGroup aria-label="question5" name="question5" onChange={handleSelectChange}>
-                        <FormControlLabel value="DefiniteYes" control={<Radio />} label="Definitely make an offer to Player 2" />
-                        <FormControlLabel value="SomeChance" control={<Radio />} label="Make an offer to Player 2 with some chance" />
-                        <FormControlLabel value="DefiniteNo" control={<Radio />} label="Definitely not make an offer to Player 2" />
-                        <FormControlLabel value="Unclear" control={<Radio />} label="Unclear/Do not know" />
+                        {question5.map(function(name, index){
+                            return name;
+                        })}
                       </RadioGroup>
                     </FormControl>
                 </Grid>
