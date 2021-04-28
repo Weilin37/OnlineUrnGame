@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
 import { useSelector, useDispatch, batch } from "react-redux";
-import { submitQuiz, updateOnlineStatus, getData } from "../features/gameSlice";
+import { submitQuiz, finishQuiz, updateOnlineStatus, getData } from "../features/gameSlice";
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -56,15 +56,33 @@ const Quiz = () => {
         else if (quizPage === 4) {answer = selectedValue4}
         else if (quizPage === 5) {answer = selectedValue5}
 
-        dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-            '&room='+gameState.room+
-            '&question='+quizPage+
-            '&answer='+answer
-        ));
 
-        if (answers[quizPage] === answer && quizPage <= 5) {
+        if (answers[quizPage] === answer && quizPage < 5) {
+            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                '&room='+gameState.room+
+                '&question='+quizPage+
+                '&answer='+answer
+            ));
             setQuizPage(quizPage+1);
-        } else {
+        } else if (answers[quizPage] === answer && quizPage === 5) {
+            batch(() => {
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                dispatch(finishQuiz('/api/get/finishquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&player='+gameState.player
+                ))
+            })
+        }
+        else {
+            dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                '&room='+gameState.room+
+                '&question='+quizPage+
+                '&answer='+answer
+            ));
             alert("You did not choose the correct response. Try again.")
         }
     }
