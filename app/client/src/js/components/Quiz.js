@@ -297,7 +297,7 @@ const Quiz = () => {
     // render component
     if (quizPage < 6) {
         var question = questions[quizPage];
-        var choices = choices[quizPage];
+        var choice = choices[quizPage];
 
 
         return (
