@@ -5,6 +5,11 @@ import { useSelector, useDispatch, batch } from "react-redux";
 import { getData, sendData, createNewRound, sendReady } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 const Player2 = () => {
@@ -89,65 +94,77 @@ const Player2 = () => {
     // render component
     if (gameState.current_turn === 'player1' && !gameState.both_ready_for_next) {
         return (
-            <div>
-                <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
-                are randomly assigned the following number of blue balls and red balls</p>
-                <p>Your High Blue Urn - {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2highbluecount'])} red balls</p>
-                <p>Your Low Blue Urn - {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls</p>
-                <p>Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
-                {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
-                and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls</p>
-                <p>Waiting for Player 1 to complete their action....</p>
-            </div>
+            <Grid container justify="center" alignItems="center" spacing={2}>
+                <Grid item align="center" xs={6} >
+                    <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
+                    are randomly assigned the following number of blue balls and red balls:</p>
+                </Grid>
+                <Grid item align="center" xs={6} >
+                    <p>Your High Blue Urn - {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2highbluecount'])} red balls</p>
+                    <p>Your Low Blue Urn - {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls</p>
+                    <p>
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls
+                    </p>
+                </Grid>
+                <Grid item align="center" xs={12} >
+                    <p>Waiting for Player 1 to complete their action....</p>
+                </Grid>
+            </Grid>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
         return (
-            <div>
-                <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
-                are randomly assigned the following number of blue balls and red balls</p>
-                <p>Your High Blue Urn - {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2highbluecount'])} red balls</p>
-                <p>Your Low Blue Urn - {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls</p>
-                <p>Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
-                {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
-                and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls</p>
-                <p>Player 1 has decided to offer you their jar</p>
-                <p>Reject the jar offered by Player 1</p>
-                <Radio
-                    checked={selectedValue === 'RejectOffer'}
-                    onChange={handleChange}
-                    value="RejectOffer"
-                    label="Reject the jar offered by Player 1"
-                />
-                <p>Mix Player 1''s jar with your High Blue urn ({mix_high_blue} of 200 or {(mix_high_blue/200).toFixed(1)} balls are blue)</p>
-                <Radio
-                    checked={selectedValue === "MixWithHighBlue"}
-                    onChange={handleChange}
-                    value="MixWithHighBlue"
-                    label="Mix Player 1's jar with your High Blue urn ({mix_high_blue} of 200 or {(mix_high_blue/200).toFixed(1)} balls are blue)"
-                />
-                <p>Mix Player 1''s jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)</p>
-                <Radio
-                    checked={selectedValue === "MixWithLowBlue"}
-                    onChange={handleChange}
-                    value="MixWithLowBlue"
-                    label="Mix Player 1's jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)"
-                />
-                <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
-            </div>
+            <Grid container justify="center" alignItems="center" spacing={2}>
+                <Grid item align="center" xs={6} >
+                    <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
+                    are randomly assigned the following number of blue balls and red balls:</p>
+                </Grid>
+                <Grid item align="center" xs={6} >
+                    <p>Your High Blue Urn - {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2highbluecount'])} red balls</p>
+                    <p>Your Low Blue Urn - {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls</p>
+                    <p>
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls
+                    </p>
+                </Grid>
+                <Grid item align="center" xs={12} >
+                    <FormControl component="fieldset">
+                        <Typography variant="subtitle1" gutterBottom>
+                            Player 1 has decided to offer you their jar. Please choose an action:
+                        </Typography>
+                        <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
+                            <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1" />
+                            <FormControlLabel value="MixWithHighBlue" control={<Radio />} label="Mix Player 1's jar with your High Blue urn ({mix_high_blue} of 200 or {(mix_high_blue/200).toFixed(1)} balls are blue)" />
+                            <FormControlLabel value="MixWithLowBlue" control={<Radio />} label="Mix Player 1's jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)" />
+                        </RadioGroup>
+                    </FormControl>
+                    <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
+                </Grid>
+            </Grid>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'NoOffer' && !gameState.both_ready_for_next) {
         return (
-            <div>
-                <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
-                are randomly assigned the following number of blue balls and red balls</p>
-                <p>Your High Blue Urn - {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2highbluecount'])} red balls</p>
-                <p>Your Low Blue Urn - {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls</p>
-                <p>Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
-                {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
-                and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls</p>
-                <p>Player 1 has decided not to offer you their jar. No action is needed. Press OK to continue to the next round</p>
-                <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
-            </div>
+            <Grid container justify="center" alignItems="center" spacing={2}>
+                <Grid item align="center" xs={6} >
+                    <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}), your High Blue urn, your Low Blue urn, and Player 1's jar
+                    are randomly assigned the following number of blue balls and red balls:</p>
+                </Grid>
+                <Grid item align="center" xs={6} >
+                    <p>Your High Blue Urn - {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2highbluecount'])} red balls</p>
+                    <p>Your Low Blue Urn - {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls</p>
+                    <p>
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']},
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls
+                    </p>
+                </Grid>
+                <Grid item align="center" xs={12} >
+                    <p>Player 1 has decided not to offer you their jar. No action is needed. Press OK to continue to the next round</p>
+                    <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
+                </Grid>
+            </Grid>
         );
     } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && !ready) {
         return (
