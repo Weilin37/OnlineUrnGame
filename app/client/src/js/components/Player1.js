@@ -55,8 +55,9 @@ const Player1 = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round,
-                        you are randomly assigned the following type of jar:
+                        For this round, you are randomly assigned the following type of jar:
+                    </Typography>
+                    <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
                     </Typography>
                     <Divider variant="middle" />
@@ -75,18 +76,23 @@ const Player1 = () => {
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>
+                    <Divider variant="middle" />
                 </Grid>
             </Grid>
         );
     } else if (gameState.current_turn === 'player2' && !gameState.both_ready_for_next) {
         return (
-            <Typography variant="h5" gutterBottom>
-                Choice submitted. Waiting for Player 2 to choose or acknowledge...
-            </Typography>
+            <div>
+                <Typography variant="h5" gutterBottom>Available Actions</Typography>
+                <Typography variant="h5" gutterBottom>
+                    Choice submitted. Waiting for Player 2 to choose or acknowledge...
+                </Typography>
+            </div>
         );
     } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && !ready) {
         return (
             <div>
+                <Typography variant="h5" gutterBottom>Available Actions</Typography>
                 <Typography variant="h5" gutterBottom>
                     All players made their moves! Press OK to continue to the next round
                 </Typography>
@@ -95,9 +101,12 @@ const Player1 = () => {
         );
     } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && ready) {
         return (
-            <Typography variant="h5" gutterBottom>
-                Ready! Waiting for other player...
-            </Typography>
+            <div>
+                <Typography variant="h5" gutterBottom>Available Actions</Typography>
+                <Typography variant="h5" gutterBottom>
+                    Ready! Waiting for other player...
+                </Typography>
+            </div>
         );
     } else {
         return null;
