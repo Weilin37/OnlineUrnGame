@@ -136,8 +136,8 @@ const Player2 = () => {
                         </Typography>
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
                             <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1" />
-                            <FormControlLabel value="MixWithHighBlue" control={<Radio />} label="Mix Player 1's jar with your High Blue urn ({mix_high_blue} of 200 or {(mix_high_blue/200).toFixed(1)} balls are blue)" />
-                            <FormControlLabel value="MixWithLowBlue" control={<Radio />} label="Mix Player 1's jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)" />
+                            <FormControlLabel value="MixWithHighBlue" control={<Radio />} label="Mix Player 1's jar with your High Blue urn (${mix_high_blue} of 200 or ${(mix_high_blue/200).toFixed(1)} balls are blue)" />
+                            <FormControlLabel value="MixWithLowBlue" control={<Radio />} label="Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or ${(mix_low_blue/200).toFixed(1)} balls are blue)" />
                         </RadioGroup>
                     </FormControl>
                     <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
