@@ -18,16 +18,13 @@ const NavBar = props => {
             return (
               <AppBar position="static">
                   <Toolbar variant="dense">
-                    <Typography variant="h6" color="inherit">
-                      Urn Game
-                    </Typography>
-                    <Typography variant="h6" color="inherit">
+                    <Typography variant="h6" color="inherit" class="spacing">
                       Room: {gameState.room}
                     </Typography>
-                    <Typography variant="h6" color="inherit">
+                    <Typography variant="h6" color="inherit" class="spacing">
                       Alias: {gameState.alias}
                     </Typography>
-                    <Button color="inherit" onClick={handleInstructionsOpen}>Instructions</Button>
+                    <Button variant="outlined" color="inherit" onClick={handleInstructionsOpen}>Instructions</Button>
                   </Toolbar>
               </AppBar>
             );
