@@ -122,9 +122,7 @@ export const Game = () => {
                 return (
                     <Grid container justify="center" alignItems="center" spacing={2}>
                         <Grid item align="center" xs={12} >
-                            <Paper>
-                                <Player1 />
-                            </Paper>
+                            <Player1 />
                         </Grid>
                         <Grid item align="center" xs={12} >
                             <MaterialTable
@@ -158,9 +156,7 @@ export const Game = () => {
                 return (
                     <Grid container justify="center" alignItems="center" spacing={2}>
                         <Grid item align="center" xs={12} >
-                            <Paper>
-                                <Player2 />
-                            </Paper>
+                            <Player2 />
                         </Grid>
                         <Grid item align="center" xs={12} >
                             <MaterialTable
