@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 
 const Player1 = () => {
     const dispatch = useDispatch();
@@ -44,11 +45,18 @@ const Player1 = () => {
     if (gameState.current_turn === 'player1' && !gameState.both_ready_for_next) {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={6} >
-                    <p>For this round, (round: {gameState.data[gameState.data.length-1]['round']}) you are randomly assigned the following type of jar: {gameState.data[gameState.data.length-1]['player1jartype']}</p>
+                <Grid item align="center" xs={12} >
+                    <Typography variant="h5" gutterBottom>Round Details</Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        For this round,
+                        you are randomly assigned the following type of jar:
+                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
+                    </Typography>
+                    <Divider variant="middle" />
                 </Grid>
-                <Grid item align="center" xs={6} >
+                <Grid item align="center" xs={12} >
                     <FormControl component="fieldset">
+                        <Typography variant="h5" gutterBottom>Available Actions</Typography>
                         <Typography variant="subtitle1" gutterBottom>
                             Now, please select an action by clicking a box below for the current round of the study.
                             Player2 will then decide whether to reject this offer or accept this offer to mix your jar with one of their urns.
@@ -65,14 +73,14 @@ const Player1 = () => {
         );
     } else if (gameState.current_turn === 'player2' && !gameState.both_ready_for_next) {
         return (
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h5" gutterBottom>
                 Choice submitted. Waiting for Player 2 to choose or acknowledge...
             </Typography>
         );
     } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && !ready) {
         return (
             <div>
-                <Typography variant="h2" gutterBottom>
+                <Typography variant="h5" gutterBottom>
                     All players made their moves! Press OK to continue to the next round
                 </Typography>
                 <Button variant="contained" color="primary" onClick={handleNextRound}>OK</Button>
@@ -80,7 +88,7 @@ const Player1 = () => {
         );
     } else if (gameState.current_turn === 'done' && !gameState.both_ready_for_next && ready) {
         return (
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h5" gutterBottom>
                 Ready! Waiting for other player...
             </Typography>
         );
