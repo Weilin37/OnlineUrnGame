@@ -13,9 +13,17 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  spacing: {
+    marginRight: theme.spacing(2),
+  }
+}));
 
 const Quiz = () => {
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     // state
     const gameState = useSelector(state => state.game);
@@ -50,6 +58,23 @@ const Quiz = () => {
             });
         }
     }, [timer]);
+
+    const questions = {
+        1:`If there are 50 blue balls and 50 red balls in the jar and 30 blue balls and 70 red balls in the urn,
+                what is the percentage of blue balls in the urn after we mix in the balls from the jar?`,
+        2:`If there are 49 blue balls and 51 red balls in the jar and 50 blue balls and 50 red balls
+                in Player 2’s urn in a specific round of the study, would Player 2 want to mix the balls
+                from the jar into his/her urn if he/she is trying to increase the chance that a blue ball
+                is drawn randomly from the urn at the end of the round?`,
+        3:`Assume that you know the exact numbers of blue balls in each urn (as Player 2 does).
+                    If Player 2 received an offer and mixed the balls from Player 1’s jar to one of Player 2’s
+                    urns with fewer blue balls than the jar, what is the chance of drawing a blue ball from
+                    the urn after mixing relative to before mixing?`,
+        4:`What should Player 2 NEVER do if one of his/her urns has 100 blue balls and the
+                    other urn 100 red balls?`,
+        5:`If Player 1 believes that Player 2 will certainly reject his/her offer in a given round,
+                    what would Player 1 most likely do?`
+    }
 
     const answers = {
         1:'40%',
@@ -102,6 +127,14 @@ const Quiz = () => {
         <FormControlLabel value="DefiniteNo" control={<Radio />} label="Definitely not make an offer to Player 2" />,
         <FormControlLabel value="Unclear" control={<Radio />} label="Unclear/Do not know" />
     ];
+
+    const choices = {
+        1: question1,
+        2: question2,
+        3: question3,
+        4: question4,
+        5: question5
+    }
 
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -262,113 +295,25 @@ const Quiz = () => {
     }
 
     // render component
-    if (quizPage === 1) {
+    if (quizPage < 6) {
+        var question = questions[quizPage];
+        var choices = choices[quizPage];
+
+
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <FormControl component="fieldset">
-                      <Typography variant="h5" gutterBottom>
-                        If there are 50 blue balls and 50 red balls in the jar and 30 blue balls and
-                        70 red balls in the urn, what is the percentage of blue balls in the urn after we mix
-                        in the balls from the jar?
-                      </Typography>
-                      <RadioGroup aria-label="question1" name="question1" onChange={handleSelectChange}>
-                        {question1.map(function(name, index){
-                            return name;
-                        })}
-                      </RadioGroup>
-                    </FormControl>
-                </Grid>
-                <Grid item align="center" xs={8}>
-                    <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                </Grid>
-            </Grid>
-        );
-    } else if (quizPage === 2) {
-        return (
-            <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <FormControl component="fieldset">
-                      <Typography variant="h5" gutterBottom>
-                        If there are 49 blue balls and 51 red balls in the jar and 50 blue balls and 50 red balls
-                        in Player 2’s urn in a specific round of the study, would Player 2 want to mix the balls
-                        from the jar into his/her urn if he/she is trying to increase the chance that a blue ball
-                        is drawn randomly from the urn at the end of the round?
-                      </Typography>
-                      <RadioGroup aria-label="question2" name="question2" onChange={handleSelectChange}>
-                        {question2.map(function(name, index){
-                            return name;
-                        })}
-                      </RadioGroup>
-                    </FormControl>
-                </Grid>
-                <Grid item align="center" xs={8}>
-                    <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                </Grid>
-            </Grid>
-        );
-    } else if (quizPage === 3) {
-        return (
-            <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <FormControl component="fieldset">
-                      <Typography variant="h5" gutterBottom>
-                        Assume that you know the exact numbers of blue balls in each urn (as Player 2 does).
-                        If Player 2 received an offer and mixed the balls from Player 1’s jar to one of Player 2’s
-                        urns with fewer blue balls than the jar, what is the chance of drawing a blue ball from
-                        the urn after mixing relative to before mixing?
-                      </Typography>
-                      <RadioGroup aria-label="question3" name="question3" onChange={handleSelectChange}>
-                        {question3.map(function(name, index){
-                            return name;
-                        })}
-                      </RadioGroup>
-                    </FormControl>
-                </Grid>
-                <Grid item align="center" xs={8}>
-                    <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                </Grid>
-            </Grid>
-        );
-    } else if (quizPage === 4) {
-        return (
-            <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <FormControl component="fieldset">
-                      <Typography variant="h5" gutterBottom>
-                        What should Player 2 NEVER do if one of his/her urns has 100 blue balls and the
-                        other urn 100 red balls?
-                      </Typography>
+                    <Typography variant="h5" gutterBottom>
+                        {question}
+                    </Typography>
+                    <FormControl className={classes.spacing} component="fieldset">
                       <RadioGroup aria-label="question4" name="question4" onChange={handleSelectChange}>
-                        {question4.map(function(name, index){
+                        {choices.map(function(name, index){
                             return name;
                         })}
                       </RadioGroup>
+                      <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>
-                </Grid>
-                <Grid item align="center" xs={8}>
-                    <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                </Grid>
-            </Grid>
-        );
-    } else if (quizPage === 5) {
-        return (
-            <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <FormControl component="fieldset">
-                      <Typography variant="h5" gutterBottom>
-                        If Player 1 believes that Player 2 will certainly reject his/her offer in a given round,
-                        what would Player 1 most likely do?
-                      </Typography>
-                      <RadioGroup aria-label="question5" name="question5" onChange={handleSelectChange}>
-                        {question5.map(function(name, index){
-                            return name;
-                        })}
-                      </RadioGroup>
-                    </FormControl>
-                </Grid>
-                <Grid item align="center" xs={8}>
-                    <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                 </Grid>
             </Grid>
         );
@@ -376,7 +321,7 @@ const Quiz = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                      <Typography variant="h5" gutterBottom>
+                      <Typography className={classes.spacing} variant="h5" gutterBottom>
                         Quiz finished! Waiting for other player to finish...
                       </Typography>
                 </Grid>
