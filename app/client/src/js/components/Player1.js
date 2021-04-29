@@ -28,6 +28,11 @@ const Player1 = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [ready, setReady] = React.useState(false);
 
+    const jarType = {
+        'low_quality':'0-80 blue balls',
+        'high_quality''80-100 blue balls':
+    }
+
     // Enter decision
     function handleSubmit() {
         if (selectedValue) {
@@ -59,6 +64,7 @@ const Player1 = () => {
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
+                        (jarType[gameState.data[gameState.data.length-1]['player1jartype']])
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>

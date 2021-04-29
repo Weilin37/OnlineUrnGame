@@ -169,8 +169,8 @@ const Player2 = () => {
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
                             <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1" />
-                            <FormControlLabel value="MixWithHighBlue" control={<Radio />} label="Mix Player 1's jar with your High Blue urn (${mix_high_blue} of 200 or ${(mix_high_blue/200).toFixed(1)} balls are blue)" />
-                            <FormControlLabel value="MixWithLowBlue" control={<Radio />} label="Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or ${(mix_low_blue/200).toFixed(1)} balls are blue)" />
+                            <FormControlLabel value="MixWithHighBlue" control={<Radio />} label="Mix Player 1's jar with your High Blue urn ("+{mix_high_blue}+" of 200 or "+{(mix_high_blue/200).toFixed(1)}+" balls are blue)" />
+                            <FormControlLabel value="MixWithLowBlue" control={<Radio />} label="Mix Player 1's jar with your Low Blue urn ("+{mix_low_blue}+" of 200 or "+{(mix_low_blue/200).toFixed(1)}+" balls are blue)" />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
                     </FormControl>
@@ -260,11 +260,9 @@ const Player2 = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']}
-                    </Typography>
-                    <Typography variant="h6" gutterBottom>
-                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
-                        and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
+                        ({gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         High Blue Urn: {gameState.data[gameState.data.length-1]['player2highbluecount']} blue balls
