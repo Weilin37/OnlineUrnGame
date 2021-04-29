@@ -124,9 +124,18 @@ const Player1 = () => {
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <Typography variant="h5" gutterBottom>Available Actions</Typography>
+                    <Typography variant="h5" gutterBottom>Results</Typography>
                     <Typography variant="h5" gutterBottom>
-                        All players made their moves! Press OK to continue to the next round
+                        All players made their moves!
+                    </Typography>
+                    <Typography variant="h5" gutterBottom>
+                        The ball drawn was: {gameState.data[gameState.data.length-1]['drawn_ball']}
+                    </Typography>
+                    <Typography variant="h5" gutterBottom>
+                        You earned: {gameState.data[gameState.data.length-1]['player1earnings_difference']}
+                    </Typography>
+                    <Typography variant="h5" gutterBottom>
+                        Press OK to continue to the next round
                     </Typography>
                     <Button variant="contained" color="primary" onClick={handleNextRound}>OK</Button>
                     <Divider className={classes.spacing} variant="middle" />
