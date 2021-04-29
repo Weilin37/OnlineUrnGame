@@ -308,7 +308,7 @@ const Quiz = () => {
                     </Typography>
                     <FormControl className={classes.spacing} component="fieldset">
                       <RadioGroup aria-label="question4" name="question4" onChange={handleSelectChange}>
-                        {choices.map(function(name, index){
+                        {choice.map(function(name, index){
                             return name;
                         })}
                       </RadioGroup>
