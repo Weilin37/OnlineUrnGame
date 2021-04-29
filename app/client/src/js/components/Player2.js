@@ -136,8 +136,8 @@ const Player2 = () => {
             </Grid>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
-        var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn ({mix_high_blue} of 200 or {(mix_high_blue/200).toFixed(1)} balls are blue)`
-        var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn ({mix_low_blue} of 200 or {(mix_low_blue/200).toFixed(1)} balls are blue)`
+        var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn (${mix_high_blue} of 200 or ${(mix_high_blue/200).toFixed(1)} balls are blue)`
+        var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or ${(mix_low_blue/200).toFixed(1)} balls are blue)`
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
