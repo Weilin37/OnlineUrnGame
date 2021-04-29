@@ -26,7 +26,7 @@ const NavBar = props => {
             return (
               <AppBar position="static">
                   <Toolbar variant="dense">
-                    <Button variant="outlined" color="inherit" className={classes.root} onClick={handleInstructionsOpen}>Instructions</Button>
+                    <Button variant="outlined" color="inherit" className={classes.spacing} onClick={handleInstructionsOpen}>Instructions</Button>
                     <Typography variant="h6" color="inherit" className={classes.spacing} noWrap>
                       Room: {gameState.room}
                     </Typography>
