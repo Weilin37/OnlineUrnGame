@@ -1,10 +1,13 @@
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setInstructions } from "../features/gameSlice";
+import Button from '@material-ui/core/Button';
 
 const NavBar = props => {
         const gameState = useSelector(state => state.game);
+        const dispatch = useDispatch();
 
         // Functions for Instructions
         function handleInstructionsOpen() {
