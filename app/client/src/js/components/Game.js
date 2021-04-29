@@ -115,132 +115,78 @@ export const Game = () => {
                 </Grid>
             );
         } else if (gameState.data[gameState.data.length-1]['player1_online'] && gameState.data[gameState.data.length-1]['player2_online']) {
-            if (gameState.instructions) {
-                return(<Instructions />)
-            } else {
-                if (gameState.player === 'player1') {
-                    tabledata.forEach(function(v) {
-                        delete v.player2earnings;
-                    });
-                    return (
-                        <Grid container justify="center" alignItems="center" spacing={2}>
-                            <Grid item align="center" xs={3} >
-                                <Paper>
-                                    <button type="button" onClick={handleInstructionsOpen}>
-                                        Open Instructions
-                                    </button>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        You are: {gameState.player}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Room (Write this down): {gameState.data[gameState.data.length-1]['room']}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Alias (Write this down): {gameState.alias}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Current Round: {gameState.data[gameState.data.length - 1]['round']}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
-                                    </Typography>
-                                </Paper>
-                            </Grid>
-                            <Grid item align="center" xs={9} >
-                                <MaterialTable
-                                    columns={[
-                                        { title: "Round", field: "round" },
-                                        { title: "Player 1 Decision", field: "player1action" },
-                                        { title: "Player 2 Decision", field: "player2action"},
-                                        { title: "Ball Drawn", field: "drawn_ball"},
-                                        { title: "Your Earnings", field: "player1earnings"},
-                                        { title: "Delta", field: "player1earnings_difference"}
-                                    ]}
-                                    data={tabledata}
-                                    options={{
-                                      paging: false,
-                                      search: false,
-                                      draggable: false,
-                                      showFirstLastPageButtons: false,
-                                      editable:'never',
-                                      disableClick: true,
-                                      sorting: false
-                                    }}
-                                    title="Scorecard"
-                                />
-                            </Grid>
-                            <Grid item align="center" xs={12} >
-                                <Paper>
-                                    <Player1 />
-                                </Paper>
-                            </Grid>
+            if (gameState.player === 'player1') {
+                tabledata.forEach(function(v) {
+                    delete v.player2earnings;
+                });
+                return (
+                    <Grid container justify="center" alignItems="center" spacing={2}>
+                        <Grid item align="center" xs={12} >
+                            <Paper>
+                                <Player1 />
+                            </Paper>
                         </Grid>
-                    );
-                } else if (gameState.player === 'player2') {
-                    tabledata.forEach(function(v) {
-                        delete v.player1earnings;
-                    });
-                    return (
-                        <Grid container justify="center" alignItems="center" spacing={2}>
-                            <Grid item align="center" xs={3} >
-                                <Paper>
-                                    <button type="button" onClick={handleInstructionsOpen}>
-                                        Open Instructions
-                                    </button>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        You are: {gameState.player}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Room (Write this down): {gameState.data[gameState.data.length-1]['room']}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Alias (Write this down): {gameState.alias}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Current Round: {gameState.data[gameState.data.length - 1]['round']}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
-                                    </Typography>
-                                </Paper>
-                            </Grid>
-                            <Grid item align="center" xs={9} >
-                                <MaterialTable
-                                    columns={[
-                                        { title: "Round", field: "round" },
-                                        { title: "Player 1 Decision", field: "player1action" },
-                                        { title: "Player 2 Decision", field: "player2action"},
-                                        { title: "Ball Drawn", field: "drawn_ball"},
-                                        { title: "Your Earnings", field: "player2earnings"},
-                                        { title: "Delta", field: "player2earnings_difference"}
-                                    ]}
-                                    data={tabledata}
-                                    options={{
-                                      paging: false,
-                                      search: false,
-                                      draggable: false,
-                                      showFirstLastPageButtons: false,
-                                      editable:'never',
-                                      disableClick: true,
-                                      sorting: false
-                                    }}
-                                    title="Scorecard"
-                                />
-                            </Grid>
-                            <Grid item align="center" xs={12} >
-                                <Paper>
-                                    <Player2 />
-                                </Paper>
-                            </Grid>
+                        <Grid item align="center" xs={12} >
+                            <MaterialTable
+                                columns={[
+                                    { title: "Round", field: "round" },
+                                    { title: "Player 1 Decision", field: "player1action" },
+                                    { title: "Player 2 Decision", field: "player2action"},
+                                    { title: "Ball Drawn", field: "drawn_ball"},
+                                    { title: "Your Earnings", field: "player1earnings"},
+                                    { title: "Delta", field: "player1earnings_difference"}
+                                ]}
+                                data={tabledata}
+                                options={{
+                                  paging: false,
+                                  search: false,
+                                  draggable: false,
+                                  showFirstLastPageButtons: false,
+                                  editable:'never',
+                                  disableClick: true,
+                                  sorting: false
+                                }}
+                                title="Scorecard"
+                            />
                         </Grid>
-                    );
-                }
+                    </Grid>
+                );
+            } else if (gameState.player === 'player2') {
+                tabledata.forEach(function(v) {
+                    delete v.player1earnings;
+                });
+                return (
+                    <Grid container justify="center" alignItems="center" spacing={2}>
+                        <Grid item align="center" xs={12} >
+                            <Paper>
+                                <Player2 />
+                            </Paper>
+                        </Grid>
+                        <Grid item align="center" xs={12} >
+                            <MaterialTable
+                                columns={[
+                                    { title: "Round", field: "round" },
+                                    { title: "Player 1 Decision", field: "player1action" },
+                                    { title: "Player 2 Decision", field: "player2action"},
+                                    { title: "Ball Drawn", field: "drawn_ball"},
+                                    { title: "Your Earnings", field: "player2earnings"},
+                                    { title: "Delta", field: "player2earnings_difference"}
+                                ]}
+                                data={tabledata}
+                                options={{
+                                  paging: false,
+                                  search: false,
+                                  draggable: false,
+                                  showFirstLastPageButtons: false,
+                                  editable:'never',
+                                  disableClick: true,
+                                  sorting: false
+                                }}
+                                title="Scorecard"
+                            />
+                        </Grid>
+                    </Grid>
+                );
             }
         } else if (gameState.both_online) {
             return (
