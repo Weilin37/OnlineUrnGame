@@ -124,14 +124,14 @@ const Player2 = () => {
                         Low Blue Urn: {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="h5" gutterBottom>
                         Waiting for Player 1 to perform their move...
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );
@@ -159,7 +159,7 @@ const Player2 = () => {
                         Low Blue Urn: {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
@@ -174,7 +174,7 @@ const Player2 = () => {
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
                     </FormControl>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );
@@ -202,7 +202,7 @@ const Player2 = () => {
                         Low Blue Urn: {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={12} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
@@ -210,7 +210,7 @@ const Player2 = () => {
                         Player 1 has decided not to offer you their jar. No action is needed. Press OK to continue to the next round
                     </Typography>
                     <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );
@@ -238,7 +238,7 @@ const Player2 = () => {
                         Low Blue Urn: {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
@@ -246,7 +246,7 @@ const Player2 = () => {
                         All players made their moves! Press OK to continue to the next round
                     </Typography>
                     <Button variant="contained" color="primary" onClick={handleNextRound}>OK</Button>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing}variant="middle" />
                 </Grid>
             </Grid>
         );
@@ -274,14 +274,14 @@ const Player2 = () => {
                         Low Blue Urn: {gameState.data[gameState.data.length-1]['player2lowbluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player2lowbluecount'])} red balls
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="h5" gutterBottom>
                         Ready! Waiting for other player...
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );

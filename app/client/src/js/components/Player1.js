@@ -60,7 +60,7 @@ const Player1 = () => {
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
@@ -76,7 +76,7 @@ const Player1 = () => {
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );
@@ -91,14 +91,14 @@ const Player1 = () => {
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="h5" gutterBottom>
                         Choice submitted. Waiting for Player 2 to choose or acknowledge...
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );
@@ -113,7 +113,7 @@ const Player1 = () => {
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
@@ -121,7 +121,7 @@ const Player1 = () => {
                         All players made their moves! Press OK to continue to the next round
                     </Typography>
                     <Button variant="contained" color="primary" onClick={handleNextRound}>OK</Button>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );
@@ -136,14 +136,14 @@ const Player1 = () => {
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="h5" gutterBottom>
                         Ready! Waiting for other player...
                     </Typography>
-                    <Divider variant="middle" />
+                    <Divider className={classes.spacing} variant="middle" />
                 </Grid>
             </Grid>
         );
