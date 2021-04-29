@@ -17,7 +17,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   spacing: {
-    marginRight: theme.spacing(2),
+    marginTop: theme.spacing(2),
   }
 }));
 
@@ -303,7 +303,7 @@ const Quiz = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <Typography variant="h5" gutterBottom>
+                    <Typography className={classes.spacing} variant="h5" gutterBottom>
                         {question}
                     </Typography>
                     <FormControl className={classes.spacing} component="fieldset">
