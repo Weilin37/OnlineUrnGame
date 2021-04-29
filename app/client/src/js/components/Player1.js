@@ -12,10 +12,17 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  spacing: {
+    marginTop: theme.spacing(2),
+  }
+}));
 
 const Player1 = () => {
     const dispatch = useDispatch();
-
+    const classes = useStyles();
     // state
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
@@ -45,8 +52,8 @@ const Player1 = () => {
     if (gameState.current_turn === 'player1' && !gameState.both_ready_for_next) {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={12} >
-                    <Typography variant="h5" gutterBottom>Round Details</Typography>
+                <Grid item align="center" xs={8} >
+                    <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
                         For this round,
                         you are randomly assigned the following type of jar:
@@ -54,7 +61,7 @@ const Player1 = () => {
                     </Typography>
                     <Divider variant="middle" />
                 </Grid>
-                <Grid item align="center" xs={12} >
+                <Grid item align="center" xs={8} >
                     <FormControl component="fieldset">
                         <Typography variant="h5" gutterBottom>Available Actions</Typography>
                         <Typography variant="subtitle1" gutterBottom>
@@ -62,7 +69,7 @@ const Player1 = () => {
                             Player2 will then decide whether to reject this offer or accept this offer to mix your jar with one of their urns.
                             After that, we''ll go to the next round, and so on until round 10
                         </Typography>
-                        <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
+                        <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange} row>
                             <FormControlLabel value="Offer" control={<Radio />} label="Offer your jar to Player 2" />
                             <FormControlLabel value="NoOffer" control={<Radio />} label="Do not offer your jar to Player 2" />
                         </RadioGroup>
