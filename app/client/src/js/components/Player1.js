@@ -96,6 +96,7 @@ const Player1 = () => {
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
+                        (jarType[gameState.data[gameState.data.length-1]['player1jartype']])
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>
@@ -118,6 +119,7 @@ const Player1 = () => {
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
+                        (jarType[gameState.data[gameState.data.length-1]['player1jartype']])
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>
@@ -141,6 +143,7 @@ const Player1 = () => {
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
+                        (jarType[gameState.data[gameState.data.length-1]['player1jartype']])
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>

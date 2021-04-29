@@ -110,7 +110,7 @@ const Player2 = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']} 
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']}
                         ({gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
