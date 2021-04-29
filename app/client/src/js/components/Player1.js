@@ -69,7 +69,7 @@ const Player1 = () => {
                             Player2 will then decide whether to reject this offer or accept this offer to mix your jar with one of their urns.
                             After that, we''ll go to the next round, and so on until round 10
                         </Typography>
-                        <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange} >
+                        <RadioGroup justify="center" alignItems="center" align="center" aria-label="choice" name="player1choice" onChange={handleChange} >
                             <FormControlLabel value="Offer" control={<Radio />} label="Offer your jar to Player 2" />
                             <FormControlLabel value="NoOffer" control={<Radio />} label="Do not offer your jar to Player 2" />
                         </RadioGroup>
