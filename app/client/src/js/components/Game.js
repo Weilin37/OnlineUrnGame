@@ -124,7 +124,7 @@ export const Game = () => {
                         <Grid item align="center" xs={12} >
                             <Player1 />
                         </Grid>
-                        <Grid item align="center" xs={12} >
+                        <Grid item align="center" xs={8} >
                             <MaterialTable
                                 columns={[
                                     { title: "Round", field: "round" },
@@ -158,7 +158,7 @@ export const Game = () => {
                         <Grid item align="center" xs={12} >
                             <Player2 />
                         </Grid>
-                        <Grid item align="center" xs={12} >
+                        <Grid item align="center" xs={8} >
                             <MaterialTable
                                 columns={[
                                     { title: "Round", field: "round" },
