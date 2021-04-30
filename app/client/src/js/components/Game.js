@@ -52,14 +52,13 @@ export const Game = () => {
             })
         });
 
-        if (gameState.game_ended) {
+        if (gameState.instructions) {
+            <Instructions />
+        } else if (gameState.game_ended) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={3} >
                         <Paper>
-                            <button type="button" onClick={handleInstructionsOpen}>
-                                Open Instructions
-                            </button>
                             <Typography variant="subtitle1" gutterBottom>
                                 You are: {gameState.player}
                             </Typography>
