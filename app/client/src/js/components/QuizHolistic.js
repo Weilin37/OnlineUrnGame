@@ -305,7 +305,7 @@ const QuizHolistic = () => {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
                     '&question='+quizPage+
-                    '&answer='+JSON.stringify(answer)
+                    '&answer='+convertJSONtoString(answer)
                 ));
                 shuffle(question4)
                 setQuizPage(shuffle(remainingQuestions)[0]);
