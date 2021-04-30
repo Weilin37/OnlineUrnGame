@@ -144,7 +144,7 @@ const QuizHolistic = () => {
         <FormControlLabel control={<Checkbox checked={state.Accept} onChange={handleSelectChange} name="Accept" />} label="Accept any offer from Player 1" />,
         <FormControlLabel control={<Checkbox checked={state.MixBlue} onChange={handleSelectChange} name="MixBlue" />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />,
         <FormControlLabel control={<Checkbox checked={state.MixRed} onChange={handleSelectChange} name="MixRed" />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />,
-        <FormControlLabel control={<Checkbox checked={state.Reject} onChange={handleSelectChange} name="Reject" />} label="Reject any offer from Player 1" />
+        <FormControlLabel control={<Checkbox checked={state.Reject} onChange={handleSelectChange} name="Reject" />} label="Reject any offer from Player 1" />,
         <FormControlLabel control={<Checkbox checked={state.Unclear} onChange={handleSelectChange} name="Unclear" />} label="Unclear with given information" />
     ];
 
