@@ -124,35 +124,35 @@ const CreateGame = () => {
     } else {
         return(
             <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid item xs={8}>
                     <Paper>
-                        <Grid item align="center" xs={8} >
+                        <Grid item align="center" xs={12} >
                             <Typography className={classes.spacing} variant="subtitle1">
                                 If you are a new player, the please enter your alias and press the left button here
                             </Typography>
                         </Grid>
-                        <Grid item align="center" xs={8} >
+                        <Grid item align="center" xs={12} >
                             <TextField id="alias" label="Enter Your Alias (Required)" variant="outlined" />
                         </Grid>
-                        <Grid item align="center" xs={8} >
+                        <Grid item align="center" xs={12} >
                             <Button className={classes.spacing} variant="contained" color="primary" onClick={handleCreateNewGame}>
                                 Enter New Game
                             </Button>
                         </Grid>
                     </Paper>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={8}>
                     <Paper>
-                        <Grid item align="center" xs={8} >
+                        <Grid item align="center" xs={12} >
                             <Typography className={classes.spacing} variant="subtitle1">
                                 If you are a returning player, then please enter your room code and the alias you used and press the right button here
                             </Typography>
                         </Grid>
-                        <Grid item align="center" xs={8} >
+                        <Grid item align="center" xs={12} >
                             <TextField id="resume_alias" label="Enter Your Alias (Required)" variant="outlined" />
                             <TextField id="resume_room" label="Enter Your Room Code (Required)" variant="outlined" />
                         </Grid>
-                        <Grid item align="center" xs={8} >
+                        <Grid item align="center" xs={12} >
                             <Button className={classes.spacing} variant="contained" color="primary" onClick={handleResumeGame}>
                                 Resume Game
                             </Button>
