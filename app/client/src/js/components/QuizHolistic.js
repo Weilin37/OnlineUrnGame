@@ -240,16 +240,18 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
                 shuffle(question1)
-                setQuizPage(shuffle(remainingQuestions)[0]);
-                setCurrentExplanation(explanations[quizPage])
-                setExplanationOpen(true);
-                setSelectedValue1();
+                batch(() => {
+                    setQuizPage(shuffle(remainingQuestions)[0]);
+                    setCurrentExplanation(explanations[quizPage])
+                    setExplanationOpen(true);
+                    setSelectedValue1();
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                })
             }
         } else if (quizPage === 2) {
             answer = selectedValue2
@@ -268,16 +270,18 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
                 shuffle(question2)
-                setQuizPage(shuffle(remainingQuestions)[0]);
-                setCurrentExplanation(explanations[quizPage])
-                setExplanationOpen(true);
-                setSelectedValue2();
+                batch(() => {
+                    setQuizPage(shuffle(remainingQuestions)[0]);
+                    setCurrentExplanation(explanations[quizPage])
+                    setExplanationOpen(true);
+                    setSelectedValue2();
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                })
             }
         } else if (quizPage === 3) {
             answer = selectedValue3
@@ -296,16 +300,18 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
                 shuffle(question3)
-                setQuizPage(shuffle(remainingQuestions)[0]);
-                setCurrentExplanation(explanations[quizPage])
-                setExplanationOpen(true);
-                setSelectedValue3();
+                batch(() => {
+                    setQuizPage(shuffle(remainingQuestions)[0]);
+                    setCurrentExplanation(explanations[quizPage])
+                    setExplanationOpen(true);
+                    setSelectedValue3();
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                })
             }
         } else if (quizPage === 4) {
             answer = selectedValue4;
@@ -331,16 +337,18 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+convertJSONtoString(answer)
-                ));
                 shuffle(question4)
-                setQuizPage(shuffle(remainingQuestions)[0]);
-                setCurrentExplanation(explanations[quizPage])
-                setExplanationOpen(true);
-                setSelectedValue4({Accept:false,MixBlue:false,MixRed:false,Reject:false,Unclear:false});
+                batch(() => {
+                    setQuizPage(shuffle(remainingQuestions)[0]);
+                    setCurrentExplanation(explanations[quizPage])
+                    setExplanationOpen(true);
+                    setSelectedValue4({Accept:false,MixBlue:false,MixRed:false,Reject:false,Unclear:false});
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+convertJSONtoString(answer)
+                    ));
+                })
             }
         } else if (quizPage === 5) {
             answer = selectedValue5
@@ -359,16 +367,18 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
                 shuffle(question5)
-                setQuizPage(shuffle(remainingQuestions)[0]);
-                setCurrentExplanation(explanations[quizPage])
-                setExplanationOpen(true);
-                setSelectedValue5();
+                batch(() => {
+                    setQuizPage(shuffle(remainingQuestions)[0]);
+                    setCurrentExplanation(explanations[quizPage])
+                    setExplanationOpen(true);
+                    setSelectedValue5();
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                })
             }
         }
     }
