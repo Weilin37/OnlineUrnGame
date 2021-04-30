@@ -307,6 +307,7 @@ router.get('/api/get/readgame', (req,res,next) => {
 // get new game data for waiting room
 router.get('/api/get/newgame', (req,res,next) => {
 	pool.query(`select room,
+	        treatment,
 	        player1name,
 	        player2name,
 	        EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) as player1_lastseen,
@@ -332,6 +333,7 @@ router.get('/api/get/newgame', (req,res,next) => {
 // get updated waiting room information
 router.get('/api/get/updatewaitingroom', (req,res,next) => {
 	pool.query(`select room,
+	        treatment,
 	        player1name,
 	        player2name,
 	        EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) as player1_lastseen,
@@ -525,14 +527,6 @@ router.get('/api/get/senddata', (req,res,next) => {
                 }
             }
         }
-        console.log(`update public.game_state
-            set player2action = '${data}',
-            roundcomplete = true,
-            drawn_ball = '${drawn_ball}',
-            player1earnings = (player1earnings::numeric+${player1earnings}),
-            player2earnings = (player2earnings::numeric+${player2earnings})
-            where room = '${room}'
-            and round = '${round}'`)
         pool.query(`update public.game_state
             set player2action = '${data}',
             roundcomplete = true,
