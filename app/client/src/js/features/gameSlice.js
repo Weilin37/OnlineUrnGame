@@ -139,6 +139,7 @@ const gameSlice = createSlice({
     both_online: false,
     both_ready_for_next: false,
     both_quiz_finished: false,
+    treatment: '',
     alias: '',
     player: '',
     room: '',
@@ -170,6 +171,7 @@ const gameSlice = createSlice({
             var player1_quiz_finished = state.data[state.data.length - 1]['player1_quiz_finished'];
             var player2_quiz_finished = state.data[state.data.length - 1]['player2_quiz_finished'];
 
+            state.treatment = state.data[state.data.length - 1]['treatment'];
             state.current_round = parseInt(state.data[state.data.length - 1]['round']);
 
             if (!player1action && !player2action) {
