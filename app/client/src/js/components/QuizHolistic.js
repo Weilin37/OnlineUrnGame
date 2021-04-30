@@ -405,48 +405,58 @@ const QuizHolistic = () => {
         var choice = choices[quizPage];
 
         return (
-            <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <Typography className={classes.spacing} variant="h5" gutterBottom>
-                        {question}
-                    </Typography>
-                    <FormControl className={classes.spacing} component="fieldset">
-                      <FormGroup>
-                        {choice.map(function(name, index){
-                            return name;
-                        })}
-                      </FormGroup>
-                      <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                    </FormControl>
-                    <Modal
-                      open={explanationOpen}
-                      onClose={handleModalClose}
-                    >
-                        <Paper style={modalStyle} className={classes.paper}>{currentExplanation}</Paper>
-                    </Modal>
+            <div>
+                <Grid container justify="center" alignItems="center" spacing={2}>
+                    <Grid item align="center" xs={8} >
+                        <Typography className={classes.spacing} variant="h5" gutterBottom>
+                            {question}
+                        </Typography>
+                        <FormControl className={classes.spacing} component="fieldset">
+                          <FormGroup>
+                            {choice.map(function(name, index){
+                                return name;
+                            })}
+                          </FormGroup>
+                          <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
+                        </FormControl>
+                    </Grid>
                 </Grid>
-            </Grid>
+                <Modal
+                  open={explanationOpen}
+                  onClose={handleModalClose}
+                >
+                    <Paper style={modalStyle} className={classes.paper}>{currentExplanation}</Paper>
+                </Modal>
+            </div>
         );
     } else if (quizPage < 6 && quizPage !== 4) {
         var question = questions[quizPage];
         var choice = choices[quizPage];
 
         return (
-            <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <Typography className={classes.spacing} variant="h5" gutterBottom>
-                        {question}
-                    </Typography>
-                    <FormControl className={classes.spacing} component="fieldset">
-                      <RadioGroup onChange={handleRadioChange}>
-                        {choice.map(function(name, index){
-                            return name;
-                        })}
-                      </RadioGroup>
-                      <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
-                    </FormControl>
+            <div>
+                <Grid container justify="center" alignItems="center" spacing={2}>
+                    <Grid item align="center" xs={8} >
+                        <Typography className={classes.spacing} variant="h5" gutterBottom>
+                            {question}
+                        </Typography>
+                        <FormControl className={classes.spacing} component="fieldset">
+                          <RadioGroup onChange={handleRadioChange}>
+                            {choice.map(function(name, index){
+                                return name;
+                            })}
+                          </RadioGroup>
+                          <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
+                        </FormControl>
+                    </Grid>
                 </Grid>
-            </Grid>
+                <Modal
+                  open={explanationOpen}
+                  onClose={handleModalClose}
+                >
+                    <Paper style={modalStyle} className={classes.paper}>{currentExplanation}</Paper>
+                </Modal>
+            </div>
         );
     } else if (quizPage === 6) {
         return (
