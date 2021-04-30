@@ -318,7 +318,7 @@ const QuizStatus = () => {
         else if (quizPage === 5) {setSelectedValue5(event.target.value)}
     }
 
-    function handleSelectChange = (event) => {
+    function handleSelectChange(event) {
         setState({ ...selectedValue4, [event.target.name]: event.target.checked });
     };
 
