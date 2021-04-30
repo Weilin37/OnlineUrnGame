@@ -52,9 +52,7 @@ export const Game = () => {
             })
         });
 
-        if (gameState.instructions) {
-            <Instructions />
-        } else if (gameState.game_ended) {
+        if (gameState.game_ended) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={3} >
@@ -114,7 +112,9 @@ export const Game = () => {
                 </Grid>
             );
         } else if (gameState.data[gameState.data.length-1]['player1_online'] && gameState.data[gameState.data.length-1]['player2_online']) {
-            if (gameState.player === 'player1') {
+            if (gameState.instructions) {
+                return(<Instructions />)
+            } else if (gameState.player === 'player1') {
                 tabledata.forEach(function(v) {
                     delete v.player2earnings;
                 });
