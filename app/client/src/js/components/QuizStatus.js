@@ -323,7 +323,7 @@ const QuizStatus = () => {
     };
 
     // render component
-    if (pagePage === 4) {
+    if (quizPage === 4) {
         var question = questions[quizPage];
         var choice = choices[quizPage];
 
