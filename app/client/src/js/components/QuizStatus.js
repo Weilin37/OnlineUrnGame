@@ -179,6 +179,15 @@ const QuizStatus = () => {
         return array;
     }
 
+    function isObjectEqual(objects) {
+        const res =  objects.map((item) => {
+            return Object.entries(item).flat().join()
+        })
+        return res.every((a) => {
+            return a === res[0]
+        })
+    }
+
     // Functions for Instructions
     function handleSubmit() {
         var answer;
@@ -261,7 +270,7 @@ const QuizStatus = () => {
             answer = selectedValue4;
             console.log(answer);
             console.log(answers[quizPage]);
-            console.log(answers[quizPage] === answer);
+            console.log(isObjectEqual([answers[quizPage],answer]));
             if (answers[quizPage] === answer) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
