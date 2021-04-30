@@ -258,7 +258,10 @@ const QuizStatus = () => {
                 setQuizPage(shuffle(remainingQuestions)[0]);
             }
         } else if (quizPage === 4) {
-            answer = selectedValue4
+            answer = selectedValue4;
+            console.log(answer);
+            console.log(answers[quizPage]);
+            console.log(answers[quizPage] === answer);
             if (answers[quizPage] === answer) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
