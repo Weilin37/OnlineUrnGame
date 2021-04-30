@@ -256,14 +256,16 @@ const Instructions = () => {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={8} >
-                        <button type="button" onClick={handleInstructionsClose}>
-                            Close Instructions
-                        </button>
                         <p>Instructions for Player 2 (2 of 2)</p>
                         <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to (1) decline Player 1’s jar offer;
                         or (2)/(3) mix all the balls from the jar offered by Player 1 into in either one of your urns (not both urns).
                         If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.
                         </p>
+                    </Grid>
+                    <Grid item align="center" xs={8} >
+                        <button type="button" onClick={handleInstructionsClose}>
+                            Close Instructions
+                        </button>
                     </Grid>
                     <Grid item align="center" xs={8} >
                         <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />

@@ -19,7 +19,7 @@ const NavBar = props => {
 
         // Functions for Instructions
         function handleInstructionsOpen() {
-            dispatch(setInstructions(true));
+            dispatch(setInstructions(!gameState.instructions));
         }
 
         if (gameState.data.length > 0) {
