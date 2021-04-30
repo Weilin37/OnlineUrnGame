@@ -142,6 +142,11 @@ const Instructions = () => {
 
                     </Grid>
                     <Grid item align="center" xs={8} >
+                        <button type="button" onClick={handleInstructionsClose}>
+                            Close Instructions
+                        </button>
+                    </Grid>
+                    <Grid item align="center" xs={8} >
                         <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                 </Grid>
@@ -186,9 +191,6 @@ const Instructions = () => {
                         <p>Your earnings will depend on various factors including your decisions,
                         the decisions of the other Player,
                         and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
-                    </Grid>
-                    <Grid item align="center" xs={8} >
-                        <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
                     </Grid>
                     <Grid item align="center" xs={8} >
                         <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={3} />
