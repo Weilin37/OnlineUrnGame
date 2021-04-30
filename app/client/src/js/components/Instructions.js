@@ -28,9 +28,6 @@ const Instructions = () => {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={8} >
-                        <button type="button" onClick={handleInstructionsClose}>
-                            Close Instructions
-                        </button>
 
                         <p>OVERVIEW</p>
                         <p>Welcome to this study of decision-making.</p>
@@ -76,9 +73,6 @@ const Instructions = () => {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={8} >
-                        <button type="button" onClick={handleInstructionsClose}>
-                            Close Instructions
-                        </button>
 
                         <p>Instructions for Player 1 (screen 1 of 2)</p>
 

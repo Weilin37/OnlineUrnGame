@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import CreateGame from "./CreateGame";
 import Quiz from "./Quiz";
 import Typography from '@material-ui/core/Typography';
+import Instructions from "./Instructions";
 
 const App = () => {
 
@@ -23,7 +24,18 @@ const App = () => {
                 </Grid>
             </div>
         )
-    } else if (gameState.game_created === true && gameState.game_waiting === false && !gameState.both_quiz_finished) {
+    } else if (gameState.game_created === true && gameState.game_waiting === false && !gameState.both_quiz_finished && !gameState.instructions_read) {
+        return(
+            <div>
+                <NavBar />
+                <Grid container justify="center" alignItems="center" spacing={2}>
+                    <Grid item align="center" xs={12} >
+                        <Instructions />
+                    </Grid>
+                </Grid>
+            </div>
+        )
+    } else if (gameState.game_created === true && gameState.game_waiting === false && !gameState.both_quiz_finished && gameState.instructions_read) {
         return(
             <div>
                 <NavBar />

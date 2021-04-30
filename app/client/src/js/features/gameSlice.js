@@ -131,6 +131,7 @@ const gameSlice = createSlice({
     game_created: false,
     game_waiting: false,
     instructions: true,
+    instructions_read: false,
     current_turn: '',
     current_round: 0,
     game_ended: false,
@@ -147,7 +148,10 @@ const gameSlice = createSlice({
     setPlayer: (state, action) => {state.player = action.payload},
     setGameWaiting: (state, action) => {state.game_waiting = action.payload},
     setGameCreated: (state, action) => {state.game_created = action.payload},
-    setInstructions: (state, action) => {state.instructions = action.payload},
+    setInstructions: (state, action) => {
+        state.instructions = action.payload;
+        state.instructions_read = true;
+    },
   },
   extraReducers: (builder) => {
     // getData
