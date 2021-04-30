@@ -205,14 +205,16 @@ const gameSlice = createSlice({
     builder.addCase(getNewGame.fulfilled, (state, { payload }) => {
         state.game_waiting_data = payload;
         if (payload.length > 0) {
-            state.room = payload[0]['room']
+            state.room = payload[0]['room'];
+            state.treatment = state.data[state.data.length - 1]['treatment'];
         }
     });
 
     // resume game
     builder.addCase(resumeGame.fulfilled, (state, { payload }) => {
         if (payload.length > 0) {
-            state.room = payload[0]['room']
+            state.room = payload[0]['room'];
+            state.treatment = state.data[state.data.length - 1]['treatment'];
             if (payload[0]['player1name'] === payload[0]['current_alias']) {
                 state.player = 'player1'
             } else if (payload[0]['player2name'] === payload[0]['current_alias']) {
@@ -230,7 +232,8 @@ const gameSlice = createSlice({
     builder.addCase(updateWaitingRoom.fulfilled, (state, { payload }) => {
         state.game_waiting_data = payload;
         if (payload.length > 0) {
-            state.room = payload[0]['room']
+            state.room = payload[0]['room'];
+            state.treatment = state.data[state.data.length - 1]['treatment'];
             if (payload[0]['both_online']) {
                 state.game_created = true;
                 state.game_waiting = false;
