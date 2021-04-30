@@ -132,7 +132,7 @@ const CreateGame = () => {
                             </Typography>
                         </Grid>
                         <Grid item align="center" xs={12} >
-                            <TextField id="alias" label="Enter Your Alias (Required)" variant="outlined" />
+                            <TextField id="alias" label="Enter an Alias" variant="outlined" />
                         </Grid>
                         <Grid item align="center" xs={12} >
                             <Button className={classes.spacing} variant="contained" color="primary" onClick={handleCreateNewGame}>
@@ -149,8 +149,8 @@ const CreateGame = () => {
                             </Typography>
                         </Grid>
                         <Grid item align="center" xs={12} >
-                            <TextField id="resume_alias" label="Enter Your Alias (Required)" variant="outlined" />
-                            <TextField id="resume_room" label="Enter Your Room Code (Required)" variant="outlined" />
+                            <TextField id="resume_alias" label="Enter Alias" variant="outlined" />
+                            <TextField id="resume_room" label="Enter Room Code" variant="outlined" />
                         </Grid>
                         <Grid item align="center" xs={12} >
                             <Button className={classes.spacing} variant="contained" color="primary" onClick={handleResumeGame}>
