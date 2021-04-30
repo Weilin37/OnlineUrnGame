@@ -138,11 +138,11 @@ const QuizStatus = () => {
     ];
 
     const question4 = [
-        <FormControlLabel control={<Checkbox checked={state.Accept} onChange={handleSelectChange} name="Accept" />} label="Accept any offer from Player 1" />,
-        <FormControlLabel control={<Checkbox checked={state.MixBlue} onChange={handleSelectChange} name="MixBlue" />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />,
-        <FormControlLabel control={<Checkbox checked={state.MixRed} onChange={handleSelectChange} name="MixRed" />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />,
-        <FormControlLabel control={<Checkbox checked={state.Reject} onChange={handleSelectChange} name="Reject" />} label="Reject any offer from Player 1" />,
-        <FormControlLabel control={<Checkbox checked={state.Unclear} onChange={handleSelectChange} name="Unclear" />} label="Unclear with given information" />
+        <FormControlLabel control={<Checkbox checked={selectedValue4.Accept} onChange={handleSelectChange} name="Accept" />} label="Accept any offer from Player 1" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.MixBlue} onChange={handleSelectChange} name="MixBlue" />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.MixRed} onChange={handleSelectChange} name="MixRed" />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.Reject} onChange={handleSelectChange} name="Reject" />} label="Reject any offer from Player 1" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.Unclear} onChange={handleSelectChange} name="Unclear" />} label="Unclear with given information" />
     ];
 
     const question5 = [
@@ -319,7 +319,7 @@ const QuizStatus = () => {
     }
 
     function handleSelectChange(event) {
-        setState({ ...selectedValue4, [event.target.name]: event.target.checked });
+        setSelectedValue4({ ...selectedValue4, [event.target.name]: event.target.checked });
     };
 
     // render component
