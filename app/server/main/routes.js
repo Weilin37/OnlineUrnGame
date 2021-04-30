@@ -135,19 +135,6 @@ router.get('/api/get/submitquiz', (req,res,next) => {
     var question = req.query.question;
     var answer = req.query.answer;
 
-    console.log(`insert into public.quiz_results (
-            room,
-            alias,
-            question,
-            answer
-        )
-        VALUES (
-            '${room}',
-            '${alias}',
-            '${question}',
-            '${answer}'
-        )`)
-
     pool.query(`insert into public.quiz_results (
             room,
             alias,

@@ -15,6 +15,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Typography from '@material-ui/core/Typography';
+import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +31,8 @@ const QuizHolistic = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [quizPage, setQuizPage] = React.useState(1);
+    const [explanationOpen, setExplanationOpen] = React.useState(false);
+    const [currentExplanation, setCurrentExplanation] = React.useState();
 
     const [selectedValue1, setSelectedValue1] = React.useState();
     const [selectedValue2, setSelectedValue2] = React.useState();
@@ -226,6 +229,8 @@ const QuizHolistic = () => {
                 ));
                 shuffle(question1)
                 setQuizPage(shuffle(remainingQuestions)[0]);
+                setCurrentExplanation(explanations[quizPage])
+                setExplanationOpen(true);
             }
         } else if (quizPage === 2) {
             answer = selectedValue2
@@ -251,6 +256,8 @@ const QuizHolistic = () => {
                 ));
                 shuffle(question2)
                 setQuizPage(shuffle(remainingQuestions)[0]);
+                setCurrentExplanation(explanations[quizPage])
+                setExplanationOpen(true);
             }
         } else if (quizPage === 3) {
             answer = selectedValue3
@@ -276,10 +283,11 @@ const QuizHolistic = () => {
                 ));
                 shuffle(question3)
                 setQuizPage(shuffle(remainingQuestions)[0]);
+                setCurrentExplanation(explanations[quizPage])
+                setExplanationOpen(true);
             }
         } else if (quizPage === 4) {
             answer = selectedValue4;
-            console.log(convertJSONtoString(answer));
             if (isObjectEqual([answers[quizPage],answer])) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -309,6 +317,8 @@ const QuizHolistic = () => {
                 ));
                 shuffle(question4)
                 setQuizPage(shuffle(remainingQuestions)[0]);
+                setCurrentExplanation(explanations[quizPage])
+                setExplanationOpen(true);
             }
         } else if (quizPage === 5) {
             answer = selectedValue5
@@ -334,6 +344,8 @@ const QuizHolistic = () => {
                 ));
                 shuffle(question5)
                 setQuizPage(shuffle(remainingQuestions)[0]);
+                setCurrentExplanation(explanations[quizPage])
+                setExplanationOpen(true);
             }
         }
     }
@@ -348,7 +360,11 @@ const QuizHolistic = () => {
 
     function handleSelectChange(event) {
         setSelectedValue4({ ...selectedValue4, [event.target.name]: event.target.checked });
-    };
+    }
+
+    function handleModalClose() {
+        setExplanationOpen(false);
+    }
 
     // render component
     if (quizPage === 4) {
@@ -369,6 +385,12 @@ const QuizHolistic = () => {
                       </FormGroup>
                       <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>
+                    <Modal
+                      open={explanationOpen}
+                      onClose={handleModalClose}
+                    >
+                        <p>{currentExplanation}</p>
+                    </Modal>
                 </Grid>
             </Grid>
         );
