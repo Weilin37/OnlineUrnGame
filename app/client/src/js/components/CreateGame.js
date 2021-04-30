@@ -9,8 +9,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+const useStyles = makeStyles((theme) => ({
+  spacing: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2)
+  }
+}));
+
 const CreateGame = () => {
     const dispatch = useDispatch();
+    const classes = useStyles();
 
     // state
     const gameState = useSelector(state => state.game);
@@ -116,10 +124,10 @@ const CreateGame = () => {
     } else {
         return(
             <Grid container spacing={2}>
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                     <Paper>
                         <Grid item align="center" xs={12} >
-                            <Typography variant="h5">
+                            <Typography className={classes.spacing} variant="subtitle1">
                                 If you are a new player, the please enter your alias and press the left button here
                             </Typography>
                         </Grid>
@@ -127,16 +135,16 @@ const CreateGame = () => {
                             <TextField id="alias" label="Enter Your Alias (Required)" variant="outlined" />
                         </Grid>
                         <Grid item align="center" xs={12} >
-                            <Button variant="contained" color="primary" onClick={handleCreateNewGame}>
+                            <Button className={classes.spacing} variant="contained" color="primary" onClick={handleCreateNewGame}>
                                 Enter New Game
                             </Button>
                         </Grid>
                     </Paper>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                     <Paper>
                         <Grid item align="center" xs={12} >
-                            <Typography variant="h5">
+                            <Typography className={classes.spacing} variant="subtitle1">
                                 If you are a returning player, then please enter your room code and the alias you used and press the right button here
                             </Typography>
                         </Grid>
@@ -145,7 +153,7 @@ const CreateGame = () => {
                             <TextField id="resume_room" label="Enter Your Room Code (Required)" variant="outlined" />
                         </Grid>
                         <Grid item align="center" xs={12} >
-                            <Button variant="contained" color="primary" onClick={handleResumeGame}>
+                            <Button className={classes.spacing} variant="contained" color="primary" onClick={handleResumeGame}>
                                 Resume Game
                             </Button>
                         </Grid>
