@@ -182,6 +182,15 @@ const QuizHolistic = () => {
         return array;
     }
 
+    function isObjectEqual(objects) {
+        const res =  objects.map((item) => {
+            return Object.entries(item).flat().join()
+        })
+        return res.every((a) => {
+            return a === res[0]
+        })
+    }
+
     // Functions for Instructions
     function handleSubmit() {
         var answer;
@@ -261,8 +270,8 @@ const QuizHolistic = () => {
                 setQuizPage(shuffle(remainingQuestions)[0]);
             }
         } else if (quizPage === 4) {
-            answer = selectedValue4
-            if (answers[quizPage] === answer) {
+            answer = selectedValue4;
+            if (isObjectEqual([answers[quizPage],answer])) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
                     '&question='+quizPage+
@@ -272,7 +281,14 @@ const QuizHolistic = () => {
                 remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
                 setRemainingQuestions(remainingQuestions)
                 if (remainingQuestions.length === 0) {
-                    dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    batch(() => {
+                        dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                            '&room='+gameState.room+
+                            '&question='+quizPage+
+                            '&answer='+JSON.stringify(answer)
+                        ));
+                        dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    });
                     setQuizPage(6)
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
@@ -280,7 +296,7 @@ const QuizHolistic = () => {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
                     '&question='+quizPage+
-                    '&answer='+answer
+                    '&answer='+JSON.stringify(answer)
                 ));
                 shuffle(question4)
                 setQuizPage(shuffle(remainingQuestions)[0]);

@@ -268,10 +268,7 @@ const QuizStatus = () => {
             }
         } else if (quizPage === 4) {
             answer = selectedValue4;
-            console.log(answer);
-            console.log(answers[quizPage]);
-            console.log(isObjectEqual([answers[quizPage],answer]));
-            if (answers[quizPage] === answer) {
+            if (isObjectEqual([answers[quizPage],answer])) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
                     '&question='+quizPage+
@@ -281,7 +278,14 @@ const QuizStatus = () => {
                 remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
                 setRemainingQuestions(remainingQuestions)
                 if (remainingQuestions.length === 0) {
-                    dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    batch(() => {
+                        dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                            '&room='+gameState.room+
+                            '&question='+quizPage+
+                            '&answer='+JSON.stringify(answer)
+                        ));
+                        dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
+                    });
                     setQuizPage(6)
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
@@ -289,7 +293,7 @@ const QuizStatus = () => {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
                     '&question='+quizPage+
-                    '&answer='+answer
+                    '&answer='+JSON.stringify(answer)
                 ));
                 shuffle(question4)
                 setQuizPage(shuffle(remainingQuestions)[0]);
