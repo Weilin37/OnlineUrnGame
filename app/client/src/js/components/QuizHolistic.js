@@ -191,6 +191,14 @@ const QuizHolistic = () => {
         })
     }
 
+    function convertJSONtoString(json) {
+        var string = '';
+        for (const key in json) {
+            string += key+': '+json[key]+', ';
+        }
+        return string;
+    }
+
     // Functions for Instructions
     function handleSubmit() {
         var answer;
@@ -271,7 +279,7 @@ const QuizHolistic = () => {
             }
         } else if (quizPage === 4) {
             answer = selectedValue4;
-            console.log(JSON.stringify(answer));
+            console.log(convertJSONtoString(answer));
             if (isObjectEqual([answers[quizPage],answer])) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
@@ -286,7 +294,7 @@ const QuizHolistic = () => {
                         dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                             '&room='+gameState.room+
                             '&question='+quizPage+
-                            '&answer='+JSON.stringify(answer)
+                            '&answer='+convertJSONtoString(answer)
                         ));
                         dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     });
