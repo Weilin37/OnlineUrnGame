@@ -271,6 +271,7 @@ const QuizHolistic = () => {
             }
         } else if (quizPage === 4) {
             answer = selectedValue4;
+            console.log(JSON.stringify(answer));
             if (isObjectEqual([answers[quizPage],answer])) {
                 dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                     '&room='+gameState.room+
