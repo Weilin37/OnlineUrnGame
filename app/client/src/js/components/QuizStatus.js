@@ -237,18 +237,16 @@ const QuizStatus = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
+                setCurrentExplanation(explanations[quizPage])
+                setExplanationOpen(true);
+                setSelectedValue1();
+                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                    '&room='+gameState.room+
+                    '&question='+quizPage+
+                    '&answer='+answer
+                ));
+                setQuizPage(shuffle(remainingQuestions)[0]);
                 shuffle(question1)
-                batch(() => {
-                    setQuizPage(shuffle(remainingQuestions)[0]);
-                    setCurrentExplanation(explanations[quizPage])
-                    setExplanationOpen(true);
-                    setSelectedValue1();
-                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                        '&room='+gameState.room+
-                        '&question='+quizPage+
-                        '&answer='+answer
-                    ));
-                })
             }
         } else if (quizPage === 2) {
             answer = selectedValue2
@@ -384,7 +382,6 @@ const QuizStatus = () => {
         if (quizPage === 1) {setSelectedValue1(event.target.value)}
         else if (quizPage === 2) {setSelectedValue2(event.target.value)}
         else if (quizPage === 3) {setSelectedValue3(event.target.value)}
-        else if (quizPage === 4) {setSelectedValue4(event.target.value)}
         else if (quizPage === 5) {setSelectedValue5(event.target.value)}
     }
 
