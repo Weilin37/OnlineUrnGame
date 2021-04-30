@@ -16,17 +16,27 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   spacing: {
     marginTop: theme.spacing(2),
-  }
+  },
+  paper: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
 
 const QuizStatus = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
+    const [modalStyle] = React.useState(getModalStyle);
 
     // state
     const gameState = useSelector(state => state.game);
@@ -163,6 +173,14 @@ const QuizStatus = () => {
         5: question5
     }
 
+    function getModalStyle() {
+        return {
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+        };
+    }
+
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -228,6 +246,7 @@ const QuizStatus = () => {
                 setQuizPage(shuffle(remainingQuestions)[0]);
                 setCurrentExplanation(explanations[quizPage])
                 setExplanationOpen(true);
+                setSelectedValue1();
             }
         } else if (quizPage === 2) {
             answer = selectedValue2
@@ -255,6 +274,7 @@ const QuizStatus = () => {
                 setQuizPage(shuffle(remainingQuestions)[0]);
                 setCurrentExplanation(explanations[quizPage])
                 setExplanationOpen(true);
+                setSelectedValue2();
             }
         } else if (quizPage === 3) {
             answer = selectedValue3
@@ -282,6 +302,7 @@ const QuizStatus = () => {
                 setQuizPage(shuffle(remainingQuestions)[0]);
                 setCurrentExplanation(explanations[quizPage])
                 setExplanationOpen(true);
+                setSelectedValue3();
             }
         } else if (quizPage === 4) {
             answer = selectedValue4;
@@ -316,6 +337,7 @@ const QuizStatus = () => {
                 setQuizPage(shuffle(remainingQuestions)[0]);
                 setCurrentExplanation(explanations[quizPage])
                 setExplanationOpen(true);
+                setSelectedValue4({Accept:false,MixBlue:false,MixRed:false,Reject:false,Unclear:false});
             }
         } else if (quizPage === 5) {
             answer = selectedValue5
@@ -343,6 +365,7 @@ const QuizStatus = () => {
                 setQuizPage(shuffle(remainingQuestions)[0]);
                 setCurrentExplanation(explanations[quizPage])
                 setExplanationOpen(true);
+                setSelectedValue5();
             }
         }
     }
@@ -386,7 +409,7 @@ const QuizStatus = () => {
                       open={explanationOpen}
                       onClose={handleModalClose}
                     >
-                        <p>{currentExplanation}</p>
+                        <Paper style={modalStyle} className={classes.paper}>{currentExplanation}</Paper>
                     </Modal>
                 </Grid>
             </Grid>
