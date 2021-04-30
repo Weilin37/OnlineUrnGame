@@ -240,16 +240,18 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                setCurrentExplanation(explanations[quizPage])
-                setExplanationOpen(true);
-                setSelectedValue1();
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
-                setQuizPage(shuffle(remainingQuestions)[0]);
-                shuffle(question1)
+                batch(() => {
+                    setCurrentExplanation(explanations[quizPage])
+                    setExplanationOpen(true);
+                    shuffle(question1)
+                    setQuizPage(shuffle(remainingQuestions)[0]);
+                    setSelectedValue1();
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                })
             }
         } else if (quizPage === 2) {
             answer = selectedValue2
@@ -268,11 +270,11 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                shuffle(question2)
                 batch(() => {
-                    setQuizPage(shuffle(remainingQuestions)[0]);
                     setCurrentExplanation(explanations[quizPage])
                     setExplanationOpen(true);
+                    shuffle(question2)
+                    setQuizPage(shuffle(remainingQuestions)[0]);
                     setSelectedValue2();
                     dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                         '&room='+gameState.room+
@@ -298,11 +300,11 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                shuffle(question3)
                 batch(() => {
-                    setQuizPage(shuffle(remainingQuestions)[0]);
                     setCurrentExplanation(explanations[quizPage])
                     setExplanationOpen(true);
+                    shuffle(question3)
+                    setQuizPage(shuffle(remainingQuestions)[0]);
                     setSelectedValue3();
                     dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                         '&room='+gameState.room+
@@ -335,11 +337,11 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                shuffle(question4)
                 batch(() => {
-                    setQuizPage(shuffle(remainingQuestions)[0]);
                     setCurrentExplanation(explanations[quizPage])
                     setExplanationOpen(true);
+                    setQuizPage(shuffle(remainingQuestions)[0]);
+                    shuffle(question4)
                     setSelectedValue4({Accept:false,MixBlue:false,MixRed:false,Reject:false,Unclear:false});
                     dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                         '&room='+gameState.room+
@@ -365,11 +367,11 @@ const QuizHolistic = () => {
                 }
                 else {setQuizPage(shuffle(remainingQuestions)[0])}
             } else {
-                shuffle(question5)
                 batch(() => {
-                    setQuizPage(shuffle(remainingQuestions)[0]);
                     setCurrentExplanation(explanations[quizPage])
                     setExplanationOpen(true);
+                    shuffle(question5)
+                    setQuizPage(shuffle(remainingQuestions)[0]);
                     setSelectedValue5();
                     dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
                         '&room='+gameState.room+
