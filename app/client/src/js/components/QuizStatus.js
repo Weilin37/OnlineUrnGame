@@ -191,7 +191,7 @@ const QuizStatus = () => {
     function convertJSONtoString(json) {
         var string = '';
         for (const key in json) {
-            string += key+': '+json[key]+', ';
+            string += key+' - '+json[key]+', ';
         }
         return string;
     }
