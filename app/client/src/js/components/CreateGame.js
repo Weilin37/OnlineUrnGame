@@ -106,7 +106,7 @@ const CreateGame = () => {
     // render component
     if (gameState.game_waiting === true) {
         return (
-            <Grid container spacing={2}>
+            <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={12} >
                     <Typography variant="h5">Waiting for next player to join...</Typography>
                 </Grid>
@@ -123,8 +123,8 @@ const CreateGame = () => {
         );
     } else {
         return(
-            <Grid container spacing={2}>
-                <Grid item xs={8}>
+            <Grid container justify="center" alignItems="center" spacing={2}>
+                <Grid item align="center" xs={8}>
                     <Paper>
                         <Grid item align="center" xs={12} >
                             <Typography className={classes.spacing} variant="subtitle1">
@@ -141,7 +141,7 @@ const CreateGame = () => {
                         </Grid>
                     </Paper>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item align="center" xs={8}>
                     <Paper>
                         <Grid item align="center" xs={12} >
                             <Typography className={classes.spacing} variant="subtitle1">
