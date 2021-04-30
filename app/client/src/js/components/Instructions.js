@@ -126,9 +126,6 @@ const Instructions = () => {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={8} >
-                        <button type="button" onClick={handleInstructionsClose}>
-                            Close Instructions
-                        </button>
 
                         <p>Instructions for Player 1 (screen 2 of 2)</p>
                         <p>In each of the 10 rounds, you will decide whether to (1) offer the jar to Player 2 so that
@@ -201,9 +198,6 @@ const Instructions = () => {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={8} >
-                        <button type="button" onClick={handleInstructionsClose}>
-                            Close Instructions
-                        </button>
 
                         <p>Instructions for Player 2 (1 of 2)</p>
 
