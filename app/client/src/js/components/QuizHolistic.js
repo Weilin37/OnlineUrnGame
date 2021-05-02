@@ -66,8 +66,9 @@ const QuizHolistic = () => {
 
     // Read Game State
     useEffect(() => {
-        if (response1 && response2 && response3 && response4 && response5) {
+        if (quizPage === 6) {
             batch(() => {
+                dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                 dispatch(getData("/api/get/readgame?room="+gameState.room));
                 dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round=1'));
             });
@@ -226,14 +227,16 @@ const QuizHolistic = () => {
         if (quizPage === 1) {
             answer = selectedValue1
             if (answers[quizPage] === answer) {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
-                setResponse1(true)
-                remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
-                setRemainingQuestions(remainingQuestions)
+                batch(() => {
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                    setResponse1(true)
+                    remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
+                    setRemainingQuestions(remainingQuestions)
+                });
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
@@ -256,14 +259,16 @@ const QuizHolistic = () => {
         } else if (quizPage === 2) {
             answer = selectedValue2
             if (answers[quizPage] === answer) {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
-                setResponse2(true)
-                remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
-                setRemainingQuestions(remainingQuestions)
+                batch(() => {
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                    setResponse2(true)
+                    remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
+                    setRemainingQuestions(remainingQuestions)
+                });
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
@@ -286,14 +291,16 @@ const QuizHolistic = () => {
         } else if (quizPage === 3) {
             answer = selectedValue3
             if (answers[quizPage] === answer) {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
-                setResponse3(true)
-                remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
-                setRemainingQuestions(remainingQuestions)
+                batch(() => {
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                    setResponse3(true)
+                    remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
+                    setRemainingQuestions(remainingQuestions)
+                });
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
@@ -316,14 +323,16 @@ const QuizHolistic = () => {
         } else if (quizPage === 4) {
             answer = selectedValue4;
             if (isObjectEqual([answers[quizPage],answer])) {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+convertJSONtoString(answer)
-                ));
-                setResponse4(true)
-                remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
-                setRemainingQuestions(remainingQuestions)
+                batch(() => {
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+convertJSONtoString(answer)
+                    ));
+                    setResponse4(true)
+                    remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
+                    setRemainingQuestions(remainingQuestions)
+                });
                 if (remainingQuestions.length === 0) {
                     batch(() => {
                         dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
@@ -353,14 +362,16 @@ const QuizHolistic = () => {
         } else if (quizPage === 5) {
             answer = selectedValue5
             if (answers[quizPage] === answer) {
-                dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
-                    '&room='+gameState.room+
-                    '&question='+quizPage+
-                    '&answer='+answer
-                ));
-                setResponse5(true)
-                remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
-                setRemainingQuestions(remainingQuestions)
+                batch(() => {
+                    dispatch(submitQuiz('/api/get/submitquiz?alias='+gameState.alias+
+                        '&room='+gameState.room+
+                        '&question='+quizPage+
+                        '&answer='+answer
+                    ));
+                    setResponse5(true)
+                    remainingQuestions.splice(remainingQuestions.indexOf(quizPage),1)
+                    setRemainingQuestions(remainingQuestions)
+                });
                 if (remainingQuestions.length === 0) {
                     dispatch(finishQuiz('/api/get/finishquiz?room='+gameState.room+'&player='+gameState.player));
                     setQuizPage(6)
