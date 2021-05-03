@@ -28,7 +28,7 @@ const InstructionsPlayer2Holistic = () => {
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
         const interval = setTimeout(() => {
-            setTotalPages(Math.max(value,pages));
+            setTotalPages(Math.max(value+1,pages));
         }, 30000);
     }
 
