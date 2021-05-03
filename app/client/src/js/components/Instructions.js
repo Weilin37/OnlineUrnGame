@@ -13,6 +13,19 @@ import InstructionsPlayer2Holistic from "./InstructionsPlayer2Holistic";
 
 const Instructions = () => {
     const dispatch = useDispatch();
+    const [timer, setTimer] = React.useState(0);
+
+    const interval = setTimeout(() => {
+        setTimer(timer+1);
+    }, 1000);
+
+    // Read Game State
+    useEffect(() => {
+        batch(() => {
+            dispatch(getData("/api/get/readgame?room="+gameState.room));
+            dispatch(updateOnlineStatus('/api/get/updateonlinestatus?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.current_round));
+        });
+    }, [timer]);
 
     // state
     const gameState = useSelector(state => state.game);

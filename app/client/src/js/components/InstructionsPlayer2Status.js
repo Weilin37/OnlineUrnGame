@@ -27,7 +27,7 @@ const InstructionsPlayer2Status = () => {
 
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
-        if (pages < 7) {
+        if (pages < 7 && !gameState.both_quiz_finished) {
             setTimeout(() => {
                 setTotalPages(Math.max(value+1,pages));
             }, 30000);
@@ -36,9 +36,11 @@ const InstructionsPlayer2Status = () => {
 
     // render component
     if (instructionsPage === 1) {
-        const interval = setTimeout(() => {
-            setTotalPages(Math.max(2,pages));
-        }, 30000);
+        if (!gameState.both_quiz_finished) {
+            const interval = setTimeout(() => {
+                setTotalPages(Math.max(2,pages));
+            }, 30000);
+        }
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
