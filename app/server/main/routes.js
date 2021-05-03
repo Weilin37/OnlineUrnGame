@@ -416,10 +416,10 @@ router.get('/api/get/senddata', (req,res,next) => {
                     player1earnings += player1reward;
 
                     if (drawings <= blueprobability) {
-                        drawn_ball = 'blue';
+                        drawn_ball = 'blue ball';
                         player2earnings += player2reward;
                     } else {
-                        drawn_ball = 'red';
+                        drawn_ball = 'red ball';
                         player2earnings += player2penalty;
                     }
                 } else if (data === 'MixWithLowBlue') {
@@ -428,10 +428,10 @@ router.get('/api/get/senddata', (req,res,next) => {
                     player1earnings += player1reward;
 
                     if (drawings <= blueprobability) {
-                        drawn_ball = 'blue';
+                        drawn_ball = 'blue ball';
                         player2earnings += player2reward;
                     } else {
-                        drawn_ball = 'red';
+                        drawn_ball = 'red ball';
                         player2earnings += player2penalty;
                     }
                 }
@@ -465,9 +465,30 @@ router.get('/api/get/senddata', (req,res,next) => {
                 drawn_ball = 'NA'
             } else if (player1action === 'Offer') {
                 if (data === 'RejectOffer') {
-                    player1earnings += 0;
-                    player2earnings += 0;
-                    drawn_ball = 'NA'
+                    blueprobabilityhigh = (player2highbluecount/100);
+                    blueprobabiltiylow = (player2lowbluecount/100);
+
+                    if (drawings_high <= blueprobabilityhigh) {
+                        drawn_ball = 'blue';
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        drawn_ball = 'red';
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
+
+                    if (drawings_low <= blueprobabiltiylow) {
+                        if (drawn_ball === 'blue') {drawn_ball = '2 blue balls'}
+                        else if (drawn_ball === 'red') {drawn_ball = '1 blue and 1 red'}
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        if (drawn_ball === 'blue') {drawn_ball = '1 blue and 1 red'}
+                        else if (drawn_ball === 'red') {drawn_ball = '2 red balls'}
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
                 } else if (data === 'MixWithHighBlue') {
                     totalbluecounthigh = player1bluecount+player2highbluecount;
                     totalbluecountlow = player2lowbluecount;
@@ -486,13 +507,13 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
 
                     if (drawings_low <= blueprobabiltiylow) {
-                        if (drawn_ball === 'blue') {drawn_ball = 'twoblues'}
-                        else if (drawn_ball === 'red') {drawn_ball = 'blue'}
+                        if (drawn_ball === 'blue') {drawn_ball = '2 blue balls'}
+                        else if (drawn_ball === 'red') {drawn_ball = '1 blue and 1 red'}
                         player1earnings += player1reward;
                         player2earnings += player2reward;
                     } else {
-                        if (drawn_ball === 'blue') {drawn_ball = 'blue'}
-                        else if (drawn_ball === 'red') {drawn_ball = 'tworeds'}
+                        if (drawn_ball === 'blue') {drawn_ball = '1 blue and 1 red'}
+                        else if (drawn_ball === 'red') {drawn_ball = '2 red balls'}
                         player1earnings += player1penalty;
                         player2earnings += player2penalty;
                     }
@@ -514,13 +535,13 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
 
                     if (drawings_low <= blueprobabiltiylow) {
-                        if (drawn_ball === 'blue') {drawn_ball = 'twoblues'}
-                        else if (drawn_ball === 'red') {drawn_ball = 'blue'}
+                        if (drawn_ball === 'blue') {drawn_ball = '2 blue balls'}
+                        else if (drawn_ball === 'red') {drawn_ball = '1 blue and 1 red'}
                         player1earnings += player1reward;
                         player2earnings += player2reward;
                     } else {
-                        if (drawn_ball === 'blue') {drawn_ball = 'blue'}
-                        else if (drawn_ball === 'red') {drawn_ball = 'tworeds'}
+                        if (drawn_ball === 'blue') {drawn_ball = '1 blue and 1 red'}
+                        else if (drawn_ball === 'red') {drawn_ball = '2 red balls'}
                         player1earnings += player1penalty;
                         player2earnings += player2penalty;
                     }
