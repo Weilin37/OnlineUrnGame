@@ -15,7 +15,7 @@ const InstructionsPlayer1Holistic = () => {
     const [pages, setTotalPages] = React.useState(1);
 
     if (gameState.both_quiz_finished) {
-        setTotalPages(7);
+        //setTotalPages(7);
     }
 
     //const pages = 7;
