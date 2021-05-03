@@ -22,7 +22,7 @@ const NavBar = props => {
             dispatch(setInstructions(!gameState.instructions));
         }
 
-        if (gameState.data.length > 0 && both_quiz_finished) {
+        if (gameState.data.length > 0 && gameState.both_quiz_finished) {
             return (
               <AppBar position="static">
                   <Toolbar variant="dense">
