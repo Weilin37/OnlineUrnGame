@@ -12,8 +12,13 @@ const InstructionsPlayer1Status = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [instructionsPage, setInstructionsPage] = React.useState(1);
+    const [pages, setTotalPages] = React.useState(1);
 
-    const pages = 7;
+    if (gameState.both_quiz_finished) {
+        setTotalPages(7);
+    }
+
+    //const pages = 7;
 
     // Functions for Instructions
     function handleInstructionsClose() {
@@ -22,6 +27,9 @@ const InstructionsPlayer1Status = () => {
 
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
+        const interval = setTimeout(() => {
+            setTotalPages(Math.max(value,pages));
+        }, 1000);
     }
 
     // render component

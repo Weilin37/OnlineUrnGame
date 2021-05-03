@@ -12,8 +12,13 @@ const InstructionsPlayer1Holistic = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [instructionsPage, setInstructionsPage] = React.useState(1);
+    const [pages, setTotalPages] = React.useState(1);
 
-    const pages = 7;
+    if (gameState.both_quiz_finished) {
+        setTotalPages(7);
+    }
+
+    //const pages = 7;
 
     // Functions for Instructions
     function handleInstructionsClose() {
@@ -22,6 +27,9 @@ const InstructionsPlayer1Holistic = () => {
 
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
+        const interval = setTimeout(() => {
+            setTotalPages(Math.max(value,pages));
+        }, 1000);
     }
 
     // render component
@@ -183,11 +191,11 @@ const InstructionsPlayer1Holistic = () => {
 
                     <ul>
                         <li>
-                            Player 1 gets money in each round for each blue ball drawn at the end of that round from
+                            Player 1 gets q tokens in each round for each blue ball drawn at the end of that round from
                             both urns.
                         </li>
                         <li>
-                            Player 2 gets $p in each round for each blue ball drawn at the end of that round from both urns.
+                            Player 2 gets p tokens in each round for each blue ball drawn at the end of that round from both urns.
                         </li>
                     </ul>
                 </Grid>

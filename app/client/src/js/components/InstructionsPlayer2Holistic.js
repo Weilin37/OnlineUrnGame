@@ -12,8 +12,13 @@ const InstructionsPlayer2Holistic = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [instructionsPage, setInstructionsPage] = React.useState(1);
+    const [pages, setTotalPages] = React.useState(1);
 
-    const pages = 7;
+    if (gameState.both_quiz_finished) {
+        setTotalPages(7);
+    }
+
+    //const pages = 7;
 
     // Functions for Instructions
     function handleInstructionsClose() {
@@ -22,6 +27,9 @@ const InstructionsPlayer2Holistic = () => {
 
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
+        const interval = setTimeout(() => {
+            setTotalPages(Math.max(value,pages));
+        }, 1000);
     }
 
     // render component
@@ -131,10 +139,13 @@ const InstructionsPlayer2Holistic = () => {
 
                     <p>Instructions for Player 2 (2 of 2)</p>
 
-                    <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to (1) decline Player 1’s jar offer;
-                    or (2)/(3) mix all the balls from the jar offered by Player 1 into in either one of your urns (not both urns).
-                    If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.
-                    </p>
+                    <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to: </p>
+                    <ul>
+                        <li>decline Player 1’s jar offer</li>
+                        <p>OR</p>
+                        <li>(2)/(3) mix all the balls from the jar offered by Player 1 into in either one of your urns (not both urns)</li>
+                    </ul>
+                    <p>If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.</p>
 
                 </Grid>
                 <Grid item align="center" xs={8} >
@@ -181,11 +192,11 @@ const InstructionsPlayer2Holistic = () => {
 
                     <ul>
                         <li>
-                            Player 1 gets money in each round for each blue ball drawn at the end of that round from
+                            Player 1 gets q tokens in each round for each blue ball drawn at the end of that round from
                             both urns.
                         </li>
                         <li>
-                            Player 2 gets $p in each round for each blue ball drawn at the end of that round from both urns.
+                            Player 2 gets p tokens in each round for each blue ball drawn at the end of that round from both urns.
                         </li>
                     </ul>
                 </Grid>
