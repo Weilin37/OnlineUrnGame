@@ -27,9 +27,11 @@ const InstructionsPlayer1Holistic = () => {
 
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
-        const interval = setTimeout(() => {
-            setTotalPages(Math.max(value+1,pages));
-        }, 30000);
+        if (pages < 7) {
+            setTimeout(() => {
+                setTotalPages(Math.max(value+1,pages));
+            }, 30000);
+        }
     }
 
     // render component
@@ -40,6 +42,7 @@ const InstructionsPlayer1Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 1 of 7)</p>
 
                     <p>OVERVIEW</p>
                     <p>Welcome to this study of decision-making.</p>
@@ -85,8 +88,9 @@ const InstructionsPlayer1Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 2 of 7)</p>
 
-                    <p>Instructions for Player 1 (screen 1 of 2)</p>
+                    <p>Instructions for Player 1</p>
 
                     <p>In this study, you have been assigned the role of Player 1.
                     You have been randomly matched with another participant who will be in the role of Player 2.
@@ -138,8 +142,9 @@ const InstructionsPlayer1Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 3 of 7)</p>
 
-                    <p>Instructions for Player 1 (screen 2 of 2)</p>
+                    <p>Instructions for Player 1</p>
                     <p>In each of the 10 rounds, you will decide whether to (1) offer the jar to Player 2 so that
                     Player 2 will get the option to mix all the balls in your jar to either one of his/her urns or (2) not recover and offer the jar.
                     If you offered the jar to Player 2, it is Player 2’s decision whether he/she will mix the balls in the jar with an urn and to which urn.
@@ -159,6 +164,7 @@ const InstructionsPlayer1Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 4 of 7)</p>
 
                     <p>The regulations of the game aim to maximize number of blue balls drawn from all the urns.</p>
 
@@ -179,6 +185,7 @@ const InstructionsPlayer1Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 5 of 7)</p>
 
                     <p>
                         Both Player 1’s and Player 2’s earnings are based on the total number of blue balls
@@ -211,6 +218,7 @@ const InstructionsPlayer1Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 6 of 7)</p>
 
                     <p>For your reference, Player 1’s decision screen in the game in each stage will look as follows:</p>
 
@@ -224,6 +232,7 @@ const InstructionsPlayer1Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 7 of 7)</p>
 
                     <p>For your reference, Player 2’s decision screen in the game in each stage will look as follows:</p>
 

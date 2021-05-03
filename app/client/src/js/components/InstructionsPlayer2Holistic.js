@@ -27,9 +27,11 @@ const InstructionsPlayer2Holistic = () => {
 
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
-        const interval = setTimeout(() => {
-            setTotalPages(Math.max(value+1,pages));
-        }, 30000);
+        if (pages < 7) {
+            setTimeout(() => {
+                setTotalPages(Math.max(value+1,pages));
+            }, 30000);
+        }
     }
 
     // render component
@@ -40,6 +42,7 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 1 of 7)</p>
 
                     <p>OVERVIEW</p>
                     <p>Welcome to this study of decision-making.</p>
@@ -85,8 +88,9 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 2 of 7)</p>
 
-                    <p>Instructions for Player 2 (1 of 2)</p>
+                    <p>Instructions for Player 2</p>
 
                     <p>In this study, you have been assigned the role of Player 2.
                     You have been randomly matched with another participant who will be in the role of Player 1.
@@ -139,8 +143,9 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 3 of 7)</p>
 
-                    <p>Instructions for Player 2 (2 of 2)</p>
+                    <p>Instructions for Player 2</p>
 
                     <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to: </p>
                     <ul>
@@ -160,6 +165,7 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 4 of 7)</p>
 
                     <p>The regulations of the game aim to maximize number of blue balls drawn from all the urns.</p>
 
@@ -180,6 +186,7 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 5 of 7)</p>
 
                     <p>
                         Both Player 1’s and Player 2’s earnings are based on the total number of blue balls
@@ -212,6 +219,7 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 6 of 7)</p>
 
                     <p>For your reference, Player 1’s decision screen in the game in each stage will look as follows:</p>
 
@@ -225,6 +233,7 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
+                    <p>(Page 7 of 7)</p>
 
                     <p>For your reference, Player 2’s decision screen in the game in each stage will look as follows:</p>
 
