@@ -80,6 +80,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
+                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -134,6 +135,7 @@ const InstructionsPlayer1Holistic = () => {
                     number of blue balls in each of his/her urns before making any decisions in each round.</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
+                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -156,6 +158,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
+                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -177,6 +180,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
+                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -210,6 +214,7 @@ const InstructionsPlayer1Holistic = () => {
                     </ul>
                 </Grid>
                 <Grid item align="center" xs={8} >
+                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -224,6 +229,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
+                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -243,6 +249,7 @@ const InstructionsPlayer1Holistic = () => {
                     </button>
                 </Grid>
                 <Grid item align="center" xs={8} >
+                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
