@@ -29,14 +29,14 @@ const InstructionsPlayer2Status = () => {
         setInstructionsPage(value);
         const interval = setTimeout(() => {
             setTotalPages(Math.max(value,pages));
-        }, 1000);
+        }, 30000);
     }
 
     // render component
     if (instructionsPage === 1) {
         const interval = setTimeout(() => {
             setTotalPages(Math.max(2,pages));
-        }, 1000);
+        }, 30000);
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
