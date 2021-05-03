@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Grid from '@material-ui/core/Grid';
 import "../../css/app.css";
-import { useSelector, useDispatch } from "react-redux";
-import { setInstructions } from "../features/gameSlice";
+import { useSelector, useDispatch, batch } from "react-redux";
+import { getData, setInstructions, updateOnlineStatus } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Pagination from '@material-ui/lab/Pagination';
 
