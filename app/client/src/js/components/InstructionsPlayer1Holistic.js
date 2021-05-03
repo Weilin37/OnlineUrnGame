@@ -8,13 +8,11 @@ import Pagination from '@material-ui/lab/Pagination';
 
 const InstructionsPlayer1Holistic = () => {
     const dispatch = useDispatch();
-
+    // state
+    const gameState = useSelector(state => state.game);
     var initialPages;
     if (gameState.both_quiz_finished) {initialPages = 7}
     else {initialPages = 1}
-
-    // state
-    const gameState = useSelector(state => state.game);
     const [instructionsPage, setInstructionsPage] = React.useState(1);
     const [pages, setTotalPages] = React.useState(initialPages);
 
