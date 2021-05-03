@@ -249,7 +249,6 @@ const InstructionsPlayer1Holistic = () => {
                     </button>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 30 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
