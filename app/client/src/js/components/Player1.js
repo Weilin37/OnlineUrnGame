@@ -28,6 +28,17 @@ const Player1 = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [ready, setReady] = React.useState(false);
 
+    var player1reward;
+    var player1penalty;
+
+    if (gameState.treatment === 'status_quo') {
+        player1reward = 80000;
+        player1penalty = -240000;
+    } else if (gameState.treatment === 'holistic') {
+        player1reward = 80000;
+        player1penalty = 0;
+    }
+
     const jarType = {
         'low_quality':'0-80 blue balls',
         'high_quality':'80-100 blue balls'
@@ -74,6 +85,12 @@ const Player1 = () => {
                         Now, please select an action by clicking a box below for the current round of the study.
                         Player2 will then decide whether to reject this offer or accept this offer to mix your jar with one of their urns.
                         After that, we''ll go to the next round, and so on until round 10
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        Your reward amount if you win: {player1reward}
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        Your reward amount if you lose: {player1penalty}
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup justify="center" alignItems="center" align="center" aria-label="choice" name="player1choice" onChange={handleChange} >

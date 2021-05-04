@@ -28,6 +28,9 @@ const Player2Status = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [ready, setReady] = React.useState(false);
 
+    var player2reward = 240000;
+    var player2penalty = -1062500;
+
     useEffect(() => {
         if (gameState.both_ready_for_next && gameState.current_round < 10) {
             dispatch(createNewRound("/api/get/createnewround?room="+gameState.room+"&round="+
@@ -163,6 +166,12 @@ const Player2Status = () => {
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="subtitle1" gutterBottom>
                         Player 1 has decided to offer you their jar. Please choose an action:
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        Your reward amount if you win: {player2reward}
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        Your reward amount if you lose: {player2penalty}
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
