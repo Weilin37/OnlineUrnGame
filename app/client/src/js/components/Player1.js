@@ -90,7 +90,7 @@ const Player1 = () => {
                         Your reward amount if you win: {player1reward}
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you lose: {player1penalty}
+                        Your penalty amount if you lose: {player1penalty}
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup justify="center" alignItems="center" align="center" aria-label="choice" name="player1choice" onChange={handleChange} >

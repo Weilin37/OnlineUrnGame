@@ -169,7 +169,7 @@ const Player2Holistic = () => {
                         Your reward amount if you win: {player2reward}
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you lose: {player2penalty}
+                        Your penalty amount if you lose: {player2penalty}
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
