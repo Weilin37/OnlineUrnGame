@@ -72,7 +72,6 @@ const Player2Holistic = () => {
     }
 
     function handleContinue() {
-        var ready = true;
         batch(() => {
             dispatch(sendData('/api/get/senddata?player='+gameState.player+
                 '&room='+gameState.room+
@@ -86,7 +85,6 @@ const Player2Holistic = () => {
             );
             dispatch(sendReady('/api/get/sendready?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+ready));
         });
-        setReady(true);
     }
 
     function handleNextRound() {
@@ -203,13 +201,7 @@ const Player2Holistic = () => {
                 <Grid item align="center" xs={12} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="h5" gutterBottom>
-                        Player 1 has decided not to offer you their jar. Balls were drawn from both urns automatically.
-                    </Typography>
-                    <Typography variant="h5" gutterBottom>
-                        The ball drawn was: {gameState.data[gameState.data.length-1]['drawn_ball']}
-                    </Typography>
-                    <Typography variant="h5" gutterBottom>
-                        You earned: {gameState.data[gameState.data.length-1]['player2earnings_difference']}
+                        Player 1 has decided not to offer you their jar. Press OK to draw balls.
                     </Typography>
                     <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
                     <Divider className={classes.spacing} variant="middle" />
