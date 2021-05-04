@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Player2 = () => {
+const Player2Holistic = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
     // state
@@ -134,8 +134,8 @@ const Player2 = () => {
             </Grid>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
-        var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn (${mix_high_blue} of 200 or ${100*(mix_high_blue/200).toFixed(1)}% balls will be blue for this urn)`
-        var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or ${100*(mix_low_blue/200).toFixed(1)}% balls will be blue for this urn)`
+        var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn (${mix_high_blue} of 200 or ${(100*(mix_high_blue/200)).toFixed(1)}% balls will be blue for this urn)`
+        var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or ${(100*(mix_low_blue/200)).toFixed(1)}% balls will be blue for this urn)`
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
@@ -203,7 +203,13 @@ const Player2 = () => {
                 <Grid item align="center" xs={12} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="h5" gutterBottom>
-                        Player 1 has decided not to offer you their jar. No action is needed. Press OK to continue to the next round
+                        Player 1 has decided not to offer you their jar. Balls were drawn from both urns automatically.
+                    </Typography>
+                    <Typography variant="h5" gutterBottom>
+                        The ball drawn was: {gameState.data[gameState.data.length-1]['drawn_ball']}
+                    </Typography>
+                    <Typography variant="h5" gutterBottom>
+                        You earned: {gameState.data[gameState.data.length-1]['player2earnings_difference']}
                     </Typography>
                     <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
                     <Divider className={classes.spacing} variant="middle" />
@@ -294,4 +300,4 @@ const Player2 = () => {
 
 }
 
-export default Player2;
+export default Player2Holistic;

@@ -28,7 +28,7 @@ const InstructionsPlayer1Holistic = () => {
         if (pages < 7 && !gameState.both_quiz_finished) {
             setTimeout(() => {
                 setTotalPages(Math.max(value+1,pages));
-            }, 30000);
+            }, 10000);
         }
     }
 
@@ -37,7 +37,7 @@ const InstructionsPlayer1Holistic = () => {
         if (!gameState.both_quiz_finished) {
             const interval = setTimeout(() => {
                 setTotalPages(Math.max(2,pages));
-            }, 30000);
+            }, 10000);
         }
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
@@ -80,7 +80,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 30 seconds before the next page can appear...</p>
+                    <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -135,7 +135,7 @@ const InstructionsPlayer1Holistic = () => {
                     number of blue balls in each of his/her urns before making any decisions in each round.</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 30 seconds before the next page can appear...</p>
+                    <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -158,7 +158,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 30 seconds before the next page can appear...</p>
+                    <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -180,7 +180,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 30 seconds before the next page can appear...</p>
+                    <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -214,7 +214,7 @@ const InstructionsPlayer1Holistic = () => {
                     </ul>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 30 seconds before the next page can appear...</p>
+                    <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -229,7 +229,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 30 seconds before the next page can appear...</p>
+                    <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>

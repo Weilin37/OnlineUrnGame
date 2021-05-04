@@ -10,7 +10,8 @@ import Paper from '@material-ui/core/Paper';
 
 import Instructions from "./Instructions";
 import Player1 from "./Player1";
-import Player2 from "./Player2";
+import Player2Status from "./Player2Status";
+import Player2Holistic from "./Player2Holistic";
 
 export const Game = () => {
     const dispatch = useDispatch();
@@ -84,10 +85,10 @@ export const Game = () => {
                                 { title: "Player 1 Decision", field: "player1action" },
                                 { title: "Player 2 Decision", field: "player2action"},
                                 { title: "Ball Drawn", field: "drawn_ball"},
-                                { title: "Player 1 Earnings", field: "player1earnings"},
-                                { title: "Player 1 Delta", field: "player1earnings_difference"},
-                                { title: "Player 2 Earnings", field: "player2earnings"},
-                                { title: "Player 2 Delta", field: "player2earnings_difference"},
+                                { title: "Player 1 Bank", field: "player1earnings"},
+                                { title: "Player 1 Earnings", field: "player1earnings_difference"},
+                                { title: "Player 2 Bank", field: "player2earnings"},
+                                { title: "Player 2 Earnings", field: "player2earnings_difference"},
                             ]}
                             data={tabledata}
                             options={{
@@ -130,8 +131,8 @@ export const Game = () => {
                                     { title: "Player 1 Decision", field: "player1action" },
                                     { title: "Player 2 Decision", field: "player2action"},
                                     { title: "Ball Drawn", field: "drawn_ball"},
-                                    { title: "Your Earnings", field: "player1earnings"},
-                                    { title: "Delta", field: "player1earnings_difference"}
+                                    { title: "Your Bank", field: "player1earnings"},
+                                    { title: "Earnings that round", field: "player1earnings_difference"}
                                 ]}
                                 data={tabledata}
                                 options={{
@@ -152,36 +153,70 @@ export const Game = () => {
                 tabledata.forEach(function(v) {
                     delete v.player1earnings;
                 });
-                return (
-                    <Grid container justify="center" alignItems="center" spacing={2}>
-                        <Grid item align="center" xs={12} >
-                            <Player2 />
+
+                if (gameState.treatment === 'status_quo') {
+                    return (
+                        <Grid container justify="center" alignItems="center" spacing={2}>
+                            <Grid item align="center" xs={12} >
+                                <Player2Status />
+                            </Grid>
+                            <Grid item align="center" xs={8} >
+                                <MaterialTable
+                                    columns={[
+                                        { title: "Round", field: "round" },
+                                        { title: "Player 1 Decision", field: "player1action" },
+                                        { title: "Player 2 Decision", field: "player2action"},
+                                        { title: "Ball Drawn", field: "drawn_ball"},
+                                        { title: "Your Bank", field: "player2earnings"},
+                                        { title: "Earnings that round", field: "player2earnings_difference"}
+                                    ]}
+                                    data={tabledata}
+                                    options={{
+                                      paging: false,
+                                      search: false,
+                                      draggable: false,
+                                      showFirstLastPageButtons: false,
+                                      editable:'never',
+                                      disableClick: true,
+                                      sorting: false
+                                    }}
+                                    title="Scorecard"
+                                />
+                            </Grid>
                         </Grid>
-                        <Grid item align="center" xs={8} >
-                            <MaterialTable
-                                columns={[
-                                    { title: "Round", field: "round" },
-                                    { title: "Player 1 Decision", field: "player1action" },
-                                    { title: "Player 2 Decision", field: "player2action"},
-                                    { title: "Ball Drawn", field: "drawn_ball"},
-                                    { title: "Your Earnings", field: "player2earnings"},
-                                    { title: "Delta", field: "player2earnings_difference"}
-                                ]}
-                                data={tabledata}
-                                options={{
-                                  paging: false,
-                                  search: false,
-                                  draggable: false,
-                                  showFirstLastPageButtons: false,
-                                  editable:'never',
-                                  disableClick: true,
-                                  sorting: false
-                                }}
-                                title="Scorecard"
-                            />
+                    );
+                } else if (gameState.treatment === 'holistic') {
+                    return (
+                        <Grid container justify="center" alignItems="center" spacing={2}>
+                            <Grid item align="center" xs={12} >
+                                <Player2Holistic />
+                            </Grid>
+                            <Grid item align="center" xs={8} >
+                                <MaterialTable
+                                    columns={[
+                                        { title: "Round", field: "round" },
+                                        { title: "Player 1 Decision", field: "player1action" },
+                                        { title: "Player 2 Decision", field: "player2action"},
+                                        { title: "Ball Drawn", field: "drawn_ball"},
+                                        { title: "Your Bank", field: "player2earnings"},
+                                        { title: "Earnings that round", field: "player2earnings_difference"}
+                                    ]}
+                                    data={tabledata}
+                                    options={{
+                                      paging: false,
+                                      search: false,
+                                      draggable: false,
+                                      showFirstLastPageButtons: false,
+                                      editable:'never',
+                                      disableClick: true,
+                                      sorting: false
+                                    }}
+                                    title="Scorecard"
+                                />
+                            </Grid>
                         </Grid>
-                    </Grid>
-                );
+                    );
+                }
             }
         } else if (gameState.both_online) {
             return (

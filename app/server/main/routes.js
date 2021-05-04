@@ -460,9 +460,30 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player2penalty = 0;
 
             if (player1action === 'NoOffer') {
-                player1earnings = 0;
-                player2earnings = 0;
-                drawn_ball = 'NA'
+                blueprobabilityhigh = (player2highbluecount/100);
+                blueprobabiltiylow = (player2lowbluecount/100);
+
+                if (drawings_high <= blueprobabilityhigh) {
+                    drawn_ball = 'blue';
+                    player1earnings += player1reward;
+                    player2earnings += player2reward;
+                } else {
+                    drawn_ball = 'red';
+                    player1earnings += player1penalty;
+                    player2earnings += player2penalty;
+                }
+
+                if (drawings_low <= blueprobabiltiylow) {
+                    if (drawn_ball === 'blue') {drawn_ball = '2 blue balls'}
+                    else if (drawn_ball === 'red') {drawn_ball = '1 blue and 1 red'}
+                    player1earnings += player1reward;
+                    player2earnings += player2reward;
+                } else {
+                    if (drawn_ball === 'blue') {drawn_ball = '1 blue and 1 red'}
+                    else if (drawn_ball === 'red') {drawn_ball = '2 red balls'}
+                    player1earnings += player1penalty;
+                    player2earnings += player2penalty;
+                }
             } else if (player1action === 'Offer') {
                 if (data === 'RejectOffer') {
                     blueprobabilityhigh = (player2highbluecount/100);
