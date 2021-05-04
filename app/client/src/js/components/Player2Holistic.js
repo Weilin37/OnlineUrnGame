@@ -108,8 +108,8 @@ const Player2Holistic = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']}
-                        ({gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
                     <Typography variant="h6" gutterBottom>
@@ -143,8 +143,8 @@ const Player2Holistic = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']}
-                        ({gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
                     <Typography variant="h6" gutterBottom>
@@ -184,8 +184,8 @@ const Player2Holistic = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']}
-                        ({gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
                     <Typography variant="h6" gutterBottom>
@@ -218,8 +218,8 @@ const Player2Holistic = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']}
-                        ({gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
                     <Typography variant="h6" gutterBottom>
@@ -261,8 +261,8 @@ const Player2Holistic = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype']}
-                        ({gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
+                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
                     <Typography variant="h6" gutterBottom>

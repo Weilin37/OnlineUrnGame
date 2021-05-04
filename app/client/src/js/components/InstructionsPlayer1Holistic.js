@@ -48,7 +48,7 @@ const InstructionsPlayer1Holistic = () => {
                     <p>Welcome to this study of decision-making.</p>
 
                     <p>The study will take between 1 and 1.5 hours including the instructions.
-                    The instructions are simple, and if you follow them carefully, you can earn money in addition to your $5 show-up payment.
+                    The instructions are simple, and if you follow them carefully, you can earn tokens in addition to your show-up payment.
                     Besides your show-up payment, you will be given a “Bank” of $5 to which additional earnings will be added and from which penalties will be deducted.
                     The show-up payment and your final “Bank” balance  will be paid to you after the study ends. </p>
 

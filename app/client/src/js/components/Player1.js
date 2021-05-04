@@ -63,8 +63,8 @@ const Player1 = () => {
                         For this round, you are randomly assigned the following type of jar:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
-                        ({jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
+                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>
@@ -95,8 +95,8 @@ const Player1 = () => {
                         For this round, you are randomly assigned the following type of jar:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
-                        ({jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
+                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>
@@ -118,8 +118,8 @@ const Player1 = () => {
                         For this round, you are randomly assigned the following type of jar:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
-                        ({jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
+                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>
@@ -151,8 +151,8 @@ const Player1 = () => {
                         For this round, you are randomly assigned the following type of jar:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")}
-                        ({jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
+                        {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        {jarType[gameState.data[gameState.data.length-1]['player1jartype']]})
                     </Typography>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>

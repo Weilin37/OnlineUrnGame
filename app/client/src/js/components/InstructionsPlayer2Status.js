@@ -49,7 +49,7 @@ const InstructionsPlayer2Status = () => {
                     <p>Welcome to this study of decision-making.</p>
 
                     <p>The study will take between 1 and 1.5 hours including the instructions.
-                    The instructions are simple, and if you follow them carefully, you can earn money in addition to your $5 show-up payment.
+                    The instructions are simple, and if you follow them carefully, you can earn tokens in addition to your show-up payment.
                     Besides your show-up payment, you will be given a “Bank” of $5 to which additional earnings will be added and from which penalties will be deducted.
                     The show-up payment and your final “Bank” balance  will be paid to you after the study ends. </p>
 
@@ -207,12 +207,12 @@ const InstructionsPlayer2Status = () => {
                         </li>
                         <li>
                             If Player 1 offered the jar to Player 2 in a round of the study and Player 2
-                            declined the jar, money is deducted from Player 1’s Bank and Player 2 will receive
+                            declined the jar, tokens are deducted from Player 1’s Bank and Player 2 will receive
                             zero earnings for that round.
                         </li>
                         <li>
                             If Player 1 offered the jar to Player 2 in a round of the study and
-                            Player 2 accepted the jar, Player 1 gets money for that round
+                            Player 2 accepted the jar, Player 1 gets tokens for that round
                         </li>
                     </ul>
 
@@ -229,10 +229,10 @@ const InstructionsPlayer2Status = () => {
 
                     <ul>
                         <li>
-                            Player 2 earns money by mixing and drawing a blue ball from the mixed urn.
+                            Player 2 earns tokens by mixing and drawing a blue ball from the mixed urn.
                         </li>
                         <li>
-                            Player 2 loses the earnings and instead receive a money penalty that is deducted
+                            Player 2 loses the earnings and instead receive a tokens penalty that is deducted
                             from his/her Bank if a red ball was drawn from the mixed urn
                         </li>
                     </ul>
