@@ -54,7 +54,7 @@ const InstructionsPlayer2Holistic = () => {
                     <p>OVERVIEW</p>
                     <p>Welcome to this study of decision-making.</p>
                 </Grid>
-                <Grid item align="center" xs={5} >
+                <Grid item align="center" xs={4} >
 
                     <p>The study will take between 1 and 1.5 hours including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens in addition to your show-up payment.
@@ -88,7 +88,7 @@ const InstructionsPlayer2Holistic = () => {
                     and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
 
                 </Grid>
-                <Grid item align="center" xs={3} >
+                <Grid item align="center" xs={4} >
                     <img src={InstructionsPage1} class="imginstructions"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
