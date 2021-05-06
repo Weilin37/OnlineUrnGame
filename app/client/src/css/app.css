@@ -8,12 +8,12 @@ img .imgquiz {
   height: 250px;
 }
 
-img .imginstructions {
+.imginstructions {
     width:auto;
-    height:350px;
+    height:350px !important;
 }
 
-img .imgplayerdecision {
-    height: 350px;
+.imgplayerdecision {
+    height: 350px !important;
     width: auto
 }
