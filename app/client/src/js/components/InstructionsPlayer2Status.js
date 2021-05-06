@@ -53,7 +53,7 @@ const InstructionsPlayer2Status = () => {
 
                     <p>OVERVIEW</p>
                     <p>Welcome to this study of decision-making.</p>
-                <Grid />
+                </Grid>
                 <Grid item align="center" xs={5} >
 
                     <p>The study will take between 1 and 1.5 hours including the instructions.
@@ -104,7 +104,7 @@ const InstructionsPlayer2Status = () => {
                     <p>(Page 2 of 7)</p>
 
                     <p>Instructions for Player 2</p>
-                <Grid />
+                </Grid>
                 <Grid item align="center" xs={5} >
 
                     <p>In this study, you have been assigned the role of Player 2.
@@ -165,7 +165,7 @@ const InstructionsPlayer2Status = () => {
                     <p>(Page 3 of 7)</p>
 
                     <p>Instructions for Player 2</p>
-                <Grid />
+                </Grid>
                 <Grid item align="center" xs={5} >
 
                     <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to: </p>
@@ -191,7 +191,7 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 4 of 7)</p>
-                <Grid />
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns</p>
 
@@ -215,7 +215,7 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 5 of 7)</p>
-                <Grid />
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>
                         Player 1 earns by offering a jar that was subsequently accepted by Player 2,
@@ -271,7 +271,7 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 6 of 7)</p>
-                <Grid />
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>For your reference, Player 1’s decision screen in the game in each stage will look as follows:</p>
                 </Grid>
@@ -289,7 +289,7 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 7 of 7)</p>
-                <Grid />
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>For your reference, Player 2’s decision screen in the game in each stage will look as follows:</p>
                 </Grid>
