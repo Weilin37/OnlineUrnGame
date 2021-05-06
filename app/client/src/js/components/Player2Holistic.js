@@ -137,6 +137,14 @@ const Player2Holistic = () => {
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
         var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn (${mix_high_blue} of 200 or ${(100*(mix_high_blue/200)).toFixed(1)}% balls will be blue for this urn)`
         var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or ${(100*(mix_low_blue/200)).toFixed(1)}% balls will be blue for this urn)`
+
+        var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn (${mix_high_blue} of
+                                    200 or ${(100*(mix_high_blue/200)).toFixed(1)}% balls will be blue
+                                    for this urn, and your expected reward is
+                                    ${(((player2reward*mix_high_blue/200)+(player2penalty*(1-(mix_high_blue/200))))+((player2reward*mix_low_blue/100)+(player2penalty*(1-(mix_low_blue/100))))).toFixed(2)}`
+        var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or
+                                    ${(100*(mix_low_blue/200)).toFixed(1)}% balls will be blue for this urn, and your expected
+                                    reward is ${(((player2reward*mix_low_blue/200)+(player2penalty*(1-(mix_low_blue/200))))+((player2reward*mix_high_blue/100)+(player2penalty*(1-(mix_high_blue/100))))).toFixed(2)}`
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
@@ -166,10 +174,13 @@ const Player2Holistic = () => {
                         Player 1 has decided to offer you their jar. Please choose an action:
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you win: {player2reward}
+                        Your reward amount if you draw 2 blue balls: {2*player2reward}
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your penalty amount if you lose: {player2penalty}
+                        Your reward amount if you draw 1 blue ball and 1 red ball: {player2reward+player2penalty}
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        Your penalty amount if you draw 2 red balls: {2*player2penalty}
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>

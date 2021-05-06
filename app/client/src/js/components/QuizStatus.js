@@ -153,8 +153,8 @@ const QuizStatus = () => {
 
     const question4 = [
         <FormControlLabel control={<Checkbox checked={selectedValue4.Accept} onChange={handleSelectChange} name="Accept" />} label="Accept any offer from Player 1" />,
-        <FormControlLabel control={<Checkbox checked={selectedValue4.MixBlue} onChange={handleSelectChange} name="MixBlue" />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />,
-        <FormControlLabel control={<Checkbox checked={selectedValue4.MixRed} onChange={handleSelectChange} name="MixRed" />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.MixBlue} onChange={handleSelectChange} name="MixBlue" />} label="Mix the balls from Player 1’s jar with the urn with 100 blue balls" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.MixRed} onChange={handleSelectChange} name="MixRed" />} label="Mix the balls from Player 1’s jar with the urn with 100 red balls" />,
         <FormControlLabel control={<Checkbox checked={selectedValue4.Reject} onChange={handleSelectChange} name="Reject" />} label="Reject any offer from Player 1" />,
         <FormControlLabel control={<Checkbox checked={selectedValue4.Unclear} onChange={handleSelectChange} name="Unclear" />} label="Unclear with given information" />
     ];

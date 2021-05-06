@@ -114,7 +114,7 @@ const QuizHolistic = () => {
         3:`Answer is Higher than before mixing. Before mixing, the urn has a lower percentage of blue balls. Since the
                 jar has a higher percentage of blue balls, mixing will increase the percentage of blue balls in the
                 urn. So if the one wants to have the highest chance of drawing a blue ball, one would mix.`,
-        4:`Answer is Reject any offer from Player 1 and Mix the balls from Player 1's urn with the urn with 100
+        4:`Answer is Reject any offer from Player 1 and Mix the balls from Player 1's jar with the urn with 100
                 blue balls. Player 2 will never reject any offer that can at least improve the odds of one of
                 his/her urns. Given that the urn with 100 red balls has 0% chance of drawing a blue ball, any
                 chance to add a blue ball in the mix will be an improvement - therefore he/she will never
@@ -156,8 +156,8 @@ const QuizHolistic = () => {
 
     const question4 = [
         <FormControlLabel control={<Checkbox checked={selectedValue4.Accept} onChange={handleSelectChange} name="Accept" />} label="Accept any offer from Player 1" />,
-        <FormControlLabel control={<Checkbox checked={selectedValue4.MixBlue} onChange={handleSelectChange} name="MixBlue" />} label="Mix the balls from Player 1’s urn with the urn with 100 blue balls" />,
-        <FormControlLabel control={<Checkbox checked={selectedValue4.MixRed} onChange={handleSelectChange} name="MixRed" />} label="Mix the balls from Player 1’s urn with the urn with 100 red balls" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.MixBlue} onChange={handleSelectChange} name="MixBlue" />} label="Mix the balls from Player 1’s jar with the urn with 100 blue balls" />,
+        <FormControlLabel control={<Checkbox checked={selectedValue4.MixRed} onChange={handleSelectChange} name="MixRed" />} label="Mix the balls from Player 1’s jar with the urn with 100 red balls" />,
         <FormControlLabel control={<Checkbox checked={selectedValue4.Reject} onChange={handleSelectChange} name="Reject" />} label="Reject any offer from Player 1" />,
         <FormControlLabel control={<Checkbox checked={selectedValue4.Unclear} onChange={handleSelectChange} name="Unclear" />} label="Unclear with given information" />
     ];

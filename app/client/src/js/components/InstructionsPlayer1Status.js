@@ -148,9 +148,13 @@ const InstructionsPlayer1Status = () => {
                     <p>(Page 3 of 7)</p>
 
                     <p>Instructions for Player 1</p>
-                    <p>In each of the 10 rounds, you will decide whether to (1) offer the jar to Player 2 so that
-                    Player 2 will get the option to mix all the balls in your jar to either one of his/her urns or (2) not recover and offer the jar.
-                    If you offered the jar to Player 2, it is Player 2’s decision whether he/she will mix the balls in the jar with an urn and to which urn.
+                    <p>In each of the 10 rounds, you will decide whether to:</p>
+                    <ul>
+                        <li>Offer the jar to Player 2 so that Player 2 will get the option to mix all the balls in your jar to either one of his/her urns</li>
+                        <p>OR</p>
+                        <li>Not recover and offer the jar</li>
+                    </ul>
+                    <p>If you offered the jar to Player 2, it is Player 2’s decision whether he/she will mix the balls in the jar with an urn and to which urn.
                     Player 2 will have to either mix all the balls from your jar into the same urn or not mix the balls from your jar at all.
                     </p>
 

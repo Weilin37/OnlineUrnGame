@@ -31,12 +31,25 @@ const Player1 = () => {
     var player1reward;
     var player1penalty;
 
+    var earnings_messaging = [];
+
     if (gameState.treatment === 'status_quo') {
         player1reward = 80000;
         player1penalty = -240000;
+
+        earnings_messaging = [
+            <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 accepts your jar: {player1reward}</Typography>,
+            <Typography variant="subtitle1" gutterBottom>Your penalty amount if you Player 2 rejects your jar: {player1penalty}</Typography>
+        ]
     } else if (gameState.treatment === 'holistic') {
         player1reward = 80000;
         player1penalty = 0;
+
+        earnings_messaging = [
+            <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 draws 2 blue balls: {2*player1reward}</Typography>,
+            <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 draws 1 blue ball and 1 red ball: {player1reward+player1penalty}</Typography>,
+            <Typography variant="subtitle1" gutterBottom>Your penalty amount if you Player 2 draw 2 red balls: {2*player1penalty}</Typography>
+        ]
     }
 
     const jarType = {
@@ -86,12 +99,9 @@ const Player1 = () => {
                         Player2 will then decide whether to reject this offer or accept this offer to mix your jar with one of their urns.
                         After that, we''ll go to the next round, and so on until round 10
                     </Typography>
-                    <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you win: {player1reward}
-                    </Typography>
-                    <Typography variant="subtitle1" gutterBottom>
-                        Your penalty amount if you lose: {player1penalty}
-                    </Typography>
+                    {earnings_messaging.map(function(name, index){
+                        return name;
+                    })}
                     <FormControl component="fieldset">
                         <RadioGroup justify="center" alignItems="center" align="center" aria-label="choice" name="player1choice" onChange={handleChange} >
                             <FormControlLabel value="Offer" control={<Radio />} label="Offer your jar to Player 2" />
