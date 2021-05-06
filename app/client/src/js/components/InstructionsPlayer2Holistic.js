@@ -6,11 +6,11 @@ import { setInstructions } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Pagination from '@material-ui/lab/Pagination';
 
-import InstructionsPage1 from '../../img/InstructionsPage1.png'
-import InstructionsPage2 from '../../img/InstructionsPage2.png'
-import InstructionsPage3Player2 from '../../img/InstructionsPage3Player2.png'
-import InstructionsDecisionPlayer1Holistic from '../../img/InstructionsDecisionPlayer1Holistic.png'
-import InstructionsDecisionPlayer2Holistic from '../../img/InstructionsDecisionPlayer2Holistic.png'
+import InstructionsPage1 from '../../img/InstructionsPage1.png';
+import InstructionsPage2 from '../../img/InstructionsPage2.png';
+import InstructionsPage3Player2 from '../../img/InstructionsPage3Player2.png';
+import InstructionsDecisionPlayer1Holistic from '../../img/InstructionsDecisionPlayer1Holistic.png';
+import InstructionsDecisionPlayer2Holistic from '../../img/InstructionsDecisionPlayer2Holistic.png';
 
 const InstructionsPlayer2Holistic = () => {
     const dispatch = useDispatch();

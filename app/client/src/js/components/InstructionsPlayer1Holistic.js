@@ -6,11 +6,11 @@ import { setInstructions } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Pagination from '@material-ui/lab/Pagination';
 
-import InstructionsPage1 from '../../img/InstructionsPage1.png'
-import InstructionsPage2 from '../../img/InstructionsPage2.png'
-import InstructionsPage3Player1 from '../../img/InstructionsPage3Player1.png'
-import InstructionsDecisionPlayer1Holistic from '../../img/InstructionsDecisionPlayer1Holistic.png'
-import InstructionsDecisionPlayer2Holistic from '../../img/InstructionsDecisionPlayer2Holistic.png'
+import InstructionsPage1 from '../../img/InstructionsPage1.png';
+import InstructionsPage2 from '../../img/InstructionsPage2.png';
+import InstructionsPage3Player1 from '../../img/InstructionsPage3Player1.png';
+import InstructionsDecisionPlayer1Holistic from '../../img/InstructionsDecisionPlayer1Holistic.png';
+import InstructionsDecisionPlayer2Holistic from '../../img/InstructionsDecisionPlayer2Holistic.png';
 
 const InstructionsPlayer1Holistic = () => {
     const dispatch = useDispatch();
@@ -88,7 +88,7 @@ const InstructionsPlayer1Holistic = () => {
 
                 </Grid>
                 <Grid item align="center" xs={3} >
-                    <img src={InstructionsPage1} class="imginstructions"/>
+                    <img src={InstructionsPage1} class="imginstructions" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
