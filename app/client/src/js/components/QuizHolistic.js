@@ -177,13 +177,13 @@ const QuizHolistic = () => {
         <img src="../../img/QuizQuestion5.png">
     ];
 
-    const choices = {
-        1: question1,
-        2: question2,
-        3: question3,
-        4: question4,
-        5: question5
-    }
+    const choices = [
+        question1,
+        question2,
+        question3,
+        question4,
+        question5
+    ]
 
     function getModalStyle() {
         return {

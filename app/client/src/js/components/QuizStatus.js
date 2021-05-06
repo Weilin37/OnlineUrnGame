@@ -166,13 +166,13 @@ const QuizStatus = () => {
         <FormControlLabel value="Unclear" control={<Radio />} label="Unclear/Do not know" />
     ];
 
-    const choices = {
-        1: question1,
-        2: question2,
-        3: question3,
-        4: question4,
-        5: question5
-    }
+    const choices = [
+        question1,
+        question2,
+        question3,
+        question4,
+        question5
+    ];
 
     const images = [
         <img src="../../img/QuizQuestion1.png">,
