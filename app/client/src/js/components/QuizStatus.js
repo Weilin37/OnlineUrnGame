@@ -433,6 +433,8 @@ const QuizStatus = () => {
                         <Typography className={classes.spacing} variant="h5" gutterBottom>
                             {question}
                         </Typography>
+                    </Grid>
+                    <Grid item align="center" xs={8} >
                         <FormControl className={classes.spacing} component="fieldset">
                           <FormGroup>
                             {choice.map(function(name, index){
@@ -466,6 +468,8 @@ const QuizStatus = () => {
                         <Typography className={classes.spacing} variant="h5" gutterBottom>
                             {question}
                         </Typography>
+                    </Grid>
+                    <Grid item align="center" xs={8} >
                         <FormControl className={classes.spacing} component="fieldset">
                           <RadioGroup onChange={handleRadioChange}>
                             {choice.map(function(name, index){
