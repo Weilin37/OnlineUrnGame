@@ -266,11 +266,6 @@ const InstructionsPlayer2Holistic = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <button type="button" onClick={handleInstructionsClose}>
-                        Close Instructions
-                    </button>
-                </Grid>
-                <Grid item align="center" xs={8} >
                     <p>(Page 7 of 7)</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
@@ -281,6 +276,11 @@ const InstructionsPlayer2Holistic = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
+                </Grid>
+                <Grid item align="center" xs={8} >
+                    <button type="button" onClick={handleInstructionsClose}>
+                        Close Instructions
+                    </button>
                 </Grid>
             </Grid>
         );
