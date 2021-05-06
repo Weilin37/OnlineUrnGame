@@ -473,7 +473,7 @@ const QuizHolistic = () => {
                         </FormControl>
                     </Grid>
                     <Grid item align="center" xs={4} >
-                        {return img}
+                        {img}
                     </Grid>
                 </Grid>
                 <Modal

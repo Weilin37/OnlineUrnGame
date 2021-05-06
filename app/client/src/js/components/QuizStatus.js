@@ -175,11 +175,11 @@ const QuizStatus = () => {
     ];
 
     const images = [
-        <img src="../../img/QuizQuestion1.png">,
-        <img src="../../img/QuizQuestion2.png">,
-        <img src="../../img/QuizQuestion3.png">,
-        <img src="../../img/QuizQuestion4.png">,
-        <img src="../../img/QuizQuestion5.png">
+        <img src="../../img/QuizQuestion1.png" />,
+        <img src="../../img/QuizQuestion2.png" />,
+        <img src="../../img/QuizQuestion3.png" />,
+        <img src="../../img/QuizQuestion4.png" />,
+        <img src="../../img/QuizQuestion5.png" />
     ];
 
     function getModalStyle() {
@@ -437,7 +437,7 @@ const QuizStatus = () => {
                         </FormControl>
                     </Grid>
                     <Grid item align="center" xs={4} >
-                        {return img}
+                        {img}
                     </Grid>
                 </Grid>
                 <Modal
