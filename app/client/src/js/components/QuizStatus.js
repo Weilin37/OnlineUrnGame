@@ -174,6 +174,14 @@ const QuizStatus = () => {
         5: question5
     }
 
+    const images = {
+        1: <img src="../../img/QuizQuestion1.png">,
+        2: <img src="../../img/QuizQuestion2.png">,
+        3: <img src="../../img/QuizQuestion3.png">,
+        4: <img src="../../img/QuizQuestion4.png">,
+        5: <img src="../../img/QuizQuestion5.png">
+    }
+
     function getModalStyle() {
         return {
             top: '50%',
@@ -410,6 +418,7 @@ const QuizStatus = () => {
     if (quizPage === 4) {
         var question = questions[quizPage];
         var choice = choices[quizPage];
+        var img = images[quizPage];
 
         return (
             <div>
@@ -427,6 +436,9 @@ const QuizStatus = () => {
                           <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                         </FormControl>
                     </Grid>
+                    <Grid item align="center" xs={4} >
+                        {return img}
+                    </Grid>
                 </Grid>
                 <Modal
                   open={explanationOpen}
@@ -439,6 +451,7 @@ const QuizStatus = () => {
     } else if (quizPage < 6 && quizPage !== 4) {
         var question = questions[quizPage];
         var choice = choices[quizPage];
+        var img = images[quizPage];
 
         return (
             <div>
@@ -455,6 +468,9 @@ const QuizStatus = () => {
                           </RadioGroup>
                           <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                         </FormControl>
+                    </Grid>
+                    <Grid item align="center" xs={4} >
+                        {return img}
                     </Grid>
                 </Grid>
                 <Modal

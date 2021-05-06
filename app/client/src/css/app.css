@@ -2,3 +2,8 @@ p,ul,li {
     font-size:18px;
     text-align: left;
 }
+
+img {
+  width: 300px;
+  height: auto;
+}

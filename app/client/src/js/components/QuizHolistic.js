@@ -169,6 +169,14 @@ const QuizHolistic = () => {
         <FormControlLabel value="Unclear" control={<Radio />} label="Unclear/Do not know" />
     ];
 
+    const images = {
+        1: <img src="../../img/QuizQuestion1.png">,
+        2: <img src="../../img/QuizQuestion2.png">,
+        3: <img src="../../img/QuizQuestion3.png">,
+        4: <img src="../../img/QuizQuestion4.png">,
+        5: <img src="../../img/QuizQuestion5.png">
+    }
+
     const choices = {
         1: question1,
         2: question2,
@@ -413,6 +421,7 @@ const QuizHolistic = () => {
     if (quizPage === 4) {
         var question = questions[quizPage];
         var choice = choices[quizPage];
+        var img = images[quizPage];
 
         return (
             <div>
@@ -430,6 +439,9 @@ const QuizHolistic = () => {
                           <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                         </FormControl>
                     </Grid>
+                    <Grid item align="center" xs={4} >
+                        {return img}
+                    </Grid>
                 </Grid>
                 <Modal
                   open={explanationOpen}
@@ -442,6 +454,7 @@ const QuizHolistic = () => {
     } else if (quizPage < 6 && quizPage !== 4) {
         var question = questions[quizPage];
         var choice = choices[quizPage];
+        var img = images[quizPage];
 
         return (
             <div>
@@ -458,6 +471,9 @@ const QuizHolistic = () => {
                           </RadioGroup>
                           <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                         </FormControl>
+                    </Grid>
+                    <Grid item align="center" xs={4} >
+                        {return img}
                     </Grid>
                 </Grid>
                 <Modal
