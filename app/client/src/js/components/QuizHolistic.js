@@ -176,13 +176,13 @@ const QuizHolistic = () => {
         <FormControlLabel value="Unclear" control={<Radio />} label="Unclear/Do not know" />
     ];
 
-    const images = [
-        <img src={QuizQuestion1} />,
-        <img src={QuizQuestion2} />,
-        <img src={QuizQuestion3} />,
-        <img src={QuizQuestion4} />,
-        <img src={QuizQuestion5} />
-    ];
+    const images = {
+        1: <img src={QuizQuestion1} />,
+        2: <img src={QuizQuestion2} />,
+        3: <img src={QuizQuestion3} />,
+        4: <img src={QuizQuestion4} />,
+        5: <img src={QuizQuestion5} />
+    }
 
 
     const choices = {

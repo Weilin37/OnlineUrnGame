@@ -180,13 +180,13 @@ const QuizStatus = () => {
         5: question5
     }
 
-    const images = [
-        <img src={QuizQuestion1} />,
-        <img src={QuizQuestion2} />,
-        <img src={QuizQuestion3} />,
-        <img src={QuizQuestion4} />,
-        <img src={QuizQuestion5} />
-    ];
+    const images = {
+        1: <img src={QuizQuestion1} />,
+        2: <img src={QuizQuestion2} />,
+        3: <img src={QuizQuestion3} />,
+        4: <img src={QuizQuestion4} />,
+        5: <img src={QuizQuestion5} />
+    }
 
     function getModalStyle() {
         return {
