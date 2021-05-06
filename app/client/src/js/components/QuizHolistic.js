@@ -170,11 +170,11 @@ const QuizHolistic = () => {
     ];
 
     const images = [
-        <img src="../../img/QuizQuestion1.png">,
-        <img src="../../img/QuizQuestion2.png">,
-        <img src="../../img/QuizQuestion3.png">,
-        <img src="../../img/QuizQuestion4.png">,
-        <img src="../../img/QuizQuestion5.png">
+        <img src="../../img/QuizQuestion1.png" />,
+        <img src="../../img/QuizQuestion2.png" />,
+        <img src="../../img/QuizQuestion3.png" />,
+        <img src="../../img/QuizQuestion4.png" />,
+        <img src="../../img/QuizQuestion5.png" />
     ];
 
     const choices = [
