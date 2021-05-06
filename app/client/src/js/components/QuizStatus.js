@@ -19,6 +19,12 @@ import Modal from '@material-ui/core/Modal';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 
+import QuizQuestion1 from '../../img/QuizQuestion1.png'
+import QuizQuestion2 from '../../img/QuizQuestion2.png'
+import QuizQuestion3 from '../../img/QuizQuestion3.png'
+import QuizQuestion4 from '../../img/QuizQuestion4.png'
+import QuizQuestion5 from '../../img/QuizQuestion5.png'
+
 const useStyles = makeStyles((theme) => ({
   spacing: {
     marginTop: theme.spacing(2),
@@ -175,11 +181,11 @@ const QuizStatus = () => {
     ];
 
     const images = [
-        <img src={require("../../img/QuizQuestion1.png")} />,
-        <img src={require("../../img/QuizQuestion2.png")} />,
-        <img src={require("../../img/QuizQuestion3.png")} />,
-        <img src={require("../../img/QuizQuestion4.png")} />,
-        <img src={require("../../img/QuizQuestion5.png")} />
+        <img src={QuizQuestion1} />,
+        <img src={QuizQuestion2} />,
+        <img src={QuizQuestion3} />,
+        <img src={QuizQuestion4} />,
+        <img src={QuizQuestion5} />
     ];
 
     function getModalStyle() {
