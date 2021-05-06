@@ -435,6 +435,9 @@ const QuizStatus = () => {
                         </Typography>
                     </Grid>
                     <Grid item align="center" xs={8} >
+                        {img}
+                    </Grid>
+                    <Grid item align="center" xs={8} >
                         <FormControl className={classes.spacing} component="fieldset">
                           <FormGroup>
                             {choice.map(function(name, index){
@@ -443,9 +446,6 @@ const QuizStatus = () => {
                           </FormGroup>
                           <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                         </FormControl>
-                    </Grid>
-                    <Grid item align="center" xs={4} >
-                        {img}
                     </Grid>
                 </Grid>
                 <Modal
@@ -470,6 +470,9 @@ const QuizStatus = () => {
                         </Typography>
                     </Grid>
                     <Grid item align="center" xs={8} >
+                        {img}
+                    </Grid>
+                    <Grid item align="center" xs={8} >
                         <FormControl className={classes.spacing} component="fieldset">
                           <RadioGroup onChange={handleRadioChange}>
                             {choice.map(function(name, index){
@@ -478,9 +481,6 @@ const QuizStatus = () => {
                           </RadioGroup>
                           <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                         </FormControl>
-                    </Grid>
-                    <Grid item align="center" xs={4} >
-                        {img}
                     </Grid>
                 </Grid>
                 <Modal
