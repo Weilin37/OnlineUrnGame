@@ -174,13 +174,13 @@ const QuizStatus = () => {
         5: question5
     }
 
-    const images = {
-        1: <img src="../../img/QuizQuestion1.png">,
-        2: <img src="../../img/QuizQuestion2.png">,
-        3: <img src="../../img/QuizQuestion3.png">,
-        4: <img src="../../img/QuizQuestion4.png">,
-        5: <img src="../../img/QuizQuestion5.png">
-    }
+    const images = [
+        <img src="../../img/QuizQuestion1.png">,
+        <img src="../../img/QuizQuestion2.png">,
+        <img src="../../img/QuizQuestion3.png">,
+        <img src="../../img/QuizQuestion4.png">,
+        <img src="../../img/QuizQuestion5.png">
+    ];
 
     function getModalStyle() {
         return {
