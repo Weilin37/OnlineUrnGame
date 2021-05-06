@@ -6,6 +6,12 @@ import { setInstructions } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Pagination from '@material-ui/lab/Pagination';
 
+import InstructionsPage1 from '../../img/InstructionsPage1.png'
+import InstructionsPage2 from '../../img/InstructionsPage2.png'
+import InstructionsPage3Player1 from '../../img/InstructionsPage3Player1.png'
+import InstructionsDecisionPlayer1Holistic from '../../img/InstructionsDecisionPlayer1Holistic.png'
+import InstructionsDecisionPlayer2Holistic from '../../img/InstructionsDecisionPlayer2Holistic.png'
+
 const InstructionsPlayer1Holistic = () => {
     const dispatch = useDispatch();
     // state
@@ -46,6 +52,8 @@ const InstructionsPlayer1Holistic = () => {
 
                     <p>OVERVIEW</p>
                     <p>Welcome to this study of decision-making.</p>
+                <Grid />
+                <Grid item align="center" xs={5} >
 
                     <p>The study will take between 1 and 1.5 hours including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens in addition to your show-up payment.
@@ -79,6 +87,9 @@ const InstructionsPlayer1Holistic = () => {
                     and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
 
                 </Grid>
+                <Grid item align="center" xs={3} >
+                    <img src={InstructionsPage1} class="imginstructions"/>
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
@@ -92,6 +103,8 @@ const InstructionsPlayer1Holistic = () => {
                     <p>(Page 2 of 7)</p>
 
                     <p>Instructions for Player 1</p>
+                <Grid />
+                <Grid item align="center" xs={5} >
 
                     <p>In this study, you have been assigned the role of Player 1.
                     You have been randomly matched with another participant who will be in the role of Player 2.
@@ -134,6 +147,9 @@ const InstructionsPlayer1Holistic = () => {
                     <p>Unlike you, Player 2 can see the actual number of blue balls in your jar as well as the actual
                     number of blue balls in each of his/her urns before making any decisions in each round.</p>
                 </Grid>
+                <Grid item align="center" xs={3} >
+                    <img src={InstructionsPage2} class="imginstructions" />
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
@@ -147,6 +163,8 @@ const InstructionsPlayer1Holistic = () => {
                     <p>(Page 3 of 7)</p>
 
                     <p>Instructions for Player 1</p>
+                <Grid />
+                <Grid item align="center" xs={5} >
                     <p>In each of the 10 rounds, you will decide whether to:</p>
                     <ul>
                         <li>Offer the jar to Player 2 so that Player 2 will get the option to mix all the balls in your jar to either one of his/her urns</li>
@@ -161,6 +179,9 @@ const InstructionsPlayer1Holistic = () => {
                     (“High Quality” or “Low Quality”) you have for that round:</p>
 
                 </Grid>
+                <Grid item align="center" xs={3} >
+                    <img src={InstructionsPage3Player1} class="imginstructions" />
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
@@ -172,7 +193,8 @@ const InstructionsPlayer1Holistic = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 4 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>The regulations of the game aim to maximize number of blue balls drawn from all the urns.</p>
 
                     <p>Both Player 1 and Player 2 earn based on the number of blue balls drawn at the end of each
@@ -194,7 +216,8 @@ const InstructionsPlayer1Holistic = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 5 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>
                         Both Player 1’s and Player 2’s earnings are based on the total number of blue balls
                         drawn from both urns at the end of the round.
@@ -228,9 +251,12 @@ const InstructionsPlayer1Holistic = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 6 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>For your reference, Player 1’s decision screen in the game in each stage will look as follows:</p>
-
+                </Grid>
+                <Grid item align="center" xs={8} >
+                    <img src={InstructionsDecisionPlayer1Holistic} class="imgplayerdecision"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
@@ -243,9 +269,12 @@ const InstructionsPlayer1Holistic = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 7 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>For your reference, Player 2’s decision screen in the game in each stage will look as follows:</p>
-
+                </Grid>
+                <Grid item align="center" xs={8} >
+                    <img src={InstructionsDecisionPlayer2Holistic} class="imgplayerdecision"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <button type="button" onClick={handleInstructionsClose}>

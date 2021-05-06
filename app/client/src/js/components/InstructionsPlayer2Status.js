@@ -6,6 +6,12 @@ import { setInstructions } from "../features/gameSlice";
 import TextField from '@material-ui/core/TextField';
 import Pagination from '@material-ui/lab/Pagination';
 
+import InstructionsPage1 from '../../img/InstructionsPage1.png'
+import InstructionsPage2 from '../../img/InstructionsPage2.png'
+import InstructionsPage3Player2 from '../../img/InstructionsPage3Player2.png'
+import InstructionsDecisionPlayer1Status from '../../img/InstructionsDecisionPlayer1Status.png'
+import InstructionsDecisionPlayer2Status from '../../img/InstructionsDecisionPlayer2Status.png'
+
 const InstructionsPlayer2Status = () => {
     const dispatch = useDispatch();
 
@@ -47,6 +53,8 @@ const InstructionsPlayer2Status = () => {
 
                     <p>OVERVIEW</p>
                     <p>Welcome to this study of decision-making.</p>
+                <Grid />
+                <Grid item align="center" xs={5} >
 
                     <p>The study will take between 1 and 1.5 hours including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens in addition to your show-up payment.
@@ -80,6 +88,9 @@ const InstructionsPlayer2Status = () => {
                     and how many blue balls were drawn from Player 2’s urns at the end of the round.</p>
 
                 </Grid>
+                <Grid item align="center" xs={3} >
+                    <img src={InstructionsPage1} class="imginstructions"/>
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
@@ -93,6 +104,8 @@ const InstructionsPlayer2Status = () => {
                     <p>(Page 2 of 7)</p>
 
                     <p>Instructions for Player 2</p>
+                <Grid />
+                <Grid item align="center" xs={5} >
 
                     <p>In this study, you have been assigned the role of Player 2.
                     You have been randomly matched with another participant who will be in the role of Player 1.
@@ -136,6 +149,9 @@ const InstructionsPlayer2Status = () => {
                     Unlike you, Player 1 will neither observe nor receive any signals about the exact number of blue balls
                     of either of your urns.</p>
                 </Grid>
+                <Grid item align="center" xs={3} >
+                    <img src={InstructionsPage2} class="imginstructions" />
+                </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
@@ -149,6 +165,8 @@ const InstructionsPlayer2Status = () => {
                     <p>(Page 3 of 7)</p>
 
                     <p>Instructions for Player 2</p>
+                <Grid />
+                <Grid item align="center" xs={5} >
 
                     <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to: </p>
                     <ul>
@@ -158,6 +176,9 @@ const InstructionsPlayer2Status = () => {
                     </ul>
                     <p>If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.</p>
 
+                </Grid>
+                <Grid item align="center" xs={3} >
+                    <img src={InstructionsPage3Player2} class="imginstructions" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
@@ -170,7 +191,8 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 4 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns</p>
 
                     <p>Player 1 earns by offering and getting a jar accepted, gets a penalty if his/her jar offer
@@ -193,7 +215,8 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 5 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>
                         Player 1 earns by offering a jar that was subsequently accepted by Player 2,
                         gets a penalty by offering a jar that was subsequently declined by Player 2,
@@ -232,7 +255,7 @@ const InstructionsPlayer2Status = () => {
                             Player 2 earns tokens by mixing and drawing a blue ball from the mixed urn.
                         </li>
                         <li>
-                            Player 2 loses the earnings and instead receive a tokens penalty that is deducted
+                            Player 2 loses the earnings and instead receive a token penalty that is deducted
                             from his/her Bank if a red ball was drawn from the mixed urn
                         </li>
                     </ul>
@@ -248,9 +271,12 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 6 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>For your reference, Player 1’s decision screen in the game in each stage will look as follows:</p>
-
+                </Grid>
+                <Grid item align="center" xs={8} >
+                    <img src={InstructionsDecisionPlayer1Status} class="imgplayerdecision"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
@@ -263,9 +289,12 @@ const InstructionsPlayer2Status = () => {
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
                     <p>(Page 7 of 7)</p>
-
+                <Grid />
+                <Grid item align="center" xs={8} >
                     <p>For your reference, Player 2’s decision screen in the game in each stage will look as follows:</p>
-
+                </Grid>
+                <Grid item align="center" xs={8} >
+                    <img src={InstructionsDecisionPlayer2Status} class="imgplayerdecision"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <button type="button" onClick={handleInstructionsClose}>

@@ -177,11 +177,11 @@ const QuizHolistic = () => {
     ];
 
     const images = {
-        1: <img src={QuizQuestion1} />,
-        2: <img src={QuizQuestion2} />,
-        3: <img src={QuizQuestion3} />,
-        4: <img src={QuizQuestion4} />,
-        5: <img src={QuizQuestion5} />
+        1: <img src={QuizQuestion1} class="imgquiz" />,
+        2: <img src={QuizQuestion2} class="imgquiz" />,
+        3: <img src={QuizQuestion3} class="imgquiz" />,
+        4: <img src={QuizQuestion4} class="imgquiz" />,
+        5: <img src={QuizQuestion5} class="imgquiz" />
     }
 
 

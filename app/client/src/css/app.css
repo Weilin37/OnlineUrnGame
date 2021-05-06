@@ -3,7 +3,17 @@ p,ul,li {
     text-align: left;
 }
 
-img {
+img .imgquiz {
   width: auto;
   height: 250px;
+}
+
+img .imginstructions {
+    width:100%;
+    height:auto;
+}
+
+img .imgplayerdecision {
+    height: 350px;
+    width: auto
 }
