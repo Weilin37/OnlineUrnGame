@@ -166,7 +166,7 @@ const InstructionsPlayer2Holistic = () => {
 
                     <p>Instructions for Player 2</p>
                 </Grid>
-                <Grid item align="center" xs={5} >
+                <Grid item align="center" xs={8} >
 
                     <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to: </p>
                     <ul>
@@ -177,8 +177,8 @@ const InstructionsPlayer2Holistic = () => {
                     <p>If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.</p>
 
                 </Grid>
-                <Grid item align="center" xs={3} >
-                    <img src={InstructionsPage3Player2} class="imginstructions" />
+                <Grid item align="center" xs={8} >
+                    <img src={InstructionsPage3Player2} class="imginstructionsrow" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>

@@ -13,6 +13,11 @@ img .imgquiz {
     height:600px !important;
 }
 
+.imginstructionsrow {
+    width:auto;
+    height:350px !important;
+}
+
 .imgplayerdecision {
     height: 350px !important;
     width: auto

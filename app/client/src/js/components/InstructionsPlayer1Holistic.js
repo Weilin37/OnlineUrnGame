@@ -164,7 +164,7 @@ const InstructionsPlayer1Holistic = () => {
 
                     <p>Instructions for Player 1</p>
                 </Grid>
-                <Grid item align="center" xs={5} >
+                <Grid item align="center" xs={8} >
                     <p>In each of the 10 rounds, you will decide whether to:</p>
                     <ul>
                         <li>Offer the jar to Player 2 so that Player 2 will get the option to mix all the balls in your jar to either one of his/her urns</li>
@@ -179,8 +179,8 @@ const InstructionsPlayer1Holistic = () => {
                     (“High Quality” or “Low Quality”) you have for that round:</p>
 
                 </Grid>
-                <Grid item align="center" xs={3} >
-                    <img src={InstructionsPage3Player1} class="imginstructions" />
+                <Grid item align="center" xs={8} >
+                    <img src={InstructionsPage3Player1} class="imginstructionsrow" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 10 seconds before the next page can appear...</p>
