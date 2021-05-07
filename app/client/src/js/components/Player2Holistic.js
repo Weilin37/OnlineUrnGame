@@ -28,7 +28,7 @@ const Player2Holistic = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [ready, setReady] = React.useState(false);
 
-    var player2reward = 100000;
+    var player2reward = 10;
     var player2penalty = 0;
 
     useEffect(() => {

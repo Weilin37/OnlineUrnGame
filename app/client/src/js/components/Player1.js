@@ -34,15 +34,15 @@ const Player1 = () => {
     var earnings_messaging = [];
 
     if (gameState.treatment === 'status_quo') {
-        player1reward = 80000;
-        player1penalty = -240000;
+        player1reward = 8;
+        player1penalty = -24;
 
         earnings_messaging = [
             <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 accepts your jar: {player1reward}</Typography>,
             <Typography variant="subtitle1" gutterBottom>Your penalty amount if you Player 2 rejects your jar: {player1penalty}</Typography>
         ]
     } else if (gameState.treatment === 'holistic') {
-        player1reward = 80000;
+        player1reward = 8;
         player1penalty = 0;
 
         earnings_messaging = [
