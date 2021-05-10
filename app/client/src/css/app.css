@@ -11,6 +11,7 @@ img .imgquiz {
 .imginstructions {
     width:auto;
     height:600px !important;
+    margin-top:20px;
 }
 
 .imginstructionsrow {
