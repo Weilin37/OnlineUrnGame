@@ -79,13 +79,12 @@ const InstructionsPlayer1Status = () => {
                         (2)/(3) mix all the balls from the jar into one of his/her urns</li>
                     </ul>
 
+                    <p>Wait 5 seconds before the next page can appear...</p>
+                    <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
+
                 </Grid>
                 <Grid item align="center" xs={5} >
                     <img src={InstructionsPage1} class="imginstructions"/>
-                </Grid>
-                <Grid item align="center" xs={8} >
-                    <p>Wait 5 seconds before the next page can appear...</p>
-                    <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
         );
