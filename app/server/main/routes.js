@@ -75,7 +75,7 @@ router.get('/api/get/creategame', (req,res,next) => {
     var player1name = '';
     var player2name = '';
 
-    var startingearnings = 500;
+    var startingearnings = 250;
 
     if (player === 'player1') {player1name = req.query.alias;}
     else if (player === 'player2') {player2name = req.query.alias;}

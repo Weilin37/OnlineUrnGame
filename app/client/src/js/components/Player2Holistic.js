@@ -44,17 +44,14 @@ const Player2Holistic = () => {
         }
     }, [gameState.both_ready_for_next]);
 
-    var mix_high_blue;
-    var mix_low_blue;
+    var player1_blue = parseInt(gameState.data[gameState.data.length-1]['player1bluecount']);
+    var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
+    var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
 
-    if (gameState.current_turn === 'player2') {
-        var player1_blue = parseInt(gameState.data[gameState.data.length-1]['player1bluecount']);
-        var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
-        var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
+    var mix_high_blue = (player1_blue+player2_highblue);
+    var mix_low_blue = (player1_blue+player2_lowblue);
 
-        mix_high_blue = (player1_blue+player2_highblue);
-        mix_low_blue = (player1_blue+player2_lowblue);
-    }
+
 
     // Enter decision
     function handleSubmit() {
@@ -141,10 +138,10 @@ const Player2Holistic = () => {
         var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn (${mix_high_blue} of
                                     200 or ${(100*(mix_high_blue/200)).toFixed(1)}% balls will be blue
                                     for this urn, and your expected reward is
-                                    ${(((player2reward*mix_high_blue/200)+(player2penalty*(1-(mix_high_blue/200))))+((player2reward*mix_low_blue/100)+(player2penalty*(1-(mix_low_blue/100))))).toFixed(2)}`
+                                    ${(((player2reward*mix_high_blue/200)+(player2penalty*(1-(mix_high_blue/200))))+((player2reward*player2_lowblue/100)+(player2penalty*(1-(player2_lowblue/100))))).toFixed(2) tokens}`
         var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or
                                     ${(100*(mix_low_blue/200)).toFixed(1)}% balls will be blue for this urn, and your expected
-                                    reward is ${(((player2reward*mix_low_blue/200)+(player2penalty*(1-(mix_low_blue/200))))+((player2reward*mix_high_blue/100)+(player2penalty*(1-(mix_high_blue/100))))).toFixed(2)}`
+                                    reward is ${(((player2reward*mix_low_blue/200)+(player2penalty*(1-(mix_low_blue/200))))+((player2reward*player2_highblue/100)+(player2penalty*(1-(player2_highblue/100))))).toFixed(2) tokens}`
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
@@ -184,7 +181,7 @@ const Player2Holistic = () => {
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
-                            <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1" />
+                            <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1, you will earn 0 tokens" />
                             <FormControlLabel value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
                             <FormControlLabel value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
                         </RadioGroup>

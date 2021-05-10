@@ -44,17 +44,12 @@ const Player2Status = () => {
         }
     }, [gameState.both_ready_for_next]);
 
-    var mix_high_blue;
-    var mix_low_blue;
+    var player1_blue = parseInt(gameState.data[gameState.data.length-1]['player1bluecount']);
+    var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
+    var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
 
-    if (gameState.current_turn === 'player2') {
-        var player1_blue = parseInt(gameState.data[gameState.data.length-1]['player1bluecount']);
-        var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
-        var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
-
-        mix_high_blue = (player1_blue+player2_highblue);
-        mix_low_blue = (player1_blue+player2_lowblue);
-    }
+    var mix_high_blue = (player1_blue+player2_highblue);
+    var mix_low_blue = (player1_blue+player2_lowblue);
 
     // Enter decision
     function handleSubmit() {
@@ -139,10 +134,10 @@ const Player2Status = () => {
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
         var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn (${mix_high_blue} of
                                     200 or ${(100*(mix_high_blue/200)).toFixed(1)}% balls will be blue
-                                    for this urn, and your expected reward is ${((player2reward*mix_high_blue/200)+(player2penalty*(1-(mix_high_blue/200)))).toFixed(2)}`
+                                    for this urn, and your expected reward is ${((player2reward*mix_high_blue/200)+(player2penalty*(1-(mix_high_blue/200)))).toFixed(2)} tokens`
         var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn (${mix_low_blue} of 200 or
                                     ${(100*(mix_low_blue/200)).toFixed(1)}% balls will be blue for this urn, and your expected
-                                    reward is ${((player2reward*mix_low_blue/200)+(player2penalty*(1-(mix_low_blue/200)))).toFixed(2)})`
+                                    reward is ${((player2reward*mix_low_blue/200)+(player2penalty*(1-(mix_low_blue/200)))).toFixed(2)} tokens)`
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
@@ -179,7 +174,7 @@ const Player2Status = () => {
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
-                            <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1" />
+                            <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1, you will earn 0 tokens" />
                             <FormControlLabel value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
                             <FormControlLabel value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
                         </RadioGroup>
