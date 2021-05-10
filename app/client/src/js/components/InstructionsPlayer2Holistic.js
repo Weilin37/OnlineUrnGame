@@ -49,12 +49,12 @@ const InstructionsPlayer2Holistic = () => {
         }
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {maxPages})</p>
-                </Grid>
                 <Grid item align="center" xs={5} >
+                    <p>(Page {instructionsPage} of {maxPages})</p>
 
-                    <p>Welcome to this study of decision-making. The study will take between 1 and 1.5 hours including the instructions.
+                    <p>Welcome to this study of decision-making.</p>
+
+                    <p>The study will take between 1 and 1.5 hours including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens
                     in addition to your $5 show-up payment. You will receive your show-up payment if
                     you and the player paired with you finishes all 10 rounds of the game.

@@ -48,10 +48,10 @@ const InstructionsPlayer1Holistic = () => {
         }
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
-                <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {maxPages})</p>
-                </Grid>
                 <Grid item align="center" xs={5} >
+                    <p>(Page {instructionsPage} of {maxPages})</p>
+
+                    <p>Welcome to this study of decision-making.</p>
 
                     <p>Welcome to this study of decision-making. The study will take between 1 and 1.5 hours including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens
