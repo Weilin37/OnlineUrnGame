@@ -33,7 +33,7 @@ const InstructionsPlayer2Holistic = () => {
 
     function handleInstructionsPageChange(event, value) {
         setInstructionsPage(value);
-        if (pages < 7 && !gameState.both_quiz_finished) {
+        if (pages < maxPages && !gameState.both_quiz_finished) {
             setTimeout(() => {
                 setTotalPages(Math.max(value+1,pages));
             }, 10000);
