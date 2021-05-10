@@ -16,8 +16,9 @@ const InstructionsPlayer1Holistic = () => {
     const dispatch = useDispatch();
     // state
     const gameState = useSelector(state => state.game);
+    const maxPages = 10;
     var initialPages;
-    if (gameState.both_quiz_finished) {initialPages = 10}
+    if (gameState.both_quiz_finished) {initialPages = maxPages}
     else {initialPages = 1}
     const [instructionsPage, setInstructionsPage] = React.useState(1);
     const [pages, setTotalPages] = React.useState(initialPages);
