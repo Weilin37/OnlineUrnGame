@@ -83,7 +83,7 @@ const InstructionsPlayer2Status = () => {
                     <img src={InstructionsPage1} class="imginstructions"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -108,7 +108,7 @@ const InstructionsPlayer2Status = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -138,7 +138,7 @@ const InstructionsPlayer2Status = () => {
                     <img src={InstructionsPage2} class="imginstructions" />
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -202,7 +202,7 @@ const InstructionsPlayer2Status = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -229,7 +229,7 @@ const InstructionsPlayer2Status = () => {
                     <img src={InstructionsPage3Player2} class="imginstructionsrow" />
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -253,7 +253,7 @@ const InstructionsPlayer2Status = () => {
 
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -309,7 +309,7 @@ const InstructionsPlayer2Status = () => {
                     </ul>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
@@ -327,7 +327,7 @@ const InstructionsPlayer2Status = () => {
                     <img src={InstructionsDecisionPlayer1Status} class="imgplayerdecision"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Wait 10 seconds before the next page can appear...</p>
+                    <p>Wait 5 seconds before the next page can appear...</p>
                     <Pagination page={instructionsPage} onChange={handleInstructionsPageChange} count={pages} />
                 </Grid>
             </Grid>
