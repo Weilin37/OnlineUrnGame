@@ -50,7 +50,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
 
                     <p>OVERVIEW</p>
                 </Grid>
@@ -96,7 +96,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
 
@@ -121,7 +121,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={5} >
                     <p>Instructions for Player 2</p>
@@ -151,7 +151,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
 
@@ -183,7 +183,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
 
@@ -215,7 +215,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Instructions for Player 2</p>
@@ -242,7 +242,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns</p>
@@ -266,7 +266,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>
@@ -322,7 +322,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>For your reference, Player 1’s decision screen in the game in each stage will look as follows:</p>
@@ -340,7 +340,7 @@ const InstructionsPlayer2Status = () => {
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
-                    <p>(Page {instructionsPage} of {initialPages})</p>
+                    <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>For your reference, Player 2’s decision screen in the game in each stage will look as follows:</p>
