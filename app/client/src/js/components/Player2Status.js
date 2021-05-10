@@ -251,7 +251,7 @@ const Player2Status = () => {
                         The ball drawn was: {gameState.data[gameState.data.length-1]['drawn_ball']}
                     </Typography>
                     <Typography variant="h5" gutterBottom>
-                        You earned: {gameState.data[gameState.data.length-1]['player2earnings_difference']}
+                        You earned: {gameState.data[gameState.data.length-1]['player2earnings_difference']} tokens
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         Press OK to continue to the next round
