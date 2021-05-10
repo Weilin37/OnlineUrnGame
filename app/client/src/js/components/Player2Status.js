@@ -167,10 +167,10 @@ const Player2Status = () => {
                         Player 1 has decided to offer you their jar. Please choose an action:
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you draw 1 blue ball: {player2reward}
+                        Your reward amount if you draw 1 blue ball: {player2reward} tokens
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your penalty amount if you draw 1 red bell: {player2penalty}
+                        Your penalty amount if you draw 1 red bell: {player2penalty} tokens
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
