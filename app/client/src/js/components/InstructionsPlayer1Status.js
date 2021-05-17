@@ -56,11 +56,11 @@ const InstructionsPlayer1Status = () => {
 
                     <p>Welcome to this study of decision-making. The study will take between 1 and 1.5 hours including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens
-                    in addition to your $5 show-up payment. You will receive your show-up payment if
+                    in addition to your $5.00 show-up payment. You will receive your show-up payment if
                     you and the player paired with you finishes all 10 rounds of the game.
-                    Besides your show-up payment, you will be given a “Bank” of 250 tokens (equivalent to $2.5)
+                    Besides your show-up payment, you will be given a “Bank” of 500 tokens (equivalent to $5.00)
                     to which additional earnings will be added and from which penalties will be deducted.
-                    Tokens will be translated into dollars at the end of the game (1 token = $0.01).
+                    Tokens will be translated into dollars at the end of the game (1 token = $0.01). If your Bank's balance is negative, you will receive only your show-up payment
                     The show-up payment and your final “Bank” balance will be paid to you after the study ends.</p>
 
                     <p>You will be randomly assigned a role as either Player 1 or Player 2.
@@ -72,8 +72,8 @@ const InstructionsPlayer1Status = () => {
                     <p>Each round of the game goes roughly as follows:</p>
 
                     <ul>
-                        <li>Player 1 choose whether to offer his/her jar to Player 2.
-                        The round ends if Player 1 choose not to offer Player 2 the jar.</li>
+                        <li>Player 1 chooses whether to offer his/her jar to Player 2.
+                        The round ends if Player 1 chooses not to offer Player 2 the jar.</li>
                         <li>If Player 1 offered the jar to Player 2, Player 2 makes a decision to either
                         (1) decline the jar or accept the jar and
                         (2)/(3) mix all the balls from the jar into one of his/her urns</li>

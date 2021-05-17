@@ -56,11 +56,11 @@ const InstructionsPlayer2Status = () => {
 
                     <p>The study will take between 1 and 1.5 hours including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens
-                    in addition to your $5 show-up payment. You will receive your show-up payment if
+                    in addition to your $5.00 show-up payment. You will receive your show-up payment if
                     you and the player paired with you finishes all 10 rounds of the game.
-                    Besides your show-up payment, you will be given a “Bank” of 250 tokens (equivalent to $2.5)
+                    Besides your show-up payment, you will be given a “Bank” of 500 tokens (equivalent to $5.00)
                     to which additional earnings will be added and from which penalties will be deducted.
-                    Tokens will be translated into dollars at the end of the game (1 token = $0.01).
+                    Tokens will be translated into dollars at the end of the game (1 token = $0.01). If your Bank's balance is negative, you will receive only your show-up payment
                     The show-up payment and your final “Bank” balance will be paid to you after the study ends.</p>
 
                     <p>You will be randomly assigned a role as either Player 1 or Player 2.
@@ -72,8 +72,8 @@ const InstructionsPlayer2Status = () => {
                     <p>Each round of the game goes roughly as follows:</p>
 
                     <ul>
-                        <li>Player 1 choose whether to offer his/her jar to Player 2.
-                        The round ends if Player 1 choose not to offer Player 2 the jar.</li>
+                        <li>Player 1 chooses whether to offer his/her jar to Player 2.
+                        The round ends if Player 1 chooses not to offer Player 2 the jar.</li>
                         <li>If Player 1 offered the jar to Player 2, Player 2 makes a decision to either
                         (1) decline the jar or accept the jar and
                         (2)/(3) mix all the balls from the jar into one of his/her urns</li>
@@ -153,22 +153,19 @@ const InstructionsPlayer2Status = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
 
-                    <p>There are 2 types of urns: “High Blue” and “Low Blue”.  Player 2 will have one urn of
-                    each type in every round. Again, the urns each have 100 balls at the beginning of each
-                    round, each ball is either blue or red. The chance of drawing blue balls from an urn is
-                    higher when there are more blue balls relative to red balls in that urn. Player 2 can
-                    change the chance of drawing blue balls from an urn at the end of the round by mixing the
-                    balls in the jar from Player 1 into that urn. </p>
+                    <p>There are 2 types of urns: “High Blue” and “Low Blue”.  You will have one urn of each type in every round.
+                    The urns each have 100 balls at the beginning of each round, each ball is either blue or red. The chance of
+                    drawing blue balls from an urn is higher when there are more blue balls relative to red balls in that urn.
+                    You can change the chance of drawing blue balls from an urn at the end of the round by mixing the balls in the jar
+                    from Player 1 into that urn. </p>
 
-                    <p>There are 2 types of jars:  “Low Quality” and “High Quality”. The quality of each jar is
-                    indicated by the number of blue balls: it can range from 0 to 100. When mixed into an urn,
-                    a jar can increase or decrease the average chance of drawing blue balls from the urn at the
-                    end of the round. With mixing, the number of blue balls in an urn at the end of the round
-                    will be equal to sum of the number of blue balls in the jar and the number of blue balls in
-                    that urn (instead of the number of blue balls in that urn at the beginning of the round).
-                    For example, if the number of blue balls in a jar is higher than the number of blue balls in
-                    an urn, mixing the balls from that jar into that urn will increase the chance of drawing
-                    blue balls from that urn at the end of the round. </p>
+                    <p>There are 2 types of jars:  “Low Quality” and “High Quality”. The quality of each jar is indicated by the number
+                    of blue balls: it can range from 0 to 100. When mixed into an urn, a jar can increase or decrease the average chance
+                    of drawing blue balls from the urn at the end of the round. With mixing, the number of blue balls in an urn at the
+                    end of the round will be equal to sum of the number of blue balls in the jar and the number of blue balls in that
+                    urn (instead of the number of blue balls in that urn at the beginning of the round). For example, if the number of
+                    blue balls in a jar is higher than the number of blue balls in an urn, mixing the balls from that jar into that urn
+                    will increase the chance of drawing blue balls from that urn at the end of the round.</p>
 
                 </Grid>
                 <Grid item align="center" xs={8} >
@@ -185,19 +182,18 @@ const InstructionsPlayer2Status = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
 
-                    <p>In each round, you will not be able to observe the exact number of blue balls in the jar
-                    that you received but you will be told whether you received a “High Quality” or a
-                    “Low Quality” jar for that round. A “High Quality” jar has a number of blue balls
-                    (out of 100) that can be equal to any number between 80-100 with equal chance, whereas a
-                    “Low Quality” jar has a number of blue balls (out of 100) that can be equal to any number
-                    between 0-80 with equal chance.</p>
+                    <p>In each round, you can see the type and the actual number of blue balls in Player 1’s jar as well
+                    as the type and actual number of blue balls in each of your urns before making any decisions in each round.</p>
 
-                    <p>A “High Blue” urn has a number of blue balls (out of 100) (before mixing) that can be
-                    equal to any number between 40-100 with equal chance while a “Low Blue” urn has a number
-                    of blue balls (out of 100) (before mixing) that can be equal to any number between 0-60
-                    with equal chance. While you know that Player 2 will have an urn of each type, you will
-                    neither observe nor receive any signals about the exact number of blue balls of either of
-                    his/her urns.</p>
+                    <p>Unlike you, Player 1 will not be able to observe the exact number of blue balls in the jar that he/she received
+                    but he/she will be told whether he/she received a “High Quality” or a “Low Quality” jar for that round.
+                    A “High Quality” jar has a number of blue balls (out of 100) that can be equal to any number between 80-100
+                    with equal chance, whereas a “Low Quality” jar has a number of blue balls (out of 100) that can be equal to
+                    any number between 0-80 with equal chance. Player 1 also knows that you have a “High Blue” urn as well as a
+                    “Low Blue” urn. Player 1 also knows that a “High Blue” urn has a number of blue balls (out of 100) (before mixing)
+                    that can be equal to any number between 40-100 with equal chance while a “Low Blue” urn has a number of blue balls
+                    (out of 100) (before mixing) that can be equal to any number between 0-60 with equal chance. Unlike you, Player 1
+                    will neither observe nor receive any signals about the exact number of blue balls of either of your urns.</p>
 
                     <p>Unlike you, Player 2 can see the actual number of blue balls in your jar as well as the
                     actual number of blue balls in each of his/her urns before making any decisions in each round.</p>
