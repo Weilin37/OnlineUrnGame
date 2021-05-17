@@ -390,6 +390,9 @@ router.get('/api/get/senddata', (req,res,next) => {
             const drawings_high = Math.random();
             const drawings_low = Math.random();
 
+            console.log(drawings_high);
+            console.log(drawings_low);
+
             var drawn_ball;
             var drawn_ball_low;
             var drawn_ball_high;
