@@ -60,7 +60,7 @@ const InstructionsPlayer1Status = () => {
                     you and the player paired with you finishes all 10 rounds of the game.
                     Besides your show-up payment, you will be given a “Bank” of 500 tokens (equivalent to $5.00)
                     to which additional earnings will be added and from which penalties will be deducted.
-                    Tokens will be translated into dollars at the end of the game (1 token = $0.01). If your Bank's balance is negative, you will receive only your show-up payment
+                    Tokens will be translated into dollars at the end of the game (1 token = $0.01). If your Bank's balance is negative, you will receive only your show-up payment.
                     The show-up payment and your final “Bank” balance will be paid to you after the study ends.</p>
 
                     <p>You will be randomly assigned a role as either Player 1 or Player 2.
