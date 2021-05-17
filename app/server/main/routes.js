@@ -387,8 +387,8 @@ router.get('/api/get/senddata', (req,res,next) => {
             var bluehighprobability;
             var bluelowprobability;
 
-            var drawings_high = Math.random();
-            var drawings_low = Math.random();
+            const drawings_high = Math.random();
+            const drawings_low = Math.random();
 
             var drawn_ball;
             var drawn_ball_low;
@@ -497,8 +497,8 @@ router.get('/api/get/senddata', (req,res,next) => {
             var blueprobabilityhigh;
             var blueprobabiltiylow;
 
-            var drawings_high = Math.random();
-            var drawings_low = Math.random();
+            const drawings_high = Math.random();
+            const drawings_low = Math.random();
 
             var drawn_ball_high;
             var drawn_ball_low;
