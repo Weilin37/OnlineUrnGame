@@ -247,7 +247,7 @@ const InstructionsPlayer1Status = () => {
                     <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns</p>
+                    <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns after mixing.</p>
 
                     <p>Player 1 earns by offering and getting a jar accepted, gets a penalty if his/her jar offer
                     was declined, and gets zero if he/she made no offer.</p>
