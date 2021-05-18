@@ -407,7 +407,7 @@ router.get('/api/get/senddata', (req,res,next) => {
             //Pi
             var player2reward = 24;
             //S
-            var player2penalty = -106.25;
+            var player2penalty = -80;
 
             if (player1action === 'NoOffer') {
                 player1earnings = 0;

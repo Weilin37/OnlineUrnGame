@@ -301,7 +301,7 @@ const InstructionsPlayer2Status = () => {
                             Player 2 earns 24 tokens by mixing and drawing a blue ball from the mixed urn.
                         </li>
                         <li>
-                            Player 2 loses the earnings and instead receive a 106.25 token penalty that is deducted
+                            Player 2 loses the earnings and instead receive a 80 token penalty that is deducted
                             from his/her Bank if a red ball was drawn from the mixed urn
                         </li>
                     </ul>

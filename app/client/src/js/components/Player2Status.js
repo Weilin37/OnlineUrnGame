@@ -33,7 +33,7 @@ const Player2Status = () => {
     const [ready, setReady] = React.useState(false);
 
     var player2reward = 24;
-    var player2penalty = -106.25;
+    var player2penalty = -80;
 
     useEffect(() => {
         if (gameState.both_ready_for_next && gameState.current_round < 10) {
