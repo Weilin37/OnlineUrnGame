@@ -186,7 +186,7 @@ const Player2Holistic = () => {
                         Your penalty amount if you draw 2 red balls: {2*player2penalty} tokens
                     </Typography>
                     <FormControl component="fieldset">
-                        <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
+                        <RadioGroup row={true} aria-label="choice" name="player1choice" onChange={handleChange}>
                             <FormControlLabel value="RejectOffer" control={<Radio />} label={RejectMixLabel} />
                             <FormControlLabel value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
                             <FormControlLabel value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
