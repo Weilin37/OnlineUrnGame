@@ -187,9 +187,9 @@ const Player2Holistic = () => {
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup row={true} aria-label="choice" name="player1choice" onChange={handleChange}>
-                            <FormControlLabel value="RejectOffer" control={<Radio />} label={RejectMixLabel} />
-                            <FormControlLabel value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
-                            <FormControlLabel value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
+                            <FormControlLabel className={classes.spacing} value="RejectOffer" control={<Radio />} label={RejectMixLabel} />
+                            <FormControlLabel className={classes.spacing} value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
+                            <FormControlLabel className={classes.spacing} value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
                     </FormControl>
