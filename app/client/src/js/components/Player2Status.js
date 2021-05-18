@@ -17,6 +17,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   spacing: {
     marginTop: theme.spacing(2),
+  },
+  radio: {
+    marginTop: theme.spacing(2),
+    textAlign: 'left'
   }
 }));
 
@@ -174,9 +178,9 @@ const Player2Status = () => {
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
-                            <FormControlLabel value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1. You will earn 0 tokens by choosing this option for this round." />
-                            <FormControlLabel value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
-                            <FormControlLabel value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
+                            <FormControlLabel className={classes.radio} value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1. You will earn 0 tokens by choosing this option for this round." />
+                            <FormControlLabel className={classes.radio} value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
+                            <FormControlLabel className={classes.radio} value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
                     </FormControl>

@@ -17,6 +17,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   spacing: {
     marginTop: theme.spacing(2),
+  },
+  radio: {
+    marginTop: theme.spacing(2),
+    textAlign: 'left'
   }
 }));
 
@@ -104,8 +108,8 @@ const Player1 = () => {
                     })}
                     <FormControl component="fieldset">
                         <RadioGroup justify="center" alignItems="center" align="center" aria-label="choice" name="player1choice" onChange={handleChange} >
-                            <FormControlLabel value="Offer" control={<Radio />} label="Offer your jar to Player 2" />
-                            <FormControlLabel value="NoOffer" control={<Radio />} label="Do not offer your jar to Player 2" />
+                            <FormControlLabel className={classes.radio} value="Offer" control={<Radio />} label="Offer your jar to Player 2" />
+                            <FormControlLabel className={classes.radio} value="NoOffer" control={<Radio />} label="Do not offer your jar to Player 2" />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>
