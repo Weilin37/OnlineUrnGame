@@ -603,22 +603,36 @@ router.get('/api/get/senddata', (req,res,next) => {
 
                     if (drawings_high <= blueprobabilityhigh) {
                         drawn_ball = 'blue';
+                        drawn_ball_high = 'blue'
                         player1earnings += player1reward;
                         player2earnings += player2reward;
                     } else {
                         drawn_ball = 'red';
+                        drawn_ball_high = 'red'
                         player1earnings += player1penalty;
                         player2earnings += player2penalty;
                     }
 
                     if (drawings_low <= blueprobabiltiylow) {
-                        if (drawn_ball === 'blue') {drawn_ball = '2 blue balls'}
-                        else if (drawn_ball === 'red') {drawn_ball = '1 blue and 1 red'}
+                        if (drawn_ball === 'blue') {
+                            drawn_ball = '2 blue balls'
+                            drawn_ball_low = 'blue'
+                        }
+                        else if (drawn_ball === 'red') {
+                            drawn_ball = '1 blue and 1 red'
+                            drawn_ball_low = 'blue'
+                        }
                         player1earnings += player1reward;
                         player2earnings += player2reward;
                     } else {
-                        if (drawn_ball === 'blue') {drawn_ball = '1 blue and 1 red'}
-                        else if (drawn_ball === 'red') {drawn_ball = '2 red balls'}
+                        if (drawn_ball === 'blue') {
+                            drawn_ball = '1 blue and 1 red'
+                            drawn_ball_low = 'red'
+                        }
+                        else if (drawn_ball === 'red') {
+                            drawn_ball = '2 red balls'
+                            drawn_ball_low = 'red'
+                        }
                         player1earnings += player1penalty;
                         player2earnings += player2penalty;
                     }
