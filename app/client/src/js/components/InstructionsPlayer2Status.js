@@ -54,7 +54,7 @@ const InstructionsPlayer2Status = () => {
 
                     <p>Welcome to this study of decision-making.</p>
 
-                    <p>The study will take between 1 and 1.5 hours including the instructions.
+                    <p>The study will take 20 and 30 minutes including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens
                     in addition to your $5.00 show-up payment. You will receive your show-up payment if
                     you and the player paired with you finishes all 10 rounds of the game.
