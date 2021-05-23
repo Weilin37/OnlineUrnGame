@@ -323,6 +323,11 @@ router.get('/api/get/newgame', (req,res,next) => {
             END as both_online
             from public.game_state
             where (player1name is null or player1name = '' or player2name is null or player2name = '')
+            and (
+                (EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5 AND player2_lastseen is null)
+                OR
+                (EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5 AND player1_lastseen is null)
+            )
             and round::numeric = 1
             limit 1`,
 		(q_err, q_res) => {
@@ -350,11 +355,6 @@ router.get('/api/get/updatewaitingroom', (req,res,next) => {
             from public.game_state
             where room = '${req.query.room}'
             and round::numeric = 1
-            and (
-                ((EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5) AND player1_lastseen is not null AND player2_lastseen is null)
-                OR
-                ((EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5) AND player2_lastseen is not null AND player1_lastseen is null)
-            )
             limit 1`,
 		(q_err, q_res) => {
 			res.json(q_res.rows)
