@@ -148,6 +148,7 @@ const Player2Holistic = () => {
                                     for this urn. On average you can expect to earn
                                     ${(((player2reward*mix_high_blue/200)+(player2penalty*(1-(mix_high_blue/200))))+((player2reward*player2_lowblue/100)+(player2penalty*(1-(player2_lowblue/100))))).toFixed(2)} tokens
                                     by choosing this option for this round.`
+
         var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn. The High Blue urn will remain the same (with 100 balls), but for the Low Blue urn,
                                     we will now have 200 balls where ${mix_low_blue} or ${(100*(mix_low_blue/200)).toFixed(1)}% of the balls will be blue for this urn.
                                     On average you can expect to earn ${(((player2reward*mix_low_blue/200)+(player2penalty*(1-(mix_low_blue/200))))+((player2reward*player2_highblue/100)+(player2penalty*(1-(player2_highblue/100))))).toFixed(2)} tokens
