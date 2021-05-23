@@ -54,10 +54,10 @@ const InstructionsPlayer1Status = () => {
 
                     <p>Welcome to this study of decision-making.</p>
 
-                    <p>Welcome to this study of decision-making. The study will take 20 and 30 minutes including the instructions.
+                    <p>Welcome to this study of decision-making. The study will take about 30 minutes including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens
                     in addition to your $5.00 show-up payment. You will receive your show-up payment if
-                    you and the player paired with you finishes all 10 rounds of the game.
+                    you and the player paired with you finish all 10 rounds of the game.
                     Besides your show-up payment, you will be given a “Bank” of 500 tokens (equivalent to $5.00)
                     to which additional earnings will be added and from which penalties will be deducted.
                     Tokens will be translated into dollars at the end of the game (1 token = $0.01). If your Bank's balance is negative, you will receive only your show-up payment.
@@ -163,7 +163,7 @@ const InstructionsPlayer1Status = () => {
                     indicated by the number of blue balls: it can range from 0 to 100. When mixed into an urn,
                     a jar can increase or decrease the average chance of drawing blue balls from the urn at the
                     end of the round. With mixing, the number of blue balls in an urn at the end of the round
-                    will be equal to sum of the number of blue balls in the jar and the number of blue balls in
+                    will be equal to the sum of the number of blue balls in the jar and the number of blue balls in
                     that urn (instead of the number of blue balls in that urn at the beginning of the round).
                     For example, if the number of blue balls in a jar is higher than the number of blue balls in
                     an urn, mixing the balls from that jar into that urn will increase the chance of drawing
@@ -247,13 +247,13 @@ const InstructionsPlayer1Status = () => {
                     <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
                 <Grid item align="center" xs={8} >
-                    <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns after mixing.</p>
+                    <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns where mixing occurred.</p>
 
                     <p>Player 1 earns by offering and getting a jar accepted, gets a penalty if his/her jar offer
                     was declined, and gets zero if he/she made no offer.</p>
 
                     <p>Player 2 earns by mixing balls from a jar to an urn, and he/she is penalized if a red ball
-                    was drawn from that urn. Player gets zero if Player 1 made no offer.</p>
+                    was drawn from that urn. Player 2 gets zero if Player 1 made no offer.</p>
 
                     <p>We provide more details on the payment schemes for both Players in the next screen.</p>
 
@@ -289,7 +289,7 @@ const InstructionsPlayer1Status = () => {
                         </li>
                         <li>
                             If Player 1 offered the jar to Player 2 in a round of the study and
-                            Player 2 accepted the jar, Player 1 gets 8 tokens for that round
+                            Player 2 accepted the jar (that he/she has to mix into one of the urns), Player 1 gets 8 tokens for that round
                         </li>
                     </ul>
 
@@ -299,7 +299,7 @@ const InstructionsPlayer1Status = () => {
                     </p>
 
                     <p>
-                        Player 2 can only earn tokens by mixing balls from a jar into an urn.
+                        Player 2 can only earn tokens by mixing balls from a jar into an urn. If Player 2 accepted a jar, he/she has to mix it with one of the urns.
                         If Player 2 did not perform a mixing, either because no jar was offered
                         to him/her or if he/she chose not to accept the offer, Player 2 gets 0 tokens.
                     </p>
@@ -309,8 +309,11 @@ const InstructionsPlayer1Status = () => {
                             Player 2 earns 24 tokens by mixing and drawing a blue ball from the mixed urn.
                         </li>
                         <li>
-                            Player 2 loses the earnings and instead receive a 80 token penalty that is deducted
-                            from his/her Bank if a red ball was drawn from the mixed urn
+                            Player 2 loses the earnings and instead receive an 80 token penalty that is deducted
+                            from his/her Bank if a red ball was drawn from the mixed urn.
+                        </li>
+                        <li>
+                            Player 2 will neither get any additional rewards or penalties for the urn he/she did not mix.
                         </li>
                     </ul>
                 </Grid>

@@ -53,10 +53,10 @@ const InstructionsPlayer1Holistic = () => {
 
                     <p>Welcome to this study of decision-making.</p>
 
-                    <p>Welcome to this study of decision-making. The study will take between 20 and 30 minutes including the instructions.
+                    <p>Welcome to this study of decision-making. The study will take about 30 minutes including the instructions.
                     The instructions are simple, and if you follow them carefully, you can earn tokens
                     in addition to your $5.00 show-up payment. You will receive your show-up payment if
-                    you and the player paired with you finishes all 10 rounds of the game.
+                    you and the player paired with you finish all 10 rounds of the game.
                     Besides your show-up payment, you will be given a “Bank” of 500 tokens (equivalent to $5.00)
                     to which additional earnings will be added and from which penalties will be deducted.
                     Tokens will be translated into dollars at the end of the game (1 token = $0.01). If your Bank's balance is negative, you will receive only your show-up payment.
@@ -162,7 +162,7 @@ const InstructionsPlayer1Holistic = () => {
                     indicated by the number of blue balls: it can range from 0 to 100. When mixed into an urn,
                     a jar can increase or decrease the average chance of drawing blue balls from the urn at the
                     end of the round. With mixing, the number of blue balls in an urn at the end of the round
-                    will be equal to sum of the number of blue balls in the jar and the number of blue balls in
+                    will be equal to the sum of the number of blue balls in the jar and the number of blue balls in
                     that urn (instead of the number of blue balls in that urn at the beginning of the round).
                     For example, if the number of blue balls in a jar is higher than the number of blue balls in
                     an urn, mixing the balls from that jar into that urn will increase the chance of drawing
@@ -249,9 +249,9 @@ const InstructionsPlayer1Holistic = () => {
                     <p>The aim of the game is to maximize number of blue balls drawn from all the urns.</p>
 
                     <p>Both Player 1 and Player 2 earn based on the number of blue balls drawn at the end of each
-                    round</p>
+                    round.</p>
 
-                    <p>Both Player 1 and Player 2 earn nothing if if no blue ball was drawn </p>
+                    <p>Both Player 1 and Player 2 earn nothing if if no blue ball was drawn. </p>
 
                     <p>We provide more details on the payment schemes for both Players in the next screen.</p>
 
@@ -275,7 +275,7 @@ const InstructionsPlayer1Holistic = () => {
                     </p>
 
                     <p>
-                        If Player 1 offered a jar, Player 2 can change the chance of drawing blue balls by mixing.
+                        If Player 1 offered a jar, Player 2 can change the chance of drawing blue balls by mixing. If Player 2 accepted a jar, he/she has to mix it with one of the urns.
                         For example, if the number of blue balls in a jar is higher than the number of blue balls in
                         an urn before mixing, mixing the balls from the jar into the urn will increase the chance of
                         drawing blue balls at the end of the round.
