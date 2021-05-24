@@ -136,12 +136,12 @@ const Player2Status = () => {
             </Grid>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
+        var RejectOffer = `Reject the jar offered by Player 1. You will earn 0 tokens by choosing this option for this round.`
+
         var MixWithHighBlueLabel = `Mix Player 1's jar with your High Blue urn. The High Blue urn will now have 200 balls where ${mix_high_blue} or
-                                    ${(100*(mix_high_blue/200)).toFixed(1)}% of the balls balls will be blue for this urn.
-                                    On average you can expect to earn ${((player2reward*mix_high_blue/200)+(player2penalty*(1-(mix_high_blue/200)))).toFixed(2)} tokens by choosing this option for this round`
+                                    ${(100*(mix_high_blue/200)).toFixed(1)}% of the balls will be blue for this urn (before a ball is drawn from it).`
         var MixWithLowBlueLabel = `Mix Player 1's jar with your Low Blue urn. The Low Blue urn will now have 200 balls where ${mix_low_blue} or
-                                    ${(100*(mix_low_blue/200)).toFixed(1)}% of the balls balls will be blue for this urn. On average you can expect to earn
-                                    ${((player2reward*mix_low_blue/200)+(player2penalty*(1-(mix_low_blue/200)))).toFixed(2)} tokens by choosing this option for this round`
+                                    ${(100*(mix_low_blue/200)).toFixed(1)}% of the balls will be blue for this urn (before a ball is drawn from it).`
         return (
             <Grid container justify="center" alignItems="center" spacing={2}>
                 <Grid item align="center" xs={8} >
@@ -178,7 +178,7 @@ const Player2Status = () => {
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
-                            <FormControlLabel className={classes.radio} value="RejectOffer" control={<Radio />} label="Reject the jar offered by Player 1. You will earn 0 tokens by choosing this option for this round." />
+                            <FormControlLabel className={classes.radio} value="RejectOffer" control={<Radio />} label={RejectOffer} />
                             <FormControlLabel className={classes.radio} value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
                             <FormControlLabel className={classes.radio} value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
                         </RadioGroup>
