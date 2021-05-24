@@ -351,9 +351,9 @@ router.get('/api/get/updatewaitingroom', (req,res,next) => {
             where room = '${req.query.room}'
             and round::numeric = 1
             and (
-                ((EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5) AND player2_lastseen is null)
+                ((EXTRACT(EPOCH FROM (NOW() - player1_lastseen)) < 5) AND player1_lastseen is not null AND player2_lastseen is null)
                 OR
-                ((EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5) AND player1_lastseen is null)
+                ((EXTRACT(EPOCH FROM (NOW() - player2_lastseen)) < 5) AND player2_lastseen is not null AND player1_lastseen is null)
             )
             limit 1`,
 		(q_err, q_res) => {
