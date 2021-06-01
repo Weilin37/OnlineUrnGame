@@ -111,7 +111,7 @@ const CreateGame = () => {
                     <Typography variant="h5">Waiting for next player to join...</Typography>
                 </Grid>
                 <Grid item align="center" xs={12} >
-                    <Typography variant="h5">If the game has not started in 5 minutes, please go back to the home screen and try again.</Typography>
+                    <Typography variant="h5">If the game has not started in 5 minutes, please go back to the home screen and start a new room again.</Typography>
                 </Grid>
                 <Grid item align="center" xs={12} >
                     <Typography variant="h5">Room code (Write this down): {gameState.room}</Typography>
