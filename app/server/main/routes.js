@@ -278,7 +278,7 @@ router.get('/api/get/joingame', (req,res,next) => {
     if (player === 'player1') {
          pool.query(`update public.game_state
              set player1name = '${playername}',
-             finish_code_player1 = player1name+setupRoomCode()
+             finish_code_player1 = '${player1name+setupRoomCode()}'
              where room = '${req.query.room}'`,
                 (q_err, q_res) => {
                     res.json(q_res.rows)
@@ -286,7 +286,7 @@ router.get('/api/get/joingame', (req,res,next) => {
     } else if (player === 'player2') {
          pool.query(`update public.game_state
              set player2name = '${playername}',
-             finish_code_player2 = player2name+setupRoomCode()
+             finish_code_player2 = '${player2name+setupRoomCode()}'
              where room = '${req.query.room}'`,
                 (q_err, q_res) => {
                     res.json(q_res.rows)
