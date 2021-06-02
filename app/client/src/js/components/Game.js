@@ -58,18 +58,20 @@ export const Game = () => {
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={12} >
                         <Paper>
-                            if (gameState.player == 'player1') {
-                                return(
-                                    <Typography variant="h4" gutterBottom>
-                                        Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid: {gameState.data[gameState.data.length-1]['finish_code_player1']}. You may exit the browser.
-                                    </Typography>
-                                )
-                            } else if (gameState.player == 'player2') {
-                                return (
-                                    <Typography variant="h4" gutterBottom>
-                                        Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid: {gameState.data[gameState.data.length-1]['finish_code_player2']}. You may exit the browser.
-                                    </Typography>
-                                )
+                            {
+                                if (gameState.player == 'player1') {
+                                    return(
+                                        <Typography variant="h4" gutterBottom>
+                                            Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid: {gameState.data[gameState.data.length-1]['finish_code_player1']}. You may exit the browser.
+                                        </Typography>
+                                    )
+                                } else if (gameState.player == 'player2') {
+                                    return (
+                                        <Typography variant="h4" gutterBottom>
+                                            Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid: {gameState.data[gameState.data.length-1]['finish_code_player2']}. You may exit the browser.
+                                        </Typography>
+                                    )
+                                }
                             }
                         </Paper>
                     </Grid>
