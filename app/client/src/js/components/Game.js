@@ -57,13 +57,25 @@ export const Game = () => {
           if (gameState.player === 'player1') {
             return(
                 <Typography variant="h4" gutterBottom>
-                    Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid: {gameState.data[gameState.data.length-1]['finish_code_player1']}. You may exit the browser.
+                    Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
+                </Typography>
+                <Typography variant="h4" gutterBottom>
+                    {gameState.data[gameState.data.length-1]['finish_code_player1']}
+                </Typography>
+                <Typography variant="h4" gutterBottom>
+                    You may exit the browser.
                 </Typography>
             )
           } else if (gameState.player === 'player2') {
             return (
                 <Typography variant="h4" gutterBottom>
-                    Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid: {gameState.data[gameState.data.length-1]['finish_code_player2']}. You may exit the browser.
+                    Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
+                </Typography>
+                <Typography variant="h4" gutterBottom>
+                    {gameState.data[gameState.data.length-1]['finish_code_player2']}
+                </Typography>
+                <Typography variant="h4" gutterBottom>
+                    You may exit the browser.
                 </Typography>
             )
           }
@@ -83,19 +95,13 @@ export const Game = () => {
                                 You are: {gameState.player}
                             </Typography>
                             <Typography variant="subtitle1" gutterBottom>
-                                Room (Write this down): {gameState.data[gameState.data.length-1]['room']}
+                                Room: {gameState.data[gameState.data.length-1]['room']}
                             </Typography>
                             <Typography variant="subtitle1" gutterBottom>
-                                Alias (Write this down): {gameState.alias}
+                                Alias: {gameState.alias}
                             </Typography>
                             <Typography variant="subtitle1" gutterBottom>
                                 Current Round: {gameState.data[gameState.data.length - 1]['round']}
-                            </Typography>
-                            <Typography variant="subtitle1" gutterBottom>
-                                Player 1 Online: {gameState.data[gameState.data.length-1]['player1_online'].toString()}
-                            </Typography>
-                            <Typography variant="subtitle1" gutterBottom>
-                                Player 2 Online: {gameState.data[gameState.data.length-1]['player2_online'].toString()}
                             </Typography>
                         </Paper>
                     </Grid>
