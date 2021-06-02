@@ -56,27 +56,31 @@ export const Game = () => {
         const final_code_message = () => {
           if (gameState.player === 'player1') {
             return(
-                <Typography variant="h4" gutterBottom>
-                    Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                    {gameState.data[gameState.data.length-1]['finish_code_player1']}
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                    You may exit the browser.
-                </Typography>
+                <div>
+                    <Typography variant="h4" gutterBottom>
+                        Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
+                    </Typography>
+                    <Typography variant="h4" gutterBottom>
+                        {gameState.data[gameState.data.length-1]['finish_code_player1']}
+                    </Typography>
+                    <Typography variant="h4" gutterBottom>
+                        You may exit the browser.
+                    </Typography>
+                </div>
             )
           } else if (gameState.player === 'player2') {
             return (
-                <Typography variant="h4" gutterBottom>
-                    Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                    {gameState.data[gameState.data.length-1]['finish_code_player2']}
-                </Typography>
-                <Typography variant="h4" gutterBottom>
-                    You may exit the browser.
-                </Typography>
+                <div>
+                    <Typography variant="h4" gutterBottom>
+                        Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
+                    </Typography>
+                    <Typography variant="h4" gutterBottom>
+                        {gameState.data[gameState.data.length-1]['finish_code_player2']}
+                    </Typography>
+                    <Typography variant="h4" gutterBottom>
+                        You may exit the browser.
+                    </Typography>
+                </div>
             )
           }
         }
