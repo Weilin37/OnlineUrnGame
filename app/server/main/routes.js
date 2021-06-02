@@ -268,15 +268,25 @@ router.get('/api/get/joingame', (req,res,next) => {
     var playername = req.query.alias;
 
     if (player === 'player1') {
+        player1name = req.query.alias;
+        finish_code_player1 = player1name+setupRoomCode();
+    } else if (player === 'player2') {
+        player2name = req.query.alias;
+        finish_code_player2 = player2name+setupRoomCode();
+    }
+
+    if (player === 'player1') {
          pool.query(`update public.game_state
-             set player1name = '${playername}'
+             set player1name = '${playername}',
+             finish_code_player1 = player1name+setupRoomCode()
              where room = '${req.query.room}'`,
                 (q_err, q_res) => {
                     res.json(q_res.rows)
          })
     } else if (player === 'player2') {
          pool.query(`update public.game_state
-             set player2name = '${playername}'
+             set player2name = '${playername}',
+             finish_code_player2 = player2name+setupRoomCode()
              where room = '${req.query.room}'`,
                 (q_err, q_res) => {
                     res.json(q_res.rows)
