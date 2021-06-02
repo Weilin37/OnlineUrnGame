@@ -57,13 +57,13 @@ export const Game = () => {
           if (gameState.player === 'player1') {
             return(
                 <div>
-                    <Typography variant="h4" gutterBottom>
+                    <Typography variant="h5" gutterBottom>
                         Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
                         {gameState.data[gameState.data.length-1]['finish_code_player1']}
                     </Typography>
-                    <Typography variant="h4" gutterBottom>
+                    <Typography variant="h5" gutterBottom>
                         You may exit the browser.
                     </Typography>
                 </div>
@@ -71,13 +71,13 @@ export const Game = () => {
           } else if (gameState.player === 'player2') {
             return (
                 <div>
-                    <Typography variant="h4" gutterBottom>
+                    <Typography variant="h5" gutterBottom>
                         Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
                         {gameState.data[gameState.data.length-1]['finish_code_player2']}
                     </Typography>
-                    <Typography variant="h4" gutterBottom>
+                    <Typography variant="h5" gutterBottom>
                         You may exit the browser.
                     </Typography>
                 </div>
@@ -93,23 +93,7 @@ export const Game = () => {
                             {final_code_message()}
                         </Paper>
                     </Grid>
-                    <Grid item align="center" xs={3} >
-                        <Paper>
-                            <Typography variant="subtitle1" gutterBottom>
-                                You are: {gameState.player}
-                            </Typography>
-                            <Typography variant="subtitle1" gutterBottom>
-                                Room: {gameState.data[gameState.data.length-1]['room']}
-                            </Typography>
-                            <Typography variant="subtitle1" gutterBottom>
-                                Alias: {gameState.alias}
-                            </Typography>
-                            <Typography variant="subtitle1" gutterBottom>
-                                Current Round: {gameState.data[gameState.data.length - 1]['round']}
-                            </Typography>
-                        </Paper>
-                    </Grid>
-                    <Grid item align="center" xs={9} >
+                    <Grid item align="center" xs={12} >
                         <MaterialTable
                             columns={[
                                 { title: "Round", field: "round" },
