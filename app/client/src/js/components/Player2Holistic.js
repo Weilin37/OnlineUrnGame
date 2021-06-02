@@ -43,7 +43,9 @@ const Player2Holistic = () => {
                 "&player2name="+gameState.data[gameState.data.length-1]['player2name']+
                 "&treatment="+gameState.data[gameState.data.length-1]['treatment']+
                 "&player1earnings="+gameState.data[gameState.data.length-1]['player1earnings']+
-                "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']
+                "&player2earnings="+gameState.data[gameState.data.length-1]['player2earnings']+
+                "&finish_code_player1="+gameState.data[gameState.data.length-1]['finish_code_player1']+
+                "&finish_code_player2="+gameState.data[gameState.data.length-1]['finish_code_player2']
             ));
         }
     }, [gameState.both_ready_for_next]);

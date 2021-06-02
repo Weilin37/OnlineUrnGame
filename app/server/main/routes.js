@@ -70,6 +70,8 @@ router.get('/api/get/creategame', (req,res,next) => {
     var player2lowbluecount = player2jar['player2lowbluecount']
     var treatment = setupTreatmentArm();
     var room = setupRoomCode();
+    var finish_code_player1 = '';
+    var finish_code_player2 = '';
 
     var player = req.query.player;
     var player1name = '';
@@ -77,8 +79,13 @@ router.get('/api/get/creategame', (req,res,next) => {
 
     var startingearnings = 500;
 
-    if (player === 'player1') {player1name = req.query.alias;}
-    else if (player === 'player2') {player2name = req.query.alias;}
+    if (player === 'player1') {
+        player1name = req.query.alias;
+        finish_code_player1 = player1name+setupRoomCode();
+    } else if (player === 'player2') {
+        player2name = req.query.alias;
+        finish_code_player2 = player2name+setupRoomCode();
+    }
 
 
     pool.query(`insert into public.game_state(
@@ -99,7 +106,9 @@ router.get('/api/get/creategame', (req,res,next) => {
             player1_ready,
             player2_ready,
             player1_quiz_finished,
-            player2_quiz_finished
+            player2_quiz_finished,
+            finish_code_player1,
+            finish_code_player2
         )
         VALUES (
             '${room}',
@@ -119,7 +128,9 @@ router.get('/api/get/creategame', (req,res,next) => {
             false,
             false,
             false,
-            false
+            false,
+            '${finish_code_player1}',
+            '${finish_code_player2}'
         )
         RETURNING *`,
         (q_err, q_res) => {
@@ -197,6 +208,9 @@ router.get('/api/get/createnewround', (req,res,next) => {
     var player1earnings = req.query.player1earnings;
     var player2earnings = req.query.player2earnings;
 
+    var finish_code_player1 = req.query.finish_code_player1;
+    var finish_code_player2 = req.query.finish_code_player2;
+
     pool.query(`insert into public.game_state(
             room,
             treatment,
@@ -215,7 +229,9 @@ router.get('/api/get/createnewround', (req,res,next) => {
             player1_ready,
             player2_ready,
             player1_quiz_finished,
-            player2_quiz_finished
+            player2_quiz_finished,
+            finish_code_player1,
+            finish_code_player2
         )
         VALUES (
             '${room}',
@@ -235,7 +251,9 @@ router.get('/api/get/createnewround', (req,res,next) => {
             false,
             false,
             true,
-            true
+            true,
+            '${finish_code_player1}',
+            '${finish_code_player2}'
         )
         RETURNING *`,
         (q_err, q_res) => {
