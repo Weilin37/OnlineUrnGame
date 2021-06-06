@@ -58,7 +58,7 @@ export const Game = () => {
             return(
                 <div>
                     <Typography variant="h5" gutterBottom>
-                        Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
+                        Congratulations, the game has ended.  Please copy this completion code and submit it to MTurk to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
                         {gameState.data[gameState.data.length-1]['finish_code_player1']}
@@ -72,7 +72,7 @@ export const Game = () => {
             return (
                 <div>
                     <Typography variant="h5" gutterBottom>
-                        Congratulations, the game has ended.  Please copy this final code and submit it to MTurk to get paid:
+                        Congratulations, the game has ended.  Please copy this completion code and submit it to MTurk to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
                         {gameState.data[gameState.data.length-1]['finish_code_player2']}
