@@ -228,16 +228,16 @@ export const Game = () => {
             }
         } else if (gameState.both_online) {
             return (
-                <div>waiting...</div>
+                <div>waiting...if you are waiting too long then it is possible that the other player has left the game. Please restart and try a new game if the player has not returned within 5 minutes</div>
             )
         } else {
             return (
-                <div>waiting...</div>
+                <div>waiting...if you are waiting too long then it is possible that the other player has left the game. Please restart and try a new game if the player has not returned within 5 minutes</div>
             )
         }
     } else {
         return (
-            <div> waiting... </div>
+            <div>waiting...if you are waiting too long then it is possible that the other player has left the game. Please restart and try a new game if the player has not returned within 5 minutes</div>
         )
     }
 
