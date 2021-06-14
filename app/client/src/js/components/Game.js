@@ -58,10 +58,10 @@ export const Game = () => {
             return(
                 <div>
                     <Typography variant="h5" gutterBottom>
-                        Congratulations, the game has ended.  Please copy this completion code and submit it to MTurk to get paid:
+                        Congratulations, the game has ended.  Please visit this link to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
-                        {gameState.data[gameState.data.length-1]['finish_code_player1']}
+                        <a href="https://app.prolific.co/submissions/complete?cc=5ECAAA1B">Click To Complete</a>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         You may exit the browser.
@@ -72,10 +72,10 @@ export const Game = () => {
             return (
                 <div>
                     <Typography variant="h5" gutterBottom>
-                        Congratulations, the game has ended.  Please copy this completion code and submit it to MTurk to get paid:
+                        Congratulations, the game has ended.  Please visit this link to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
-                        {gameState.data[gameState.data.length-1]['finish_code_player2']}
+                        <a href="https://app.prolific.co/submissions/complete?cc=5ECAAA1B">Click To Complete</a>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         You may exit the browser.
