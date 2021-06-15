@@ -61,7 +61,7 @@ export const Game = () => {
                         Congratulations, the game has ended.  Please visit this link to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
-                        <a href="https://app.prolific.co/submissions/complete?cc=5ECAAA1B">Click To Complete</a>
+                        <a href="https://app.prolific.co/submissions/complete?cc=313D1669">Click To Complete</a>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         You may exit the browser.
@@ -75,7 +75,7 @@ export const Game = () => {
                         Congratulations, the game has ended.  Please visit this link to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
-                        <a href="https://app.prolific.co/submissions/complete?cc=5ECAAA1B">Click To Complete</a>
+                        <a href="https://app.prolific.co/submissions/complete?cc=313D1669">Click To Complete</a>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         You may exit the browser.
