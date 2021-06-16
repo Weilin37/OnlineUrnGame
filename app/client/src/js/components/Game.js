@@ -61,7 +61,7 @@ export const Game = () => {
                         Congratulations, the game has ended.  Please visit this link to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
-                        <a href="https://app.prolific.co/submissions/complete?cc=313D1669">Click To Complete</a>
+                        <a href="https://app.prolific.co/submissions/complete?cc=313D1669">Click Here To Complete</a>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         You may exit the browser.
@@ -75,7 +75,7 @@ export const Game = () => {
                         Congratulations, the game has ended.  Please visit this link to get paid:
                     </Typography>
                     <Typography variant="h4" gutterBottom>
-                        <a href="https://app.prolific.co/submissions/complete?cc=313D1669">Click To Complete</a>
+                        <a href="https://app.prolific.co/submissions/complete?cc=313D1669">Click Here To Complete</a>
                     </Typography>
                     <Typography variant="h5" gutterBottom>
                         You may exit the browser.
@@ -85,7 +85,7 @@ export const Game = () => {
           }
         }
 
-        if (gameState.game_ended) {
+        if (gameState.game_ended || (gameState.data[gameState.data.length-1]['round'] === '10' && gameState.data[gameState.data.length-1]['roundcomplete'] === true)) {
             return (
                 <Grid container justify="center" alignItems="center" spacing={2}>
                     <Grid item align="center" xs={12} >
