@@ -186,13 +186,13 @@ const InstructionsPlayer1Holistic = () => {
                     <p>In each round, you will not be able to observe the exact number of blue balls in the jar
                     that you received but you will be told whether you received a “High Quality” or a
                     “Low Quality” jar for that round. A “High Quality” jar has a number of blue balls
-                    (out of 100) that can be equal to any number between 80-100 with equal chance, whereas a
+                    (out of 100) that can be equal to any number between 90-100 with equal chance, whereas a
                     “Low Quality” jar has a number of blue balls (out of 100) that can be equal to any number
-                    between 0-80 with equal chance.</p>
+                    between 50-90 with equal chance.</p>
 
                     <p>A “High Blue” urn has a number of blue balls (out of 100) (before mixing) that can be
-                    equal to any number between 40-100 with equal chance while a “Low Blue” urn has a number
-                    of blue balls (out of 100) (before mixing) that can be equal to any number between 0-60
+                    equal to any number between 40-80 with equal chance while a “Low Blue” urn has a number
+                    of blue balls (out of 100) (before mixing) that can be equal to any number between 20-60
                     with equal chance. While you know that Player 2 will have an urn of each type, you will
                     neither observe nor receive any signals about the exact number of blue balls of either of
                     his/her urns.</p>
