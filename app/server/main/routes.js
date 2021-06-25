@@ -760,7 +760,6 @@ router.get('/api/get/sendready', (req,res,next) => {
 // update online status
 router.get('/api/get/updateonlinestatus', (req,res,next) => {
     var player = req.query.player;
-    var playername = req.query.alias;
     var current_datetime = new Date().toISOString();
 
     if (player === 'player1') {
