@@ -23,6 +23,7 @@ const CreateGame = () => {
     // state
     const gameState = useSelector(state => state.game);
     const [timer, setTimer] = React.useState(0);
+    const [disableCreateButton, setDisableCreateButton] = React.useState(false);
 
     const interval = setTimeout(() => {
         setTimer(timer+1);
@@ -62,6 +63,8 @@ const CreateGame = () => {
         var room;
         var player1;
         var player2;
+
+        setDisableCreateButton(true);
 
         if (gameState.game_waiting_data.length>0) {
             room = gameState.game_waiting_data[0]['room'];
@@ -138,7 +141,7 @@ const CreateGame = () => {
                             <TextField id="alias" label="Enter Prolific ID" variant="outlined" />
                         </Grid>
                         <Grid item align="center" xs={12} >
-                            <Button className={classes.spacing} variant="contained" color="primary" onClick={handleCreateNewGame}>
+                            <Button className={classes.spacing} variant="contained" color="primary" disabled={disableCreateButton} onClick={handleCreateNewGame}>
                                 Enter New Game
                             </Button>
                         </Grid>
