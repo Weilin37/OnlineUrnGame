@@ -17,9 +17,9 @@ function setupPlayer1jar() {
     else {jartype = 'low_quality'}
 
     if (jartype === 'high_quality') {
-        bluecount = randomNum(90,100)
+        bluecount = randomNum(10,50)
     } else if (jartype == 'low_quality') {
-        bluecount = randomNum(50,90)
+        bluecount = randomNum(0,10)
     }
 
     return({'player1jartype': jartype, 'player1bluecount': bluecount})
