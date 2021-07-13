@@ -57,8 +57,8 @@ const Player1 = () => {
     }
 
     const jarType = {
-        'low_quality':'0-10 blue balls',
-        'high_quality':'10-50 blue balls'
+        'low_quality':'0-60 blue balls',
+        'high_quality':'60-100 blue balls'
     }
 
     // Enter decision
