@@ -83,20 +83,20 @@ const QuizHolistic = () => {
     }, [timer]);
 
     const questions = {
-        1:`If there are 50 blue balls and 50 red balls in the jar and 30 blue balls and 70 red balls in the urn,
+        1:`If there are 50 blue balls and 50 red balls in a jar and 30 blue balls and 70 red balls in a urn,
                 what is the percentage of blue balls in the urn after we mix in the balls from the jar?`,
-        2:`If there are 49 blue balls and 51 red balls in the jar and 50 blue balls and 50 red balls
+        2:`If there are 49 blue balls and 51 red balls in a jar and 50 blue balls and 50 red balls
                 in Player 2’s urn in a specific round of the study, would Player 2 want to mix the balls
                 from the jar into his/her urn if he/she is trying to increase the chance that a blue ball
                 is drawn randomly from the urn at the end of the round?`,
         3:`Assume that you know the exact numbers of blue balls in each urn (as Player 2 does).
-                    If Player 2 received an offer and mixed the balls from Player 1’s jar to one of Player 2’s
+                    If Player 2 received an offer and mixed the balls from one of Player 1’s jar to one of Player 2’s
                     urns with fewer blue balls than the jar, what is the chance of drawing a blue ball from
                     the urn after mixing relative to before mixing?`,
-        4:`If Player 2 knows that the jar offered by Player 1 does not have 100 red balls or 100 blue balls, what
+        4:`If Player 2 knows that the jars offered by Player 1 do not have 100 red balls or 100 blue balls, what
             should Player 2 NEVER do if one of his/her urns has 100 blue balls and the other urn 100 red balls?
             (Check ALL that applies)`,
-        5:`If Player 1 believes that Player 2 will certainly reject his/her offer in a given round,
+        5:`If Player 1 believes that Player 2 will certainly reject both jars in a given round,
                     what would Player 1 most likely do?`
     }
 
@@ -122,7 +122,7 @@ const QuizHolistic = () => {
                 jar has a higher percentage of blue balls, mixing will increase the percentage of blue balls in the
                 urn. So if the one wants to have the highest chance of drawing a blue ball, one would mix.`,
         4:`Answer is Reject any offer from Player 1 and Mix the balls from Player 1's jar with the urn with 100
-                blue balls. Player 2 will never reject any offer that can at least improve the odds of one of
+                blue balls. Player 2 will never reject any jar offer that can at least improve the odds of one of
                 his/her urns. Given that the urn with 100 red balls has 0% chance of drawing a blue ball, any
                 chance to add a blue ball in the mix will be an improvement - therefore he/she will never
                 reject a jar. Similarly, with whatever jar (not 100 red balls or 100 blue balls) that Player 2
@@ -131,12 +131,12 @@ const QuizHolistic = () => {
                 100 blue balls instead of the urn with 100 red balls.`,
         5:`Answer is Unclear/Do not know. Player 1's payoff depends on what color balls are drawn from the 2 urns.
                     While he/she can influence the odds of drawing blue balls by offering Player 2 a jar as an
-                    option of changing the percentage of blue balls for one of his/her urns, if Player 2 were to
-                    not accept the jar for sure Player 1 loses nothing. However, the answer is different if
-                    Player 1 is not completely sure if Player 2 would accept the jar. If Player 1 is not 100% sure
-                    that Player 2 would accept but 99% sure that Player 2 would reject jar, it is still in
-                    Player 1's interest to offer the jar in the off chance (1% chance) that Player 2 might be able
-                    to accept and improve the odds of drawing a blue ball from one of the urns`
+                    option of changing the percentage of blue balls for one or both of his/her urns, if Player 2 were to
+                    not accept the jars for sure Player 1 loses nothing. However, if
+                    Player 1 is not completely sure if Player 2 would accept the jars. If Player 1 is not 100% sure
+                    that Player 2 would accept both jars but 99% sure that Player 2 would reject the jars, it is still in
+                    Player 1's interest to offer the jars in the off chance (1% chance) that Player 2 might be able
+                    to accept and improve the odds of drawing a blue ball from one or both of the urns`
     }
 
     const question1 = [

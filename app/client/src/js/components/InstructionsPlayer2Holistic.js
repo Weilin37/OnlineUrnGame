@@ -66,17 +66,18 @@ const InstructionsPlayer2Holistic = () => {
                     <p>You will be randomly assigned a role as either Player 1 or Player 2.
                     You will play 10 rounds of a game with another participant.</p>
 
-                    <p>At the beginning of each round, Player 1 will receive a jar and Player 2 will receive 2 urns.
-                    The jar and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
+                    <p>At the beginning of each round, Player 1 will receive a pair of identical jars and Player 2 will receive 2 non-identical urns.
+                    The jars and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
 
                     <p>Each round of the game goes roughly as follows:</p>
 
                     <ul>
-                        <li>Player 1 chooses whether to offer his/her jar to Player 2.
-                        The round ends if Player 1 chooses not to offer Player 2 the jar.</li>
-                        <li>If Player 1 offered the jar to Player 2, Player 2 makes a decision to either
-                        (1) decline the jar or accept the jar and
-                        (2)/(3) mix all the balls from the jar into one of his/her urns</li>
+                        <li>Player 1 chooses whether to offer his/her pair of jars to Player 2.
+                        The round ends if Player 1 chooses not to offer Player 2 the pair of jars. </li>
+                        <li>If Player 1 offered the pair of jars to Player 2, Player 2 makes a decision to either
+                        (1) decline the jars or
+                        (2)/(3) mix all the balls from ONE of the two jars into ONLY ONE of his/her urns, or
+                        (4) mix all the balls from EACH of the two jars into EACH of his/her urns</li>
                     </ul>
 
 
@@ -130,10 +131,10 @@ const InstructionsPlayer2Holistic = () => {
                     There will be 10 rounds of this study. For all 10 rounds you will be paired with the same Player 1,
                     who will participate at the same time as you. </p>
 
-                    <p>In each of the 10 rounds Player 1 will be given a jar of balls and you will be given two urns of balls.
-                    A different jar and 2 different urns will given for each round (the jars or urns do not carryover to the next round(s)).
-                    Player 1’s earnings for each round can depend on whether Player 1 offered the jar to you, whether you
-                    accepted Player 1’s jar offer, and how many blue balls were drawn from your urns at the end of the round. </p>
+                    <p>In each of the 10 rounds Player 1 will be given two identical jars of balls and you will be given two urns of balls.
+                    A different pair of jars and 2 different urns will given for each round (the jars or urns do not carryover to the next round(s)).
+                    Player 1’s earnings for each round can depend on whether Player 1 offered the pair of jars to you, whether you
+                    accepted Player 1’s jars, and how many blue balls were drawn from your urns at the end of the round. </p>
 
                 </Grid>
                 <Grid item align="center" xs={3} >
@@ -156,7 +157,7 @@ const InstructionsPlayer2Holistic = () => {
                     <p>There are 2 types of urns: “High Blue” and “Low Blue”.  You will have one urn of each type in every round.
                     The urns each have 100 balls at the beginning of each round, each ball is either blue or red. The chance of drawing blue balls from an urn
                     is higher when there are more blue balls relative to red balls in that urn. You can change the chance of drawing blue balls from an urn
-                    at the end of the round by mixing the balls in the jar from Player 1 into that urn.</p>
+                    at the end of the round by mixing the balls in one of the jars from Player 1 into that urn.</p>
 
                     <p>There are 2 types of jars:  “Low Quality” and “High Quality”. The quality of each jar is indicated by the number of blue balls:
                     it can range from 0 to 100. When mixed into an urn, a jar can increase or decrease the average chance of drawing blue balls from the urn
@@ -180,11 +181,11 @@ const InstructionsPlayer2Holistic = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
 
-                    <p>In each round, you (Player 2) can see the type and the actual number of blue balls in Player 1’s jar as well
+                    <p>In each round, you can see the type and the actual number of blue balls in Player 1’s jar as well
                     as the type and actual number of blue balls in each of your urns before making any decisions in each round.</p>
 
-                    <p>Unlike you, Player 1 will not be able to observe the exact number of blue balls in the jar that he/she received
-                    but he/she will be told whether he/she received a “High Quality” or a “Low Quality” jar for that round.
+                    <p>Unlike you, Player 1 will not be able to observe the exact number of blue balls in the jars that he/she received
+                    but he/she will be told whether he/she received a pair of identical “High Quality” or a “Low Quality” jars for that round.
                     A “High Quality” jar has a number of blue balls (out of 100) that can be equal to any number between 60-100
                     with equal chance, whereas a “Low Quality” jar has a number of blue balls (out of 100) that can be equal to
                     any number between 0-60 with equal chance. Player 1 also knows that you have a “High Blue” urn as well as a
@@ -192,6 +193,9 @@ const InstructionsPlayer2Holistic = () => {
                     that can be equal to any number between 20-100 with equal chance while a “Low Blue” urn has a number of blue balls
                     (out of 100) (before mixing) that can be equal to any number between 0-25 with equal chance. Unlike you, Player 1
                     will neither observe nor receive any signals about the exact number of blue balls of either of your urns.</p>
+
+                    <p>You, Player 2, can see the actual number of blue balls in your jar as well as the
+                    actual number of blue balls in each of his/her urns before making any decisions in each round.</p>
 
                 </Grid>
                 <Grid item align="center" xs={8} >
@@ -209,13 +213,19 @@ const InstructionsPlayer2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <p>Instructions for Player 2</p>
 
-                    <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to: </p>
+                    <p>In each of the 10 rounds, if Player 1 offered you the jars, you can decide whether to: </p>
                     <ul>
-                        <li>Decline Player 1’s jar offer</li>
+                        <li>Decline both of Player 1’s jars</li>
                         <p>OR</p>
-                        <li>Mix all the balls from the jar offered by Player 1 into in either one of your urns (not both urns)</li>
+                        <li>Mix all the balls from a jar offered by Player 1 into in your High Blue urn and decline the other jar</li>
+                        <p>OR</p>
+                        <li>Mix all the balls from a jar offered by Player 1 into in your Low Blue urn and decline the other jar</li>
+                        <p>OR</p>
+                        <li>Mix all the balls from a jar offered by Player 1 into in your High Blue urn and mix all the balls from the other jar offered by Player 1 into in your Low Blue urn</li>
                     </ul>
-                    <p>If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.</p>
+                    <p>If Player 1 did not make an offer of jars in a round, you will not move for that round and will earn zero for that round.
+                       You, Player 2, cannot mix the balls from both jars into a single urn.
+                    </p>
 
                 </Grid>
                 <Grid item align="center" xs={8} >

@@ -482,8 +482,8 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
 
                 } else if (data === 'MixWithHighBlue') {
-                    totalbluecount = player1bluecount+player2highbluecount;
-                    bluehighprobability = (totalbluecount/200);
+                    totalbluecount = 2*player1bluecount+player2highbluecount; //new
+                    bluehighprobability = (totalbluecount/300); //new
                     bluelowprobability = player2lowbluecount/100;
                     player1earnings += player1reward;
 
@@ -504,8 +504,8 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
 
                 } else if (data === 'MixWithLowBlue') {
-                    totalbluecount = player1bluecount+player2lowbluecount;
-                    bluelowprobability = (totalbluecount/200);
+                    totalbluecount = 2*player1bluecount+player2lowbluecount; //new
+                    bluelowprobability = (totalbluecount/300); //new
                     bluehighprobability = player2highbluecount/100;
                     player1earnings += player1reward;
 
@@ -524,6 +524,27 @@ router.get('/api/get/senddata', (req,res,next) => {
                     } else {
                         drawn_ball_high = 'red'
                     }
+                } else if (data === 'MixWithBothBlue') {
+                    bluelowprobability = ((player1bluecount+player2lowbluecount)/200); //new
+                    bluehighprobability = ((player1bluecount+player2highbluecount)/200); //new
+                    player1earnings += player1reward;
+
+                    if (drawings_low <= bluelowprobability) {
+                        drawn_ball = 'blue ball';
+                        drawn_ball_low = 'blue';
+                        player2earnings += player2reward;
+                    } else {
+                        drawn_ball = 'red ball';
+                        drawn_ball_low = 'red'
+                        player2earnings += player2penalty;
+                    }
+
+                    if (drawings_high <= bluehighprobability) {
+                        drawn_ball_high = 'blue'
+                    } else {
+                        drawn_ball_high = 'red'
+                    }
+
                 }
             }
         } else if (treatment === 'holistic') {
@@ -628,10 +649,10 @@ router.get('/api/get/senddata', (req,res,next) => {
                         player2earnings += player2penalty;
                     }
                 } else if (data === 'MixWithHighBlue') {
-                    totalbluecounthigh = player1bluecount+player2highbluecount;
+                    totalbluecounthigh = 2*player1bluecount+player2highbluecount; //new
                     totalbluecountlow = player2lowbluecount;
 
-                    blueprobabilityhigh = (totalbluecounthigh/200);
+                    blueprobabilityhigh = (totalbluecounthigh/300); //new
                     blueprobabiltiylow = (totalbluecountlow/100);
 
                     if (drawings_high <= blueprobabilityhigh) {
@@ -671,10 +692,48 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
                 } else if (data === 'MixWithLowBlue') {
                     totalbluecounthigh = player2highbluecount;
-                    totalbluecountlow = player1bluecount+player2lowbluecount;
+                    totalbluecountlow = 2*player1bluecount+player2lowbluecount;
 
                     blueprobabilityhigh = (totalbluecounthigh/100);
-                    blueprobabiltiylow = (totalbluecountlow/200);
+                    blueprobabiltiylow = (totalbluecountlow/300);
+
+                    if (drawings_high <= blueprobabilityhigh) {
+                        drawn_ball = 'blue';
+                        drawn_ball_high = 'blue'
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        drawn_ball = 'red';
+                        drawn_ball_high = 'red'
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
+
+                    if (drawings_low <= blueprobabiltiylow) {
+                        if (drawn_ball === 'blue') {
+                            drawn_ball = '2 blue balls'
+                            drawn_ball_low = 'blue'
+                        }
+                        else if (drawn_ball === 'red') {
+                            drawn_ball = '1 blue and 1 red'
+                            drawn_ball_low = 'blue'
+                        }
+                        player1earnings += player1reward;
+                        player2earnings += player2reward;
+                    } else {
+                        if (drawn_ball === 'blue') {
+                            drawn_ball = '1 blue and 1 red'
+                            drawn_ball_low = 'red'
+                        } else if (drawn_ball === 'red') {
+                            drawn_ball = '2 red balls'
+                            drawn_ball_low = 'red'
+                        }
+                        player1earnings += player1penalty;
+                        player2earnings += player2penalty;
+                    }
+                } else if (data === 'MixWithBothBlue') {
+                    blueprobabilityhigh = ((player1bluecount+player2highbluecount)/200);
+                    blueprobabiltiylow = ((player1bluecount+player2lowbluecount)/200);
 
                     if (drawings_high <= blueprobabilityhigh) {
                         drawn_ball = 'blue';

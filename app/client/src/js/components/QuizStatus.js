@@ -82,20 +82,20 @@ const QuizStatus = () => {
     }, [timer]);
 
     const questions = {
-        1:`If there are 50 blue balls and 50 red balls in the jar and 30 blue balls and 70 red balls in the urn,
+        1:`If there are 50 blue balls and 50 red balls in a jar and 30 blue balls and 70 red balls in a urn,
                 what is the percentage of blue balls in the urn after we mix in the balls from the jar?`,
-        2:`If there are 49 blue balls and 51 red balls in the jar and 50 blue balls and 50 red balls
+        2:`If there are 49 blue balls and 51 red balls in a jar and 50 blue balls and 50 red balls
                 in Player 2’s urn in a specific round of the study, would Player 2 want to mix the balls
                 from the jar into his/her urn if he/she is trying to increase the chance that a blue ball
                 is drawn randomly from the urn at the end of the round?`,
         3:`Assume that you know the exact numbers of blue balls in each urn (as Player 2 does).
-                    If Player 2 received an offer and mixed the balls from Player 1’s jar to one of Player 2’s
+                    If Player 2 received an offer and mixed the balls from one of Player 1’s jar to one of Player 2’s
                     urns with fewer blue balls than the jar, what is the chance of drawing a blue ball from
                     the urn after mixing relative to before mixing?`,
-        4:`If Player 2 knows that the jar offered by Player 1 does not have 100 red balls or 100 blue balls, what
+        4:`If Player 2 knows that the jars offered by Player 1 does not have 100 red balls or 100 blue balls, what
             should Player 2 NEVER do if one of his/her urns has 100 blue balls and the other urn 100 red balls?
             (Check ALL that applies)`,
-        5:`If Player 1 believes that Player 2 will certainly reject his/her offer in a given round,
+        5:`If Player 1 believes that Player 2 will certainly reject both jars in a given round,
                     what would Player 1 most likely do?`
     }
 
@@ -120,9 +120,9 @@ const QuizStatus = () => {
         3:`Answer is Higher than before mixing. Before mixing, the urn has a lower percentage of blue balls. Since the
                 jar has a higher percentage of blue balls, mixing will increase the percentage of blue balls in the
                 urn. So if the one wants to have the highest chance of drawing a blue ball, one would mix.`,
-        4:`Answer is Unclear with given information. It depends whether the mixed urn will provide good enough odds
-                    for Player 2. For example, if Player 2 is given an jar with 99 blue balls and 1 red ball, the
-                    mixed urn will still have a 99.5% chance of drawing a blue ball. While 99.5% is lower than 100%,
+        4:`Answer is Unclear with given information. It depends whether the mixed urn(s) will provide good enough odds
+                    for Player 2. For example, if Player 2 is given jars with 99 blue balls and 1 red ball, the
+                    mixed High Blue urn will still have a 99.5% chance of drawing a blue ball. While 99.5% is lower than 100%,
                     Player 2 might still find it worth his/her while to make the bet. On the other hand, if the jar
                     has fewer blue balls, say 1 blue ball and 99 red balls, mixing it with the urn with 100 blue
                     balls will now lower the chance of drawing a blue ball from 100% to 50.5%, drastically lowering

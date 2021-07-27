@@ -66,17 +66,18 @@ const InstructionsPlayer2Status = () => {
                     <p>You will be randomly assigned a role as either Player 1 or Player 2.
                     You will play 10 rounds of a game with another participant.</p>
 
-                    <p>At the beginning of each round, Player 1 will receive a jar and Player 2 will receive 2 urns.
-                    The jar and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
+                    <p>At the beginning of each round, Player 1 will receive a pair of identical jars and Player 2 will receive 2 non-identical urns.
+                    The jars and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
 
                     <p>Each round of the game goes roughly as follows:</p>
 
                     <ul>
-                        <li>Player 1 chooses whether to offer his/her jar to Player 2.
-                        The round ends if Player 1 chooses not to offer Player 2 the jar.</li>
-                        <li>If Player 1 offered the jar to Player 2, Player 2 makes a decision to either
-                        (1) decline the jar or accept the jar and
-                        (2)/(3) mix all the balls from the jar into one of his/her urns</li>
+                        <li>Player 1 chooses whether to offer his/her pair of jars to Player 2.
+                        The round ends if Player 1 chooses not to offer Player 2 the pair of jars. </li>
+                        <li>If Player 1 offered the pair of jars to Player 2, Player 2 makes a decision to either
+                        (1) decline the jars or
+                        (2)/(3) mix all the balls from ONE of the two jars into ONLY ONE of his/her urns, or
+                        (4) mix all the balls from EACH of the two jars into EACH of his/her urns</li>
                     </ul>
 
 
@@ -130,10 +131,10 @@ const InstructionsPlayer2Status = () => {
                     There will be 10 rounds of this study. For all 10 rounds you will be paired with the same Player 1,
                     who will participate at the same time as you. </p>
 
-                    <p>In each of the 10 rounds Player 1 will be given a jar of balls and you will be given two urns of balls.
-                    A different jar and 2 different urns will given for each round (the jars or urns do not carryover to the next round(s)).
-                    Player 1’s earnings for each round can depend on whether Player 1 offered the jar to you, whether you
-                    accepted Player 1’s jar offer, and how many blue balls were drawn from your urns at the end of the round. </p>
+                    <p>In each of the 10 rounds Player 1 will be given two identical jars of balls and you will be given two urns of balls.
+                    A different pair of jars and 2 different urns will given for each round (the jars or urns do not carryover to the next round(s)).
+                    Player 1’s earnings for each round can depend on whether Player 1 offered the pair of jars to you, whether you
+                    accepted Player 1’s jars, and how many blue balls were drawn from your urns at the end of the round. </p>
 
                 </Grid>
                 <Grid item align="center" xs={3} >
@@ -156,7 +157,7 @@ const InstructionsPlayer2Status = () => {
                     <p>There are 2 types of urns: “High Blue” and “Low Blue”.  You will have one urn of each type in every round.
                     The urns each have 100 balls at the beginning of each round, each ball is either blue or red. The chance of
                     drawing blue balls from an urn is higher when there are more blue balls relative to red balls in that urn.
-                    You can change the chance of drawing blue balls from an urn at the end of the round by mixing the balls in the jar
+                    You can change the chance of drawing blue balls from an urn at the end of the round by mixing the balls in one of the jars
                     from Player 1 into that urn. </p>
 
                     <p>There are 2 types of jars:  “Low Quality” and “High Quality”. The quality of each jar is indicated by the number
@@ -185,8 +186,8 @@ const InstructionsPlayer2Status = () => {
                     <p>In each round, you can see the type and the actual number of blue balls in Player 1’s jar as well
                     as the type and actual number of blue balls in each of your urns before making any decisions in each round.</p>
 
-                    <p>Unlike you, Player 1 will not be able to observe the exact number of blue balls in the jar that he/she received
-                    but he/she will be told whether he/she received a “High Quality” or a “Low Quality” jar for that round.
+                    <p>Unlike you, Player 1 will not be able to observe the exact number of blue balls in the jars that he/she received
+                    but he/she will be told whether he/she received a pair of identical “High Quality” or a “Low Quality” jars for that round.
                     A “High Quality” jar has a number of blue balls (out of 100) that can be equal to any number between 60-100
                     with equal chance, whereas a “Low Quality” jar has a number of blue balls (out of 100) that can be equal to
                     any number between 0-60 with equal chance. Player 1 also knows that you have a “High Blue” urn as well as a
@@ -214,13 +215,19 @@ const InstructionsPlayer2Status = () => {
                 <Grid item align="center" xs={8} >
                     <p>Instructions for Player 2</p>
 
-                    <p>In each of the 10 rounds, if Player 1 offered you a jar, you can decide whether to: </p>
+                    <p>In each of the 10 rounds, if Player 1 offered you the jars, you can decide whether to: </p>
                     <ul>
-                        <li>Decline Player 1’s jar offer</li>
+                        <li>Decline both of Player 1’s jars</li>
                         <p>OR</p>
-                        <li>Mix all the balls from the jar offered by Player 1 into in either one of your urns (not both urns)</li>
+                        <li>Mix all the balls from a jar offered by Player 1 into in your High Blue urn and decline the other jar</li>
+                        <p>OR</p>
+                        <li>Mix all the balls from a jar offered by Player 1 into in your Low Blue urn and decline the other jar</li>
+                        <p>OR</p>
+                        <li>Mix all the balls from a jar offered by Player 1 into in your High Blue urn and mix all the balls from the other jar offered by Player 1 into in your Low Blue urn</li>
                     </ul>
-                    <p>If Player 1 did not make an offer of a jar in a round, you will not move for that round and will earn zero for that round.</p>
+                    <p>If Player 1 did not make an offer of jars in a round, you will not move for that round and will earn zero for that round.
+                        You, Player 2, cannot mix the balls from both jars into a single urn.
+                    </p>
 
                 </Grid>
                 <Grid item align="center" xs={8} >
@@ -241,11 +248,12 @@ const InstructionsPlayer2Status = () => {
                 <Grid item align="center" xs={8} >
                     <p>Your goal in the game is to minimize the percentage of red balls among balls drawn from urns where mixing occurred.</p>
 
-                    <p>Player 1 earns by offering and getting a jar accepted, gets a penalty if his/her jar offer
-                    was declined, and gets zero if he/she made no offer.</p>
+                    <p>Player 1 earns by offering and getting more jars accepted, gets a penalty if both of his/her jars
+                    was declined, and gets zero if he/she made no offer or if only one of the jars were accepted.</p>
 
-                    <p>Player 2 earns by mixing balls from a jar to an urn, and he/she is penalized if a red ball
-                    was drawn from that urn. Player 2 gets zero if Player 1 made no offer.</p>
+                    <p>Player 2 earns by mixing balls from jars to urns. He/she earns more by mixing more jars
+                    but he/she is penalized for for each red ball was drawn from every urn that was mixed with a jar.
+                    Player 2 gets zero if Player 1 made no offer.</p>
 
                     <p>We provide more details on the payment schemes for both Players in the next screen.</p>
 
@@ -264,48 +272,64 @@ const InstructionsPlayer2Status = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>
-                        Player 1 earns tokens by offering a jar that was subsequently accepted by Player 2,
-                        gets a penalty by offering a jar that was subsequently declined by Player 2,
+                        Player 1 earns tokens by offering two jars that was subsequently BOTH accepted by Player 2,
+                        gets a penalty by offering two jars that was subsequently BOTH declined by Player 2,
+                        gets 0 tokens by offering two jars and only ONE jar was accepted by Player 2,
                         and gets 0 tokens by not making an offer at all.
                     </p>
 
                     <ul>
                         <li>
-                            If Player 1 did not offer the jar to Player 2 in a round of the study,
+                            If Player 1 did NOT OFFER the pair of jars to Player 2 in a round of the study,
                             both players will receive 0 tokens for that round.
                         </li>
                         <li>
-                            If Player 1 offered the jar to Player 2 in a round of the study and Player 2
-                            declined the jar, 24 tokens are deducted from Player 1’s Bank and Player 2 will receive
+                            If Player 1 offered the pair of jars to Player 2 in a round of the study and Player 2
+                            DECLINED BOTH jars, 30 tokens are deducted from Player 1’s Bank and Player 2 will receive
                             0 tokens for that round.
                         </li>
                         <li>
-                            If Player 1 offered the jar to Player 2 in a round of the study and
-                            Player 2 accepted the jar (that he/she has to mix into one of the urns), Player 1 gets 8 tokens for that round
+                            If Player 1 offered the pair of jars to Player 2 in a round of the study and
+                            Player 2 ACCEPTED ONLY ONE jars (that he/she has to mix into either one of the urns), Player 1 gets 0 tokens for that round
+                        </li>
+                        <li>
+                            If Player 1 offered the pair of jars to Player 2 in a round of the study and
+                            Player 2 ACCEPTED BOTH jars (that he/she has to mix into the two urns), Player 1 gets 10 tokens for that round
                         </li>
                     </ul>
 
                     <p>
-                        Player 1 has clear incentives to offer a jar if Player 2 will accept it
-                        and to not offer a jar if Player 2 will not accept it
+                        Player 1 has clear incentives to offer a pair of jars if Player 2 will accept both jars
+                        and to not offer a jar if Player 2 will decline both jars
                     </p>
 
                     <p>
-                        Player 2 can only earn tokens by mixing balls from a jar into an urn. If Player 2 accepted a jar, he/she has to mix it with one of the urns.
+                        Player 2 can only earn tokens by mixing balls from jars into urns.
+                        If Player 2 accepted a jar, he/she has to mix it with one of the urns.
+                        If Player 2 accepted both jars, he/she has to mix them both, one jar with each of the urns.
                         If Player 2 did not perform a mixing, either because no jar was offered
-                        to him/her or if he/she chose not to accept the offer, Player 2 gets 0 tokens.
+                        to him/her or if he/she chose not to decline both jars, Player 2 gets 0 tokens.
                     </p>
 
                     <ul>
                         <li>
-                            Player 2 earns 24 tokens by mixing and drawing a blue ball from the mixed urn.
+                            Player 2 earns 25 tokens by mixing a jar with an urn and drawing a blue ball from the mixed urn.
                         </li>
                         <li>
-                            Player 2 loses the earnings and instead receive an 80 token penalty that is deducted
+                            Player 2 loses the earnings and instead receive an 100 token penalty that is deducted
                             from his/her Bank if a red ball was drawn from the mixed urn.
                         </li>
                         <li>
                             Player 2 will neither get any additional rewards or penalties for the urn he/she did not mix.
+                        </li>
+                        <li>
+                            In other words, Player 2 gets:
+                            * +50 tokens if he mixed both jars and blue balls were drawn from BOTH urns
+                            * -75 tokens if he mixed both jars and a blue balls were drawn from one urn and a red ball from the other urn
+                            * -200 tokens if he mixed both jars and red balls were drawn from BOTH urns
+                            * +25 tokens if he mixed one jar with one of the urns and a blue ball was drawn from that urn
+                            * -100 tokens if he mixed one jar with one of the urns and a red ball was drawn from that urn
+                            * 0 tokens if he declined the jars and did no mixing
                         </li>
                     </ul>
                 </Grid>
