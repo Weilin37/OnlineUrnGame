@@ -74,7 +74,7 @@ const InstructionsPlayer1Holistic = () => {
                         <li>Player 1 chooses whether to offer his/her pair of jars to Player 2.
                         The round ends if Player 1 chooses not to offer Player 2 the pair of jars. </li>
                         <li>If Player 1 offered the pair of jars to Player 2, Player 2 makes a decision to either
-                        (1) decline the jars or
+                        (1) decline the jars or 
                         (2)/(3) mix all the balls from ONE of the two jars into ONLY ONE of his/her urns, or
                         (4) mix all the balls from EACH of the two jars into EACH of his/her urns</li>
                     </ul>
@@ -184,12 +184,12 @@ const InstructionsPlayer1Holistic = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
 
-                    <p>In each round, you will not be able to observe the exact number of blue balls in each
+                    <p>In each round, you will not be able to observe the exact number of blue balls in each 
                     of the jars that you received but you will be told whether you received a “High Quality” or a
-                    or a “Low Quality” jar for that round. The 2 jars will be identical within each round.
-                    A “High Quality” jar has a number of blue balls (out of 100)
-                    that can be equal to any number between 60-100 with equal chance, whereas a “Low Quality” jar
-                    has a number of blue balls (out of 100) that can be equal to any number between 0-60 with equal
+                    or a “Low Quality” jar for that round. The 2 jars will be identical within each round. 
+                    A “High Quality” jar has a number of blue balls (out of 100) 
+                    that can be equal to any number between 60-100 with equal chance, whereas a “Low Quality” jar 
+                    has a number of blue balls (out of 100) that can be equal to any number between 0-60 with equal 
                     chance.</p>
 
                     <p>A “High Blue” urn has a number of blue balls (out of 100) (before mixing) that can be
@@ -225,8 +225,8 @@ const InstructionsPlayer1Holistic = () => {
                         <li>Not recover and offer the pair of jars</li>
                     </ul>
                     <p>If you offered the pair of jars to Player 2, it is Player 2’s decision whether he/she will mix the balls in the jars with one or both urns and to which urn(s).
-                    If Player 2 mix the balls from a jar with one of his/her urns, he will have to mix all the balls from the jar into that urn.
-                    Player 2 cannot mix only some of the balls from a jar or distribute the balls from a jar across two urns.
+                    If Player 2 mix the balls from a jar with one of his/her urns, he will have to mix all the balls from the jar into that urn. 
+                    Player 2 cannot mix only some of the balls from a jar or distribute the balls from a jar across two urns. 
                     Player 2 is also not allowed to mix balls from both jars into a single urn.
                     </p>
 
@@ -288,10 +288,10 @@ const InstructionsPlayer1Holistic = () => {
                     <ul>
                         <li>
                             Player 1 gets 8 tokens in each round for each blue ball drawn at the end of that round from
-                            both urns.
+                            both urns
                         </li>
                         <li>
-                            Player 2 gets 10 tokens in each round for each blue ball drawn at the end of that round from both urns.
+                            Player 2 gets 10 tokens in each round for each blue ball drawn at the end of that round from both urns
                         </li>
                     </ul>
                 </Grid>
