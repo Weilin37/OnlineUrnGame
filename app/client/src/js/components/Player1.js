@@ -108,8 +108,8 @@ const Player1 = () => {
                     })}
                     <FormControl component="fieldset">
                         <RadioGroup justify="center" alignItems="center" align="center" aria-label="choice" name="player1choice" onChange={handleChange} >
-                            <FormControlLabel className={classes.radio} value="Offer" control={<Radio />} label="Offer both yours jar to Player 2" /> //new
-                            <FormControlLabel className={classes.radio} value="NoOffer" control={<Radio />} label="Do not offer any of your jars to Player 2" /> //new
+                            <FormControlLabel className={classes.radio} value="Offer" control={<Radio />} label="Offer both yours jar to Player 2" />
+                            <FormControlLabel className={classes.radio} value="NoOffer" control={<Radio />} label="Do not offer any of your jars to Player 2" />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>

@@ -54,10 +54,10 @@ const Player2Status = () => {
     var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
     var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
 
-    var mix_high_blue = (2*player1_blue+player2_highblue); //new
-    var mix_low_blue = (2*player1_blue+player2_lowblue); //new
-    var mix_both_high_blue = (player1_blue+player2_highblue);//new
-    var mix_both_low_blue = (player1_blue+player2_lowblue); //new
+    var mix_high_blue = (2*player1_blue+player2_highblue);
+    var mix_low_blue = (2*player1_blue+player2_lowblue);
+    var mix_both_high_blue = (player1_blue+player2_highblue);
+    var mix_both_low_blue = (player1_blue+player2_lowblue);
 
     // Enter decision
     function handleSubmit() {
@@ -140,18 +140,15 @@ const Player2Status = () => {
             </Grid>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
-        //new
+
         var RejectOffer = `Reject the jar offered by Player 1. You will earn 0 tokens by choosing this option for this round.`
 
-        //new
         var MixWithHighBlueLabel = `Mix Both Player 1's jar with your High Blue urn. The High Blue urn will now have 300 balls where ${mix_high_blue} or
                                     ${(100*(mix_high_blue/300)).toFixed(1)}% of the balls will be blue for this urn (before a ball is drawn from it).`
 
-        //new
         var MixWithLowBlueLabel = `Mix Both Player 1's jar with your Low Blue urn. The Low Blue urn will now have 300 balls where ${mix_low_blue} or
                                     ${(100*(mix_low_blue/300)).toFixed(1)}% of the balls will be blue for this urn (before a ball is drawn from it).`
 
-        //new
         var MixWithBothBlueLabel = `Mix One of Player 1's jar with your High Blue urn and One of Player 1's jar with your Low Blue urn.
                                     You will have ${(100*(mix_both_high_blue/200)).toFixed(1)}% blue balls in the High Blue urn and ${(100*(mix_both_low_blue/200)).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
@@ -194,7 +191,7 @@ const Player2Status = () => {
                             <FormControlLabel className={classes.radio} value="RejectOffer" control={<Radio />} label={RejectOffer} />
                             <FormControlLabel className={classes.radio} value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
                             <FormControlLabel className={classes.radio} value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
-                            <FormControlLabel className={classes.radio} value="MixWithBothBlue" control={<Radio />} label={MixWithBothBlueLabel} /> //new
+                            <FormControlLabel className={classes.radio} value="MixWithBothBlue" control={<Radio />} label={MixWithBothBlueLabel} />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
                     </FormControl>

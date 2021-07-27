@@ -54,10 +54,10 @@ const Player2Holistic = () => {
     var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
     var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
 
-    var mix_high_blue = (2*player1_blue+player2_highblue); //new
-    var mix_low_blue = (2*player1_blue+player2_lowblue); //new
-    var mix_both_high_blue = (player1_blue+player2_highblue);//new
-    var mix_both_low_blue = (player1_blue+player2_lowblue); //new
+    var mix_high_blue = (2*player1_blue+player2_highblue);
+    var mix_low_blue = (2*player1_blue+player2_lowblue);
+    var mix_both_high_blue = (player1_blue+player2_highblue);
+    var mix_both_low_blue = (player1_blue+player2_lowblue);
 
     // Enter decision
     function handleSubmit() {
@@ -138,29 +138,29 @@ const Player2Holistic = () => {
             </Grid>
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
-        //new
+
         var MixWithHighBlueLabel = `Mix Both Player 1's jar with your High Blue urn (${mix_high_blue} of 300 or ${(100*(mix_high_blue/300)).toFixed(1)}% balls will be blue for this urn)`
-        //new
+
         var MixWithLowBlueLabel = `Mix Both Player 1's jar with your Low Blue urn (${mix_low_blue} of 300 or ${(100*(mix_low_blue/300)).toFixed(1)}% balls will be blue for this urn)`
-        //new
+
         var MixWithBothBothLabel = `Mix One of Player 1's jar with your High Blue urn (${mix_both_high_blue} of 200 or ${(100*(mix_both_high_blue/200)).toFixed(1)}% balls will be blue for this urn) and One of Player 1's jar with your Low Blue Urn (${mix_both_low_blue} of 200 or ${(100*(mix_both_low_blue/200)).toFixed(1)}% balls will be blue for this urn)`
 
-        //new
+
         var RejectMixLabel = `Reject both the jars offered by Player 1, do not mix and draw from your urns.
                                 You have ${(100*player2_highblue/100).toFixed(1)}% blue balls in the High Blue urn and
                                 ${(100*player2_lowblue/100).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
-        //new
+
         var MixWithHighBlueLabel = `Mix Both Player 1's jar with your High Blue urn. The Low Blue urn will remain the same (with 100 balls), but for the High Blue urn, we will now have 300
                                     balls. You will have ${(100*(mix_high_blue/300)).toFixed(1)}% blue balls in the High Blue urn and
                                     ${(100*(player2_lowblue/100)).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
-        //new
+
         var MixWithLowBlueLabel = `Mix Both Player 1's jar with your Low Blue urn. The High Blue urn will remain the same (with 100 balls), but for the Low Blue urn,
                                     we will now have 300 balls. You will have ${(100*(mix_low_blue/300)).toFixed(1)}% blue balls in the Low Blue urn and
                                     ${(100*(player2_highblue/100)).toFixed(1)}% blue balls in the High Blue urn (before the balls are drawn).`
 
-        //new
+
         var MixWithBothBlueLabel = `Mix One of Player 1's jar with your High Blue urn and One of Player 1's jar with your Low Blue urn.
                                     You will have ${(100*(mix_both_high_blue/200)).toFixed(1)}% blue balls in the High Blue urn and ${(100*(mix_both_low_blue/200)).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
@@ -207,7 +207,7 @@ const Player2Holistic = () => {
                             <FormControlLabel className={classes.radio} value="RejectOffer" control={<Radio />} label={RejectMixLabel} />
                             <FormControlLabel className={classes.radio} value="MixWithHighBlue" control={<Radio />} label={MixWithHighBlueLabel} />
                             <FormControlLabel className={classes.radio} value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
-                            <FormControlLabel className={classes.radio} value="MixWithBothBlue" control={<Radio />} label={MixWithBothBlueLabel} /> //new
+                            <FormControlLabel className={classes.radio} value="MixWithBothBlue" control={<Radio />} label={MixWithBothBlueLabel} />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
                     </FormControl>
