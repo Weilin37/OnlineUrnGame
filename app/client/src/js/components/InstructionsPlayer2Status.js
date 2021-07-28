@@ -69,13 +69,13 @@ const InstructionsPlayer2Status = () => {
                     <p>At the beginning of each round, Player 1 will receive a pair of identical jars and Player 2 will receive 2 non-identical urns.
                     The jars and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
 
-                    <p>Each round of the game goes roughly as follows:</p>
+                    <p>Each round of the game goes roughly as follows (see figure on the right):</p>
 
                     <ul>
                         <li>Player 1 chooses whether to offer his/her pair of jars to Player 2.
                         The round ends if Player 1 chooses not to offer Player 2 the pair of jars. </li>
                         <li>If Player 1 offered the pair of jars to Player 2, Player 2 makes a decision to either
-                        (1) decline the jars or
+                        (1) decline the jars or 
                         (2)/(3) mix all the balls from ONE of the two jars into ONLY ONE of his/her urns, or
                         (4) mix all the balls from EACH of the two jars into EACH of his/her urns</li>
                     </ul>
@@ -252,7 +252,7 @@ const InstructionsPlayer2Status = () => {
                     was declined, and gets zero if he/she made no offer or if only one of the jars were accepted.</p>
 
                     <p>Player 2 earns by mixing balls from jars to urns. He/she earns more by mixing more jars
-                    but he/she is penalized for for each red ball was drawn from every urn that was mixed with a jar.
+                    but he/she is penalized for for each red ball was drawn from every urn that was mixed with a jar. 
                     Player 2 gets zero if Player 1 made no offer.</p>
 
                     <p>We provide more details on the payment schemes for both Players in the next screen.</p>
@@ -304,7 +304,7 @@ const InstructionsPlayer2Status = () => {
                     </p>
 
                     <p>
-                        Player 2 can only earn tokens by mixing balls from jars into urns.
+                        Player 2 can only earn tokens by mixing balls from jars into urns. 
                         If Player 2 accepted a jar, he/she has to mix it with one of the urns.
                         If Player 2 accepted both jars, he/she has to mix them both, one jar with each of the urns.
                         If Player 2 did not perform a mixing, either because no jar was offered
