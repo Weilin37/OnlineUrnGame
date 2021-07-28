@@ -114,7 +114,7 @@ const Player2Holistic = () => {
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        Player1's Jar Quality (same for both jars): {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
                         {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls per jar
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls per jar)
                     </Typography>
@@ -170,11 +170,11 @@ const Player2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jar
+                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jars
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        Player1's Jar Quality (same for both jars): {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
                         {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
@@ -191,7 +191,7 @@ const Player2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Player 1 has decided to offer you their jar. Please choose an action:
+                        Player 1 has decided to offer you their jars. Please choose an action:
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
                         Your reward amount if you draw 2 blue balls: {2*player2reward} tokens
@@ -221,11 +221,11 @@ const Player2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jar
+                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jars
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        Player1's Jar Quality (same for both jars): {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
                         {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
@@ -242,7 +242,7 @@ const Player2Holistic = () => {
                 <Grid item align="center" xs={12} >
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="h5" gutterBottom>
-                        Player 1 has decided not to offer you their jar. Press OK to draw balls.
+                        Player 1 has decided not to offer you their jars. Press OK to draw balls.
                     </Typography>
                     <Button variant="contained" color="primary" onClick={handleContinue}>OK</Button>
                     <Divider className={classes.spacing} variant="middle" />
@@ -255,11 +255,11 @@ const Player2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jar
+                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jars
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        Player1's Jar Quality (same for both jars): {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
                         {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>
@@ -298,11 +298,11 @@ const Player2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jar
+                        For this round, your High Blue urn, your Low Blue urn, and Player 1's jars
                         are randomly assigned the following number of blue balls and red balls:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
-                        Player1's Jar Quality: {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
+                        Player1's Jar Quality (same for both jars): {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
                         {gameState.data[gameState.data.length-1]['player1bluecount']} blue balls
                         and {(100-gameState.data[gameState.data.length-1]['player1bluecount'])} red balls)
                     </Typography>

@@ -88,7 +88,7 @@ const Player1 = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, you are randomly assigned the following type of jar:
+                        For this round, you are randomly assigned a pair of jars of the following type:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
@@ -100,7 +100,7 @@ const Player1 = () => {
                     <Typography variant="h5" gutterBottom>Available Actions</Typography>
                     <Typography variant="subtitle1" gutterBottom>
                         Now, please select an action by clicking a box below for the current round of the study.
-                        Player2 will then decide whether to reject this offer or accept this offer to mix your jar with one of their urns.
+                        Player2 will then decide whether to reject this offer, accept 1 of your jars, or accept both of your jars.
                         After that, we''ll go to the next round, and so on until round 10
                     </Typography>
                     {earnings_messaging.map(function(name, index){
@@ -108,8 +108,8 @@ const Player1 = () => {
                     })}
                     <FormControl component="fieldset">
                         <RadioGroup justify="center" alignItems="center" align="center" aria-label="choice" name="player1choice" onChange={handleChange} >
-                            <FormControlLabel className={classes.radio} value="Offer" control={<Radio />} label="Offer both yours jar to Player 2" />
-                            <FormControlLabel className={classes.radio} value="NoOffer" control={<Radio />} label="Do not offer any of your jars to Player 2" />
+                            <FormControlLabel className={classes.radio} value="Offer" control={<Radio />} label="Offer your jars to Player 2" />
+                            <FormControlLabel className={classes.radio} value="NoOffer" control={<Radio />} label="Do not offer your jars to Player 2" />
                         </RadioGroup>
                         <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>
@@ -123,7 +123,7 @@ const Player1 = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, you are randomly assigned the following type of jar:
+                        For this round, you are randomly assigned a pair of jars of the following type:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
@@ -146,7 +146,7 @@ const Player1 = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, you are randomly assigned the following type of jar:
+                        For this round, you are randomly assigned a pair of jars of the following type:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
@@ -179,7 +179,7 @@ const Player1 = () => {
                 <Grid item align="center" xs={8} >
                     <Typography variant="h5" gutterBottom className={classes.spacing}>Round Details</Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        For this round, you are randomly assigned the following type of jar:
+                        For this round, you are randomly assigned a pair of jars of the following type:
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         {gameState.data[gameState.data.length-1]['player1jartype'].split("_").join(" ")} (
