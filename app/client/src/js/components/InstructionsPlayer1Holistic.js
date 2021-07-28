@@ -68,7 +68,7 @@ const InstructionsPlayer1Holistic = () => {
                     <p>At the beginning of each round, Player 1 will receive a pair of identical jars and Player 2 will receive 2 non-identical urns.
                     The jars and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
 
-                    <p>Each round of the game goes roughly as follows:</p>
+                    <p>Each round of the game goes roughly as follows (see figure on the right):</p>
 
                     <ul>
                         <li>Player 1 chooses whether to offer his/her pair of jars to Player 2.

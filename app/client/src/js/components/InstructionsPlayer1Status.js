@@ -11,7 +11,7 @@ import InstructionsPage2 from '../../img/InstructionsPage2.png';
 import InstructionsPage3Player1 from '../../img/InstructionsPage3Player1.png';
 import InstructionsDecisionPlayer1Status from '../../img/InstructionsDecisionPlayer1Status.png';
 import InstructionsDecisionPlayer2Status from '../../img/InstructionsDecisionPlayer2Status.png';
-
+ 
 const InstructionsPlayer1Status = () => {
     const dispatch = useDispatch();
 
@@ -69,13 +69,13 @@ const InstructionsPlayer1Status = () => {
                     <p>At the beginning of each round, Player 1 will receive a pair of identical jars and Player 2 will receive 2 non-identical urns.
                     The jars and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
 
-                    <p>Each round of the game goes roughly as follows:</p>
+                    <p>Each round of the game goes roughly as follows (see figure on the right):</p>
 
                     <ul>
                         <li>Player 1 chooses whether to offer his/her pair of jars to Player 2.
                         The round ends if Player 1 chooses not to offer Player 2 the pair of jars. </li>
                         <li>If Player 1 offered the pair of jars to Player 2, Player 2 makes a decision to either
-                        (1) decline the jars or
+                        (1) decline the jars or 
                         (2)/(3) mix all the balls from ONE of the two jars into ONLY ONE of his/her urns, or
                         (4) mix all the balls from EACH of the two jars into EACH of his/her urns</li>
                     </ul>
@@ -185,12 +185,12 @@ const InstructionsPlayer1Status = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
 
-                    <p>In each round, you will not be able to observe the exact number of blue balls in each
+                    <p>In each round, you will not be able to observe the exact number of blue balls in each 
                     of the jars that you received but you will be told whether you received a “High Quality” or a
-                    or a “Low Quality” jar for that round. The 2 jars will be identical within each round.
-                    A “High Quality” jar has a number of blue balls (out of 100)
-                    that can be equal to any number between 60-100 with equal chance, whereas a “Low Quality” jar
-                    has a number of blue balls (out of 100) that can be equal to any number between 0-60 with equal
+                    or a “Low Quality” jar for that round. The 2 jars will be identical within each round. 
+                    A “High Quality” jar has a number of blue balls (out of 100) 
+                    that can be equal to any number between 60-100 with equal chance, whereas a “Low Quality” jar 
+                    has a number of blue balls (out of 100) that can be equal to any number between 0-60 with equal 
                     chance.</p>
 
                     <p>A “High Blue” urn has a number of blue balls (out of 100) (before mixing) that can be
@@ -226,8 +226,8 @@ const InstructionsPlayer1Status = () => {
                         <li>Not recover and offer the pair of jars</li>
                     </ul>
                     <p>If you offered the pair of jars to Player 2, it is Player 2’s decision whether he/she will mix the balls in the jars with one or both urns and to which urn(s).
-                    If Player 2 mix the balls from a jar with one of his/her urns, he will have to mix all the balls from the jar into that urn.
-                    Player 2 cannot mix only some of the balls from a jar or distribute the balls from a jar across two urns.
+                    If Player 2 mix the balls from a jar with one of his/her urns, he will have to mix all the balls from the jar into that urn. 
+                    Player 2 cannot mix only some of the balls from a jar or distribute the balls from a jar across two urns. 
                     Player 2 is also not allowed to mix balls from both jars into a single urn.
                     </p>
 
@@ -257,7 +257,7 @@ const InstructionsPlayer1Status = () => {
                     was declined, and gets zero if he/she made no offer or if only one of the jars were accepted.</p>
 
                     <p>Player 2 earns by mixing balls from jars to urns. He/she earns more by mixing more jars
-                    but he/she is penalized for for each red ball was drawn from every urn that was mixed with a jar.
+                    but he/she is penalized for for each red ball was drawn from every urn that was mixed with a jar. 
                     Player 2 gets zero if Player 1 made no offer.</p>
 
                     <p>We provide more details on the payment schemes for both Players in the next screen.</p>
@@ -309,7 +309,7 @@ const InstructionsPlayer1Status = () => {
                     </p>
 
                     <p>
-                        Player 2 can only earn tokens by mixing balls from jars into urns.
+                        Player 2 can only earn tokens by mixing balls from jars into urns. 
                         If Player 2 accepted a jar, he/she has to mix it with one of the urns.
                         If Player 2 accepted both jars, he/she has to mix them both, one jar with each of the urns.
                         If Player 2 did not perform a mixing, either because no jar was offered

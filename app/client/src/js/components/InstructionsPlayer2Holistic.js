@@ -69,13 +69,13 @@ const InstructionsPlayer2Holistic = () => {
                     <p>At the beginning of each round, Player 1 will receive a pair of identical jars and Player 2 will receive 2 non-identical urns.
                     The jars and the urns each have 100 balls at the beginning of each round, each ball is either blue or red.</p>
 
-                    <p>Each round of the game goes roughly as follows:</p>
+                    <p>Each round of the game goes roughly as follows (see figure on the right):</p>
 
                     <ul>
                         <li>Player 1 chooses whether to offer his/her pair of jars to Player 2.
                         The round ends if Player 1 chooses not to offer Player 2 the pair of jars. </li>
                         <li>If Player 1 offered the pair of jars to Player 2, Player 2 makes a decision to either
-                        (1) decline the jars or
+                        (1) decline the jars or 
                         (2)/(3) mix all the balls from ONE of the two jars into ONLY ONE of his/her urns, or
                         (4) mix all the balls from EACH of the two jars into EACH of his/her urns</li>
                     </ul>
@@ -224,7 +224,7 @@ const InstructionsPlayer2Holistic = () => {
                         <li>Mix all the balls from a jar offered by Player 1 into in your High Blue urn and mix all the balls from the other jar offered by Player 1 into in your Low Blue urn</li>
                     </ul>
                     <p>If Player 1 did not make an offer of jars in a round, you will not move for that round and will earn zero for that round.
-                       You, Player 2, cannot mix the balls from both jars into a single urn.
+                       You, Player 2, cannot mix the balls from both jars into a single urn. 
                     </p>
 
                 </Grid>
@@ -246,10 +246,8 @@ const InstructionsPlayer2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <p>The aim of the game is to maximize number of blue balls drawn from all the urns.</p>
 
-                    <p>Both Player 1 and Player 2 earn based on the number of blue balls drawn at the end of each
-                    round.</p>
-
-                    <p>Both Player 1 and Player 2 earn nothing if if no blue ball was drawn. </p>
+                    <p>Both Player 1 and Player 2 get rewards based on the number of blue balls and penalties based on the number of 
+                        red balls drawn at the end of each round.</p>
 
                     <p>We provide more details on the payment schemes for both Players in the next screen.</p>
 
@@ -268,12 +266,12 @@ const InstructionsPlayer2Holistic = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>
-                        Both Player 1’s and Player 2’s earnings are based on the total number of blue balls
+                        Both Player 1’s and Player 2’s earnings are based on the total number of blue balls and red balls
                         drawn from both urns at the end of the round.
                     </p>
 
                     <p>
-                        If Player 1 offered a jar, Player 2 can change the chance of drawing blue balls by mixing. If Player 2 accepted a jar, he/she has to mix it with one of the urns.
+                        If Player 1 offered a jar, Player 2 can change the chance of drawing blue and red balls by mixing. If Player 2 accepted a jar, he/she has to mix it with one of the urns.
                         For example, if the number of blue balls in a jar is higher than the number of blue balls in
                         an urn before mixing, mixing the balls from the jar into the urn will increase the chance of
                         drawing blue balls at the end of the round.
@@ -281,11 +279,11 @@ const InstructionsPlayer2Holistic = () => {
 
                     <ul>
                         <li>
-                            Player 1 gets 8 tokens in each round for each blue ball drawn at the end of that round from
-                            both urns.
+                            Player 1 gets 16 tokens in each round for each blue ball and loses 8 tokens in each round for each red ball drawn at the end of that round from
+                            both urns
                         </li>
                         <li>
-                            Player 2 gets 10 tokens in each round for each blue ball drawn at the end of that round from both urns.
+                            Player 2 gets 20 tokens in each round for each blue ball and loses 10 tokens in each round for each red ball drawn at the end of that round from both urns
                         </li>
                     </ul>
                 </Grid>
