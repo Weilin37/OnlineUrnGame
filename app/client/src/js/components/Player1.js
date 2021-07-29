@@ -101,7 +101,7 @@ const Player1 = () => {
                     <Typography variant="subtitle1" gutterBottom>
                         Now, please select an action by clicking a box below for the current round of the study.
                         Player2 will then decide whether to reject this offer, accept 1 of your jars, or accept both of your jars.
-                        After that, we''ll go to the next round, and so on until round 10
+                        After that, we will go to the next round, and so on until round 10
                     </Typography>
                     {earnings_messaging.map(function(name, index){
                         return name;

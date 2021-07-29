@@ -182,7 +182,7 @@ const InstructionsPlayer2Holistic = () => {
                 </Grid>
                 <Grid item align="center" xs={8} >
 
-                    <p>In each round, you can see the type and the actual number of blue balls in Player 1’s jar as well
+                    <p>In each round, you can see the type and the actual number of blue balls in Player 1’s jars as well
                     as the type and actual number of blue balls in each of your urns before making any decisions in each round.</p>
 
                     <p>Unlike you, Player 1 will not be able to observe the exact number of blue balls in the jars that he/she received
@@ -195,8 +195,8 @@ const InstructionsPlayer2Holistic = () => {
                     (out of 100) (before mixing) that can be equal to any number between 0-25 with equal chance. Unlike you, Player 1
                     will neither observe nor receive any signals about the exact number of blue balls of either of your urns.</p>
 
-                    <p>You, Player 2, can see the actual number of blue balls in your jar as well as the
-                    actual number of blue balls in each of his/her urns before making any decisions in each round.</p>
+                    <p>You, Player 2, can see the actual number of blue balls in the jars as well as the
+                    actual number of blue balls in each of your urns before making any decisions in each round.</p>
 
                 </Grid>
                 <Grid item align="center" xs={8} >
