@@ -32,8 +32,8 @@ const Player2Holistic = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [ready, setReady] = React.useState(false);
 
-    var player2reward = 10;
-    var player2penalty = 0;
+    var player2reward = 20;
+    var player2penalty = -10;
 
     useEffect(() => {
         if (gameState.both_ready_for_next && gameState.current_round < 10) {
@@ -139,29 +139,22 @@ const Player2Holistic = () => {
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
 
-        var MixWithHighBlueLabel = `Mix Both Player 1's jar with your High Blue urn (${mix_high_blue} of 300 or ${(100*(mix_high_blue/300)).toFixed(1)}% balls will be blue for this urn)`
-
-        var MixWithLowBlueLabel = `Mix Both Player 1's jar with your Low Blue urn (${mix_low_blue} of 300 or ${(100*(mix_low_blue/300)).toFixed(1)}% balls will be blue for this urn)`
-
-        var MixWithBothBothLabel = `Mix One of Player 1's jar with your High Blue urn (${mix_both_high_blue} of 200 or ${(100*(mix_both_high_blue/200)).toFixed(1)}% balls will be blue for this urn) and One of Player 1's jar with your Low Blue Urn (${mix_both_low_blue} of 200 or ${(100*(mix_both_low_blue/200)).toFixed(1)}% balls will be blue for this urn)`
-
-
         var RejectMixLabel = `Reject both the jars offered by Player 1, do not mix and draw from your urns.
                                 You have ${(100*player2_highblue/100).toFixed(1)}% blue balls in the High Blue urn and
                                 ${(100*player2_lowblue/100).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
 
-        var MixWithHighBlueLabel = `Mix Both Player 1's jar with your High Blue urn. The Low Blue urn will remain the same (with 100 balls), but for the High Blue urn, we will now have 300
-                                    balls. You will have ${(100*(mix_high_blue/300)).toFixed(1)}% blue balls in the High Blue urn and
+        var MixWithHighBlueLabel = `Mix One of Player 1's jar with your High Blue urn. The Low Blue urn will remain the same (with 100 balls), but for the High Blue urn, we will now have 200
+                                    balls. You will have ${(100*(mix_high_blue/200)).toFixed(1)}% blue balls in the High Blue urn and
                                     ${(100*(player2_lowblue/100)).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
 
-        var MixWithLowBlueLabel = `Mix Both Player 1's jar with your Low Blue urn. The High Blue urn will remain the same (with 100 balls), but for the Low Blue urn,
-                                    we will now have 300 balls. You will have ${(100*(mix_low_blue/300)).toFixed(1)}% blue balls in the Low Blue urn and
+        var MixWithLowBlueLabel = `Mix One of Player 1's jar with your Low Blue urn. The High Blue urn will remain the same (with 100 balls), but for the Low Blue urn,
+                                    we will now have 200 balls. You will have ${(100*(mix_low_blue/200)).toFixed(1)}% blue balls in the Low Blue urn and
                                     ${(100*(player2_highblue/100)).toFixed(1)}% blue balls in the High Blue urn (before the balls are drawn).`
 
 
-        var MixWithBothBlueLabel = `Mix One of Player 1's jar with your High Blue urn and One of Player 1's jar with your Low Blue urn.
+        var MixWithBothBlueLabel = `Mix One of Player 1's jar with your High Blue urn, and mix the other with your Low Blue urn. Both urns will now have 200 balls.
                                     You will have ${(100*(mix_both_high_blue/200)).toFixed(1)}% blue balls in the High Blue urn and ${(100*(mix_both_low_blue/200)).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
 

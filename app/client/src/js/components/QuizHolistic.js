@@ -130,7 +130,7 @@ const QuizHolistic = () => {
                 worse, as the current chance is 100%. Therefore, he/she will never mix a jar with the urn with
                 100 blue balls instead of the urn with 100 red balls.`,
         5:`Answer is Unclear/Do not know. Player 1's payoff depends on what color balls are drawn from the 2 urns.
-                    While he/she can influence the odds of drawing blue balls by offering Player 2 a jar as an
+                    While he/she can influence the odds of drawing blue balls by offering Player 2 a pair of jars as an
                     option of changing the percentage of blue balls for one or both of his/her urns, if Player 2 were to
                     not accept the jars for sure Player 1 loses nothing. However, if
                     Player 1 is not completely sure if Player 2 would accept the jars. If Player 1 is not 100% sure

@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Pagination from '@material-ui/lab/Pagination';
 
 import InstructionsPage1 from '../../img/InstructionsPage1.png';
+import InstructionsPage1Status from '../../img/InstructionsPage1Status.png';
 import InstructionsPage2 from '../../img/InstructionsPage2.png';
 import InstructionsPage3Player1 from '../../img/InstructionsPage3Player1.png';
 import InstructionsDecisionPlayer1Status from '../../img/InstructionsDecisionPlayer1Status.png';
@@ -275,7 +276,7 @@ const InstructionsPlayer1Status = () => {
                 <Grid item align="center" xs={8} >
                     <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
-                <Grid item align="center" xs={8} >
+                <Grid item align="center" xs={5} >
                     <p>
                         Player 1 earns tokens by offering two jars that was subsequently BOTH accepted by Player 2,
                         gets a penalty by offering two jars that was subsequently BOTH declined by Player 2,
@@ -308,13 +309,12 @@ const InstructionsPlayer1Status = () => {
                         and to not offer a jar if Player 2 will decline both jars
                     </p>
 
-                    <p>
-                        Player 2 can only earn tokens by mixing balls from jars into urns. 
-                        If Player 2 accepted a jar, he/she has to mix it with one of the urns.
-                        If Player 2 accepted both jars, he/she has to mix them both, one jar with each of the urns.
-                        If Player 2 did not perform a mixing, either because no jar was offered
-                        to him/her or if he/she chose not to decline both jars, Player 2 gets 0 tokens.
-                    </p>
+                    <p> Player 2 can only earn tokens by mixing balls from jars into urns. </p>
+                    <ul>
+                        <li>If Player 2 accepted a jar, he/she has to mix it with one of the urns.</li>
+                        <li>If Player 2 accepted both jars, he/she has to mix them both, one jar with each of the urns.</li>
+                        <li>If Player 2 did not perform a mixing, either because no jar was offered to him/her or if he/she chose not to decline both jars, Player 2 gets 0 tokens.</li>
+                    </ul>
 
                     <ul>
                         <li>
@@ -327,16 +327,19 @@ const InstructionsPlayer1Status = () => {
                         <li>
                             Player 2 will neither get any additional rewards or penalties for the urn he/she did not mix.
                         </li>
-                        <li>
-                            In other words, Player 2 gets:
-                            * +50 tokens if he mixed both jars and blue balls were drawn from BOTH urns
-                            * -75 tokens if he mixed both jars and a blue balls were drawn from one urn and a red ball from the other urn
-                            * -200 tokens if he mixed both jars and red balls were drawn from BOTH urns
-                            * +25 tokens if he mixed one jar with one of the urns and a blue ball was drawn from that urn
-                            * -100 tokens if he mixed one jar with one of the urns and a red ball was drawn from that urn
-                            * 0 tokens if he declined the jars and did no mixing
-                        </li>
                     </ul>
+                    <p>In other words, Player 2 gets:</p>
+                    <ul>
+                        <li> +50 tokens if he mixed both jars and blue balls were drawn from BOTH urns</li>
+                        <li> -75 tokens if he mixed both jars and a blue balls were drawn from one urn and a red ball from the other urn</li>
+                        <li> -200 tokens if he mixed both jars and red balls were drawn from BOTH urns</li>
+                        <li> +25 tokens if he mixed one jar with one of the urns and a blue ball was drawn from that urn</li>
+                        <li> -100 tokens if he mixed one jar with one of the urns and a red ball was drawn from that urn</li>
+                        <li> 0 tokens if he declined the jars and did no mixing</li>
+                    </ul>
+                </Grid>
+                <Grid item align="center" xs={5} >
+                    <img src={InstructionsPage1Status} class="imginstructions"/>
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 5 seconds before the next page can appear...</p>

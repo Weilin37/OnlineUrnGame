@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Pagination from '@material-ui/lab/Pagination';
 
 import InstructionsPage1 from '../../img/InstructionsPage1.png';
+import InstructionsPage1Holistic from '../../img/InstructionsPage1Holistic.png';
 import InstructionsPage2 from '../../img/InstructionsPage2.png';
 import InstructionsPage3Player2 from '../../img/InstructionsPage3Player2.png';
 import InstructionsDecisionPlayer1Holistic from '../../img/InstructionsDecisionPlayer1Holistic.png';
@@ -264,7 +265,7 @@ const InstructionsPlayer2Holistic = () => {
                 <Grid item align="center" xs={8} >
                     <p>(Page {instructionsPage} of {maxPages})</p>
                 </Grid>
-                <Grid item align="center" xs={8} >
+                <Grid item align="center" xs={5} >
                     <p>
                         Both Player 1’s and Player 2’s earnings are based on the total number of blue balls and red balls
                         drawn from both urns at the end of the round.
@@ -286,6 +287,9 @@ const InstructionsPlayer2Holistic = () => {
                             Player 2 gets 20 tokens in each round for each blue ball and loses 10 tokens in each round for each red ball drawn at the end of that round from both urns
                         </li>
                     </ul>
+                </Grid>
+                <Grid item align="center" xs={5} >
+                    <img src={InstructionsPage1} class="imginstructions" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 5 seconds before the next page can appear...</p>

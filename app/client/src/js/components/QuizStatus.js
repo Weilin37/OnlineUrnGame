@@ -132,7 +132,7 @@ const QuizStatus = () => {
                     with the urn with 100 blue balls will give him/her better odds of drawing blue balls`,
         5:`Answer is Definitely not make an offer to Player 2. This is because Player 1 will lose tokens if
                 he/she made an offer to Player 2 and it was not accepted. Therefore, if Player 1 knows that the
-                jar will be rejected, he/she will never offer it in the first place.`
+                jars will be rejected, he/she will never offer it in the first place.`
     }
 
     const question1 = [

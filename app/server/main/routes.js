@@ -434,13 +434,13 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player2earnings = 0;
 
             //C
-            var player1reward = 8;
+            var player1reward = 0;
             //D
-            var player1penalty = -24;
+            var player1penalty = -30;
             //Pi
-            var player2reward = 24;
+            var player2reward = 25;
             //S
-            var player2penalty = -80;
+            var player2penalty = -100;
 
             if (player1action === 'NoOffer') {
                 player1earnings = 0;
@@ -482,8 +482,8 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
 
                 } else if (data === 'MixWithHighBlue') {
-                    totalbluecount = 2*player1bluecount+player2highbluecount; //new
-                    bluehighprobability = (totalbluecount/300); //new
+                    totalbluecount = player1bluecount+player2highbluecount; //new
+                    bluehighprobability = (totalbluecount/200); //new
                     bluelowprobability = player2lowbluecount/100;
                     player1earnings += player1reward;
 
@@ -504,8 +504,8 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
 
                 } else if (data === 'MixWithLowBlue') {
-                    totalbluecount = 2*player1bluecount+player2lowbluecount; //new
-                    bluelowprobability = (totalbluecount/300); //new
+                    totalbluecount = player1bluecount+player2lowbluecount; //new
+                    bluelowprobability = (totalbluecount/200); //new
                     bluehighprobability = player2highbluecount/100;
                     player1earnings += player1reward;
 
@@ -541,8 +541,10 @@ router.get('/api/get/senddata', (req,res,next) => {
 
                     if (drawings_high <= bluehighprobability) {
                         drawn_ball_high = 'blue'
+                        player2earnings += player2reward;
                     } else {
                         drawn_ball_high = 'red'
+                        player2earnings += player2penalty;
                     }
 
                 }
@@ -564,11 +566,11 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player2earnings = 0;
 
             //q
-            var player1reward = 8;
-            var player1penalty = 0;
+            var player1reward = 16;
+            var player1penalty = -8;
             //p
-            var player2reward = 10;
-            var player2penalty = 0;
+            var player2reward = 20;
+            var player2penalty = -10;
 
             if (player1action === 'NoOffer') {
                 blueprobabilityhigh = (player2highbluecount/100);
@@ -649,10 +651,10 @@ router.get('/api/get/senddata', (req,res,next) => {
                         player2earnings += player2penalty;
                     }
                 } else if (data === 'MixWithHighBlue') {
-                    totalbluecounthigh = 2*player1bluecount+player2highbluecount; //new
+                    totalbluecounthigh = player1bluecount+player2highbluecount; //new
                     totalbluecountlow = player2lowbluecount;
 
-                    blueprobabilityhigh = (totalbluecounthigh/300); //new
+                    blueprobabilityhigh = (totalbluecounthigh/200); //new
                     blueprobabiltiylow = (totalbluecountlow/100);
 
                     if (drawings_high <= blueprobabilityhigh) {
@@ -692,10 +694,10 @@ router.get('/api/get/senddata', (req,res,next) => {
                     }
                 } else if (data === 'MixWithLowBlue') {
                     totalbluecounthigh = player2highbluecount;
-                    totalbluecountlow = 2*player1bluecount+player2lowbluecount;
+                    totalbluecountlow = player1bluecount+player2lowbluecount;
 
                     blueprobabilityhigh = (totalbluecounthigh/100);
-                    blueprobabiltiylow = (totalbluecountlow/300);
+                    blueprobabiltiylow = (totalbluecountlow/200);
 
                     if (drawings_high <= blueprobabilityhigh) {
                         drawn_ball = 'blue';
