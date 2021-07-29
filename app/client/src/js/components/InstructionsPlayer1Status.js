@@ -187,8 +187,8 @@ const InstructionsPlayer1Status = () => {
                 <Grid item align="center" xs={8} >
 
                     <p>In each round, you will not be able to observe the exact number of blue balls in each 
-                    of the jars that you received but you will be told whether you received a “High Quality” or a
-                    or a “Low Quality” jar for that round. The 2 jars will be identical within each round. 
+                    of the jars that you received but you will be told whether you received a pair of “High Quality” or a
+                    or “Low Quality” jars for that round. The 2 jars will be identical within each round. 
                     A “High Quality” jar has a number of blue balls (out of 100) 
                     that can be equal to any number between 60-100 with equal chance, whereas a “Low Quality” jar 
                     has a number of blue balls (out of 100) that can be equal to any number between 0-60 with equal 
@@ -296,7 +296,7 @@ const InstructionsPlayer1Status = () => {
                         </li>
                         <li>
                             If Player 1 offered the pair of jars to Player 2 in a round of the study and
-                            Player 2 ACCEPTED ONLY ONE jars (that he/she has to mix into either one of the urns), Player 1 gets 0 tokens for that round
+                            Player 2 ACCEPTED ONLY ONE jar (that he/she has to mix into either one of the urns), Player 1 gets 0 tokens for that round
                         </li>
                         <li>
                             If Player 1 offered the pair of jars to Player 2 in a round of the study and
