@@ -54,8 +54,8 @@ const Player2Holistic = () => {
     var player2_highblue = parseInt(gameState.data[gameState.data.length-1]['player2highbluecount']);
     var player2_lowblue = parseInt(gameState.data[gameState.data.length-1]['player2lowbluecount']);
 
-    var mix_high_blue = (2*player1_blue+player2_highblue);
-    var mix_low_blue = (2*player1_blue+player2_lowblue);
+    var mix_high_blue = (player1_blue+player2_highblue);
+    var mix_low_blue = (player1_blue+player2_lowblue);
     var mix_both_high_blue = (player1_blue+player2_highblue);
     var mix_both_low_blue = (player1_blue+player2_lowblue);
 
@@ -150,8 +150,8 @@ const Player2Holistic = () => {
 
 
         var MixWithLowBlueLabel = `Mix One of Player 1's jar with your Low Blue urn. The High Blue urn will remain the same (with 100 balls), but for the Low Blue urn,
-                                    we will now have 200 balls. You will have ${(100*(mix_low_blue/200)).toFixed(1)}% blue balls in the Low Blue urn and
-                                    ${(100*(player2_highblue/100)).toFixed(1)}% blue balls in the High Blue urn (before the balls are drawn).`
+                                    we will now have 200 balls. You will have ${(100*(player2_highblue/100)).toFixed(1)}% blue balls in the High Blue urn and
+                                    ${(100*(mix_low_blue/200)).toFixed(1)}% blue balls in the Low Blue urn (before the balls are drawn).`
 
 
         var MixWithBothBlueLabel = `Mix One of Player 1's jar with your High Blue urn, and mix the other with your Low Blue urn. Both urns will now have 200 balls.

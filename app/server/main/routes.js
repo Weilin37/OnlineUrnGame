@@ -434,7 +434,8 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player2earnings = 0;
 
             //C
-            var player1reward = 0;
+            var player1rewardsingle = 0
+            var player1rewardboth = 10;
             //D
             var player1penalty = -30;
             //Pi
@@ -485,7 +486,7 @@ router.get('/api/get/senddata', (req,res,next) => {
                     totalbluecount = player1bluecount+player2highbluecount; //new
                     bluehighprobability = (totalbluecount/200); //new
                     bluelowprobability = player2lowbluecount/100;
-                    player1earnings += player1reward;
+                    player1earnings += player1rewardsingle;
 
                     if (drawings_high <= bluehighprobability) {
                         drawn_ball = 'blue ball';
@@ -507,7 +508,7 @@ router.get('/api/get/senddata', (req,res,next) => {
                     totalbluecount = player1bluecount+player2lowbluecount; //new
                     bluelowprobability = (totalbluecount/200); //new
                     bluehighprobability = player2highbluecount/100;
-                    player1earnings += player1reward;
+                    player1earnings += player1rewardsingle;
 
                     if (drawings_low <= bluelowprobability) {
                         drawn_ball = 'blue ball';
@@ -527,7 +528,7 @@ router.get('/api/get/senddata', (req,res,next) => {
                 } else if (data === 'MixWithBothBlue') {
                     bluelowprobability = ((player1bluecount+player2lowbluecount)/200); //new
                     bluehighprobability = ((player1bluecount+player2highbluecount)/200); //new
-                    player1earnings += player1reward;
+                    player1earnings += player1rewardboth;
 
                     if (drawings_low <= bluelowprobability) {
                         drawn_ball = 'blue ball';

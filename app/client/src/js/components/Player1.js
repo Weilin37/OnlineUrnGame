@@ -38,16 +38,18 @@ const Player1 = () => {
     var earnings_messaging = [];
 
     if (gameState.treatment === 'status_quo') {
-        player1reward = 8;
-        player1penalty = -24;
+        player1rewardsingle = 0;
+        player1rewardboth = 10;
+        player1penalty = -30;
 
         earnings_messaging = [
-            <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 accepts your jar: {player1reward} tokens</Typography>,
-            <Typography variant="subtitle1" gutterBottom>Your penalty amount if you Player 2 rejects your jar: {player1penalty} tokens</Typography>
+            <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 accepts BOTH of your jars: {player1rewardboth} tokens</Typography>,
+            <Typography variant="subtitle1" gutterBottom>Your reward/penalty amount if you Player 2 accepts ONE of your jars: {player1rewardsingle} tokens</Typography>,
+            <Typography variant="subtitle1" gutterBottom>Your penalty amount if you Player 2 rejects your jars: {player1penalty} tokens</Typography>
         ]
     } else if (gameState.treatment === 'holistic') {
-        player1reward = 8;
-        player1penalty = 0;
+        player1reward = 16;
+        player1penalty = -8;
 
         earnings_messaging = [
             <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 draws 2 blue balls: {2*player1reward} tokens</Typography>,

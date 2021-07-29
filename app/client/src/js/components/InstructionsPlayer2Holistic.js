@@ -289,7 +289,7 @@ const InstructionsPlayer2Holistic = () => {
                     </ul>
                 </Grid>
                 <Grid item align="center" xs={5} >
-                    <img src={InstructionsPage1} class="imginstructions" />
+                    <img src={InstructionsPage1Holistic} class="imginstructions" />
                 </Grid>
                 <Grid item align="center" xs={8} >
                     <p>Wait 5 seconds before the next page can appear...</p>
