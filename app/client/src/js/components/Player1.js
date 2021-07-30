@@ -33,6 +33,8 @@ const Player1 = () => {
     const [ready, setReady] = React.useState(false);
 
     var player1reward;
+    var player1rewardsingle;
+    var player1rewardboth;
     var player1penalty;
 
     var earnings_messaging = [];
@@ -59,8 +61,8 @@ const Player1 = () => {
     }
 
     const jarType = {
-        'low_quality':'0-60 blue balls',
-        'high_quality':'60-100 blue balls'
+        'low_quality':'0-70 blue balls',
+        'high_quality':'70-100 blue balls'
     }
 
     // Enter decision
