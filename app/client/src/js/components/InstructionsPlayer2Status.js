@@ -189,12 +189,12 @@ const InstructionsPlayer2Status = () => {
 
                     <p>Unlike you, Player 1 will not be able to observe the exact number of blue balls in the jars that he/she received
                     but he/she will be told whether he/she received a pair of identical “High Quality” or a “Low Quality” jars for that round.
-                    A “High Quality” jar has a number of blue balls (out of 100) that can be equal to any number between 60-100
+                    A “High Quality” jar has a number of blue balls (out of 100) that can be equal to any number between 70-100
                     with equal chance, whereas a “Low Quality” jar has a number of blue balls (out of 100) that can be equal to
-                    any number between 0-60 with equal chance. Player 1 also knows that you have a “High Blue” urn as well as a
+                    any number between 0-70 with equal chance. Player 1 also knows that you have a “High Blue” urn as well as a
                     “Low Blue” urn. Player 1 also knows that a “High Blue” urn has a number of blue balls (out of 100) (before mixing)
-                    that can be equal to any number between 20-100 with equal chance while a “Low Blue” urn has a number of blue balls
-                    (out of 100) (before mixing) that can be equal to any number between 0-25 with equal chance. Unlike you, Player 1
+                    that can be equal to any number between 40-100 with equal chance while a “Low Blue” urn has a number of blue balls
+                    (out of 100) (before mixing) that can be equal to any number between 0-60 with equal chance. Unlike you, Player 1
                     will neither observe nor receive any signals about the exact number of blue balls of either of your urns.</p>
 
                     <p>You, Player 2, can see the actual number of blue balls in the jars as well as the
