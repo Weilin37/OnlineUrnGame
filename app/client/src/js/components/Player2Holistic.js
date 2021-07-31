@@ -187,10 +187,10 @@ const Player2Holistic = () => {
                         Player 1 has decided to offer you their jars. Please choose an action:
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you draw 2 blue balls: {2*player2reward} tokens
+                        Your reward amount for EACH blue ball you draw if you mix an urn: {2*player2reward} tokens
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you draw 1 blue ball and 1 red ball: {player2reward+player2penalty} tokens
+                        Your reward amount for EACH red ball you draw if you mix an urn: {player2reward+player2penalty} tokens
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
                         Your penalty amount if you draw 2 red balls: {2*player2penalty} tokens

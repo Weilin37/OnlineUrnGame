@@ -141,7 +141,7 @@ const Player2Status = () => {
         );
     } else if (gameState.current_turn === 'player2' && gameState.data[gameState.data.length-1]['player1action'] === 'Offer' && !gameState.both_ready_for_next) {
 
-        var RejectOffer = `Reject the jar offered by Player 1. You will earn 0 tokens by choosing this option for this round.`
+        var RejectOffer = `Reject the jars offered by Player 1. You will earn 0 tokens by choosing this option for this round.`
 
         var MixWithHighBlueLabel = `Mix One of Player 1's jar with your High Blue urn. The High Blue urn will now have 200 balls where ${mix_high_blue} or
                                     ${(100*(mix_high_blue/200)).toFixed(1)}% of the balls will be blue for this urn (before a ball is drawn from it).`
@@ -181,10 +181,10 @@ const Player2Status = () => {
                         Player 1 has decided to offer you their jars. Please choose an action:
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your reward amount if you mix and draw 1 blue ball: {player2reward} tokens
+                        Your reward amount for EACH blue ball you draw if you mix an urn: {player2reward} tokens
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                        Your penalty amount if you mix and draw 1 red bell: {player2penalty} tokens
+                        Your penalty amount for EACH red ball you draw if you mix an urn: {player2penalty} tokens
                     </Typography>
                     <FormControl component="fieldset">
                         <RadioGroup aria-label="choice" name="player1choice" onChange={handleChange}>
