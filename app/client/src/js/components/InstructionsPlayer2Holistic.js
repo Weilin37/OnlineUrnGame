@@ -272,7 +272,7 @@ const InstructionsPlayer2Holistic = () => {
                     </p>
 
                     <p>
-                        If Player 1 offered a jar, Player 2 can change the chance of drawing blue and red balls by mixing. If Player 2 accepted a jar, he/she has to mix it with one of the urns.
+                        If Player 1 offered a pair of jars, Player 2 can change the chance of drawing blue and red balls by mixing. If Player 2 accepted a jar, he/she has to mix it with one of the urns.
                         For example, if the number of blue balls in a jar is higher than the number of blue balls in
                         an urn before mixing, mixing the balls from the jar into the urn will increase the chance of
                         drawing blue balls at the end of the round.
