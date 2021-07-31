@@ -278,7 +278,7 @@ const InstructionsPlayer1Status = () => {
                 </Grid>
                 <Grid item align="center" xs={5} >
                     <p>
-                        Player 1 earns tokens by offering two jars that was subsequently BOTH accepted by Player 2,
+                        Player 1 earns tokens by offering two jars that were subsequently BOTH accepted by Player 2,
                         gets a penalty by offering two jars that was subsequently BOTH declined by Player 2,
                         gets 0 tokens by offering two jars and only ONE jar was accepted by Player 2,
                         and gets 0 tokens by not making an offer at all.
