@@ -31,6 +31,7 @@ const Player2Status = () => {
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
     const [ready, setReady] = React.useState(false);
+    const [disableCreateButton, setDisableCreateButton] = React.useState(false);
 
     var player2reward = 25;
     var player2penalty = -100;
@@ -62,6 +63,7 @@ const Player2Status = () => {
     // Enter decision
     function handleSubmit() {
         if (selectedValue) {
+            setDisableCreateButton(true);
             dispatch(sendData('/api/get/senddata?player='+gameState.player+
                 '&room='+gameState.room+
                 '&round='+gameState.data[gameState.data.length-1]['round']+
@@ -73,6 +75,7 @@ const Player2Status = () => {
                 '&data='+selectedValue)
             );
         } else {
+            setDisableCreateButton(false);
             alert("Please make a choice before submitting");
         }
     }
@@ -193,7 +196,7 @@ const Player2Status = () => {
                             <FormControlLabel className={classes.radio} value="MixWithLowBlue" control={<Radio />} label={MixWithLowBlueLabel} />
                             <FormControlLabel className={classes.radio} value="MixWithBothBlue" control={<Radio />} label={MixWithBothBlueLabel} />
                         </RadioGroup>
-                        <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response and Draw Ball</Button>
+                        <Button variant="contained" color="primary" disabled={disableCreateButton} onClick={handleSubmit}>Submit Response and Draw Ball</Button>
                     </FormControl>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>

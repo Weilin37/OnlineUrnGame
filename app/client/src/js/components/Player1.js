@@ -31,6 +31,7 @@ const Player1 = () => {
     const gameState = useSelector(state => state.game);
     const [selectedValue, setSelectedValue] = React.useState();
     const [ready, setReady] = React.useState(false);
+    const [disableCreateButton, setDisableCreateButton] = React.useState(false);
 
     var player1reward;
     var player1rewardsingle;
@@ -68,8 +69,10 @@ const Player1 = () => {
     // Enter decision
     function handleSubmit() {
         if (selectedValue) {
+            setDisableCreateButton(true);
             dispatch(sendData('/api/get/senddata?player='+gameState.player+'&room='+gameState.room+'&round='+gameState.data[gameState.data.length-1]['round']+'&data='+selectedValue))
         } else {
+            setDisableCreateButton(false);
             alert("Please make a choice before submitting");
         }
 
@@ -115,7 +118,7 @@ const Player1 = () => {
                             <FormControlLabel className={classes.radio} value="Offer" control={<Radio />} label="Offer your jars to Player 2" />
                             <FormControlLabel className={classes.radio} value="NoOffer" control={<Radio />} label="Do not offer your jars to Player 2" />
                         </RadioGroup>
-                        <Button variant="contained" color="primary" onClick={handleSubmit}>Submit Response</Button>
+                        <Button variant="contained" color="primary" disabled={disableCreateButton} onClick={handleSubmit}>Submit Response</Button>
                     </FormControl>
                     <Divider className={classes.spacing} variant="middle" />
                 </Grid>
