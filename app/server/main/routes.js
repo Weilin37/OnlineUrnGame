@@ -465,7 +465,7 @@ router.get('/api/get/senddata', (req,res,next) => {
             } else if (player1action === 'Offer') {
                 if (data === 'RejectOffer') {
                     player1earnings += player1penalty;
-                    player2earnings += 0;
+                    player2earnings = 0;
                     drawn_ball = 'NA';
                     bluelowprobability = player2lowbluecount/100;
                     bluehighprobability = player2highbluecount/100;

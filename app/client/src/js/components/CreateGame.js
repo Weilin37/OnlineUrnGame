@@ -85,7 +85,7 @@ const CreateGame = () => {
                 dispatch(setPlayer(player));
                 dispatch(setGameWaiting(true));
             });
-        } else if (player1.length > 0 && player2 === '') {
+        } else if (player1.length > 0 && player2 === '' && player1 !== alias) {
             player = 'player2'
 
             batch(() => {
@@ -94,7 +94,7 @@ const CreateGame = () => {
                 dispatch(setPlayer(player));
                 dispatch(setGameWaiting(true));
             });
-        } else if (player1 === '' && player2.length >0) {
+        } else if (player1 === '' && player2.length >0 && player2 !== alias) {
             player = 'player1'
 
             batch(() => {
@@ -103,6 +103,8 @@ const CreateGame = () => {
                 dispatch(setPlayer(player));
                 dispatch(setGameWaiting(true));
             });
+        } else {
+            alert("Failed to join game. Please try again.")
         }
     }
 
