@@ -134,6 +134,10 @@ router.get('/api/get/creategame', (req,res,next) => {
         )
         RETURNING *`,
         (q_err, q_res) => {
+            if (q_err) {
+                console.log(q_err);
+                return next(q_err);
+            }
             res.json(q_res.rows)
     })
 
@@ -159,6 +163,10 @@ router.get('/api/get/submitquiz', (req,res,next) => {
             '${answer}'
         )`,
         (q_err, q_res) => {
+            if (q_err) {
+                console.log(q_err);
+                return next(q_err);
+            }
             res.json(q_res.rows)
     })
 })
@@ -174,7 +182,11 @@ router.get('/api/get/finishquiz', (req,res,next) => {
             where room = '${room}'
             and round = '1'`,
             (q_err, q_res) => {
-                res.json(q_res.rows)
+                if (q_err) {
+                    console.log(q_err);
+                    return next(q_err);
+                }
+            res.json(q_res.rows)
         })
     } else if (player === 'player2') {
         pool.query(`update public.game_state
@@ -182,6 +194,10 @@ router.get('/api/get/finishquiz', (req,res,next) => {
             where room = '${room}'
             and round = '1'`,
             (q_err, q_res) => {
+                if (q_err) {
+                    console.log(q_err);
+                    return next(q_err);
+                }
                 res.json(q_res.rows)
         })
     }
@@ -257,6 +273,10 @@ router.get('/api/get/createnewround', (req,res,next) => {
         )
         RETURNING *`,
         (q_err, q_res) => {
+            if (q_err) {
+                console.log(q_err);
+                return next(q_err);
+            }
             res.json(q_res.rows)
     })
 
@@ -281,6 +301,10 @@ router.get('/api/get/joingame', (req,res,next) => {
              finish_code_player1 = '${player1name+setupRoomCode()}'
              where room = '${req.query.room}'`,
                 (q_err, q_res) => {
+                    if (q_err) {
+                        console.log(q_err);
+                        return next(q_err);
+                    }
                     res.json(q_res.rows)
          })
     } else if (player === 'player2') {
@@ -289,6 +313,10 @@ router.get('/api/get/joingame', (req,res,next) => {
              finish_code_player2 = '${player2name+setupRoomCode()}'
              where room = '${req.query.room}'`,
                 (q_err, q_res) => {
+                    if (q_err) {
+                        console.log(q_err);
+                        return next(q_err);
+                    }
                     res.json(q_res.rows)
          })
     }
@@ -302,6 +330,10 @@ router.get('/api/get/resumegame', (req,res,next) => {
     pool.query(`select *, '${req.query.alias}' as current_alias from public.game_state
         where room = '${req.query.room}'`,
         (q_err, q_res) => {
+            if (q_err) {
+                console.log(q_err);
+                return next(q_err);
+            }
             res.json(q_res.rows)
     })
 })
@@ -327,6 +359,10 @@ router.get('/api/get/readgame', (req,res,next) => {
          where room = '${req.query.room}'
          ORDER BY round::numeric asc`,
             (q_err, q_res) => {
+                if (q_err) {
+                    console.log(q_err);
+                    return next(q_err);
+                }
                 res.json(q_res.rows)
     })
 
@@ -359,7 +395,11 @@ router.get('/api/get/newgame', (req,res,next) => {
             and round::numeric = 1
             limit 1`,
 		(q_err, q_res) => {
-			res.json(q_res.rows)
+			if (q_err) {
+                console.log(q_err);
+                return next(q_err);
+            }
+            res.json(q_res.rows)
     })
 })
 
@@ -385,7 +425,11 @@ router.get('/api/get/updatewaitingroom', (req,res,next) => {
             and round::numeric = 1
             limit 1`,
 		(q_err, q_res) => {
-			res.json(q_res.rows)
+			if (q_err) {
+                console.log(q_err);
+                return next(q_err);
+            }
+            res.json(q_res.rows)
     })
 })
 
@@ -403,6 +447,10 @@ router.get('/api/get/senddata', (req,res,next) => {
             where room = '${room}'
             and round = '${round}'`,
             (q_err, q_res) => {
+                if (q_err) {
+                    console.log(q_err);
+                    return next(q_err);
+                }
                 res.json(q_res.rows)
         })
     } else if (player === 'player2') {
@@ -788,6 +836,10 @@ router.get('/api/get/senddata', (req,res,next) => {
             where room = '${room}'
             and round = '${round}'`,
             (q_err, q_res) => {
+                if (q_err) {
+                    console.log(q_err);
+                    return next(q_err);
+                }
                 res.json(q_res.rows)
         })
     }
@@ -806,6 +858,10 @@ router.get('/api/get/sendready', (req,res,next) => {
             where room = '${room}'
             and round = '${round}'`,
             (q_err, q_res) => {
+                if (q_err) {
+                    console.log(q_err);
+                    return next(q_err);
+                }
                 res.json(q_res.rows)
         })
     } else if (player === 'player2') {
@@ -814,6 +870,10 @@ router.get('/api/get/sendready', (req,res,next) => {
             where room = '${room}'
             and round = '${round}'`,
             (q_err, q_res) => {
+                if (q_err) {
+                    console.log(q_err);
+                    return next(q_err);
+                }
                 res.json(q_res.rows)
         })
     }
@@ -830,6 +890,10 @@ router.get('/api/get/updateonlinestatus', (req,res,next) => {
              where room = '${req.query.room}'
              and round = '${req.query.round}'`,
                 (q_err, q_res) => {
+                    if (q_err) {
+                        console.log(q_err);
+                        return next(q_err);
+                    }
                     res.json(q_res.rows)
          })
     } else if (player === 'player2') {
@@ -838,6 +902,10 @@ router.get('/api/get/updateonlinestatus', (req,res,next) => {
              where room = '${req.query.room}'
              and round = '${req.query.round}'`,
                 (q_err, q_res) => {
+                    if (q_err) {
+                        console.log(q_err);
+                        return next(q_err);
+                    }
                     res.json(q_res.rows)
          })
     }
