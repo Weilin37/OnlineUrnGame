@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c00431b5-a938-4e03-bdd0-a6b729ce8869" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Holistic.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Holistic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Holistic.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Holistic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/components/Player1.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/Player1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/components/Player2Holistic.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/Player2Holistic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/js/components/Player2Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/Player2Status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/main/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main/routes.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2HxSxnyURDtUM4Xl3tQiuiohw04" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c00431b5-a938-4e03-bdd0-a6b729ce8869" name="Default Changelist" comment="" />
+      <created>1669225491063</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669225491063</updated>
+    </task>
+    <servers />
+  </component>
+</project>

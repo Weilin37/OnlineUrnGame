@@ -318,10 +318,10 @@ const InstructionsPlayer1Status = () => {
 
                     <ul>
                         <li>
-                            Player 2 earns 25 tokens by mixing a jar with an urn and drawing a blue ball from the mixed urn.
+                            Player 2 earns 11.175 tokens by mixing a jar with an urn and drawing a blue ball from the mixed urn.
                         </li>
                         <li>
-                            Player 2 loses the earnings and instead receive an 100 token penalty that is deducted
+                            Player 2 loses the earnings and instead receive an 10 token penalty that is deducted
                             from his/her Bank if a red ball was drawn from the mixed urn.
                         </li>
                         <li>
@@ -330,11 +330,11 @@ const InstructionsPlayer1Status = () => {
                     </ul>
                     <p>In other words, Player 2 gets:</p>
                     <ul>
-                        <li> +50 tokens if he mixed both jars and blue balls were drawn from BOTH urns</li>
-                        <li> -75 tokens if he mixed both jars and a blue balls were drawn from one urn and a red ball from the other urn</li>
-                        <li> -200 tokens if he mixed both jars and red balls were drawn from BOTH urns</li>
-                        <li> +25 tokens if he mixed one jar with one of the urns and a blue ball was drawn from that urn</li>
-                        <li> -100 tokens if he mixed one jar with one of the urns and a red ball was drawn from that urn</li>
+                        <li> +22.35 tokens if he mixed both jars and blue balls were drawn from BOTH urns</li>
+                        <li> +1.175 tokens if he mixed both jars and a blue balls were drawn from one urn and a red ball from the other urn</li>
+                        <li> -20 tokens if he mixed both jars and red balls were drawn from BOTH urns</li>
+                        <li> +11.175 tokens if he mixed one jar with one of the urns and a blue ball was drawn from that urn</li>
+                        <li> -10 tokens if he mixed one jar with one of the urns and a red ball was drawn from that urn</li>
                         <li> 0 tokens if he declined the jars and did no mixing</li>
                     </ul>
                 </Grid>

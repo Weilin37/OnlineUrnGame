@@ -33,7 +33,7 @@ const Player2Holistic = () => {
     const [ready, setReady] = React.useState(false);
     const [disableCreateButton, setDisableCreateButton] = React.useState(false);
 
-    var player2reward = 20;
+    var player2reward = 10;
     var player2penalty = -10;
 
     useEffect(() => {

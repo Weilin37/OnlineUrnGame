@@ -286,11 +286,13 @@ const InstructionsPlayer1Holistic = () => {
 
                     <ul>
                         <li>
-                            Player 1 gets 16 tokens in each round for each blue ball and loses 8 tokens in each round for each red ball drawn at the end of that round from
-                            both urns
+                            Regardless of mixing, Player 1 gets 19.14 and Player 2 gets 20 if two blue balls were drawn at the end of each round
                         </li>
                         <li>
-                            Player 2 gets 20 tokens in each round for each blue ball and loses 10 tokens in each round for each red ball drawn at the end of that round from both urns
+                            Regardless of mixing, Player 1 gets 0 and Player 2 gets 0 if one blue ball and one red ball were drawn at the end of each round
+                        </li>
+                        <li>
+                            Regardless of mixing, Player 1 loses 19.14 and Player 2 loses 20 if two red balls were drawn at the end of each round
                         </li>
                     </ul>
                 </Grid>

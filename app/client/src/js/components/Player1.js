@@ -51,8 +51,8 @@ const Player1 = () => {
             <Typography variant="subtitle1" gutterBottom>Your penalty amount if you Player 2 rejects your jars: {player1penalty} tokens</Typography>
         ]
     } else if (gameState.treatment === 'holistic') {
-        player1reward = 16;
-        player1penalty = -8;
+        player1reward = 9.57;
+        player1penalty = -9.57;
 
         earnings_messaging = [
             <Typography variant="subtitle1" gutterBottom>Your reward amount if you Player 2 draws 2 blue balls: {2*player1reward} tokens</Typography>,

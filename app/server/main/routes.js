@@ -487,9 +487,9 @@ router.get('/api/get/senddata', (req,res,next) => {
             //D
             var player1penalty = -30;
             //Pi
-            var player2reward = 25;
+            var player2reward = 11.175;
             //S
-            var player2penalty = -100;
+            var player2penalty = -10;
 
             if (player1action === 'NoOffer') {
                 player1earnings = 0;
@@ -615,10 +615,10 @@ router.get('/api/get/senddata', (req,res,next) => {
             var player2earnings = 0;
 
             //q
-            var player1reward = 16;
-            var player1penalty = -8;
+            var player1reward = 9.57;
+            var player1penalty = -9.57;
             //p
-            var player2reward = 20;
+            var player2reward = 10;
             var player2penalty = -10;
 
             if (player1action === 'NoOffer') {

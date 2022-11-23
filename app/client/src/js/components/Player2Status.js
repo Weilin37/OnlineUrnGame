@@ -33,8 +33,8 @@ const Player2Status = () => {
     const [ready, setReady] = React.useState(false);
     const [disableCreateButton, setDisableCreateButton] = React.useState(false);
 
-    var player2reward = 25;
-    var player2penalty = -100;
+    var player2reward = 11.175;
+    var player2penalty = -10;
 
     useEffect(() => {
         if (gameState.both_ready_for_next && gameState.current_round < 10) {
