@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c00431b5-a938-4e03-bdd0-a6b729ce8869" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Holistic.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Holistic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer1Status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Holistic.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Holistic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/InstructionsPlayer2Status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/components/Player1.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/Player1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/components/Player2Holistic.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/Player2Holistic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/js/components/Player2Status.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/js/components/Player2Status.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/img/InstructionsDecisionPlayer2Status.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/img/InstructionsDecisionPlayer2Status.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
